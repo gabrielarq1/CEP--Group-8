@@ -1,0 +1,151 @@
+---
+title: "W03: CEP Repository and Collaboration Practice"
+author:
+  - "Yushan Huang"
+  - "Group Member 2"
+  - "Group Member 3"
+  - "Group Member 4"
+  - "Group Member 5"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-expand: true
+    number-sections: true
+    code-link: true
+    code-overflow: wrap
+    code-tools: true
+    embed-resources: true
+    theme: cosmo
+editor: visual
+execute:
+  freeze: auto
+---
+
+# Prompt 1: Repository Setup and Shared Ownership
+
+**Principal Author:** Yushan Huang
+
+Our group created one shared CEP repository from the MSDM CEP template and uses that repository as the single source of truth for the project. Using a template means starting from the instructor-provided repository structure and files, while creating a repository means generating a new GitHub repository owned by our group. Cloning is different from both of these actions: cloning creates a local copy of the existing shared repository on a group member's computer and preserves its Git connection to the remote repository on GitHub. After the group repository was created, the appropriate visibility setting was selected, all group members were invited as collaborators, and each member was expected to clone the same repository rather than create a separate copy of the original template.
+
+This shared setup is important because Git collaboration depends on everyone working from the same repository history. If each person independently created a new repository from the template, or simply copied the template files into unrelated folders, the group would end up with separate Git histories and separate remote repositories. In that situation, members could not reliably pull one another's changes, the commit history would not provide a complete record of the group's work, and combining everyone's files later could create duplication or version conflicts. For this practice assignment, our group therefore treats the shared repository as the authoritative project location and each member's clone as a local working copy of that same project.
+
+> A useful way to remember the difference is: **template = starting structure, repository = shared project, clone = local connected copy.**
+
+::: callout-note
+## Group 8 setup rule
+
+Every member should confirm that they are working from the same shared Group 8 CEP repository before editing the collaboration-practice report.
+:::
+
+# Prompt 2: Local, Remote, and Working Files
+
+**Principal Author:** Yushan Huang
+
+The files we edit on our own computers are our **working files**, and they are located inside a **local Git repository**. The local repository contains both the current project files and Git's record of committed changes. The **remote repository** is the shared version stored on GitHub. These three layers are related, but an action in one layer does not automatically update the others. For example, saving a QMD file only writes the latest edits to the file on the local computer. It does not stage, commit, or upload those edits to GitHub.
+
+The main Git actions represent different stages of the workflow. **Saving** writes changes to the working file. **Staging** selects specific changed files or changes to include in the next commit. **Committing** records the staged changes as a named snapshot in the local Git history. **Pushing** sends local commits to the remote GitHub repository. **Fetching** checks the remote repository for new commits and downloads information about them without automatically integrating them into the current working branch. **Pulling** retrieves remote changes and integrates them into the local branch. This is why saving a QMD file does not make the change visible to teammates: the change remains only on the local computer until it has been staged, committed, and pushed to the shared remote repository.
+
+Table @tbl-workflow summarizes the difference among these actions.
+
+| Action | Where it acts | Main purpose | Visible to teammates immediately? |
+|----|----|----|----|
+| Save | Working file | Write edits to the local file | No |
+| Stage | Local Git repository | Select changes for the next commit | No |
+| Commit | Local Git repository | Record a snapshot in Git history | No |
+| Push | Remote GitHub repository | Upload local commits | Yes, after the push succeeds |
+| Fetch | Local Git repository | Download information about remote changes | No automatic merge |
+| Pull | Local Git repository and working files | Retrieve and integrate remote changes | Updates the local copy |
+
+: Git and file workflow actions {#tbl-workflow}
+
+Because multiple people are contributing to one report, our normal working sequence should be **Pull → Edit → Render → Review → Stage → Commit → Push**. Pulling before editing reduces the risk of starting from an outdated version, while descriptive commits make it easier to understand the purpose and authorship of each change later.[^1]
+
+[^1]: A clear commit history also provides evidence that each group member worked through Git and GitHub rather than exchanging separate files.
+
+# Prompt 3: Document Your Group's Round 1 Workflow
+
+**Principal Author:** *\[Add name\]*
+
+*\[Add the group's response here. Include a well-formatted table with each member's name, content added, whether they pulled before editing, commit message, and how they verified the push. Then explain why the group used a sequential workflow.\]*
+
+| Member | Section or content added | Pulled before editing? | Commit message | How push was verified |
+|----|----|----|----|----|
+| Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | *\[Insert exact commit message after committing\]* | *\[Insert verification method\]* |
+| Group Member 2 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
+| Group Member 3 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
+| Group Member 4 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
+| Group Member 5 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
+
+# Prompt 4: A Reliable Everyday CEP Workflow
+
+**Principal Author:** *\[Add name\]*
+
+*\[Create a numbered checklist beginning before editing and ending after pushing. Explain why pulling before editing and using focused, descriptive commits make collaboration safer and the history more useful.\]*
+
+# Prompt 5: Coordinating Work and Preventing Merge Conflicts
+
+**Principal Author:** *\[Add name\]*
+
+*\[Explain what can happen when two people edit the same lines and then push. Describe at least three conflict-prevention practices, including division of sections, communication about who is editing, and how the group decides when work is ready for another member.\]*
+
+# Prompt 6: Responding to a Push Rejection or Merge Conflict
+
+**Principal Author:** *\[Add name\]*
+
+*\[Explain the steps for responding to a rejected push and merge conflict. Include comparing current and incoming changes, resolving conflict markers or using the Merge Editor, rendering and reviewing, committing the resolution, and pushing. Also explain why force-pushing or overwriting teammates' work is inappropriate.\]*
+
+# Prompt 7: Branches, Issues, and Pull Requests
+
+**Principal Author:** *\[Add name\]*
+
+*\[Explain the purposes of a GitHub Issue, branch, and pull request based on the collaboration video. Discuss how they support assignment, review, and approval, compare this workflow with a small coordinated change on main, and identify at least one situation in which the group should prefer a branch and pull request.\]*
+
+# Prompt 8: Review the Repository History
+
+**Principal Author:** *\[Add name\]*
+
+*\[After both rounds are complete, review the repository history. Explain what evidence shows that all members worked through Git and GitHub. Discuss sequence, purpose, and authorship of changes, and identify one especially effective commit message.\]*
+
+# Prompt 9: Security, Confidentiality, and Repository Hygiene
+
+**Principal Author:** *\[Add name\]*
+
+*\[Explain what must never be pushed to the repository, including confidential client data, PII, passwords, API keys, access tokens, temporary files, and inappropriate locally generated files. Explain the role of `.gitignore` and what to do before proceeding if uncertain whether a file may be shared.\]*
+
+# Prompt 10: Group Collaboration Agreement
+
+**Principal Author:** *\[Add name\]*
+
+::: callout-important
+## Group 8 Git/GitHub Collaboration Agreement
+
+*\[Complete this agreement as a group. At minimum, address: when members must pull and push; how work is assigned; whether the same file or section may be edited simultaneously; expectations for commit messages; when branches and pull requests will be used; how conflicts or failed pushes will be handled; who verifies the final render; and how confidential information will be protected.\]*
+
+**Agreement statement:** All five group members have reviewed this agreement and agree to follow it for the remainder of the CEP.
+:::
+
+# Appendix: Collaboration Evidence
+
+## Member Contribution Table
+
+| Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
+|----|----|----|----|
+| Yushan Huang | *\[Add username\]* | *\[Add exact message\]* | *\[Add after Round 2\]* |
+| Group Member 2 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
+| Group Member 3 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
+| Group Member 4 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
+| Group Member 5 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
+
+## Required Links
+
+-   **Group GitHub repository:** *\[Insert clickable repository URL\]*
+-   **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
+-   **Repository commit history:** *\[Insert clickable commit-history URL\]*
+
+## Collaboration Confirmation
+
+All group members used Positron, RStudio, or the IDE Terminal to pull, stage, commit, and push their changes. The QMD and HTML files were not uploaded or edited through the GitHub website as a substitute for the required Git workflow.
+
+**Final editor:** *\[Insert the name of the member who performs the final pull, render, link check, and push.\]*
