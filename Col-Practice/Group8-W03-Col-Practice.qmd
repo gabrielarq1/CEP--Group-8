@@ -2,8 +2,8 @@
 title: "W03: CEP Repository and Collaboration Practice"
 author:
   - "Yushan Huang"
-  - "Group Member 2"
-  - "Group Member 3"
+  - "Simran Kaur"
+  - "Gabriela "
   - "Alondra Rodriguez"
   - "Veronica Vega"
 date: today
@@ -41,6 +41,8 @@ Every member should confirm that they are working from the same shared Group 8 C
 
 # Prompt 2: Local, Remote, and Working Files
 
+![](images/paste-1.png)
+
 **Principal Author:** Yushan Huang
 
 The files we edit on our own computers are our **working files**, and they are located inside a **local Git repository**. The local repository contains both the current project files and Git's record of committed changes. The **remote repository** is the shared version stored on GitHub. These three layers are related, but an action in one layer does not automatically update the others. For example, saving a QMD file only writes the latest edits to the file on the local computer. It does not stage, commit, or upload those edits to GitHub.
@@ -50,7 +52,7 @@ The main Git actions represent different stages of the workflow. **Saving** writ
 Table @tbl-workflow summarizes the difference among these actions.
 
 | Action | Where it acts | Main purpose | Visible to teammates immediately? |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Save | Working file | Write edits to the local file | No |
 | Stage | Local Git repository | Select changes for the next commit | No |
 | Commit | Local Git repository | Record a snapshot in Git history | No |
@@ -64,19 +66,21 @@ Because multiple people are contributing to one report, our normal working seque
 
 [^1]: A clear commit history also provides evidence that each group member worked through Git and GitHub rather than exchanging separate files.
 
+![](images/paste-2.png)
+
 # Prompt 3: Document Your Group's Round 1 Workflow
 
 Principal Author: **Simran Kaur**
 
 | Member | Section or content added | Pulled before editing? | Commit message | How push was verified |
-|----|----|----|----|----|
-| Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | *\[Insert exact commit message after committing\]* | *\[Insert verification method\]* |
-| Simran Kaur | Prompts 7 and 8 | yes, confirmed with the group |  | *Commit appeared in the GitHub repository history* |
-| Gabriela | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
-| Veronica Vega | *\[Add\]* | yes, confirmed with the group | *\[Add\]* | *\[Add\]* |
-| Alondra Rodriguez | Prompts 9 and 10 | yes | *\[Add\]* | *\[Add\]* |
+|---------------|---------------|---------------|------------------|---------------|
+| Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | *Commit appeared in the GitHub repository history* |
+| Simran Kaur | Prompts 3 and 4 | Yes, confirmed with the group | Add Simran's responses for Prompts 3 and 4 | *Commit appeared in the GitHub repository history* |
+| Gabriela | Prompts 5 and 6 | Yes, confirmed with the group | *Update Group 8 week 3 collaborative practice* | *Commit appeared in the GitHub repository history* |
+| Veronica Vega | Prompts 7 and 8 | Yes, confirmed with the group | Add Veronica's responses for Prompts 7 and 8. | *Commit appeared in the GitHub repository history* |
+| Alondra Rodriguez | Prompts 9 and 10 | Yes, confirmed with the group | Add Alondra's responses to prompts 9 and 10 | *Commit appeared in the GitHub repository history* |
 
-Our group followed a sequential workflow for Round 1. Yushan first created the report structure and completed Prompts 1 and 2. Veronica contributed Prompts 7 and 8 next, and Simran pulled the newest version before beginning Prompts 3 and 4.
+For Round 1, our group decided to follow a sequential workflow so that only one person worked on the shared report at a time. Yushan began by creating the report structure and completing Prompts 1 and 2. Veronica then added Prompts 7 and 8. Before I started working on Prompts 3 and 4, I confirmed with the group that the newest version had been pushed and pulled it from GitHub. After I completed and pushed my section, Gabriela worked on Prompts 5 and 6, followed by Alondra, who completed Prompts 9 and 10. Each member confirmed that the latest version was available before beginning their assigned section.
 
 Working one person at a time reduces the chance that two members will edit the same lines of the shared QMD file and create a merge conflict. It also allows each person to confirm that the previous commit is available on GitHub before beginning their contribution.
 
@@ -177,21 +181,21 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ::: callout-important
 ## Group 8 Git/GitHub Collaboration Agreement
 
-- **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
+-   **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
 
-- **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
+-   **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
 
-- **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
+-   **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
 
-- **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
+-   **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
 
-- **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
+-   **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
 
-- **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
+-   **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
 
-- **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
+-   **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
 
-- **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
+-   **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
 
 **Agreement status:** All group members have reviewed this agreement and agree to follow it.
 :::
@@ -201,7 +205,7 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ## Member Contribution Table
 
 | Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Yushan Huang | *\[Add username\]* | *\[Add exact message\]* | *\[Add after Round 2\]* |
 | Group Member 2 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
 | Group Member 3 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
@@ -210,9 +214,9 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 
 ## Required Links
 
-- **Group GitHub repository:** *\[Insert clickable repository URL\]*
-- **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
-- **Repository commit history:** *\[Insert clickable commit-history URL\]*
+-   **Group GitHub repository:** *\[Insert clickable repository URL\]*
+-   **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
+-   **Repository commit history:** *\[Insert clickable commit-history URL\]*
 
 ## Collaboration Confirmation
 
