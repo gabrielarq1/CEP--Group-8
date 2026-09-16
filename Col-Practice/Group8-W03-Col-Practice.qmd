@@ -3,7 +3,11 @@ title: "W03: CEP Repository and Collaboration Practice"
 author:
   - "Yushan Huang"
   - "Simran Kaur"
+<<<<<<< HEAD
   - "Gabriela Raygoza Quintero"
+=======
+  - "Gabriela Raygoza Quintero "
+>>>>>>> 743f34f (Complete collaboration evidence and verify required links)
   - "Alondra Rodriguez"
   - "Veronica Vega"
 date: today
@@ -152,7 +156,7 @@ Force-pushing would not be appropriate because it can overwrite any changes that
 
 # Prompt 7: Branches, Issues, and Pull Requests
 
-**Principal Author:** *Veronica Vega*
+**Principal Author:** Veronica Vega
 
 > GitHub Issues are used to follow tasks, questions and all kinds of discussions related to a project on GitHub. These issues enable developers to organize their work and solve problems together. In GitHub every repository has not just a main branch but can also have other so-called branches to work on a new feature or bug fix for example. When a branch is ready for use in the main branch a so-called *pull request* is created to allow other team members to review the changes before they are merged into the main branch.
 >
@@ -208,6 +212,7 @@ In addition, these tokens need to be protected from misuse. Access tokens are us
 
 | Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
 |------------------|------------------|------------------|------------------|
+<<<<<<< HEAD
 | Yushan Huang | SashaHuang1 | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | Improve prompt3 |
 | Simran Kaur | *\[Add GitHub username\]* | Add Simran's responses for Prompts 3 and 4 | *\[Add exact Round 2 commit message\]* |
 | Gabriela Raygoza Quintero | gabrielarq1 | Update Group 8 week 3 collaborative practice | *\[Add exact Round 2 commit message\]* |
@@ -219,9 +224,25 @@ In addition, these tokens need to be protected from misuse. Access tokens are us
 - **Group GitHub repository:** *\[Insert clickable repository URL\]*
 - **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
 - **Repository commit history:** *\[Insert clickable commit-history URL\]*
+=======
+| Yushan Huang | SashaHuang1 | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | Improve Prompt 3 workflow explanation and update collaboration evidence |
+| Simran Kaur | Simrank-DM | Add Simran's responses for Prompts 3 and 4 | Improve Prompt 2 with Git workflow graphics |
+| Gabriela Raygoza Quintero | gabrielarq1 | Update Group 8 week 3 collaborative practice | revise repository sections |
+| Veronica Vega | vvega8893 | Add Veronica's responses for Prompts 7 and 8. | Add access token security guidance to Prompt 9 |
+| Alondra Rodriguez | aodriguezz240 | Add Alondra's responses to prompts 9 and 10 | Cosmetic changes from Alondra to section 5 |
+
+## Required Links
+
+-   **Group GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
+-   **Repository commit history:** <https://github.com/gabrielarq1/CEP--Group-8/commits/main>
+>>>>>>> 743f34f (Complete collaboration evidence and verify required links)
 
 ## Collaboration Confirmation
 
 All group members used Positron, RStudio, or the IDE Terminal to pull, stage, commit, and push their changes. The QMD and HTML files were not uploaded or edited through the GitHub website as a substitute for the required Git workflow.
 
+<<<<<<< HEAD
 **Final editor:** *\[Insert the name of the member who performs the final pull, render, link check, and push.\]*
+=======
+**Final editor:** Simran Kaur
+>>>>>>> 743f34f (Complete collaboration evidence and verify required links)
