@@ -52,7 +52,7 @@ The main Git actions represent different stages of the workflow. **Saving** writ
 Table @tbl-workflow summarizes the difference among these actions.
 
 | Action | Where it acts | Main purpose | Visible to teammates immediately? |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Save | Working file | Write edits to the local file | No |
 | Stage | Local Git repository | Select changes for the next commit | No |
 | Commit | Local Git repository | Record a snapshot in Git history | No |
@@ -73,16 +73,16 @@ Because multiple people are contributing to one report, our normal working seque
 Principal Author: **Simran Kaur**
 
 | Member | Section or content added | Pulled before editing? | Commit message | How push was verified |
-|---------------|---------------|---------------|------------------|---------------|
+|----|----|----|----|----|
 | Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | *Commit appeared in the GitHub repository history* |
 | Simran Kaur | Prompts 3 and 4 | Yes, confirmed with the group | Add Simran's responses for Prompts 3 and 4 | *Commit appeared in the GitHub repository history* |
 | Gabriela | Prompts 5 and 6 | Yes, confirmed with the group | *Update Group 8 week 3 collaborative practice* | *Commit appeared in the GitHub repository history* |
 | Veronica Vega | Prompts 7 and 8 | Yes, confirmed with the group | Add Veronica's responses for Prompts 7 and 8. | *Commit appeared in the GitHub repository history* |
 | Alondra Rodriguez | Prompts 9 and 10 | Yes, confirmed with the group | Add Alondra's responses to prompts 9 and 10 | *Commit appeared in the GitHub repository history* |
 
-For Round 1, our group decided to follow a sequential workflow so that only one person worked on the shared report at a time. Yushan began by creating the report structure and completing Prompts 1 and 2. Veronica then added Prompts 7 and 8. Before I started working on Prompts 3 and 4, I confirmed with the group that the newest version had been pushed and pulled it from GitHub. After I completed and pushed my section, Gabriela worked on Prompts 5 and 6, followed by Alondra, who completed Prompts 9 and 10. Each member confirmed that the latest version was available before beginning their assigned section.
+For Round 1, our group used a coordinated sequential workflow so that each member began from the most recent version of the shared report. Yushan first created the report structure and completed Prompts 1 and 2. The remaining members then contributed their assigned sections—Simran completed Prompts 3 and 4, Gabriela completed Prompts 5 and 6, Veronica completed Prompts 7 and 8, and Alondra completed Prompts 9 and 10. Before editing, each member confirmed that the previous contribution had been pushed to GitHub and pulled the newest version of the repository. After completing an assigned section, the member rendered the report, reviewed the output, committed the changes with an identifiable message, pushed the commit, and confirmed that it appeared in the GitHub repository history before the next member continued.
 
-Working one person at a time reduces the chance that two members will edit the same lines of the shared QMD file and create a merge conflict. It also allows each person to confirm that the previous commit is available on GitHub before beginning their contribution.
+This sequential workflow gave the group a clear handoff process and reduced the risk of working from outdated copies of the QMD file. It also minimized the chance that two members would change the same lines at the same time, which could create a merge conflict. Just as importantly, the workflow created a traceable Git history showing the sequence, purpose, and authorship of each Round 1 contribution. This made the shared repository the single source of truth rather than requiring the group to exchange separate versions of the report.
 
 # Prompt 4: A Reliable Everyday CEP Workflow
 
@@ -205,12 +205,12 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ## Member Contribution Table
 
 | Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
-|------------------|------------------|------------------|------------------|
-| Yushan Huang | *\[Add username\]* | *\[Add exact message\]* | *\[Add after Round 2\]* |
-| Group Member 2 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
-| Group Member 3 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
-| Group Member 4 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
-| Alondra Rodriguez | arodriguezz240 | *\[Add\]* | *\[Add\]* |
+|----|----|----|----|
+| Yushan Huang | SashaHuang1 | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | Improve prompt3 |
+| Simran Kaur | *\[Add GitHub username\]* | Add Simran's responses for Prompts 3 and 4 | *\[Add exact Round 2 commit message\]* |
+| Gabriela Raygoza Quintero | gabrielarq1 | Update Group 8 week 3 collaborative practice | *\[Add exact Round 2 commit message\]* |
+| Veronica Vega | *\[Add GitHub username\]* | Add Veronica's responses for Prompts 7 and 8. | *\[Add exact Round 2 commit message\]* |
+| Alondra Rodriguez | arodriguezz240 | Add Alondra's responses to prompts 9 and 10 | *\[Add exact Round 2 commit message\]* |
 
 ## Required Links
 
