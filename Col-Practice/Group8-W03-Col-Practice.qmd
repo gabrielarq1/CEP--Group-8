@@ -52,7 +52,7 @@ The main Git actions represent different stages of the workflow. **Saving** writ
 Table @tbl-workflow summarizes the difference among these actions.
 
 | Action | Where it acts | Main purpose | Visible to teammates immediately? |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Save | Working file | Write edits to the local file | No |
 | Stage | Local Git repository | Select changes for the next commit | No |
 | Commit | Local Git repository | Record a snapshot in Git history | No |
@@ -73,7 +73,7 @@ Because multiple people are contributing to one report, our normal working seque
 Principal Author: **Simran Kaur**
 
 | Member | Section or content added | Pulled before editing? | Commit message | How push was verified |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | *Commit appeared in the GitHub repository history* |
 | Simran Kaur | Prompts 3 and 4 | Yes, confirmed with the group | Add Simran's responses for Prompts 3 and 4 | *Commit appeared in the GitHub repository history* |
 | Gabriela | Prompts 5 and 6 | Yes, confirmed with the group | *Update Group 8 week 3 collaborative practice* | *Commit appeared in the GitHub repository history* |
@@ -116,11 +116,11 @@ Focused and descriptive commit messages make the repository history easier to un
 
 **Principal Author:** *Gabriela Raygoza Quintero*
 
-> When two teammates are editing the same lines of the same QMD file and trying to push the changes they made, GitHub may detect that the changes being made are conflicting with one another. If one person’s updates are pushed first, then the second person who is pushing their changes may be rejected because they no longer have a version that is up to date or current. A *merge conflict* can occur in this case because GitHub can not automatically detect which changes should be kept.
+> When two teammates are editing the same lines of the same QMD file and trying to push the changes they made, GitHub may detect that the changes being made are conflicting with one another. If one person’s updates are pushed first, then the second person who is pushing their changes may be rejected because they no longer have a version that is up to date or current. A ***merge conflict*** can occur in this case because GitHub can not automatically detect which changes should be kept.
 >
-> #### To reduce merge conflicts:
+> #### *To reduce merge conflicts:*
 >
-> As a team, we will **divide** the prompts into sections that every team member can work on, this way they are aware and responsible for their assigned section/prompt. Doing so will avoid editing another team member's section at the same time. We will **communicate** with the group via group chat when we are actively editing and working on the QMD file, like letting the team know when you are working on a certain section. Before working on the assigned section, the team member will **pull** the most **recent version** of the QMD file from GitHub before beginning any work so that they are working on the latest version of the file. When a team member is **finished**, they will communicate with the group that their section is ready. The member will *render* and *inspect* that everything looks accurate, and then *commit* and *push* the changes made so that the next member may pull the updated version before moving forward with their section.
+> As a team, we will ***divide*** the prompts into sections that every team member can work on, this way they are aware and responsible for their assigned section/prompt. Doing so will avoid editing another team member's section at the same time. We will ***communicate*** with the group ***via group chat*** when we are actively editing and working on the QMD file, like letting the team know when you are working on a certain section. Before working on the assigned section, the team member will ***PULL*** the ***most recent version*** of the QMD file from GitHub ***before*** beginning any work so that they are working on the ***latest*** version of the file. When a team member is ***finished***, they will communicate with the group that their section is ready. The member will ***render*** AND ***inspect*** that everything looks accurate, and then ***commit*** AND ***push*** the changes made so that the next member may pull the updated version before moving forward with their section.
 
 # Prompt 6: Responding to a Push Rejection or Merge Conflict
 
@@ -181,21 +181,21 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ::: callout-important
 ## Group 8 Git/GitHub Collaboration Agreement
 
--   **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
+- **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
 
--   **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
+- **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
 
--   **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
+- **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
 
--   **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
+- **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
 
--   **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
+- **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
 
--   **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
+- **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
 
--   **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
+- **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
 
--   **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
+- **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
 
 **Agreement status:** All group members have reviewed this agreement and agree to follow it.
 :::
@@ -205,7 +205,7 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ## Member Contribution Table
 
 | Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Yushan Huang | SashaHuang1 | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | Improve prompt3 |
 | Simran Kaur | *\[Add GitHub username\]* | Add Simran's responses for Prompts 3 and 4 | *\[Add exact Round 2 commit message\]* |
 | Gabriela Raygoza Quintero | gabrielarq1 | Update Group 8 week 3 collaborative practice | *\[Add exact Round 2 commit message\]* |
@@ -214,9 +214,9 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 
 ## Required Links
 
--   **Group GitHub repository:** *\[Insert clickable repository URL\]*
--   **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
--   **Repository commit history:** *\[Insert clickable commit-history URL\]*
+- **Group GitHub repository:** *\[Insert clickable repository URL\]*
+- **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
+- **Repository commit history:** *\[Insert clickable commit-history URL\]*
 
 ## Collaboration Confirmation
 
