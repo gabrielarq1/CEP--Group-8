@@ -66,29 +66,51 @@ Because multiple people are contributing to one report, our normal working seque
 
 # Prompt 3: Document Your Group's Round 1 Workflow
 
-**Principal Author:** *\[Add name\]*
-
-*\[Add the group's response here. Include a well-formatted table with each member's name, content added, whether they pulled before editing, commit message, and how they verified the push. Then explain why the group used a sequential workflow.\]*
+Principal Author: **Simran Kaur**
 
 | Member | Section or content added | Pulled before editing? | Commit message | How push was verified |
 |---------------|---------------|---------------|---------------|---------------|
 | Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | *\[Insert exact commit message after committing\]* | *\[Insert verification method\]* |
-| Group Member 2 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
-| Group Member 3 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
-| Group Member 4 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
+| Simran Kaur | Prompts 7 and 8 | yes, confirmed with the group |  | *Commit appeared in the GitHub repository history* |
+| Gabriela | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
+| Veronica Vega | *\[Add\]* | yes, confirmed with the group | *\[Add\]* | *\[Add\]* |
 | Group Member 5 | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
+
+Our group followed a sequential workflow for Round 1. Yushan first created the report structure and completed Prompts 1 and 2. Veronica contributed Prompts 7 and 8 next, and Simran pulled the newest version before beginning Prompts 3 and 4.
+
+Working one person at a time reduces the chance that two members will edit the same lines of the shared QMD file and create a merge conflict. It also allows each person to confirm that the previous commit is available on GitHub before beginning their contribution.
 
 # Prompt 4: A Reliable Everyday CEP Workflow
 
-**Principal Author:** *\[Add name\]*
+**Principal Author:** Simran Kaur
 
-*\[Create a numbered checklist beginning before editing and ending after pushing. Explain why pulling before editing and using focused, descriptive commits make collaboration safer and the history more useful.\]*
+1.  Confirm my assigned section and make sure no teammate is editing the same section.
+
+2.  Open the shared CEP repository in Positron.
+
+3.  Pull the newest version from GitHub before editing.
+
+4.  Edit only my assigned section and save the QMD file.
+
+5.  Render the report and check the content, formatting, and links.
+
+6.  Review my changes and stage only the appropriate files.
+
+7.  Commit the changes using a clear message that describes my contribution.
+
+8.  Pull again to check for new updates, resolve any conflicts if necessary, and push my commit to GitHub.
+
+9.  Check the repository history to confirm that the push succeeded.
+
+10. Notify the group that my contribution is complete.
+
+Pulling before editing ensures that a group member starts with the latest version of the shared report. This lowers the risk of working from an outdated file, overwriting a teammate’s contribution, or creating a merge conflict. Pulling again before pushing also helps identify any changes made while the member was working.
+
+Focused and descriptive commit messages make the repository history easier to understand. For example, “Add Simran’s responses for Prompts 3 and 4” clearly identifies the author and purpose of the contribution, while a vague message such as “update” does not. Clear commit messages help the group and instructor track each person’s work, locate changes, and understand how the report developed over time.
 
 # Prompt 5: Coordinating Work and Preventing Merge Conflicts
 
-**Principal Author:** *\[Add name\]*
-
-*\[Explain what can happen when two people edit the same lines and then push. Describe at least three conflict-prevention practices, including division of sections, communication about who is editing, and how the group decides when work is ready for another member.\]*
+**Principal Author:**
 
 # Prompt 6: Responding to a Push Rejection or Merge Conflict
 
@@ -144,9 +166,9 @@ When you look at the commit history for the repository for a report done by a gr
 
 ## Required Links
 
-- **Group GitHub repository:** *\[Insert clickable repository URL\]*
-- **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
-- **Repository commit history:** *\[Insert clickable commit-history URL\]*
+-   **Group GitHub repository:** *\[Insert clickable repository URL\]*
+-   **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
+-   **Repository commit history:** *\[Insert clickable commit-history URL\]*
 
 ## Collaboration Confirmation
 
