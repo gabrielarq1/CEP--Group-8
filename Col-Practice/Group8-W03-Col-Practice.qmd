@@ -110,13 +110,41 @@ Focused and descriptive commit messages make the repository history easier to un
 
 # Prompt 5: Coordinating Work and Preventing Merge Conflicts
 
-**Principal Author:**
+**Principal Author:** *Gabriela Raygoza Quintero*
+
+> When two teammates are editing the same lines of the same QMD file and trying to push the changes they made, GitHub may detect that the changes being made are conflicting with one another. If one person’s updates are pushed first, then the second person who is pushing their changes may be rejected because they no longer have a version that is up to date or current. A *merge conflict* can occur in this case because GitHub can not automatically detect which changes should be kept.
+>
+> #### To reduce merge conflicts: 
+>
+> As a team, we will **divide** the prompts into sections that every team member can work on, this way they are aware and responsible for their assigned section/prompt. Doing so will avoid editing another team member's section at the same time. We will **communicate** with the group via group chat when we are actively editing and working on the QMD file, like letting the team know when you are working on a certain section. Before working on the assigned section, the team member will **pull** the most **recent version** of the QMD file from GitHub before beginning any work so that they are working on the latest version of the file. When a team member is **finished**, they will communicate with the group that their section is ready. The member will *render* and *inspect* that everything looks accurate, and then *commit* and *push* the changes made so that the next member may pull the updated version before moving forward with their section.
 
 # Prompt 6: Responding to a Push Rejection or Merge Conflict
 
-**Principal Author:** *\[Add name\]*
+**Principal Author:** *Gabriela Raygoza Quintero*
 
-*\[Explain the steps for responding to a rejected push and merge conflict. Include comparing current and incoming changes, resolving conflict markers or using the Merge Editor, rendering and reviewing, committing the resolution, and pushing. Also explain why force-pushing or overwriting teammates' work is inappropriate.\]*
+::: callout-important
+**If the push is rejected:**
+
+The first member should **NOT** force the push if another group member has already pushed the changes to the same section.
+:::
+
+> The member should first pull the most current changes from the repository. The team member should use Positron's merge editor or should use the conflict markers in the QMD file in order to compare the current local changes with the changes made from the repository.
+
+::: callout-note
+**After reviewing both versions:**
+
+The team member will review both versions and determine which content to keep or combine based on the work that was meant to be included in the report.
+:::
+
+> They should ensure that the final version has the correct information provided by both members that worked on the section. Once a decision has been made, the member should remove any conflict markers from the QMD file and ensure the section has the appropriate formatting.
+>
+> The team member will then render the QMD file and inspect the report to ensure the conflict has been resolved and that the report displays correctly. Once confirming that the report is correct, they will commit the conflict resolution with a commit message and then push the updated or resolved changes to GitHub.
+
+::: callout-caution
+**Inappropriate behavior:**
+
+Force-pushing would not be appropriate because it can overwrite any changes that another team member has already pushed. Deleting another members work would just remove any contributions provided instead of resolving the conflict, therefore creating more work for the group. Replacing the repository with an older local copy can overwrite any new progress done leading to any changes from other members to be lost. The overall goal of resolving a conflict is to combine or retain the adequate changes while preserving the contributions made by everyone in the team.
+:::
 
 # Prompt 7: Branches, Issues, and Pull Requests
 
@@ -166,9 +194,9 @@ When you look at the commit history for the repository for a report done by a gr
 
 ## Required Links
 
--   **Group GitHub repository:** *\[Insert clickable repository URL\]*
--   **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
--   **Repository commit history:** *\[Insert clickable commit-history URL\]*
+- **Group GitHub repository:** *\[Insert clickable repository URL\]*
+- **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
+- **Repository commit history:** *\[Insert clickable commit-history URL\]*
 
 ## Collaboration Confirmation
 
