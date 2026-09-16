@@ -3,7 +3,7 @@ title: "W03: CEP Repository and Collaboration Practice"
 author:
   - "Yushan Huang"
   - "Simran Kaur"
-  - "Gabriela "
+  - "Gabriela Raygoza Quintero"
   - "Alondra Rodriguez"
   - "Veronica Vega"
 date: today
@@ -154,17 +154,17 @@ Force-pushing would not be appropriate because it can overwrite any changes that
 
 **Principal Author:** *Veronica Vega*
 
-GitHub Issues are used to follow tasks, questions and all kinds of discussions related to a project on GitHub. These Issues enable developers to organize their work and solve problems together. In GitHub every repository has not just a main branch but can also have other so-called branches to work on a new feature or bug fix for example. When a branch is ready for use in the main branch a so-called pull request is created to allow other team members to review the changes before they are merged into the main branch.
-
-The listed tools will aid collaboration throughout the CEP project. Issues will be used to assign tasks and keep track of progress throughout the project. Branches can be used by members to work on large changes individually. The pull request then offers the chance for review and feedback before the work is merged into the report. For minor updates that are well-coordinated, it is acceptable to edit the main branch directly. However, for larger changes such as data analysis updates or major updates to content, it is recommended to work in a branch and then use a pull request to ensure error-free and high quality updates.
+> GitHub Issues are used to follow tasks, questions and all kinds of discussions related to a project on GitHub. These issues enable developers to organize their work and solve problems together. In GitHub every repository has not just a main branch but can also have other so-called branches to work on a new feature or bug fix for example. When a branch is ready for use in the main branch a so-called *pull request* is created to allow other team members to review the changes before they are merged into the main branch.
+>
+> The listed tools will aid collaboration throughout the CEP project. Issues will be used to assign tasks and keep track of progress throughout the project. Branches can be used by members to work on large changes individually. The pull request then offers the chance for review and feedback before the work is merged into the report. For minor updates that are well-coordinated, it is acceptable to edit the main branch directly. However, for *larger changes* such as data analysis updates or major updates to content, it is recommended to *work in a branch* and then use a pull request to ensure error-free and high quality updates.
 
 # Prompt 8: Review the Repository History
 
 **Principal Author:** Veronica Vega
 
-The repository history for our group project provides clear evidence of participation by all team members to contributions made via Git and GitHub as opposed to simply passing files around via email. Every commit consists of the identity of the person who made the change, the time it happened and a description of changes made.
-
-When you look at the commit history for the repository for a report done by a group, you can see the order in which things were changed by the group and why they were changed. Therefore, if someone wrote an effective commit message for the addition of a section, for example, that section can be located easily by searching for that commit message. For example, the commit message “Add Veronica's responses for Prompt 7 and Prompt 8” clearly indicates that that was the work of Veronica for those two prompts.
+> The repository history for our group project provides clear evidence of participation by all team members to contributions made via Git and GitHub as opposed to simply passing files around via email. Every commit consists of the identity of the person who made the change, the time it happened and a description of changes made.
+>
+> When you look at the commit history for the repository for a report done by a group, you can see the order in which things were changed by the group and why they were changed. Therefore, if someone wrote an effective commit message for the addition of a section, for example, that section can be located easily by searching for that commit message. For example, the commit message “Add Veronica's responses for Prompt 7 and Prompt 8” clearly indicates that that was the work of Veronica for those two prompts.
 
 # Prompt 9: Security, Confidentiality, and Repository Hygiene
 
