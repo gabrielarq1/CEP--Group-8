@@ -174,6 +174,8 @@ Our group must protect confidential information when using the CEP repository, e
 
 A `.gitignore` file tells Git which untracked files or folders to ignore, helping prevent unnecessary or sensitive local files from being staged accidentally. It does not remove files already tracked by Git or erase information from previous commits, so it cannot replace careful review. Before committing, each member should inspect the staged changes and confirm that every included file is appropriate to share. If a member is uncertain whether information may be uploaded, they should stop and ask the instructor and, when applicable, the authorized client contact before proceeding.
 
+In addition, these tokens need to be protected from misuse. Access tokens are used to grant access to systems and services without having to re-enter login credentials such as username and password. This can be repositories, cloud services, databases and APIs. As the granted permissions of an access token it can cause a lot of harm, tokens must not be published publicly, put in screenshots or added to Git repositories. In case an access token gets lost accidentally, it must be immediately replaced with a new token.
+
 # Prompt 10: Group Collaboration Agreement
 
 **Principal Author:** Alondra Rodriguez
