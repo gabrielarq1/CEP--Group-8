@@ -3,11 +3,7 @@ title: "W03: CEP Repository and Collaboration Practice"
 author:
   - "Yushan Huang"
   - "Simran Kaur"
-<<<<<<< HEAD
-  - "Gabriela Raygoza Quintero"
-=======
   - "Gabriela Raygoza Quintero "
->>>>>>> 743f34f (Complete collaboration evidence and verify required links)
   - "Alondra Rodriguez"
   - "Veronica Vega"
 date: today
@@ -84,9 +80,9 @@ Principal Author: **Simran Kaur**
 | Veronica Vega | Prompts 7 and 8 | Yes, confirmed with the group | Add Veronica's responses for Prompts 7 and 8. | *Commit appeared in the GitHub repository history* |
 | Alondra Rodriguez | Prompts 9 and 10 | Yes, confirmed with the group | Add Alondra's responses to prompts 9 and 10 | *Commit appeared in the GitHub repository history* |
 
-For Round 1, our group used a coordinated sequential workflow so that each member began from the most recent version of the shared report. Yushan first created the report structure and completed Prompts 1 and 2. The remaining members then contributed their assigned sections—Simran completed Prompts 3 and 4, Gabriela completed Prompts 5 and 6, Veronica completed Prompts 7 and 8, and Alondra completed Prompts 9 and 10. Before editing, each member confirmed that the previous contribution had been pushed to GitHub and pulled the newest version of the repository. After completing an assigned section, the member rendered the report, reviewed the output, committed the changes with an identifiable message, pushed the commit, and confirmed that it appeared in the GitHub repository history before the next member continued.
+For Round 1, our group decided to follow a sequential workflow so that only one person worked on the shared report at a time. Yushan began by creating the report structure and completing Prompts 1 and 2. Veronica then added Prompts 7 and 8. Before I started working on Prompts 3 and 4, I confirmed with the group that the newest version had been pushed and pulled it from GitHub. After I completed and pushed my section, Gabriela worked on Prompts 5 and 6, followed by Alondra, who completed Prompts 9 and 10. Each member confirmed that the latest version was available before beginning their assigned section.
 
-This sequential workflow gave the group a clear handoff process and reduced the risk of working from outdated copies of the QMD file. It also minimized the chance that two members would change the same lines at the same time, which could create a merge conflict. Just as importantly, the workflow created a traceable Git history showing the sequence, purpose, and authorship of each Round 1 contribution. This made the shared repository the single source of truth rather than requiring the group to exchange separate versions of the report.
+Working one person at a time reduces the chance that two members will edit the same lines of the shared QMD file and create a merge conflict. It also allows each person to confirm that the previous commit is available on GitHub before beginning their contribution.
 
 # Prompt 4: A Reliable Everyday CEP Workflow
 
@@ -120,11 +116,11 @@ Focused and descriptive commit messages make the repository history easier to un
 
 **Principal Author:** *Gabriela Raygoza Quintero*
 
-> When two teammates are editing the same lines of the same QMD file and trying to push the changes they made, GitHub may detect that the changes being made are conflicting with one another. If one person’s updates are pushed first, then the second person who is pushing their changes may be rejected because they no longer have a version that is up to date or current. A ***merge conflict*** can occur in this case because GitHub can not automatically detect which changes should be kept.
+> When two teammates are editing the same lines of the same QMD file and trying to push the changes they made, GitHub may detect that the changes being made are conflicting with one another. If one person’s updates are pushed first, then the second person who is pushing their changes may be rejected because they no longer have a version that is up to date or current. A *merge conflict* can occur in this case because GitHub can not automatically detect which changes should be kept.
 >
-> #### *To reduce merge conflicts:*
+> #### To reduce merge conflicts:
 >
-> As a team, we will ***divide*** the prompts into sections that every team member can work on, this way they are aware and responsible for their assigned section/prompt. Doing so will avoid editing another team member's section at the same time. We will ***communicate*** with the group ***via group chat*** when we are actively editing and working on the QMD file, like letting the team know when you are working on a certain section. Before working on the assigned section, the team member will ***PULL*** the ***most recent version*** of the QMD file from GitHub ***before*** beginning any work so that they are working on the ***latest*** version of the file. When a team member is ***finished***, they will communicate with the group that their section is ready. The member will ***render*** AND ***inspect*** that everything looks accurate, and then ***commit*** AND ***push*** the changes made so that the next member may pull the updated version before moving forward with their section.
+> As a team, we will **divide** the prompts into sections that every team member can work on, this way they are aware and responsible for their assigned section/prompt. Doing so will avoid editing another team member's section at the same time. We will **communicate** with the group via group chat when we are actively editing and working on the QMD file, like letting the team know when you are working on a certain section. Before working on the assigned section, the team member will **pull** the most **recent version** of the QMD file from GitHub before beginning any work so that they are working on the latest version of the file. When a team member is **finished**, they will communicate with the group that their section is ready. The member will *render* and *inspect* that everything looks accurate, and then *commit* and *push* the changes made so that the next member may pull the updated version before moving forward with their section.
 
 # Prompt 6: Responding to a Push Rejection or Merge Conflict
 
@@ -158,17 +154,17 @@ Force-pushing would not be appropriate because it can overwrite any changes that
 
 **Principal Author:** Veronica Vega
 
-> GitHub Issues are used to follow tasks, questions and all kinds of discussions related to a project on GitHub. These issues enable developers to organize their work and solve problems together. In GitHub every repository has not just a main branch but can also have other so-called branches to work on a new feature or bug fix for example. When a branch is ready for use in the main branch a so-called *pull request* is created to allow other team members to review the changes before they are merged into the main branch.
->
-> The listed tools will aid collaboration throughout the CEP project. Issues will be used to assign tasks and keep track of progress throughout the project. Branches can be used by members to work on large changes individually. The pull request then offers the chance for review and feedback before the work is merged into the report. For minor updates that are well-coordinated, it is acceptable to edit the main branch directly. However, for *larger changes* such as data analysis updates or major updates to content, it is recommended to *work in a branch* and then use a pull request to ensure error-free and high quality updates.
+GitHub Issues are used to follow tasks, questions and all kinds of discussions related to a project on GitHub. These Issues enable developers to organize their work and solve problems together. In GitHub every repository has not just a main branch but can also have other so-called branches to work on a new feature or bug fix for example. When a branch is ready for use in the main branch a so-called pull request is created to allow other team members to review the changes before they are merged into the main branch.
+
+The listed tools will aid collaboration throughout the CEP project. Issues will be used to assign tasks and keep track of progress throughout the project. Branches can be used by members to work on large changes individually. The pull request then offers the chance for review and feedback before the work is merged into the report. For minor updates that are well-coordinated, it is acceptable to edit the main branch directly. However, for larger changes such as data analysis updates or major updates to content, it is recommended to work in a branch and then use a pull request to ensure error-free and high quality updates.
 
 # Prompt 8: Review the Repository History
 
 **Principal Author:** Veronica Vega
 
-> The repository history for our group project provides clear evidence of participation by all team members to contributions made via Git and GitHub as opposed to simply passing files around via email. Every commit consists of the identity of the person who made the change, the time it happened and a description of changes made.
->
-> When you look at the commit history for the repository for a report done by a group, you can see the order in which things were changed by the group and why they were changed. Therefore, if someone wrote an effective commit message for the addition of a section, for example, that section can be located easily by searching for that commit message. For example, the commit message “Add Veronica's responses for Prompt 7 and Prompt 8” clearly indicates that that was the work of Veronica for those two prompts.
+The repository history for our group project provides clear evidence of participation by all team members to contributions made via Git and GitHub as opposed to simply passing files around via email. Every commit consists of the identity of the person who made the change, the time it happened and a description of changes made.
+
+When you look at the commit history for the repository for a report done by a group, you can see the order in which things were changed by the group and why they were changed. Therefore, if someone wrote an effective commit message for the addition of a section, for example, that section can be located easily by searching for that commit message. For example, the commit message “Add Veronica's responses for Prompt 7 and Prompt 8” clearly indicates that that was the work of Veronica for those two prompts.
 
 # Prompt 9: Security, Confidentiality, and Repository Hygiene
 
@@ -178,8 +174,6 @@ Our group must protect confidential information when using the CEP repository, e
 
 A `.gitignore` file tells Git which untracked files or folders to ignore, helping prevent unnecessary or sensitive local files from being staged accidentally. It does not remove files already tracked by Git or erase information from previous commits, so it cannot replace careful review. Before committing, each member should inspect the staged changes and confirm that every included file is appropriate to share. If a member is uncertain whether information may be uploaded, they should stop and ask the instructor and, when applicable, the authorized client contact before proceeding.
 
-In addition, these tokens need to be protected from misuse. Access tokens are used to grant access to systems and services without having to re-enter login credentials such as username and password. This can be repositories, cloud services, databases and APIs. As the granted permissions of an access token it can cause a lot of harm, tokens must not be published publicly, put in screenshots or added to Git repositories. In case an access token gets lost accidentally, it must be immediately replaced with a new token.
-
 # Prompt 10: Group Collaboration Agreement
 
 **Principal Author:** Alondra Rodriguez
@@ -187,21 +181,21 @@ In addition, these tokens need to be protected from misuse. Access tokens are us
 ::: callout-important
 ## Group 8 Git/GitHub Collaboration Agreement
 
-- **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
+-   **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
 
-- **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
+-   **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
 
-- **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
+-   **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
 
-- **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
+-   **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
 
-- **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
+-   **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
 
-- **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
+-   **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
 
-- **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
+-   **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
 
-- **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
+-   **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
 
 **Agreement status:** All group members have reviewed this agreement and agree to follow it.
 :::
@@ -212,19 +206,6 @@ In addition, these tokens need to be protected from misuse. Access tokens are us
 
 | Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
 |------------------|------------------|------------------|------------------|
-<<<<<<< HEAD
-| Yushan Huang | SashaHuang1 | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | Improve prompt3 |
-| Simran Kaur | *\[Add GitHub username\]* | Add Simran's responses for Prompts 3 and 4 | *\[Add exact Round 2 commit message\]* |
-| Gabriela Raygoza Quintero | gabrielarq1 | Update Group 8 week 3 collaborative practice | *\[Add exact Round 2 commit message\]* |
-| Veronica Vega | *\[Add GitHub username\]* | Add Veronica's responses for Prompts 7 and 8. | *\[Add exact Round 2 commit message\]* |
-| Alondra Rodriguez | arodriguezz240 | Add Alondra's responses to prompts 9 and 10 | *\[Add exact Round 2 commit message\]* |
-
-## Required Links
-
-- **Group GitHub repository:** *\[Insert clickable repository URL\]*
-- **Published GitHub Pages report:** *\[Insert clickable GitHub Pages URL\]*
-- **Repository commit history:** *\[Insert clickable commit-history URL\]*
-=======
 | Yushan Huang | SashaHuang1 | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | Improve Prompt 3 workflow explanation and update collaboration evidence |
 | Simran Kaur | Simrank-DM | Add Simran's responses for Prompts 3 and 4 | Improve Prompt 2 with Git workflow graphics |
 | Gabriela Raygoza Quintero | gabrielarq1 | Update Group 8 week 3 collaborative practice | revise repository sections |
@@ -235,14 +216,9 @@ In addition, these tokens need to be protected from misuse. Access tokens are us
 
 -   **Group GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
 -   **Repository commit history:** <https://github.com/gabrielarq1/CEP--Group-8/commits/main>
->>>>>>> 743f34f (Complete collaboration evidence and verify required links)
 
 ## Collaboration Confirmation
 
 All group members used Positron, RStudio, or the IDE Terminal to pull, stage, commit, and push their changes. The QMD and HTML files were not uploaded or edited through the GitHub website as a substitute for the required Git workflow.
 
-<<<<<<< HEAD
-**Final editor:** *\[Insert the name of the member who performs the final pull, render, link check, and push.\]*
-=======
 **Final editor:** Simran Kaur
->>>>>>> 743f34f (Complete collaboration evidence and verify required links)
