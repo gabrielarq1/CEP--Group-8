@@ -50,7 +50,7 @@ The main Git actions represent different stages of the workflow. **Saving** writ
 Table @tbl-workflow summarizes the difference among these actions.
 
 | Action | Where it acts | Main purpose | Visible to teammates immediately? |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Save | Working file | Write edits to the local file | No |
 | Stage | Local Git repository | Select changes for the next commit | No |
 | Commit | Local Git repository | Record a snapshot in Git history | No |
@@ -69,7 +69,7 @@ Because multiple people are contributing to one report, our normal working seque
 Principal Author: **Simran Kaur**
 
 | Member | Section or content added | Pulled before editing? | Commit message | How push was verified |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | *\[Insert exact commit message after committing\]* | *\[Insert verification method\]* |
 | Simran Kaur | Prompts 7 and 8 | yes, confirmed with the group |  | *Commit appeared in the GitHub repository history* |
 | Gabriela | *\[Add\]* | *\[Yes/No\]* | *\[Add\]* | *\[Add\]* |
@@ -201,7 +201,7 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ## Member Contribution Table
 
 | Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Yushan Huang | *\[Add username\]* | *\[Add exact message\]* | *\[Add after Round 2\]* |
 | Group Member 2 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
 | Group Member 3 | *\[Add\]* | *\[Add\]* | *\[Add\]* |
