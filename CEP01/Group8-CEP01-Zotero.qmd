@@ -118,4 +118,4 @@ The public group library can be accessed here:
 ## Appendix {#sec-appendix}
 
 -   **GitHub Repository:** <https://github.com/gabrielarq1/CEP--Group-8>
--   **GitHub Pages:**
+-   **GitHub Pages:** <https://gabrielarq1.github.io/CEP--Group-8/CEP01/Group8-CEP01-Zotero.html>
