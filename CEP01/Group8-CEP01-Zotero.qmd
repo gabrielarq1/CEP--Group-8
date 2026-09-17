@@ -1,0 +1,121 @@
+---
+title: "CEP01 - Bibliography Database Using Zotero"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+  - "Veronica Vega"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-expand: 2
+    number-sections: true
+    code-link: true
+    code-fold: true
+    code-tools: true
+    code-overflow: wrap
+    theme: cosmo
+    embed-resources: true
+editor: visual
+execute:
+  freeze: auto
+---
+
+## Introduction
+
+> For this assignment, our group created a shared Zotero library to collect and organize research for our Culminating Experience Project. Zotero gives us one place to save citation details, articles, notes, and tags, and it will make it easier for us to return to these sources once we begin writing our project report.
+
+Our topic centers on generative AI in advertising and marketing, with a particular focus on how AI-generated content like images, ads, and marketing communication shapes consumer trust, attitudes, and purchase behavior, and how that plays out specifically in fashion and luxury contexts[^1].
+
+[^1]: This document was prepared in Quarto and rendered to a self-contained HTML file per the assignment's submission requirements.
+
+## Group Zotero Library {#sec-library}
+
+Our shared library is called **IBM CEP Bibliography Database**. Each group member added and organized sources related to the project, and the screenshot below shows the library name along with the articles added so far.
+
+::: callout-tip
+## What this screenshot show
+
+-   The group library name
+-   Several source titles
+-   Evidence the sources are organized (collections, subfolders, and/or tags)
+-   Each member's username attached to at least two contributed items
+:::
+
+![](images/CEP01imageszotero-group-library.png)
+
+## Example Zotero Item {#sec-item}
+
+Figure @sec-item shows one completed item from the library. The entry includes the article's citation information, DOI, a short note explaining its relevance, and tags that make it easier to find later.
+
+::: callout-tip
+## What this screenshot show
+
+-   Citation information (authors, title, publication, year, etc.)
+-   Attached PDF, snapshot, or URL
+-   Notes
+-   Tags
+:::
+
+![](images/CEP01imageszotero-group-library 2.png){fig-align="center"}
+
+::: callout-note
+The example article focuses on how Gen Z female consumers respond to AI-generated fashion advertisements. The item is tagged with terms related to generative AI, fashion advertising, Gen Z, and consumer perception.
+:::
+
+## Group Source Summary {#sec-table}
+
+The tables below summarize the sources contributed by each group member. The citation details come from the Zotero export, while the notes explain how each article may support the group's research.
+
+::: panel-tabset
+### Yushan Huang
+
+| Article | Type | Citation | Note | Tags |
+|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| [In AI, We Do Not Trust! The Nexus Between Awareness of Falsity in AI-Generated CSR Ads and Online Brand Engagement](http://www.emerald.com/intr/article/35/3/1406-1426/1263811) | Journal article | Aljarah A, Ibrahim B, López M. In AI, we do not trust! The nexus between awareness of falsity in AI-generated CSR ads and online brand engagement. *Internet Research*. 2025;35(3):1406-1426. doi:10.1108/INTR-12-2023-1156. | This study examines how consumers respond when they recognize falsity in AI-generated corporate social responsibility advertisements. It connects awareness of synthetic advertising with trust and online brand engagement. The source is useful for explaining why authenticity and transparency matter when brands use AI-generated content. | AI-generated advertising; brand authenticity; consumer response |
+| [The Impact of Generative AI Images on Consumer Attitudes in Advertising](https://www.mdpi.com/2076-3387/15/10/395) | Journal article | Zhang L, Hur C. The impact of generative AI images on consumer attitudes in advertising. *Administrative Sciences*. 2025;15(10):395. doi:10.3390/admsci15100395. | This article compares consumer reactions to AI-generated and human-created advertising images across several contexts. It also examines how disclosure and the stated reason for using AI affect trust, attitudes, and purchase intention. The findings help identify conditions under which AI-generated advertisements may be accepted or viewed negatively. | AI-generated advertising; consumer attitudes; consumer trust |
+
+### Simran Kaur
+
+| Article | Type | Citation | Note | Tags |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| [Advertising and Generative AI: How Can Advertisers Leverage New AI Tools?](https://www.tandfonline.com/doi/full/10.1080/00218499.2025.2494973) | Journal article | Lowe B, Laffey D, Luo Y. Advertising and generative AI: how can advertisers leverage new AI tools? Introducing a special issue on generative AI in advertising. *Journal of Advertising Research*. 2025;65(2):146-149. doi:10.1080/00218499.2025.2494973. | This article introduces the growing role of generative AI in advertising. It discusses applications in creative work, content development, audience targeting, consumer response, and advertising measurement. The source provides a useful overview of the opportunities and challenges advertisers face when adopting generative AI. | generative AI; digital advertising; content creation |
+| [When AI Doesn't Sell Prada: Why Using AI-Generated Advertisements Backfires for Luxury Brands](https://www.tandfonline.com/doi/full/10.1080/00218499.2025.2454120) | Journal article | To RN, Wu YC, Kianian P, Zhang Z. When AI doesn't sell Prada: why using AI-generated advertisements backfires for luxury brands. *Journal of Advertising Research*. 2025;65(2):202-236. doi:10.1080/00218499.2025.2454120. | This study examines how consumers react when luxury brands disclose the use of AI-generated advertising images. Consumers may view these advertisements as requiring less effort, which can reduce perceived brand authenticity. The findings also suggest that highly creative AI imagery can reduce some of the negative reactions. | luxury fashion; brand authenticity; AI-generated advertising |
+| [Gen Z and AI-Generated Fashion Ads: A Qualitative Study to Understanding Female Consumer Perceptions and Reactions](https://www.tandfonline.com/doi/full/10.1080/15332861.2025.2520194) | Journal article | Lou X, Copeland L. Gen Z and AI-generated fashion ads: a qualitative study to understanding female consumer perceptions and reactions. *Journal of Internet Commerce*. 2025;24(3):131-152. doi:10.1080/15332861.2025.2520194. | This qualitative study explores how Gen Z female consumers perceive and respond to AI-generated fashion advertisements. It examines trust, engagement, product perceptions, brand image, and reactions to AI-driven personalization through the Stimulus-Organism-Response framework. The source directly supports research on young consumers' responses to generative AI in fashion marketing. | AI-generated fashion advertising; Gen Z; consumer perception |
+
+### Gabriela Raygoza Quintero
+
+| Article | Type | Citation | Note | Tags |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| [Do Great Powers Come With Great Responsibility? Opportunities and Tensions of New Technologies in Marketing](https://www.sciencedirect.com/science/article/pii/S0167811624000065) | Journal article | Inman JJ, Meyer RJ, Schweidel DA, Srinivasan R. Do great powers come with great responsibility? Opportunities and tensions of new technologies in marketing. *International Journal of Research in Marketing*. 2024;41(1):18-23. doi:10.1016/j.ijresmar.2024.01.006. | This article discusses the opportunities and tensions created by emerging technologies in marketing. It considers both the value these tools can create and the responsibilities marketers face when applying them. The source gives the group a broader ethical and managerial perspective on the use of AI in marketing. | AI marketing; marketing technology; consumer behavior |
+| [Technology Devalues Luxury? Exploring Consumer Responses to AI-Designed Luxury Products](https://doi.org/10.1007/s11747-022-00854-x) | Journal article | Xu L, Mehta R. Technology devalues luxury? Exploring consumer responses to AI-designed luxury products. *Journal of the Academy of Marketing Science*. 2022;50(6):1135-1152. doi:10.1007/s11747-022-00854-x. | This study explains how AI-led product design can reduce the emotional value and perceived essence of luxury brands while increasing functional value. The negative effect is particularly important for luxury fashion, where emotional and symbolic value are central to the brand. This source helps explain why consumers may resist AI involvement in luxury design. | luxury fashion; brand authenticity; consumer response |
+
+### Alondra Rodriguez
+
+| Article | Type | Citation | Note | Tags |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| [Using Large Language Models to Simulate Multiple Humans and Replicate Human Subject Studies](https://proceedings.mlr.press/v202/aher23a.html) | Conference paper | Aher GV, Arriaga RI, Kalai AT. Using large language models to simulate multiple humans and replicate human subject studies. *Proceedings of Machine Learning Research*. 2023;202:337-371. | This paper studies whether large language models can simulate multiple human participants and reproduce findings from human-subject research. It provides a foundation for considering synthetic participants in consumer and market research. The source is also useful for discussing the validity and limitations of using AI-generated responses as substitutes for real people. | generative AI; market research; consumer behavior |
+| [Out of One, Many: Using Language Models to Simulate Human Samples](https://doi.org/10.1017/pan.2023.2) | Journal article | Argyle LP, Fulda N, Rytting C, Wingate D. Out of one, many: using language models to simulate human samples. *Political Analysis*. 2023;31(3):337-351. doi:10.1017/pan.2023.2. | This article examines whether language models can generate responses that reflect differences across human demographic groups. Its approach is relevant to researchers interested in creating synthetic samples or testing ideas before collecting primary data. The study can help the group evaluate both the potential and the risks of AI-generated consumer research data. | generative AI; synthetic samples; consumer research |
+| [Large Language Models for Market Research: A Data-Augmentation Approach](https://doi.org/10.48550/arXiv.2412.19363) | Research paper | Wang M, Zhang DJ, Zhang H. Large language models for market research: a data-augmentation approach. *arXiv*. Published December 26, 2024. doi:10.48550/arXiv.2412.19363. | This paper explores the use of large language models to augment limited market-research data. It may help researchers expand datasets and evaluate patterns when traditional samples are small or expensive to obtain. The source is useful for understanding how generative AI could support research while still requiring careful validation for bias and accuracy. | AI marketing; market research; data augmentation |
+
+### Veronica Vega
+
+| Article | Type | Citation | Note | Tags |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| [How Generative AI Is (Will) Change Consumer Behaviour: Postulating the Potential Impact and Implications for Research, Practice, and Policy](https://onlinelibrary.wiley.com/doi/abs/10.1002/cb.2345) | Journal article | Mogaji E, Jain V. How generative AI is (will) change consumer behaviour: postulating the potential impact and implications for research, practice, and policy. *Journal of Consumer Behaviour*. 2024;23(5):2379-2389. doi:10.1002/cb.2345. | This article explains how generative AI may influence consumer engagement, purchase decisions, personalized recommendations, and interactive shopping experiences. It also outlines implications for researchers, brands, practitioners, and policymakers. The source provides a broad framework for understanding how generative AI may reshape consumer behavior. | generative AI; consumer behavior; personalization |
+| [Anthropomorphism and Transparency Interplay on Consumer Behaviour in Generative AI-Driven Marketing Communication](https://doi.org/10.1108/JCM-04-2024-6806) | Journal article | Wang Y, Sauka K, Situmeang FBI. Anthropomorphism and transparency interplay on consumer behaviour in generative AI-driven marketing communication. *Journal of Consumer Marketing*. 2025;42(4):512-536. doi:10.1108/JCM-04-2024-6806. | This study investigates how human-like AI communication and disclosure influence social presence, trust, and purchase intention. It compares consumer reactions in chatbot and promotional-poster contexts using survey data from 444 participants. The findings are useful for understanding how transparency can change the effectiveness of anthropomorphic AI marketing. | AI marketing; transparency; consumer trust |
+:::
+
+## Zotero Group Library Link {#sec-access}
+
+The public group library can be accessed here:
+
+[IBM CEP Bibliography Database](https://www.zotero.org/groups/6674502/ibm_cep_bibliography_database/items/2ETBMLQR/item-list)
+
+## Appendix {#sec-appendix}
+
+-   **GitHub Repository:** <https://github.com/gabrielarq1/CEP--Group-8>
+-   **GitHub Pages:**
