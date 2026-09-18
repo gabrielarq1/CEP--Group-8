@@ -52,7 +52,7 @@ The main Git actions represent different stages of the workflow. **Saving** writ
 Table @tbl-workflow summarizes the difference among these actions.
 
 | Action | Where it acts | Main purpose | Visible to teammates immediately? |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Save | Working file | Write edits to the local file | No |
 | Stage | Local Git repository | Select changes for the next commit | No |
 | Commit | Local Git repository | Record a snapshot in Git history | No |
@@ -73,7 +73,7 @@ Because multiple people are contributing to one report, our normal working seque
 Principal Author: **Simran Kaur**
 
 | Member | Section or content added | Pulled before editing? | Commit message | How push was verified |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | Yushan Huang | Prompts 1 and 2; initial report structure | N/A - first editor | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | *Commit appeared in the GitHub repository history* |
 | Simran Kaur | Prompts 3 and 4 | Yes, confirmed with the group | Add Simran's responses for Prompts 3 and 4 | *Commit appeared in the GitHub repository history* |
 | Gabriela | Prompts 5 and 6 | Yes, confirmed with the group | *Update Group 8 week 3 collaborative practice* | *Commit appeared in the GitHub repository history* |
@@ -205,7 +205,7 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ## Member Contribution Table
 
 | Member | GitHub Username | Round 1 Commit Message | Round 2 Commit Message |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Yushan Huang | SashaHuang1 | Create collaboration practice report and add Yushan's responses to Prompts 1 and 2 | Improve Prompt 3 workflow explanation and update collaboration evidence |
 | Simran Kaur | Simrank-DM | Add Simran's responses for Prompts 3 and 4 | Improve Prompt 2 with Git workflow graphics |
 | Gabriela Raygoza Quintero | gabrielarq1 | Update Group 8 week 3 collaborative practice | revise repository sections |

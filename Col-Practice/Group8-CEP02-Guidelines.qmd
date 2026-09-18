@@ -1,0 +1,87 @@
+---
+title: "MSDM Culminating Experience Project Guidelines"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+  - "Veronica Vega"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-expand: 2
+    number-sections: true
+    code-link: true
+    code-fold: true
+    code-tools: true
+    code-overflow: wrap
+    theme: cosmo
+    embed-resources: true
+editor: visual
+execute:
+  freeze: auto
+---
+
+# INTRODUCTION
+
+\[Write a short opening paragraph introducing the project. Explain what the project will examine, why the issue matters, and how the team plans to address it. Keep this paragraph concise and use citations when presenting information from outside sources.\]
+
+## Background and Problem Statement
+
+\[Briefly introduce the company, organization, industry, or research setting. Include only the background information necessary to understand the problem. The detailed company and industry background will be presented in Chapter 2.\]
+
+\[Clearly describe the managerial problem or research problem. Explain the current situation, the challenge being experienced, and why the problem requires attention. Identify who is affected by the problem and what decisions the project will help support.\]
+
+\[Use reliable evidence and in-text citations to demonstrate that the problem exists. End this section by connecting the problem to the project objectives.\]
+
+## Project Objectives (POs)
+
+\[State the overall purpose of the project. Project objectives should explain what the team wants to accomplish for the client, organization, industry, or research field.\]
+
+The primary project objectives are:
+
+1.  **PO1:** \[State the first project objective.\]
+2.  **PO2:** \[State the second project objective.\]
+3.  **PO3:** \[Add another objective if needed.\]
+
+\[Briefly explain how achieving these objectives will help address the managerial or research problem.\]
+
+## Analytics Objectives
+
+\[Explain that the project objectives will be addressed through the following analytics objectives. Each analytics objective should be specific, measurable, and connected to a project objective.\]
+
+### AO1. \[Insert Title of AO1\] (Yushan Huang)
+
+\[Explain the purpose of AO1 and identify the question it will answer. Describe the data, variables, or information needed; the proposed analytical method; and the expected output. Explain how the findings will support one or more project objectives.\]
+
+### AO2. \[Insert Title of AO2\] (Simran Kaur)
+
+\[Explain the purpose of AO2 and identify the question it will answer. Describe the data, variables, or information needed; the proposed analytical method; and the expected output. Explain how the findings will support one or more project objectives.\]
+
+### AO3. \[Insert Title of AO3\] (Gabriela Raygoza Quintero)
+
+\[Explain the purpose of AO3 and identify the question it will answer. Describe the data, variables, or information needed; the proposed analytical method; and the expected output. Explain how the findings will support one or more project objectives.\]
+
+### AO4. \[Insert Title of AO4\] (Alondra Rodriguez)
+
+\[Explain the purpose of AO4 and identify the question it will answer. Describe the data, variables, or information needed; the proposed analytical method; and the expected output. Explain how the findings will support one or more project objectives.\]
+
+### AO5. \[Insert Title of AO5\] (Veronica Vega)
+
+\[Explain the purpose of AO5 and identify the question it will answer. Describe the data, variables, or information needed; the proposed analytical method; and the expected output. Explain how the findings will support one or more project objectives.\]
+
+## Significance (or Importance) of the Project
+
+\[Explain why the project is important. Describe how the findings may provide useful insights, improve decision-making, solve the identified problem, or support future marketing strategies.\]
+
+\[Explain the expected contribution to the client or organization. If relevant, also describe how the project may contribute to the industry, academic research, marketing profession, or society.\]
+
+\[Conclude by explaining what new information, analytical approach, recommendations, or practical value the project is expected to provide.\]
+
+# REFERENCES
+
+\[List every source cited in Chapter 1 using a consistent AMA reference style. Include journal articles, websites, reports, news articles, books, interviews, and other sources.\]
+
+\[Arrange references in the order they are first cited in the report. Apply a 0.5-inch hanging indent so that the second and later lines of each reference are indented.\]
