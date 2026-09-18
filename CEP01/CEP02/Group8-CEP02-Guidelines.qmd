@@ -68,7 +68,7 @@ The primary project objectives are:
 
 \[Explain the purpose of AO4 and identify the question it will answer. Describe the data, variables, or information needed; the proposed analytical method; and the expected output. Explain how the findings will support one or more project objectives.\]
 
-### AO5. \[Insert Title of AO5\] (Veronica Vega)
+### AO5. \[Insert Title of AO5\] (***Veronica Vega***)
 
 \[Explain the purpose of AO5 and identify the question it will answer. Describe the data, variables, or information needed; the proposed analytical method; and the expected output. Explain how the findings will support one or more project objectives.\]
 
