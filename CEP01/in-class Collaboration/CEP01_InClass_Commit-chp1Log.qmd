@@ -1,0 +1,69 @@
+::: {.callout-note}
+
+## Project Status
+
+The group has not yet met with the client. The initial client meeting is scheduled for Friday, September 18, 2026, at 6:00 p.m. Therefore, the current document serves as a preliminary framework and will be updated after the meeting with specific information about the company, managerial problem, project objectives, analytics objectives, and significance of the project.
+
+:::
+
+# GitHub Commit History
+
+The screenshot below shows the GitHub commit history from the September 17, 2026 in-class activity. It confirms that all five group members participated in developing the preliminary Chapter 1 document.
+
+![](images/IC-W4-%20commits%20ss.png)
+
+## Commits from September 17, 2026
+
+| Group Member | Commit | Contribution |
+|------------------------|------------------------|------------------------|
+| Veronica Vega | [`c757a78`](https://github.com/gabrielarq1/CEP--Group-8/commit/c757a78c4eb3e55d790303345104e5b47d94e231) | Added Veronica’s changes to the shared Chapter 1 document. |
+| Gabriela Raygoza Quintero | [`8f4b7e4`](https://github.com/gabrielarq1/CEP--Group-8/commit/8f4b7e4e9073ded51aeee6b1797b48dcd2ebe0b9) | Completed updates to AO3. |
+| Alondra Rodriguez | [`18d5e70`](https://github.com/gabrielarq1/CEP--Group-8/commit/18d5e70c3687a5502fdae3f6f2ad5954e91f0da2) | Edited the shared document during the in-class activity. |
+| Yushan Huang | [`cf10276`](https://github.com/gabrielarq1/CEP--Group-8/commit/cf10276e52501d91c7ea97bcde31c9e1d8730e10) | Added content for AO1. |
+| Yushan Huang | [`190e8a9`](https://github.com/gabrielarq1/CEP--Group-8/commit/190e8a986a817976ff9741145a4beaf7de62dce1) | Continued updating AO1. |
+| Yushan Huang | [`0d77765`](https://github.com/gabrielarq1/CEP--Group-8/commit/0d777657d2d56bf35c04eda9e6c3fd9d56d2ef6c) | Created the initial AO1 contribution. |
+| Simran Kaur | [`66960e8`](https://github.com/gabrielarq1/CEP--Group-8/commit/66960e89d5bd4c334515ee4dc75aa37601f03a10) | Created the preliminary Chapter 1 structure and guidelines. |
+
+# Individual Contributions
+
+## Yushan Huang
+
+Yushan worked on AO1 and made multiple commits while developing and revising the section.
+
+## Simran Kaur
+
+Simran created the preliminary Chapter 1 document, including the required headings, project objectives, individual analytics objectives, significance section, references section, and instructional placeholders.
+
+## Gabriela Raygoza Quintero
+
+Gabriela completed the group’s updates to AO3 and pushed her contribution to the shared repository.
+
+## Alondra Rodriguez
+
+Alondra edited the shared Chapter 1 document during the in-class collaboration activity.
+
+## Veronica Vega
+
+Veronica added her assigned changes to the shared Chapter 1 document and pushed them to the repository.
+
+# Chapter 1 Structure
+
+The group created the following preliminary Chapter 1 structure:
+
+-   Introduction
+-   Background and Problem Statement
+-   Project Objectives
+-   Analytics Objectives
+    -   AO1 — Yushan Huang
+    -   AO2 — Simran Kaur
+    -   AO3 — Gabriela Raygoza Quintero
+    -   AO4 — Alondra Rodriguez
+    -   AO5 — Veronica Vega
+-   Significance or Importance of the Project
+-   References
+
+# Reflection
+
+The in-class activity gave the group practical experience working together in one shared GitHub repository. Dividing the objectives among the five members made each person’s responsibility clear, while the commit history provided visible evidence of individual participation. The activity also reinforced the importance of pulling the latest version before editing, using descriptive commit messages, and communicating with teammates to reduce conflicting changes. Overall, the group established an organized foundation for developing Chapter 1 after meeting with the client.
+
+![The shared Chapter 1 QMD, rendered HTML preview, and Git history during the in-class collaboration activity.](images/Chp%201%20qmd%20work-screen-3.png)
