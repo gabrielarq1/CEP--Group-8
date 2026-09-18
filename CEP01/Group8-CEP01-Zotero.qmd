@@ -60,7 +60,7 @@ Figure @sec-item shows one completed item from the library. The entry includes t
 -   Tags
 :::
 
-![](images/CEP01imageszotero-group-library 2.png){fig-align="center"}
+![](images/CEP01imageszotero-group-library%202.png){fig-align="center"}
 
 ::: callout-note
 The example article focuses on how Gen Z female consumers respond to AI-generated fashion advertisements. The item is tagged with terms related to generative AI, fashion advertising, Gen Z, and consumer perception.
