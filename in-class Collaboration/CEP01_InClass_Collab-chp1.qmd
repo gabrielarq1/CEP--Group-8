@@ -16,6 +16,7 @@ format:
     embed-resources: true
 editor: visual
 ---
+
 ::: callout-note
 ## Project Status
 
@@ -31,7 +32,7 @@ The screenshot below shows the GitHub commit history from the September 17, 2026
 ## Commits from September 17, 2026
 
 | Group Member | Commit | Contribution |
-|------------------------|------------------------|------------------------|
+|------------------------|--------------|------------------------|
 | Veronica Vega | [`c757a78`](https://github.com/gabrielarq1/CEP--Group-8/commit/c757a78c4eb3e55d790303345104e5b47d94e231) | Added Veronica’s changes to the shared Chapter 1 document. |
 | Gabriela Raygoza Quintero | [`8f4b7e4`](https://github.com/gabrielarq1/CEP--Group-8/commit/8f4b7e4e9073ded51aeee6b1797b48dcd2ebe0b9) | Completed updates to AO3. |
 | Alondra Rodriguez | [`18d5e70`](https://github.com/gabrielarq1/CEP--Group-8/commit/18d5e70c3687a5502fdae3f6f2ad5954e91f0da2) | Edited the shared document during the in-class activity. |
