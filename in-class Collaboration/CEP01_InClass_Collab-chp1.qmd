@@ -1,9 +1,25 @@
-::: {.callout-note}
-
+---
+title: "Group 8 In-Class Collaboration: Chapter 1"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+  - "Veronica Vega"
+date: "September 17, 2026"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    embed-resources: true
+editor: visual
+---
+::: callout-note
 ## Project Status
 
 The group has not yet met with the client. The initial client meeting is scheduled for Friday, September 18, 2026, at 6:00 p.m. Therefore, the current document serves as a preliminary framework and will be updated after the meeting with specific information about the company, managerial problem, project objectives, analytics objectives, and significance of the project.
-
 :::
 
 # GitHub Commit History
