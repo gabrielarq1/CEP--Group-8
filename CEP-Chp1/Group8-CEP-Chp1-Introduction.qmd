@@ -220,10 +220,6 @@ Local businesses need research they can afford and trust.
 :::
 ::::::
 
-# \<\<\<\<\<\<\< HEAD
-
-Our team is TBFI's first student consultant cohort. Our job is to build the tools that solve these problems, test that they work, and use them to bring in TBFI's first clients. \>\>\>\>\>\>\> 68c5c5e2ff74a4767f868bf79fa6747820d69bcb
-
 ## Project Objectives (POs) {#sec-po}
 
 The project has four main goals [@lin2026]:
@@ -280,9 +276,9 @@ Each team member owns one analytics objective. Together, they support the four P
 
 \<\<\<\<\<\<\< HEAD \|---------------\|---------------\|---------------\|---------------\|---------------\| \| 📑 \| AO1 \| Alondra Rodriguez \| What does current research say about AI respondents, and what data do we have for the four industries? \| PO2 \| ======= \|----\|----\|----\|----\|----\| \| 📑 \| AO1 \| Yushan Huang \| What does current research say about AI respondents, and what data do we have for the four industries? \| PO2 \| \>\>\>\>\>\>\> 68c5c5e2ff74a4767f868bf79fa6747820d69bcb \| 🗺️ \| AO2 \| Simran Kaur \| How do customers see brands in each industry, and what groups do they fall into? \| PO2 \| \| ✅ \| AO3 \| Gabriela Raygoza Quintero \| Can we trust the AI panels? How closely do they match real people? \| PO2 \| \| 🎮 \| AO4 \| Yushan Huang \| Does the simulator improve consultant skills? \| PO1, PO4 \| \| 📈 \| AO5 \| Veronica Vega \| Which marketing channels bring in real client inquiries? \| PO3 \|
 
-: Table 1. Analytics objectives, owners, and the project objectives they support.
+:   Table 1. Analytics objectives, owners, and the project objectives they support.
 
-### AO1. Evidence Review and Data Setup (Simran KaurV) {#sec-ao1}
+### AO1. Evidence Review and Data Setup (Simran Kaur ) {#sec-ao1}
 
 ::: ao-panel
 [Question: What does current research say, and what data do we have?]{.q}
