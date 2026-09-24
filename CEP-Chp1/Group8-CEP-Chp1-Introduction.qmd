@@ -220,6 +220,10 @@ Local businesses need research they can afford and trust.
 :::
 ::::::
 
+# \<\<\<\<\<\<\< HEAD
+
+Our team is TBFI's first student consultant cohort. Our job is to build the tools that solve these problems, test that they work, and use them to bring in TBFI's first clients. \>\>\>\>\>\>\> 68c5c5e2ff74a4767f868bf79fa6747820d69bcb
+
 ## Project Objectives (POs) {#sec-po}
 
 The project has four main goals [@lin2026]:
@@ -272,13 +276,9 @@ flowchart LR
 
 Each team member owns one analytics objective. Together, they support the four POs.
 
-|   | AO | Owner | What it answers | Supports |
-|---------------|---------------|---------------|---------------|---------------|
-| 📑 | AO1 | Alondra Rodriguez | What does current research say about AI respondents, and what data do we have for the four industries? | PO2 |
-| 🗺️ | AO2 | Simran Kaur | How do customers see brands in each industry, and what groups do they fall into? | PO2 |
-| ✅ | AO3 | Gabriela Raygoza Quintero | Can we trust the AI panels? How closely do they match real people? | PO2 |
-| 🎮 | AO4 | Yushan Huang | Does the simulator improve consultant skills? | PO1, PO4 |
-| 📈 | AO5 | Veronica Vega | Which marketing channels bring in real client inquiries? | PO3 |
+|   \| AO \| Owner \| What it answers \| Supports \|
+
+\<\<\<\<\<\<\< HEAD \|---------------\|---------------\|---------------\|---------------\|---------------\| \| 📑 \| AO1 \| Alondra Rodriguez \| What does current research say about AI respondents, and what data do we have for the four industries? \| PO2 \| ======= \|----\|----\|----\|----\|----\| \| 📑 \| AO1 \| Yushan Huang \| What does current research say about AI respondents, and what data do we have for the four industries? \| PO2 \| \>\>\>\>\>\>\> 68c5c5e2ff74a4767f868bf79fa6747820d69bcb \| 🗺️ \| AO2 \| Simran Kaur \| How do customers see brands in each industry, and what groups do they fall into? \| PO2 \| \| ✅ \| AO3 \| Gabriela Raygoza Quintero \| Can we trust the AI panels? How closely do they match real people? \| PO2 \| \| 🎮 \| AO4 \| Yushan Huang \| Does the simulator improve consultant skills? \| PO1, PO4 \| \| 📈 \| AO5 \| Veronica Vega \| Which marketing channels bring in real client inquiries? \| PO3 \|
 
 : Table 1. Analytics objectives, owners, and the project objectives they support.
 
@@ -310,9 +310,9 @@ Because AI tends to get rankings right more often than exact numbers, the maps w
 [Question: Can we trust the AI panels? How closely do they match real people?]{.q}
 :::
 
-This AO tests whether the AI respondents can be trusted. We will give the same survey to three AI panels (Claude, ChatGPT, and Gemini) and compare their answers to Dr. Lin's panel of about 600 real people [@lin2026].
+This AO focuses on whether the AI respondents can be trusted as a reliable source. We will provide the same survey to three LLM (ChatGPT, Claude and Gemini) and compare their responses to the pre-existing human benchmark of approximatley 600 participants. [@lin2026].
 
-We will use two main scores. **Krippendorff's alpha** checks whether different panels agree with each other, with values of 0.80 or above treated as strong and 0.67 as the minimum [@krippendorff2018]. **F1 score** checks how often the AI's answers match the human answers. Following "trust the order, test the level," we will first check whether the AI ranks options in the same order as people, and then check how far off its exact numbers are.
+In order to determine the validity of the LLM's, the Structured Taxonomy AI Measurement Protocool (STAMP) will be implemented in order to to construct the necessary measurement. We will use two main scores. **Krippendorff's alpha** checks whether different panels agree with each other, with values of 0.80 or above treated as strong and 0.67 as the minimum [@krippendorff2018]. **F1 score** checks how often the AI's answers match the human answers. Following *"trust the order, test the level,"* we will first check whether the AI ranks options in the same order as people, and then check how far off its exact numbers are.
 
 The result will sort each finding into one of three groups: **use as is**, **use for rankings only**, or **do not use**. This tells TBFI and its clients how much to trust each result on the dashboard.
 
@@ -332,7 +332,11 @@ To evaluate the training results, new consultants will complete a skills check b
 [Question: Which marketing channels bring in real client inquiries?]{.q}
 :::
 
-This AO measures the marketing plan. It tracks each step of the funnel: site visits, demo completions, intake inquiries, and sponsor meetings. It compares a starting baseline to results after the campaign and shows which channels work best.
+The Assessment Objective (AO) for this project will measure the success of the digital marketing plan by tracking the performance of potential clients through the entire marketing funnel. The digital marketing funnel includes: website visits representing awareness and interest in the company and services provided through the website; demo completions, intake inquiries and meetings with sponsors.
+
+**A comparison** of the baseline data from before the campaign was launched and the resulting data after the campaign has been implemented will show the impact of the marketing and measure the effectiveness of the campaign. The assessment also aims to establish which of the various marketing channels such as SEO (search engine optimization), social media, email marketing, referral networks and paid online advertising. Which have generated the highest volume of qualified intake inquiries leading to sponsor acquisitions. The results will be used for data driven decision making and to optimize future online marketing investments to maximize return.
+
+**Previous research** suggests that interactive marketing channels are often more effective at generating customer inquiries and conversions than traditional channels. Specifically, search engine optimization (SEO), online review platforms, and word-of-mouth referrals were found to increase customer acquisition rates for service organizations [@majid2021]. These findings support the need to evaluate which marketing channels generate the greatest number of qualified intake inquiries and sponsor meetings for TBFI.
 
 ## Significance of the Project {#sec-significance}
 
