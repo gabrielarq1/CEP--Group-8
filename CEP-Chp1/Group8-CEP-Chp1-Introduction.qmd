@@ -331,7 +331,13 @@ To evaluate the training results, new consultants will complete a skills check b
 [Question: Which marketing channels bring in real client inquiries?]{.q}
 :::
 
-This AO measures the marketing plan. It tracks each step of the funnel: site visits, demo completions, intake inquiries, and sponsor meetings. It compares a starting baseline to results after the campaign and shows which channels work best.
+The Assessment Objective (AO) for this project will measure the success of the digital marketing plan by tracking the performance of potential clients through the entire marketing funnel. The digital marketing funnel includes: website visits representing awareness and interest in the company and services provided through the website; demo completions, intake inquiries and meetings with sponsors. 
+
+**A comparison** of the baseline data from before the campaign was launched and the resulting data after the campaign has been implemented will show the impact of the marketing and measure the effectiveness of the campaign. The assessment also aims to establish which of the various marketing channels such as SEO (search engine optimization), social media, email marketing, referral networks and paid online advertising. Which have generated the highest volume of qualified intake inquiries leading to sponsor acquisitions. The results will be used for data driven decision making and to optimize future online marketing investments to maximize return.
+
+**Previous research** suggests that interactive marketing channels are often more effective at generating customer inquiries and conversions than traditional channels. Specifically, search engine optimization (SEO), online review platforms, and word-of-mouth referrals were found to increase customer acquisition rates for service organizations [@majid2021]. These findings support the need to evaluate which marketing channels generate the greatest number of qualified intake inquiries and sponsor meetings for TBFI.
+
+
 
 ## Significance of the Project {#sec-significance}
 
