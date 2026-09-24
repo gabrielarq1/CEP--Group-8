@@ -181,20 +181,19 @@ th { background: #1E4D2B; color: #fff; }
 
 Market research helps businesses understand what customers want. But it is expensive. A professional study usually costs between \$8,000 and \$15,000 [@lin2026]. Most small businesses in the San Gabriel Valley (SGV) cannot pay that. So they make big decisions, like pricing, new products, or where to open, based on guesses.
 
-::: {.stat-strip}
-::: {.stat}
-[\$8K–15K]{.num}
-[cost of one professional study]{.lbl}
+:::::: stat-strip
+::: stat
+[\$8K–15K]{.num} [cost of one professional study]{.lbl}
 :::
-::: {.stat}
-[4]{.num}
-[SGV industries we study]{.lbl}
+
+::: stat
+[4]{.num} [SGV industries we study]{.lbl}
 :::
-::: {.stat}
-[~600]{.num}
-[real people used as a benchmark]{.lbl}
+
+::: stat
+[\~600]{.num} [real people used as a benchmark]{.lbl}
 :::
-:::
+::::::
 
 AI may offer a cheaper option. Recent studies show that large language models (LLMs) can act like survey respondents. When given a profile, such as age, income, and location, an LLM can answer survey questions in ways that often look like real people's answers [@argyle2023; @aher2023; @horton2023]. In marketing, researchers have used this to estimate what customers are willing to pay and how they see competing brands [@brand2023; @li2024; @wang2026].
 
@@ -202,23 +201,25 @@ There is a catch. AI answers are not always right. They can be too confident, to
 
 Our client is the Tarkington Business Futures Institute (TBFI), a new applied "Do Tank" inside Cal Poly Pomona's College of Business Administration [@cpp2026; @tbfi2026]. TBFI wants to offer low-cost research to local businesses. It faces three problems:
 
-::: {.card-grid}
-::: {.card}
+:::::: card-grid
+::: card
 [👥]{.icon}<br>**Training doesn't scale**
 
 Training new student consultants one by one takes too long.
 :::
-::: {.card}
+
+::: card
 [🖥️]{.icon}<br>**No live demo**
 
 Businesses want to see a working demo, not a slide deck.
 :::
-::: {.card}
+
+::: card
 [💰]{.icon}<br>**Research costs too much**
 
 Local businesses need research they can afford and trust.
 :::
-:::
+::::::
 
 Our team is TBFI's first student consultant cohort. Our job is to build the tools that solve these problems, test that they work, and use them to bring in TBFI's first clients.
 
@@ -226,28 +227,31 @@ Our team is TBFI's first student consultant cohort. Our job is to build the tool
 
 The project has four main goals [@lin2026]:
 
-::: {.card-grid}
-::: {.card}
+::::::: card-grid
+::: card
 [🎮]{.icon}<br>**PO1. Build the Do Tank Simulator**
 
 A browser-based training game that walks a user through a full consulting job: intake, research design, AI survey panel, perceptual map, and client readout. At least 10 rounds, plus a short version TBFI can use as a sales demo.
 :::
-::: {.card}
+
+::: card
 [📊]{.icon}<br>**PO2. Build the SGV Insights Dashboard**
 
 AI-generated customer insights for four industries: specialty food and beverage, ADU and prefab housing, cross-border e-commerce and logistics, and health and senior services. Includes perceptual maps, customer segments, and a trust report.
 :::
-::: {.card}
+
+::: card
 [📣]{.icon}<br>**PO3. Run a digital marketing plan**
 
 A landing page, LinkedIn and email content, and outreach to local chambers of commerce. We track the full funnel, from site visits to client meetings.
 :::
-::: {.card}
+
+::: card
 [🎓]{.icon}<br>**PO4. Train the first consultant group**
 
 New consultants go through the simulator, and we measure their skills before and after.
 :::
-:::
+:::::::
 
 ```{mermaid}
 %%| fig-cap: "Figure 1. How the business problem connects to our project and analytics objectives."
@@ -271,8 +275,8 @@ flowchart LR
 
 Each team member owns one analytics objective. Together, they support the four POs.
 
-| | AO | Owner | What it answers | Supports |
-|---|---|---|---|---|
+|   | AO | Owner | What it answers | Supports |
+|----|----|----|----|----|
 | 📑 | AO1 | Yushan Huang | What does current research say about AI respondents, and what data do we have for the four industries? | PO2 |
 | 🗺️ | AO2 | Simran Kaur | How do customers see brands in each industry, and what groups do they fall into? | PO2 |
 | ✅ | AO3 | Gabriela Raygoza Quintero | Can we trust the AI panels? How closely do they match real people? | PO2 |
@@ -283,7 +287,7 @@ Each team member owns one analytics objective. Together, they support the four P
 
 ### AO1. Evidence Review and Data Setup (Alondra Rodriguez) {#sec-ao1}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: What does current research say, and what data do we have?]{.q}
 :::
 
@@ -291,7 +295,7 @@ This AO gathers what we already know. It reviews published studies on AI survey 
 
 ### AO2. Perceptual Maps and Customer Segments (Simran Kaur) {#sec-ao2}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: How do customers see brands in each industry, and what groups do they fall into?]{.q}
 :::
 
@@ -305,19 +309,19 @@ Because AI tends to get rankings right more often than exact numbers, the maps w
 
 ### AO3. Validating the AI Panels (Gabriela Raygoza Quintero) {#sec-ao3}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: Can we trust the AI panels? How closely do they match real people?]{.q}
 :::
 
-This AO tests whether the AI respondents can be trusted. We will give the same survey to three AI panels (Claude, ChatGPT, and Gemini) and compare their answers to Dr. Lin's panel of about 600 real people [@lin2026].
+This AO focuses on whether the AI respondents can be trusted as a reliable source. We will provide the same survey to three LLM (ChatGPT, Claude and Gemini) and compare their responses to the pre-existing human benchmark of approximatley 600 participants. [@lin2026].
 
-We will use two main scores. **Krippendorff's alpha** checks whether different panels agree with each other, with values of 0.80 or above treated as strong and 0.67 as the minimum [@krippendorff2018]. **F1 score** checks how often the AI's answers match the human answers. Following "trust the order, test the level," we will first check whether the AI ranks options in the same order as people, and then check how far off its exact numbers are.
+In order to determine the validity of the LLM's, the Structured Taxonomy AI Measurement Protocool (STAMP) will be implemented in order to to construct the necessary measurement. We will use two main scores. **Krippendorff's alpha** checks whether different panels agree with each other, with values of 0.80 or above treated as strong and 0.67 as the minimum [@krippendorff2018]. **F1 score** checks how often the AI's answers match the human answers. Following *"trust the order, test the level,"* we will first check whether the AI ranks options in the same order as people, and then check how far off its exact numbers are.
 
 The result will sort each finding into one of three groups: **use as is**, **use for rankings only**, or **do not use**. This tells TBFI and its clients how much to trust each result on the dashboard.
 
 ### AO4. Simulator Build and Training Results (Yushan Huang) {#sec-ao4}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: Does the simulator improve consultant skills?]{.q}
 :::
 
@@ -327,39 +331,39 @@ To evaluate the training results, new consultants will complete a skills check b
 
 ### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: Which marketing channels bring in real client inquiries?]{.q}
 :::
 
-The Assessment Objective (AO) for this project will measure the success of the digital marketing plan by tracking the performance of potential clients through the entire marketing funnel. The digital marketing funnel includes: website visits representing awareness and interest in the company and services provided through the website; demo completions, intake inquiries and meetings with sponsors. 
+The Assessment Objective (AO) for this project will measure the success of the digital marketing plan by tracking the performance of potential clients through the entire marketing funnel. The digital marketing funnel includes: website visits representing awareness and interest in the company and services provided through the website; demo completions, intake inquiries and meetings with sponsors.
 
 **A comparison** of the baseline data from before the campaign was launched and the resulting data after the campaign has been implemented will show the impact of the marketing and measure the effectiveness of the campaign. The assessment also aims to establish which of the various marketing channels such as SEO (search engine optimization), social media, email marketing, referral networks and paid online advertising. Which have generated the highest volume of qualified intake inquiries leading to sponsor acquisitions. The results will be used for data driven decision making and to optimize future online marketing investments to maximize return.
 
 **Previous research** suggests that interactive marketing channels are often more effective at generating customer inquiries and conversions than traditional channels. Specifically, search engine optimization (SEO), online review platforms, and word-of-mouth referrals were found to increase customer acquisition rates for service organizations [@majid2021]. These findings support the need to evaluate which marketing channels generate the greatest number of qualified intake inquiries and sponsor meetings for TBFI.
 
-
-
 ## Significance of the Project {#sec-significance}
 
 This project matters to three groups.
 
-::: {.card-grid}
-::: {.card}
+:::::: card-grid
+::: card
 [🏪]{.icon}<br>**Local businesses**
 
 Get research they could not afford before. A bakery or a senior care provider in the SGV can learn what customers want without spending \$10,000.
 :::
-::: {.card}
+
+::: card
 [🏛️]{.icon}<br>**TBFI**
 
 Gets working tools, a sales demo, and its first clients. The simulator lets TBFI train new consultants faster, so the program can grow.
 :::
-::: {.card}
+
+::: card
 [🔬]{.icon}<br>**The research field**
 
 Gets a real-world test of AI survey panels. Most studies so far were run in labs [@argyle2023; @bisbee2024]. We test the method on actual local businesses.
 :::
-:::
+::::::
 
 For our team, the project builds skills that employers want: working with AI tools, testing data quality, building dashboards, and running digital campaigns.
 
