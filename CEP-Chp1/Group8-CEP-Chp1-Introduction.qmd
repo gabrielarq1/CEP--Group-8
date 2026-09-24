@@ -281,7 +281,7 @@ Each team member owns one analytics objective. Together, they support the four P
 
 : Table 1. Analytics objectives, owners, and the project objectives they support.
 
-### AO1. Evidence Review and Data Setup (Yushan Huang) {#sec-ao1}
+### AO1. Evidence Review and Data Setup (Alondra Rodriguez) {#sec-ao1}
 
 ::: {.ao-panel}
 [Question: What does current research say, and what data do we have?]{.q}
@@ -315,13 +315,15 @@ We will use two main scores. **Krippendorff's alpha** checks whether different p
 
 The result will sort each finding into one of three groups: **use as is**, **use for rankings only**, or **do not use**. This tells TBFI and its clients how much to trust each result on the dashboard.
 
-### AO4. Simulator Build and Training Results (Alondra Rodriguez) {#sec-ao4}
+### AO4. Simulator Build and Training Results (Yushan Huang) {#sec-ao4}
 
 ::: {.ao-panel}
 [Question: Does the simulator improve consultant skills?]{.q}
 :::
 
-This AO develops the simulator's rounds and measures whether it works as a training tool. New consultants will take a skills check before and after using the simulator. The change in scores shows whether the simulator actually teaches.
+This AO develops the simulator's rounds and evaluates whether it works as a training tool for new consultants. The simulator will provide a structured environment where consultants can practice interpreting research results, making decisions, and applying insights to realistic consulting scenarios.
+
+To evaluate the training results, new consultants will complete a skills check before and after using the simulator. Their pre-training and post-training scores will be compared to measure changes in performance. The results will help determine whether the simulator improves the skills it is designed to teach and identify areas where the training experience may need further improvement.
 
 ### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
 
