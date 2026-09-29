@@ -514,10 +514,14 @@ The analysis will focus on the magnitude and direction of changes between pre-tr
 ### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
 
 ::: ao-panel
-[Question: Which marketing channels bring in real client inquiries?]{.q}
+[Question:  Which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel?]{.q}
 :::
 
-This AO measures the marketing plan. It tracks each step of the funnel: site visits, demo completions, intake inquiries, and sponsor meetings. It compares a starting baseline to results after the campaign and shows which channels work best.
+The objective of this analysis is to evaluate and compare the effectiveness of digital marketing channels in generating qualified sponsor inquiries and sponsor acquisitions for TBFI. Marketing performance will be measured using key funnel metrics including website visits, inquiry form submissions, demo completions, sponsor meetings, sponsor acquisitions, and conversion rates. 
+
+The independent variable for this analysis is marketing channel source, including Search Engine Optimization (SEO), social media marketing, email marketing, referral networks, and paid online advertising. The dependent variables are qualified intake inquiries, sponsor meetings, sponsor acquisitions, and conversion rates. Funnel analytics and comparative statistical analysis will be used to identify which channels contribute most significantly to successful sponsor acquisition outcomes. 
+
+Baseline performance metrics collected prior to campaign implementation will be compared with post-campaign performance metrics to assess marketing effectiveness. Results from this analysis will support data-driven decision making and assist TBFI in optimizing future marketing investments by allocating resources toward the channels with the highest sponsor acquisition performance and return on investment (ROI). 
 
 ## Significance of the Project {#sec-significance}
 
@@ -672,23 +676,41 @@ AO4 therefore remains aligned with the broader TBFI project while becoming more 
 ### AO5. Marketing Funnel Analytics (Veronica Vega)
 
 **Analytics Objective:**\
-\[Veronica: Copy the complete revised AO5 from Chapter 1 here.\]
+Which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel?
 
-#### Existence of Well-established Models
+AO5 aims to identify the most effective digital marketing channels for qualified sponsor inquiries and sponsor acquisitions. Therefore, established research frameworks and models for digital marketing funnels, customer acquisition, conversion rates, channel effectiveness and marketing attribution need to be reviewed. These models represent a theoretical basis for analyzing customer behavior and evaluating the marketing efforts of organizations. Website activity, inquiry volume, demo completions, customer interactions, conversion rates and acquisition figures are indicators of the performance of marketing channels and thus of relevance for the marketing funnel analysis of AO5.[@brand2023; @wang2026]
 
-\[Veronica: Review established research and models relevant to digital marketing funnels, customer acquisition, conversion, channel performance, attribution, and other concepts directly related to AO5. Explain how previous research measures funnel performance and channel effectiveness. Target approximately 2–3 pages.\]
+For digital marketing in particular, there are established frameworks such as the Marketing Funnel Model which plots the buyer’s journey through a series of stages. The classic model contains five stages of customer behavior (Awareness, Interest, Consideration, Conversion and Retention). As consumers progress through the various stages of the marketing funnel website visits and sales can be used to gauge awareness and interest, and conversions such as inquiries, demo’s, consultations and sales can be used to assess later stages of the funnel. The performance of the marketing funnel can be quantified in terms of the volume of traffic to the website, the number of inquiries and resulting conversions as well as customer acquisition costs and return on investment (ROI) measures.[@brand2023]
+
+The AIDA Model (Attention, Interest, Desire, and Action) is one more of the marketing frameworks that can be useful to researchers by breaking down the processes of the customer decision making in the digital marketing space. As the Marketing Funnel Model above measures conversions at different levels of the customer journey, metrics will vary for each stage of AIDA such as counts of Attention, Interest, and Desire generated and the conversion rates and engagement metrics for Action stages (e.g. email marketing click through rates for people who have reached the Desire stage). For example, ROI and Conversion of leads to customers of search engine optimization (SEO), social media marketing, email marketing and paid online advertising.[@li2024]
+
+Today’s customers are not taking a straight line journey to purchase. The Customer Journey Framework describes in detail how customers are interacting with a company’s various marketing touchpoints, both online and offline. An example customer journey would be: a customer sees a tweet from a business in their Twitter feed, they click through to the business’ website by searching for it on a search engine, they come back to the site via an email campaign a few days later and book a meeting by way of a referral from a friend.[@li2024; @brand2023]
+
+A marketing attribution model also is used to assess marketing channel effectiveness. It assesses which marketing activity has caused a customer conversion. Common types of attribution models include first-touch attribution, last-touch attribution, linear attribution and multi-touch attribution models. All of these models are of relevance for the objective AO5 and thus can be of use for TBFI to determine which of the digital marketing channels are generating the most qualified sponsor inquiries and even sponsor acquisitions.These attribution approaches can help organizations determine which marketing channels are contributing most effectively to customer acquisition and conversion outcomes [@brand2023; @wang2026].
+
+Measuring the deeper end of the funnel helps to provide better insights to see whether marketing efforts are translating into any business value. So, in addition to tracking website traffic and other metrics that measure awareness and interest, previous research supports the use of metrics such as lead generation, lead quality, conversion rates, customer acquisition cost and customer lifetime value to measure and track the performance of different marketing channels.Previous research supports the use of metrics such as lead generation, lead quality, conversion rates, customer acquisition cost, and customer lifetime value to evaluate marketing channel effectiveness.
+
+Together, the Marketing Funnel Model, AIDA Model, Customer Journey Framework, and Marketing Attribution Models define the current state of understanding digital marketing funnels and offer means of measurement of performance of individual and collective online marketing channels [@wang2026; @lin2026]. Such as website traffic, quantity of inquiries, completion rates of demos, quality and quantity of customer interactions, conversion rates and more, enabling application of funnel analytics to TBFI’s online marketing efforts in order to measure and maximize their effectiveness.
 
 #### Adequateness of Gathered Information
 
-\[Veronica: In approximately one paragraph, explain what the existing research already tells us about digital marketing funnel performance and whether this information is sufficient for TBFI's client-acquisition context.\]
+There is significant prior work that describes and measures the performance of various parts of the digital marketing funnel including customer acquisition and conversion, as well as individual marketing channels such as SEO, social media, email, referral and paid media. We draw upon a number of established frameworks and metrics that organizations use to measure and manage their marketing efforts. Importantly, there is substantial prior work on the conversion optimization and attribution aspects of digital marketing that can inform our research.Recent studies have also demonstrated the growing value of AI-assisted market research and advanced analytics methods for understanding customer behavior and evaluating marketing performance [@brand2023; @wang2026]. Although the prior work provides solid theoretical foundations for the study of digital marketing, however, there is no prior work that specifically focuses on the processes and activities used by TBFI’s sponsor acquisition efforts within the specific context of the organization’s unique customer journey and overall business objectives.
 
 #### Need for Additional Analysis
 
-\[Veronica: In approximately one paragraph, explain why TBFI needs its own funnel analysis using project-specific measures such as site visits, demo completions, intake inquiries, and sponsor meetings.\]
+While there is valuable information regarding the performance of digital marketing channels available from previous studies, in-depth analysis into specific organizations’ digital marketing channels is required to identify the optimal mix of channels to create the highest quality sponsor inquiries and conversions. This is because the behavior of customers, the conversion rates and how different marketing channels perform vary greatly between different industries and companies. Furthermore, researchers have cautioned that synthetic or AI-generated data may not consistently represent real-world customer behavior. Bisbee et al. argued that large language models may introduce validity concerns when used as substitutes for human-generated data [@bisbee2024]. Similarly, Aher et al. found that simulated responses may vary depending on prompt design and modeling assumptions [@aher2023].In the case of TBFI, in addition to general digital marketing metrics, specific project-related metrics such as website visits, demo completions, intake inquiries, meetings with potential sponsors and conversions need to be analyzed in order to gain insights on how prospective sponsors progress through TBFI’s marketing funnel and at which points of the funnel they enter and drop off. Such analysis can support data-driven marketing decisions and enhance return on investment from future online marketing efforts.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-\[Veronica: Based on the literature review, assess and refine AO5. State the final measurable AO5 and explain how it supports the TBFI business-intake objective.\]
+A literature review on marketing funnel analytics, customer journey analysis and attribution models has identified that for acquiring customers in today’s digital marketing environment it is most important to assess the influence of multiple marketing channels and to measure conversion instead of traffic. Furthermore, the literature also revealed challenges in attribution and data quality which have to be addressed in an organization-specific manner.
+
+Research supports the use of marketing funnel analytics, customer journey analysis, and conversion measurement for evaluating digital marketing effectiveness [@brand2023; @li2024; @wang2026; @lin2026]. At the same time, previous studies identify challenges associated with attribution accuracy and synthetic data validity, reinforcing the need for organization-specific analysis [@aher2023; @bisbee2024].
+
+Final Measurable Analytics Objective (AO5):
+
+AO5 – Analyze the relative effectiveness of SEO, social media marketing, email marketing, referral networks and paid online advertising by measuring Web site visits, demo completions, intakes, meetings with potential sponsors, sponsor acquisitions and conversion rates throughout the marketing funnel for all sponsor acquisition outcomes.
+
+The findings from AO5 will support the business-intake objectives of TBFI to identify which of the various online marketing channels are able to generate the greatest volume of qualified sponsor inquiries leading to sponsor acquisitions. Use of the data will allow TBFI to make optimal marketing investments to improve the overall performance of their marketing funnel and maximise efficiency of sponsor acquisition.
 
 # References {#sec-refs}
 
