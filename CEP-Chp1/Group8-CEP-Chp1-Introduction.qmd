@@ -361,20 +361,19 @@ th { background: #1E4D2B; color: #fff; }
 
 Market research helps businesses understand what customers want. But it is expensive. A professional study usually costs between \$8,000 and \$15,000 [@lin2026]. Most small businesses in the San Gabriel Valley (SGV) cannot pay that. So they make big decisions, like pricing, new products, or where to open, based on guesses.
 
-::: {.stat-strip}
-::: {.stat}
-[\$8K–15K]{.num}
-[cost of one professional study]{.lbl}
+:::::: stat-strip
+::: stat
+[\$8K–15K]{.num} [cost of one professional study]{.lbl}
 :::
-::: {.stat}
-[4]{.num}
-[SGV industries we study]{.lbl}
+
+::: stat
+[4]{.num} [SGV industries we study]{.lbl}
 :::
-::: {.stat}
-[~600]{.num}
-[real people used as a benchmark]{.lbl}
+
+::: stat
+[\~600]{.num} [real people used as a benchmark]{.lbl}
 :::
-:::
+::::::
 
 AI may offer a cheaper option. Recent studies show that large language models (LLMs) can act like survey respondents. When given a profile, such as age, income, and location, an LLM can answer survey questions in ways that often look like real people's answers [@argyle2023; @aher2023; @horton2023]. In marketing, researchers have used this to estimate what customers are willing to pay and how they see competing brands [@brand2023; @li2024; @wang2026].
 
@@ -382,23 +381,25 @@ There is a catch. AI answers are not always right. They can be too confident, to
 
 Our client is the Tarkington Business Futures Institute (TBFI), a new applied "Do Tank" inside Cal Poly Pomona's College of Business Administration [@cpp2026; @tbfi2026]. TBFI wants to offer low-cost research to local businesses. It faces three problems:
 
-::: {.card-grid}
-::: {.card}
+:::::: card-grid
+::: card
 [👥]{.icon}<br>**Training doesn't scale**
 
 Training new student consultants one by one takes too long.
 :::
-::: {.card}
+
+::: card
 [🖥️]{.icon}<br>**No live demo**
 
 Businesses want to see a working demo, not a slide deck.
 :::
-::: {.card}
+
+::: card
 [💰]{.icon}<br>**Research costs too much**
 
 Local businesses need research they can afford and trust.
 :::
-:::
+::::::
 
 Our team is TBFI's first student consultant cohort. Our job is to build the tools that solve these problems, test that they work, and use them to bring in TBFI's first clients.
 
@@ -406,28 +407,31 @@ Our team is TBFI's first student consultant cohort. Our job is to build the tool
 
 The project has four main goals [@lin2026]:
 
-::: {.card-grid}
-::: {.card}
+::::::: card-grid
+::: card
 [🎮]{.icon}<br>**PO1. Build the Do Tank Simulator**
 
 A browser-based training game that walks a user through a full consulting job: intake, research design, AI survey panel, perceptual map, and client readout. At least 10 rounds, plus a short version TBFI can use as a sales demo.
 :::
-::: {.card}
+
+::: card
 [📊]{.icon}<br>**PO2. Build the SGV Insights Dashboard**
 
 AI-generated customer insights for four industries: specialty food and beverage, ADU and prefab housing, cross-border e-commerce and logistics, and health and senior services. Includes perceptual maps, customer segments, and a trust report.
 :::
-::: {.card}
+
+::: card
 [📣]{.icon}<br>**PO3. Run a digital marketing plan**
 
 A landing page, LinkedIn and email content, and outreach to local chambers of commerce. We track the full funnel, from site visits to client meetings.
 :::
-::: {.card}
+
+::: card
 [🎓]{.icon}<br>**PO4. Train the first consultant group**
 
 New consultants go through the simulator, and we measure their skills before and after.
 :::
-:::
+:::::::
 
 ```{mermaid}
 %%| fig-cap: "Figure 1. How the business problem connects to our project and analytics objectives."
@@ -451,8 +455,8 @@ flowchart LR
 
 Each team member owns one analytics objective. Together, they support the four POs.
 
-| | AO | Owner | What it answers | Supports |
-|---|---|---|---|---|
+|   | AO | Owner | What it answers | Supports |
+|---------------|---------------|---------------|---------------|---------------|
 | 📑 | AO1 | Yushan Huang | What does current research say about AI respondents, and what data do we have for the four industries? | PO2 |
 | 🗺️ | AO2 | Simran Kaur | How do customers see brands in each industry, and what groups do they fall into? | PO2 |
 | ✅ | AO3 | Gabriela Raygoza Quintero | Can we trust the AI panels? How closely do they match real people? | PO2 |
@@ -463,7 +467,7 @@ Each team member owns one analytics objective. Together, they support the four P
 
 ### AO1. Evidence Review and Data Setup (Alondra Rodriguez) {#sec-ao1}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: What does current research say, and what data do we have?]{.q}
 :::
 
@@ -471,21 +475,21 @@ This AO gathers what we already know. It reviews published studies on AI survey 
 
 ### AO2. Perceptual Maps and Customer Segments (Simran Kaur) {#sec-ao2}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: How do customers see brands in each industry, and what groups do they fall into?]{.q}
 :::
 
 This AO turns the AI survey data into pictures that business owners can read at a glance. For each of the four industries, it will build two things.
 
-**Perceptual maps** place competing brands on a simple chart based on how customers see them, for example cheap versus premium, or traditional versus modern. Brands that sit close together are seen as similar, and empty spaces on the map can point to gaps in the market. We will follow the approach of @li2024, who showed that LLMs can produce perceptual maps that closely match those built from real customer surveys.
+**Perceptual maps** place competing brands on a simple chart based on how customers see them, for example cheap versus premium, or traditional versus modern. Brands that sit close together are seen as similar, and empty spaces on the map can point to gaps in the market. Maps will be built with multidimensional scaling (MDS), the standard technique for this kind of visualization, and each industry will use its own attribute set rather than forcing all four into one generic chart. We will follow the approach of Li et al. ([2024](http://localhost:3087/?quartoPreviewReqId=1790656796014&quartoPreviewThemeCategory=light#ref-li2024)), who showed that LLMs can produce perceptual maps that closely match those built from real customer surveys.
 
-**Customer segments** group respondents who want similar things, such as price-focused shoppers or quality-first buyers. Each segment gets a short profile describing who they are, what they care about, and how to reach them.
+**Customer segments** group respondents who want similar things, such as price-focused shoppers or quality-first buyers. Segments will be pulled from the same underlying data using model-based (latent class) clustering rather than simple distance-based methods such as k-means, since latent class handles a mix of attitudinal and demographic variables better and gives each respondent a probability of belonging to a segment instead of a single hard label. Where practical, the maps and segments will be estimated jointly so both outputs describe one consistent picture of the industry rather than two disconnected analyses. Each segment gets a short profile describing who they are, what they care about, and how to reach them.
 
-Because AI tends to get rankings right more often than exact numbers, the maps will focus on where brands sit relative to each other, not on precise scores [@lin2026]. Only results that pass the AO3 validation checks will go on the dashboard. The output is a set of maps and segment profiles for each industry, built into the SGV Insights Dashboard (PO2).
+Because AI tends to get rankings right more often than exact numbers, the maps will focus on where brands sit relative to each other, not on precise scores ([Lin 2026](http://localhost:3087/?quartoPreviewReqId=1790656796014&quartoPreviewThemeCategory=light#ref-lin2026)). This AO assumes the underlying AI panel is directionally sound in aggregate; it does not, on its own, confirm that the panel holds up at the segment level, which is a known weak point for LLM-simulated respondents ([Bisbee et al. 2024](http://localhost:3087/?quartoPreviewReqId=1790656796014&quartoPreviewThemeCategory=light#ref-bisbee2024)). For that reason, only results that pass the AO3 validation checks will go on the dashboard, and segment-level findings will carry their own confidence flag rather than inheriting a single project-wide trust rating. The output is a set of perceptual maps and segment profiles for each industry, tiered by confidence and built into the SGV Insights Dashboard (PO2).
 
 ### AO3. Validating the AI Panels (Gabriela Raygoza Quintero) {#sec-ao3}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: Can we trust the AI panels? How closely do they match real people?]{.q}
 :::
 
@@ -497,8 +501,8 @@ The result will sort each finding into one of three groups: **use as is**, **use
 
 ### AO4. Consultant Training Performance Evaluation (Yushan Huang) {#sec-ao4}
 
-::: {.ao-panel}
-<span class="q">**Analytics Objective:** Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.</span>
+::: ao-panel
+[**Analytics Objective:** Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.]{.q}
 :::
 
 This analytics objective evaluates whether consultant performance changes after completing the TBFI Do Tank Simulator. The simulator is designed to provide new TBFI consultants with a structured environment for practicing a consulting engagement, including client intake, research design, synthetic-panel fielding, perceptual mapping, interpretation, and client readout.
@@ -509,7 +513,7 @@ The analysis will focus on the magnitude and direction of changes between pre-tr
 
 ### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
 
-::: {.ao-panel}
+::: ao-panel
 [Question: Which marketing channels bring in real client inquiries?]{.q}
 :::
 
@@ -519,23 +523,25 @@ This AO measures the marketing plan. It tracks each step of the funnel: site vis
 
 This project matters to three groups.
 
-::: {.card-grid}
-::: {.card}
+:::::: card-grid
+::: card
 [🏪]{.icon}<br>**Local businesses**
 
 Get research they could not afford before. A bakery or a senior care provider in the SGV can learn what customers want without spending \$10,000.
 :::
-::: {.card}
+
+::: card
 [🏛️]{.icon}<br>**TBFI**
 
 Gets working tools, a sales demo, and its first clients. The simulator lets TBFI train new consultants faster, so the program can grow.
 :::
-::: {.card}
+
+::: card
 [🔬]{.icon}<br>**The research field**
 
 Gets a real-world test of AI survey panels. Most studies so far were run in labs [@argyle2023; @bisbee2024]. We test the method on actual local businesses.
 :::
-:::
+::::::
 
 For our team, the project builds skills that employers want: working with AI tools, testing data quality, building dashboards, and running digital campaigns.
 
@@ -547,73 +553,74 @@ This chapter reviews the existing research frameworks, models, and empirical evi
 
 ### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
 
-**Analytics Objective:**  
-[Alondra: Copy the complete revised AO1 from Chapter 1 here.]
+**Analytics Objective:**\
+\[Alondra: Copy the complete revised AO1 from Chapter 1 here.\]
 
 #### Existence of Well-established Models
 
-[Alondra: Review the major theories, frameworks, models, and previous empirical studies relevant to AO1. Explain what previous researchers studied, what data or methods they used, what they found, and how those findings relate to the TBFI project. This should be the main literature-review section and should be approximately 2–3 pages.]
+\[Alondra: Review the major theories, frameworks, models, and previous empirical studies relevant to AO1. Explain what previous researchers studied, what data or methods they used, what they found, and how those findings relate to the TBFI project. This should be the main literature-review section and should be approximately 2–3 pages.\]
 
 #### Adequateness of Gathered Information
 
-[Alondra: In approximately one paragraph, explain whether the existing literature and currently available information are sufficient to address AO1. Identify what is already known and what remains uncertain in the TBFI context.]
+\[Alondra: In approximately one paragraph, explain whether the existing literature and currently available information are sufficient to address AO1. Identify what is already known and what remains uncertain in the TBFI context.\]
 
 #### Need for Additional Analysis
 
-[Alondra: In approximately one paragraph, explain what additional analysis the TBFI project needs to conduct that cannot be answered by the existing literature alone.]
+\[Alondra: In approximately one paragraph, explain what additional analysis the TBFI project needs to conduct that cannot be answered by the existing literature alone.\]
 
 #### Assessment and Affirmation of Analytics Objectives
 
-[Alondra: Based on the literature review, evaluate whether AO1 should be retained, revised, narrowed, or otherwise clarified. State the final measurable AO1 and explain why it is appropriate for the project.]
-
+\[Alondra: Based on the literature review, evaluate whether AO1 should be retained, revised, narrowed, or otherwise clarified. State the final measurable AO1 and explain why it is appropriate for the project.\]
 
 ### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
 
-**Analytics Objective:**  
-[Simran: Copy the complete revised AO2 from Chapter 1 here.]
+**Analytics Objective:**\
+For each of the SGV industries, this AO builds an MDS-based perceptual map (where brands sit relative to each other on attributes like cheap-vs-premium) and a latent-class customer segmentation, estimated jointly from the AI-simulated panel so both outputs tell one consistent story. Because AI tends to get rankings right more often than exact numbers, maps focus on relative position, not precise scores (Lin, 2026). Only results that pass AO3's validation checks go on the dashboard, and each segment carries its own confidence flag rather than a single project-wide trust rating. Output: perceptual maps and segment profiles per industry, tiered by confidence, built into the SGV Insights Dashboard (PO2).
 
 #### Existence of Well-established Models
 
-[Simran: Review established research and analytical frameworks related to perceptual mapping, positioning, market segmentation, customer segmentation, and other concepts directly relevant to AO2. Explain how previous studies have measured and analyzed these concepts and how those approaches can be applied to the four SGV industry verticals. Target approximately 2–3 pages.]
+Perceptual mapping and customer segmentation are both well-established marketing research traditions, so AO2 leans on existing methods rather than inventing new ones. On the mapping side, Ries and Trout (1981) provide the conceptual basis: a brand occupies a position in the customer's mind relative to competitors. Hauser and Koppelman (1979) compared the main techniques for measuring that position and found multidimensional scaling (MDS) best suited to cases, like this one, where the relevant attributes aren't known in advance. Wanninayake et al. (2019) show a practical MDS workflow that AO2's industry-level maps will follow, and Bijmolt and Wedel (2020) go a step further, estimating brand positions and customer segments jointly in one model, which is the direct precedent for AO2's combined approach.
+
+On the segmentation side, Wedel and Kamakura (2000) provide the standard framework for segmentation bases and methods, and Punj and Stewart (1983) remain the classic guide to cluster analysis. AO2 uses a more recent extension of that guidance, latent-class clustering, which a 2016 Journal of Marketing Analytics simulation study found more reliable than k-means for mixed attitudinal and demographic data, the kind this project will have.
+
+The newer, more directly relevant question is whether these methods hold up on AI-simulated data. Li et al. (2024) found that LLM-generated perceptual maps closely matched human-survey maps in aggregate, supporting AO2's basic premise. But Bisbee et al. (2024) found that synthetic and real survey data can diverge sharply at the level of individual relationships (48% coefficient divergence, 32% sign-flips), which is why AO2 treats AO3's segment-level validation as a prerequisite rather than an optional check.
 
 #### Adequateness of Gathered Information
 
-[Simran: In approximately one paragraph, explain what the existing literature already tells us about perceptual mapping and customer segmentation and whether this information is sufficient for the TBFI project.]
+The literature answers the “how” well: MDS and latent-class clustering are defensible, established methods, and there's reasonable published evidence that LLM-generated data can support perceptual mapping in aggregate. It doesn't answer the “does it hold here” question, no study covers these four SGV industries, and none tests LLM panel accuracy at the segment level specifically, which is exactly where Bisbee et al. (2024) found the biggest risk.
 
 #### Need for Additional Analysis
 
-[Simran: In approximately one paragraph, explain why TBFI still needs to conduct its own perceptual-mapping and/or segmentation analysis using the project's data.]
+TBFI needs its own analysis for two reasons: no published segmentation work exists for small, hyper-local SGV businesses in categories like ADU/prefab housing or cross-border e-commerce, and the general LLM-survey literature can't substitute for testing this team's specific panel on these specific industries. The maps and segments have to be built and validated against AO3's results before they can be trusted.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-[Simran: Based on the literature, assess whether AO2 should be retained or revised. State the final measurable AO2 and explain how it supports the SGV Insights Dashboard.]
-
+AO2 should be retained as written. The literature supports both the MDS-based mapping and latent-class segmentation, and supports estimating them jointly. Final measurable AO2: for each of the four SGV industries, produce an MDS-based perceptual map and a latent-class segmentation, jointly estimated from the AI panel, with every segment-level finding tiered by confidence per AO3's validation before it reaches the SGV Insights Dashboard (PO2).
 
 ### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
 
-**Analytics Objective:**  
-[Gabriela: Copy the complete revised AO3 from Chapter 1 here.]
+**Analytics Objective:**\
+\[Gabriela: Copy the complete revised AO3 from Chapter 1 here.\]
 
 #### Existence of Well-established Models
 
-[Gabriela: Review established frameworks and empirical research related to synthetic respondents, LLM-generated consumer data, reliability, agreement, convergent validity, and methods for comparing AI-generated responses with human or real-world benchmark data. Target approximately 2–3 pages.]
+\[Gabriela: Review established frameworks and empirical research related to synthetic respondents, LLM-generated consumer data, reliability, agreement, convergent validity, and methods for comparing AI-generated responses with human or real-world benchmark data. Target approximately 2–3 pages.\]
 
 #### Adequateness of Gathered Information
 
-[Gabriela: In approximately one paragraph, explain what previous research establishes about the validity of AI-generated respondent data and what remains uncertain for the TBFI project.]
+\[Gabriela: In approximately one paragraph, explain what previous research establishes about the validity of AI-generated respondent data and what remains uncertain for the TBFI project.\]
 
 #### Need for Additional Analysis
 
-[Gabriela: In approximately one paragraph, explain why TBFI must conduct its own validation analysis using the available human benchmark and other real-data witnesses.]
+\[Gabriela: In approximately one paragraph, explain why TBFI must conduct its own validation analysis using the available human benchmark and other real-data witnesses.\]
 
 #### Assessment and Affirmation of Analytics Objectives
 
-[Gabriela: Based on the literature, assess and refine AO3. State the final measurable AO3 and explain how the analysis will determine which synthetic-panel results can be trusted.]
-
+\[Gabriela: Based on the literature, assess and refine AO3. State the final measurable AO3 and explain how the analysis will determine which synthetic-panel results can be trusted.\]
 
 ### AO4. Consultant Training Performance Evaluation (Yushan Huang)
 
-**Analytics Objective:**  
+**Analytics Objective:**\
 Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.
 
 #### Existence of Well-established Models
@@ -662,27 +669,26 @@ The exact dimensions included in the skill checkpoints should be finalized as th
 
 AO4 therefore remains aligned with the broader TBFI project while becoming more analytically actionable. The revised objective can be addressed with observable performance data and analyzed quantitatively, while interpretation of the results can remain appropriately cautious about causality and real-world transfer. This formulation can guide the later development of the skill-checkpoint instrument, scoring rubric, and statistical analysis plan.
 
-
 ### AO5. Marketing Funnel Analytics (Veronica Vega)
 
-**Analytics Objective:**  
-[Veronica: Copy the complete revised AO5 from Chapter 1 here.]
+**Analytics Objective:**\
+\[Veronica: Copy the complete revised AO5 from Chapter 1 here.\]
 
 #### Existence of Well-established Models
 
-[Veronica: Review established research and models relevant to digital marketing funnels, customer acquisition, conversion, channel performance, attribution, and other concepts directly related to AO5. Explain how previous research measures funnel performance and channel effectiveness. Target approximately 2–3 pages.]
+\[Veronica: Review established research and models relevant to digital marketing funnels, customer acquisition, conversion, channel performance, attribution, and other concepts directly related to AO5. Explain how previous research measures funnel performance and channel effectiveness. Target approximately 2–3 pages.\]
 
 #### Adequateness of Gathered Information
 
-[Veronica: In approximately one paragraph, explain what the existing research already tells us about digital marketing funnel performance and whether this information is sufficient for TBFI's client-acquisition context.]
+\[Veronica: In approximately one paragraph, explain what the existing research already tells us about digital marketing funnel performance and whether this information is sufficient for TBFI's client-acquisition context.\]
 
 #### Need for Additional Analysis
 
-[Veronica: In approximately one paragraph, explain why TBFI needs its own funnel analysis using project-specific measures such as site visits, demo completions, intake inquiries, and sponsor meetings.]
+\[Veronica: In approximately one paragraph, explain why TBFI needs its own funnel analysis using project-specific measures such as site visits, demo completions, intake inquiries, and sponsor meetings.\]
 
 #### Assessment and Affirmation of Analytics Objectives
 
-[Veronica: Based on the literature review, assess and refine AO5. State the final measurable AO5 and explain how it supports the TBFI business-intake objective.]
+\[Veronica: Based on the literature review, assess and refine AO5. State the final measurable AO5 and explain how it supports the TBFI business-intake objective.\]
 
 # References {#sec-refs}
 
