@@ -1,5 +1,5 @@
 ---
-title: "Chapter 1 - Introduction"
+title: "TBFI Culminating Experience Project"
 subtitle: "Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard for TBFI"
 author:
   - "Yushan Huang"
@@ -100,6 +100,186 @@ references:
     issue: 4
     page: 728-751
     issued: {year: 2026}
+  - id: chernikova2020
+    type: article-journal
+    author:
+      - family: Chernikova
+        given: Olga
+      - family: Heitzmann
+        given: Nicole
+      - family: Stadler
+        given: Matthias
+      - family: Holzberger
+        given: Doris
+      - family: Seidel
+        given: Tina
+      - family: Fischer
+        given: Frank
+    title: "Simulation-Based Learning in Higher Education: A Meta-Analysis"
+    container-title: "Review of Educational Research"
+    volume: 90
+    issue: 4
+    page: 499-541
+    issued: {year: 2020}
+    DOI: "10.3102/0034654320933544"
+
+  - id: sitzmann2011
+    type: article-journal
+    author:
+      - family: Sitzmann
+        given: Traci
+    title: "A Meta-Analytic Examination of the Instructional Effectiveness of Computer-Based Simulation Games"
+    container-title: "Personnel Psychology"
+    volume: 64
+    issue: 2
+    page: 489-528
+    issued: {year: 2011}
+    DOI: "10.1111/j.1744-6570.2011.01190.x"
+
+  - id: faisal2022
+    type: article-journal
+    author:
+      - family: Faisal
+        given: Nadia
+      - family: Chadhar
+        given: Mehmood
+      - family: Goriss-Hunter
+        given: Anitra
+      - family: Stranieri
+        given: Andrew
+    title: "Business Simulation Games in Higher Education: A Systematic Review of Empirical Research"
+    container-title: "Human Behavior and Emerging Technologies"
+    volume: 2022
+    page: 1578791
+    issued: {year: 2022}
+    DOI: "10.1155/2022/1578791"
+
+  - id: gosen2004
+    type: article-journal
+    author:
+      - family: Gosen
+        given: Jerry
+      - family: Washbush
+        given: John
+    title: "A Review of Scholarship on Assessing Experiential Learning Effectiveness"
+    container-title: "Simulation & Gaming"
+    volume: 35
+    issue: 2
+    page: 270-293
+    issued: {year: 2004}
+    DOI: "10.1177/1046878104263544"
+
+  - id: wilson2009
+    type: article-journal
+    author:
+      - family: Wilson
+        given: Katherine A.
+      - family: Bedwell
+        given: Wendy L.
+      - family: Lazzara
+        given: Elizabeth H.
+      - family: Salas
+        given: Eduardo
+      - family: Burke
+        given: C. Shawn
+      - family: Estock
+        given: Jamie L.
+      - family: Orvis
+        given: Kara A.
+      - family: Conkey
+        given: Curtis
+    title: "Relationships Between Game Attributes and Learning Outcomes: Review and Research Proposals"
+    container-title: "Simulation & Gaming"
+    volume: 40
+    issue: 2
+    page: 217-266
+    issued: {year: 2009}
+    DOI: "10.1177/1046878108321866"
+
+  - id: marsden2012
+    type: article-journal
+    author:
+      - family: Marsden
+        given: Emma J.
+      - family: Torgerson
+        given: Carole J.
+    title: "Single Group, Pre- and Post-Test Research Designs: Some Methodological Concerns"
+    container-title: "Oxford Review of Education"
+    volume: 38
+    issue: 5
+    page: 583-616
+    issued: {year: 2012}
+    DOI: "10.1080/03054985.2012.731208"
+
+  - id: pan2023
+    type: article-journal
+    author:
+      - family: Pan
+        given: Steven C.
+      - family: Carpenter
+        given: Shana K.
+    title: "Prequestioning and Pretesting Effects: A Review of Empirical Research, Theoretical Perspectives, and Implications for Educational Practice"
+    container-title: "Educational Psychology Review"
+    volume: 35
+    page: 97
+    issued: {year: 2023}
+    DOI: "10.1007/s10648-023-09814-5"
+
+  - id: bates2004
+    type: article-journal
+    author:
+      - family: Bates
+        given: Reid
+    title: "A Critical Analysis of Evaluation Practice: The Kirkpatrick Model and the Principle of Beneficence"
+    container-title: "Evaluation and Program Planning"
+    volume: 27
+    issue: 3
+    page: 341-347
+    issued: {year: 2004}
+    DOI: "10.1016/j.evalprogplan.2004.04.011"
+
+  - id: ardondi2026
+    type: article-journal
+    author:
+      - family: Ardondi
+        given: Mirco
+      - family: Fortunato
+        given: Elisa
+      - family: Ruozi
+        given: Corrado
+      - family: Di Fronzo
+        given: Pasquale
+      - family: Saffioti
+        given: Angelina
+      - family: Ferrari
+        given: Ilaria
+      - family: Bassi
+        given: Maria Chiara
+      - family: Ghirotto
+        given: Luca
+      - family: Pedroni
+        given: Cristina
+    title: "Workplace Training Transfer: A Systematic Scoping Review of Evaluation Tools for Adult Learning"
+    container-title: "Journal of Workplace Learning"
+    volume: 38
+    issue: 1
+    page: 1-21
+    issued: {year: 2026}
+    DOI: "10.1108/JWL-03-2025-0068"
+
+  - id: hjellvik2024
+    type: article-journal
+    author:
+      - family: Hjellvik
+        given: Simen
+      - family: Mallam
+        given: Steven
+    title: "Training Transfer Validity of Virtual Reality Simulator Assessment"
+    container-title: "Virtual Reality"
+    volume: 28
+    page: 165
+    issued: {year: 2024}
+    DOI: "10.1007/s10055-024-01058-0"
 ---
 
 ```{=html}
@@ -175,7 +355,7 @@ th { background: #1E4D2B; color: #fff; }
 </style>
 ```
 
-# Introduction {#sec-intro}
+# CHAPTER 1:Introduction {#sec-intro}
 
 ## Background and Problem Statement {#sec-background}
 
@@ -315,15 +495,17 @@ We will use two main scores. **Krippendorff's alpha** checks whether different p
 
 The result will sort each finding into one of three groups: **use as is**, **use for rankings only**, or **do not use**. This tells TBFI and its clients how much to trust each result on the dashboard.
 
-### AO4. Simulator Build and Training Results (Yushan Huang) {#sec-ao4}
+### AO4. Consultant Training Performance Evaluation (Yushan Huang) {#sec-ao4}
 
 ::: {.ao-panel}
-[Question: Does the simulator improve consultant skills?]{.q}
+<span class="q">**Analytics Objective:** Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.</span>
 :::
 
-This AO develops the simulator's rounds and evaluates whether it works as a training tool for new consultants. The simulator will provide a structured environment where consultants can practice interpreting research results, making decisions, and applying insights to realistic consulting scenarios.
+This analytics objective evaluates whether consultant performance changes after completing the TBFI Do Tank Simulator. The simulator is designed to provide new TBFI consultants with a structured environment for practicing a consulting engagement, including client intake, research design, synthetic-panel fielding, perceptual mapping, interpretation, and client readout.
 
-To evaluate the training results, new consultants will complete a skills check before and after using the simulator. Their pre-training and post-training scores will be compared to measure changes in performance. The results will help determine whether the simulator improves the skills it is designed to teach and identify areas where the training experience may need further improvement.
+Consultant performance will be measured using standardized skill checkpoints administered before and after simulator training. Pre-training and post-training scores will be compared to quantify changes in performance. The specific skill dimensions and scoring criteria will be refined based on the simulation-based learning and training-evaluation literature reviewed in Chapter 2.
+
+The analysis will focus on the magnitude and direction of changes between pre-training and post-training performance. This approach provides a measurable way to evaluate the simulator's training outcomes while recognizing that changes in checkpoint scores alone do not necessarily demonstrate transfer to real consulting performance. The results will support PO1 by informing improvements to the simulator and PO4 by evaluating its use as a repeatable onboarding and training tool for future TBFI consultant cohorts.
 
 ### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
 
@@ -356,6 +538,151 @@ Gets a real-world test of AI survey panels. Most studies so far were run in labs
 :::
 
 For our team, the project builds skills that employers want: working with AI tools, testing data quality, building dashboards, and running digital campaigns.
+
+# CHAPTER 2: BACKGROUND AND ANALYTICS OBJECTIVES
+
+This chapter reviews the existing research frameworks, models, and empirical evidence relevant to the analytics objectives of the TBFI project. The purpose of this review is to determine whether established research can support each analytics objective, assess whether the available information is adequate, identify the need for additional project-specific analysis, and refine the analytics objectives before proceeding to later stages of the project.
+
+## Investigation of Currently Available Research Framework/Model
+
+### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+
+**Analytics Objective:**  
+[Alondra: Copy the complete revised AO1 from Chapter 1 here.]
+
+#### Existence of Well-established Models
+
+[Alondra: Review the major theories, frameworks, models, and previous empirical studies relevant to AO1. Explain what previous researchers studied, what data or methods they used, what they found, and how those findings relate to the TBFI project. This should be the main literature-review section and should be approximately 2–3 pages.]
+
+#### Adequateness of Gathered Information
+
+[Alondra: In approximately one paragraph, explain whether the existing literature and currently available information are sufficient to address AO1. Identify what is already known and what remains uncertain in the TBFI context.]
+
+#### Need for Additional Analysis
+
+[Alondra: In approximately one paragraph, explain what additional analysis the TBFI project needs to conduct that cannot be answered by the existing literature alone.]
+
+#### Assessment and Affirmation of Analytics Objectives
+
+[Alondra: Based on the literature review, evaluate whether AO1 should be retained, revised, narrowed, or otherwise clarified. State the final measurable AO1 and explain why it is appropriate for the project.]
+
+
+### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+
+**Analytics Objective:**  
+[Simran: Copy the complete revised AO2 from Chapter 1 here.]
+
+#### Existence of Well-established Models
+
+[Simran: Review established research and analytical frameworks related to perceptual mapping, positioning, market segmentation, customer segmentation, and other concepts directly relevant to AO2. Explain how previous studies have measured and analyzed these concepts and how those approaches can be applied to the four SGV industry verticals. Target approximately 2–3 pages.]
+
+#### Adequateness of Gathered Information
+
+[Simran: In approximately one paragraph, explain what the existing literature already tells us about perceptual mapping and customer segmentation and whether this information is sufficient for the TBFI project.]
+
+#### Need for Additional Analysis
+
+[Simran: In approximately one paragraph, explain why TBFI still needs to conduct its own perceptual-mapping and/or segmentation analysis using the project's data.]
+
+#### Assessment and Affirmation of Analytics Objectives
+
+[Simran: Based on the literature, assess whether AO2 should be retained or revised. State the final measurable AO2 and explain how it supports the SGV Insights Dashboard.]
+
+
+### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+
+**Analytics Objective:**  
+[Gabriela: Copy the complete revised AO3 from Chapter 1 here.]
+
+#### Existence of Well-established Models
+
+[Gabriela: Review established frameworks and empirical research related to synthetic respondents, LLM-generated consumer data, reliability, agreement, convergent validity, and methods for comparing AI-generated responses with human or real-world benchmark data. Target approximately 2–3 pages.]
+
+#### Adequateness of Gathered Information
+
+[Gabriela: In approximately one paragraph, explain what previous research establishes about the validity of AI-generated respondent data and what remains uncertain for the TBFI project.]
+
+#### Need for Additional Analysis
+
+[Gabriela: In approximately one paragraph, explain why TBFI must conduct its own validation analysis using the available human benchmark and other real-data witnesses.]
+
+#### Assessment and Affirmation of Analytics Objectives
+
+[Gabriela: Based on the literature, assess and refine AO3. State the final measurable AO3 and explain how the analysis will determine which synthetic-panel results can be trusted.]
+
+
+### AO4. Consultant Training Performance Evaluation (Yushan Huang)
+
+**Analytics Objective:**  
+Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.
+
+#### Existence of Well-established Models
+
+Simulation-based learning and experiential learning provide an established foundation for evaluating the TBFI Do Tank Simulator as a consultant-training tool. These approaches emphasize learning through active participation in realistic tasks rather than relying only on passive instruction. This framework is relevant to TBFI because the simulator is intended to reproduce major stages of a consulting engagement and provide future consultants with opportunities to practice decisions and analytical tasks in a controlled training environment.
+
+Research provides evidence that simulation-based learning can support the development of complex professional skills. Chernikova et al. [-@chernikova2020], in a meta-analysis of simulation-based learning in higher education, found that simulations can support complex skills such as problem solving, decision making, communication, and collaboration. However, the effectiveness of simulation depends partly on the design of the learning environment. The study emphasizes the importance of scaffolding and indicates that instructional support should reflect learners' prior knowledge. This finding is relevant to TBFI because incoming consultants may begin with different levels of experience in market research, analytics, and consulting. Therefore, the simulator should not simply present a sequence of tasks. Structured explanations, examples, feedback, and opportunities for reflection can help make simulator participation a more meaningful learning experience.
+
+Similar evidence is found in research on computer-based simulation games. Sitzmann [-@sitzmann2011] conducted a meta-analysis of 65 studies involving 6,476 trainees and found that computer-based simulation games can produce meaningful learning outcomes. The effectiveness of simulation was related to the design of the learning experience and the degree to which trainees were actively engaged. These findings suggest that simulator participation alone should not be treated as evidence of successful training. For TBFI, the simulator should function as an active learning environment in which consultants make decisions, observe consequences, receive feedback, and have opportunities to revise their work.
+
+Evidence from business education provides additional support for this approach. Faisal et al. [-@faisal2022] systematically reviewed 57 empirical studies of business simulation games and found that simulations were associated with multiple types of learning outcomes, including knowledge acquisition, cognitive skills, interactive skills, and behavioral outcomes. This research is especially relevant to the TBFI project because the Do Tank Simulator is designed around a business and market-research consulting engagement. Its purpose extends beyond teaching factual information. Trainees are expected to apply research and analytics concepts while completing consulting-related activities. The review also identified substantial variation in how simulation outcomes have been assessed, indicating that evaluation measures should be aligned with the specific skills the training is intended to develop.
+
+Although the literature generally supports simulation and experiential learning, previous research also cautions against assuming that simulation automatically produces skill development. Gosen and Washbush [-@gosen2004] reviewed research on experiential learning effectiveness and concluded that the literature generally supports its educational value while also identifying weaknesses in the research designs and measurements used in many studies. For the TBFI project, this distinction is important. Existing evidence provides a rationale for using simulation as a training approach, but it cannot establish that the TBFI Do Tank Simulator itself improves consultant performance. The effectiveness of this specific training tool therefore needs to be evaluated using measurable outcomes.
+
+Research on instructional games further suggests that learning outcomes depend on how the simulation is constructed. Wilson et al. [-@wilson2009] reviewed relationships between game attributes and learning outcomes and argued that the relationship between simulation features and learning is not automatic. Features such as feedback, interaction, challenge, and fidelity may influence different types of learning outcomes. This supports designing the TBFI simulator around explicit learning objectives rather than assuming that completion of the simulator is itself an adequate indicator of learning. It also supports measuring performance through multiple relevant tasks or outcomes when feasible.
+
+A standardized pre-training and post-training skill checkpoint provides one practical way to evaluate performance change, but research identifies important limitations of this design. Marsden and Torgerson [-@marsden2012] examined methodological concerns with single-group pre-test/post-test designs and showed that observed score changes can be affected by factors such as regression to the mean, maturation, history, and testing effects. Consequently, a higher post-training score cannot by itself establish that the simulator caused the improvement. Experimental or quasi-experimental designs provide stronger evidence for causal claims, but a pre/post approach can still provide useful evidence of performance change in an initial pilot when its limitations are clearly recognized.
+
+Pretesting itself can also influence subsequent performance. Pan and Carpenter [-@pan2023] reviewed research on prequestioning and pretesting and found that completing a pretest may influence later learning by directing attention and affecting subsequent learning processes. This creates an additional concern for AO4 because trainees could perform better on the post-training checkpoint partly because they have already encountered similar material. To reduce this problem, the TBFI evaluation should consider aligned but non-identical pre- and post-training tasks rather than simply repeating exactly the same questions or activities.
+
+Training evaluation also requires a distinction between immediate training outcomes and transfer to authentic professional work. Bates [-@bates2004], in a critical analysis of the Kirkpatrick training-evaluation model, questioned assumptions about relationships among different levels of training outcomes. For AO4, an increase in a skill-checkpoint score may provide evidence of learning during training, but it should not automatically be interpreted as proof that a consultant will perform better in an actual client engagement.
+
+More recent research on workplace training transfer reinforces the need to distinguish immediate training outcomes from later application. Ardondi et al. [-@ardondi2026] reviewed training-transfer assessment tools across workplace-learning studies and identified substantial variation in how transfer is conceptualized and measured. This suggests that a single overall checkpoint score may be too narrow if TBFI eventually wants to make broader claims about readiness for real consulting work. Performance scores could therefore be supplemented, when feasible, with additional evidence related to the application of skills beyond the immediate training activity.
+
+Hjellvik and Mallam [-@hjellvik2024] provide additional evidence concerning simulator-based assessment and training transfer. Their research distinguishes performance measured under simulator conditions from performance demonstrated under a transfer condition and provides evidence that simulator-based competency assessment can be related to later performance. For TBFI, this distinction is useful because it suggests that simulator-based assessment can provide meaningful evidence while also showing why transfer should be considered separately. A consultant who performs well on tasks inside the Do Tank Simulator demonstrates competency within the training environment, while broader claims about client readiness would be strengthened by evidence from an additional or more authentic task when feasible.
+
+Taken together, the literature supports the use of simulation as an active and experiential training environment while also showing why the outcomes of the TBFI simulator should be measured carefully. The strongest common themes are the importance of realistic tasks, scaffolding, active participation, feedback, reflection, and performance-based measurement. The literature also indicates that pre/post comparisons can document performance change but have limitations when used to make strong causal or transfer claims. These findings support the use of standardized skill checkpoints before and after simulator training, while suggesting that the specific scoring dimensions should be aligned with the consulting activities taught by the simulator and refined as the training design develops.
+
+#### Adequateness of Gathered Information
+
+The existing literature provides an adequate theoretical and methodological foundation for developing an initial evaluation of the TBFI Do Tank Simulator. Prior research supports simulation-based and experiential learning as approaches for developing complex skills and identifies active engagement, scaffolding, feedback, and realistic tasks as important design features [@chernikova2020; @sitzmann2011; @faisal2022]. The literature also provides guidance on the strengths and limitations of pre/post assessment and on the distinction between performance in a training environment and transfer to professional practice [@marsden2012; @pan2023; @hjellvik2024]. However, the gathered information is not sufficient to determine whether the TBFI Do Tank Simulator itself produces measurable changes in consultant performance. The studies were conducted in different educational and professional contexts, and none evaluates the specific combination of market-research and analytics consulting activities included in the TBFI simulator. In addition, the final skill dimensions, scoring rubric, and benchmark for satisfactory consultant performance have not yet been established. Therefore, the literature provides a foundation for the evaluation design but cannot replace project-specific performance data.
+
+#### Need for Additional Analysis
+
+Additional analysis is required to determine whether consultant performance changes after completing the TBFI Do Tank Simulator. The project will need to operationalize consultant performance through standardized skill-checkpoint measures that correspond to the tasks and learning objectives included in the simulator. Incoming consultants can complete a checkpoint before training and an aligned post-training checkpoint after completing the simulator. The resulting paired scores can then be used to examine the direction and magnitude of performance changes.
+
+Depending on the eventual sample size, measurement scale, and distribution of the scores, an appropriate paired-samples analysis can be selected. Effect sizes and confidence intervals should also be considered rather than relying only on statistical significance. If feasible, rubric-based performance measures, rater-agreement checks, or an additional client-style task could provide complementary evidence. Because single-group pre/post designs have important validity limitations [@marsden2012], the initial results should be interpreted as evidence of measured performance change rather than definitive proof that simulator participation alone caused the change.
+
+#### Assessment and Affirmation of Analytics Objectives
+
+The literature review supports retaining the general purpose of AO4 but also indicates that the original objective should be narrowed and made more measurable. The earlier question, "Does the simulator improve consultant skills?" is too broad because it does not specify how consultant performance will be operationalized or how improvement will be measured. It can also imply a causal conclusion that a single-group pre/post design may not be able to establish [@marsden2012].
+
+Based on the literature, the revised AO4 is: **Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.** This version separates the project objective of building the simulator from the analytics objective of measuring its training outcomes. It identifies consultant performance as the outcome, specifies a before-and-after comparison, and identifies standardized skill-checkpoint scores as the primary measurement approach.
+
+The exact dimensions included in the skill checkpoints should be finalized as the simulator's learning objectives and scoring rubric are developed. The TBFI simulator is intended to expose consultants to multiple stages of a consulting engagement, so the performance measures should ultimately correspond to the competencies the simulator is actually designed to teach. Existing simulation research also supports evaluating applied performance rather than relying only on simulator completion or participant reactions [@faisal2022; @wilson2009].
+
+AO4 therefore remains aligned with the broader TBFI project while becoming more analytically actionable. The revised objective can be addressed with observable performance data and analyzed quantitatively, while interpretation of the results can remain appropriately cautious about causality and real-world transfer. This formulation can guide the later development of the skill-checkpoint instrument, scoring rubric, and statistical analysis plan.
+
+
+### AO5. Marketing Funnel Analytics (Veronica Vega)
+
+**Analytics Objective:**  
+[Veronica: Copy the complete revised AO5 from Chapter 1 here.]
+
+#### Existence of Well-established Models
+
+[Veronica: Review established research and models relevant to digital marketing funnels, customer acquisition, conversion, channel performance, attribution, and other concepts directly related to AO5. Explain how previous research measures funnel performance and channel effectiveness. Target approximately 2–3 pages.]
+
+#### Adequateness of Gathered Information
+
+[Veronica: In approximately one paragraph, explain what the existing research already tells us about digital marketing funnel performance and whether this information is sufficient for TBFI's client-acquisition context.]
+
+#### Need for Additional Analysis
+
+[Veronica: In approximately one paragraph, explain why TBFI needs its own funnel analysis using project-specific measures such as site visits, demo completions, intake inquiries, and sponsor meetings.]
+
+#### Assessment and Affirmation of Analytics Objectives
+
+[Veronica: Based on the literature review, assess and refine AO5. State the final measurable AO5 and explain how it supports the TBFI business-intake objective.]
 
 # References {#sec-refs}
 
