@@ -490,7 +490,7 @@ Because AI tends to get rankings right more often than exact numbers, the maps w
 ### AO3. Validating the AI Panels (Gabriela Raygoza Quintero) {#sec-ao3}
 
 ::: ao-panel
-[Question: Can we trust the AI panels? How closely do they match real people?]{.q}
+Asses the validity of large language model panels by comparing their response against the human benchmark.
 :::
 
 This AO tests whether the AI respondents can be trusted. We will give the same survey to three AI panels (Claude, ChatGPT, and Gemini) and compare their answers to Dr. Lin's panel of about 600 real people [@lin2026].
@@ -514,14 +514,14 @@ The analysis will focus on the magnitude and direction of changes between pre-tr
 ### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
 
 ::: ao-panel
-[Question:  Which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel?]{.q}
+[Question: Which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel?]{.q}
 :::
 
-The objective of this analysis is to evaluate and compare the effectiveness of digital marketing channels in generating qualified sponsor inquiries and sponsor acquisitions for TBFI. Marketing performance will be measured using key funnel metrics including website visits, inquiry form submissions, demo completions, sponsor meetings, sponsor acquisitions, and conversion rates. 
+The objective of this analysis is to evaluate and compare the effectiveness of digital marketing channels in generating qualified sponsor inquiries and sponsor acquisitions for TBFI. Marketing performance will be measured using key funnel metrics including website visits, inquiry form submissions, demo completions, sponsor meetings, sponsor acquisitions, and conversion rates.
 
-The independent variable for this analysis is marketing channel source, including Search Engine Optimization (SEO), social media marketing, email marketing, referral networks, and paid online advertising. The dependent variables are qualified intake inquiries, sponsor meetings, sponsor acquisitions, and conversion rates. Funnel analytics and comparative statistical analysis will be used to identify which channels contribute most significantly to successful sponsor acquisition outcomes. 
+The independent variable for this analysis is marketing channel source, including Search Engine Optimization (SEO), social media marketing, email marketing, referral networks, and paid online advertising. The dependent variables are qualified intake inquiries, sponsor meetings, sponsor acquisitions, and conversion rates. Funnel analytics and comparative statistical analysis will be used to identify which channels contribute most significantly to successful sponsor acquisition outcomes.
 
-Baseline performance metrics collected prior to campaign implementation will be compared with post-campaign performance metrics to assess marketing effectiveness. Results from this analysis will support data-driven decision making and assist TBFI in optimizing future marketing investments by allocating resources toward the channels with the highest sponsor acquisition performance and return on investment (ROI). 
+Baseline performance metrics collected prior to campaign implementation will be compared with post-campaign performance metrics to assess marketing effectiveness. Results from this analysis will support data-driven decision making and assist TBFI in optimizing future marketing investments by allocating resources toward the channels with the highest sponsor acquisition performance and return on investment (ROI).
 
 ## Significance of the Project {#sec-significance}
 
@@ -604,19 +604,19 @@ AO2 should be retained as written. The literature supports both the MDS-based ma
 ### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
 
 **Analytics Objective:**\
-\[Gabriela: Copy the complete revised AO3 from Chapter 1 here.\]
+Asses the validity of large language model panels by comparing their response against the human benchmark
 
 #### Existence of Well-established Models
 
-\[Gabriela: Review established frameworks and empirical research related to synthetic respondents, LLM-generated consumer data, reliability, agreement, convergent validity, and methods for comparing AI-generated responses with human or real-world benchmark data. Target approximately 2–3 pages.\]
+\[Gabriela: will update after meeting with client .\]
 
 #### Adequateness of Gathered Information
 
-\[Gabriela: In approximately one paragraph, explain what previous research establishes about the validity of AI-generated respondent data and what remains uncertain for the TBFI project.\]
+\[Gabriela: Iwill update after meeting with client\]
 
 #### Need for Additional Analysis
 
-\[Gabriela: In approximately one paragraph, explain why TBFI must conduct its own validation analysis using the available human benchmark and other real-data witnesses.\]
+\[Gabriela: will update after meeting with client\]
 
 #### Assessment and Affirmation of Analytics Objectives
 
