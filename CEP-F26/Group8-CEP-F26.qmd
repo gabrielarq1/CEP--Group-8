@@ -1,6 +1,6 @@
 ---
 title: " MSDM Culminating Experience Project " 
-subtitle: "Simulated Market Research at Scale: <br> An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard for TBFI"
+subtitle: "Simulated Market Research at Scale: <br> An AI Consultant-Training Simulation and <br> Emerging-Industry Insights Dashboard for TBFI"
 author:
   - "Yushan Huang"
   - "Simran Kaur"
