@@ -1,0 +1,897 @@
+---
+title: " MSDM Culminating Experience Project " 
+subtitle: "Simulated Market Research at Scale: <br> An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard for TBFI"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+  - "Veronica Vega"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Table of contents"
+    toc-expand: false
+    toc-location: right
+    number-sections: true
+    number-depth: 3
+    theme: cosmo
+    fontsize: 12pt
+    linestretch: 2
+    embed-resources: true
+    smooth-scroll: true
+    fig-cap-location: top
+    tbl-cap-location: top
+    css: cep-styles.css
+    other-links:
+      - text: MS in Digital Marketing
+        icon: mortarboard-fill
+        href: https://www.cpp.edu/programs/cba/gp/masters-digital-marketing.shtml
+      - text: Back to CEP Documents
+        icon: journal-text
+        href: https://www.cppmsdm.com/capstone_project#sec-essential-documents
+      - text: IBM Department
+        icon: bank
+        href: https://www.cpp.edu/cba/international-business-marketing/index.shtml
+    link-external-icon: true
+    link-external-newwindow: true
+crossref:
+  fig-title: "Figure"
+  tbl-title: "Table"
+  title-delim: "."
+bibliography: references.bib
+csl: styles/american-marketing-association.csl
+---
+
+# TITLE PAGE {.unnumbered}
+
+::: {.title-page}
+**SIMULATED MARKET RESEARCH AT SCALE: AN AI CONSULTANT-TRAINING SIMULATION AND EMERGING-INDUSTRY INSIGHTS DASHBOARD FOR TBFI**
+
+A Project Presented to the Faculty of the  
+College of Business Administration  
+California State Polytechnic University, Pomona
+
+In Partial Fulfillment of the Requirements for the Degree  
+Master of Science in Digital Marketing
+
+By  
+Yushan Huang  
+Simran Kaur  
+Gabriela Raygoza Quintero  
+Alondra Rodriguez  
+Veronica Vega
+
+2027
+:::
+
+# SIGNATURE PAGE {.unnumbered}
+
+[To be completed in the summer semester using the front matters template.]
+
+# ACKNOWLEDGMENTS PAGE {.unnumbered}
+
+[Optional. To be completed in the summer semester.]
+
+# ABSTRACT {.unnumbered}
+
+[To be completed in the summer semester (250 words maximum, including Purpose, Design/methodology/approach, Findings, Originality/Value, Practical implications, and up to six keywords).]
+
+# SUMMARY OF INDIVIDUAL CONTRIBUTION {.unnumbered}
+
+**Yushan Huang**
+
+[75–100 word summary, to be completed in the summer semester.]
+
+**Simran Kaur**
+
+[75–100 word summary, to be completed in the summer semester.]
+
+**Gabriela Raygoza Quintero**
+
+[75–100 word summary, to be completed in the summer semester.]
+
+**Alondra Rodriguez**
+
+[75–100 word summary, to be completed in the summer semester.]
+
+**Veronica Vega**
+
+[75–100 word summary, to be completed in the summer semester.]
+
+# TABLE OF CONTENTS {.unnumbered}
+
+The table of contents appears in the sidebar on the right.
+
+# CHAPTER 1: INTRODUCTION {#sec-ch1-introduction}
+
+## Background and Business Problem(s) {#sec-background}
+
+Market research helps businesses understand what customers want, but it is expensive. A professional study usually costs between \$8,000 and \$15,000 [@lin2026]. Most small businesses in the San Gabriel Valley (SGV) cannot afford that, so they make big decisions about pricing, new products, or where to open based on guesswork.
+
+AI may offer a cheaper option. Recent studies show that large language models (LLMs) can act like survey respondents. When given a profile such as age, income, and location, an LLM can answer survey questions in ways that often resemble real people's answers [@argyle2023; @aher2023; @horton2023]. In marketing, researchers have used this approach to estimate willingness to pay and to map how customers see competing brands [@brand2023; @li2024; @wang2026].
+
+There is a catch. AI answers are not always right. They can be overconfident, too uniform, or biased toward certain groups [@bisbee2024]. A common finding is that AI tends to get the order right (which option people prefer most) but the exact numbers wrong (how much they prefer it). Dr. Lin summarizes this as "trust the order, test the level" [@lin2026]. AI-generated research is only useful once it has been checked against real data.
+
+Our client is the Tarkington Business Futures Institute (TBFI), a new applied "Do Tank" inside Cal Poly Pomona's College of Business Administration [@cpp2026; @tbfi2026]. TBFI wants to offer low-cost research to local businesses, and it faces three problems. Training new student consultants one at a time does not scale. Prospective clients want to see a working demo rather than a slide deck. And local businesses need research they can both afford and trust. Our team is TBFI's first student consultant cohort, and our job is to build the tools that address these problems, test that they work, and use them to bring in TBFI's first clients.
+
+## Project Objectives (PO's) {#sec-po}
+
+The project has four business objectives, drawn from Dr. Lin's proposal [@lin2026].
+
+- **PO1**: Build the Do Tank Simulator, a browser-based training game that walks a user through a full consulting engagement (intake, research design, AI survey panel, perceptual map, and client readout), with at least 10 rounds and a short version TBFI can use as a sales demo.
+- **PO2**: Build the SGV Insights Dashboard, which reports AI-generated customer insights (perceptual maps, customer segments, and a trust report) for four SGV industries: specialty food and beverage, ADU and prefab housing, cross-border e-commerce and logistics, and health and senior services.
+- **PO3**: Run a digital marketing plan (landing page, LinkedIn and email content, and outreach to local chambers of commerce) that brings TBFI its first client inquiries and sponsors.
+- **PO4**: Train TBFI's first consultant cohort using the simulator.
+
+## Analytics Objectives {#sec-ao}
+
+Each team member owns one analytics objective (AO), and together the five AOs support the four POs. @tbl-ao-po lists every AO in full next to the project objective it supports, so readers do not need to refer back to the previous section.
+
+| AO and Owner | Analytics Objective | Project Objective Supported |
+|:-----------------|:-----------------------------|:-----------------------------|
+| AO1. Evidence Review and Data Setup (Alondra Rodriguez) | Synthesize published evidence on LLM-simulated survey respondents and assemble a clean secondary data set describing customers and businesses in the four SGV industries. | PO2: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries. |
+| AO2. Perceptual Maps and Customer Segments (Simran Kaur) | For each of the four SGV industries, build a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, with each map and segment tiered by the confidence level assigned in AO3. | PO2: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries. |
+| AO3. Validating the AI Panels (Gabriela Raygoza Quintero) | Assess the validity of large language model panels by comparing their responses against the human benchmark. | PO2: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries. |
+| AO4. Consultant Training Performance Evaluation (Yushan Huang) | Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores. | PO1: Build the Do Tank Simulator. PO4: Train TBFI's first consultant cohort using the simulator. |
+| AO5. Marketing Funnel Analytics (Veronica Vega) | Identify which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel. | PO3: Run a digital marketing plan that brings TBFI its first client inquiries and sponsors. |
+
+: Summary of Analytics Objectives and the Project Objectives They Support {#tbl-ao-po}
+
+@fig-po-ao shows the same relationships visually. Three AOs feed the dashboard, one evaluates the simulator and the training it delivers, and one measures the marketing plan.
+
+```{mermaid}
+%%| label: fig-po-ao
+%%| fig-cap: "How the Business Problem Connects to the Project and Analytics Objectives"
+%%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 28, "rankSpacing": 70}, "themeVariables": {"fontSize": "15px"}}}%%
+flowchart LR
+  P["Business problem:<br>research is too costly<br>for small businesses"]
+  P --> PO1["PO1: Do Tank Simulator"]
+  P --> PO4["PO4: Consultant training"]
+  P --> PO2["PO2: Insights Dashboard"]
+  P --> PO3["PO3: Digital marketing plan"]
+  PO1 --> AO4["AO4: Training performance evaluation"]
+  PO4 --> AO4
+  PO2 --> AO1["AO1: Evidence review and data setup"]
+  PO2 --> AO2["AO2: Perceptual maps and segments"]
+  PO2 --> AO3["AO3: Validating the AI panels"]
+  PO3 --> AO5["AO5: Marketing funnel analytics"]
+  classDef problem fill:#FFF6D6,stroke:#B8860B,stroke-width:3px,color:#1a1a1a,font-weight:bold
+  classDef po fill:#FFFFFF,stroke:#1E4D2B,stroke-width:3px,color:#1E4D2B,font-weight:bold
+  classDef ao fill:#E8F0E6,stroke:#1E4D2B,stroke-width:3px,color:#1a1a1a,font-weight:bold
+  class P problem
+  class PO1,PO2,PO3,PO4 po
+  class AO1,AO2,AO3,AO4,AO5 ao
+  linkStyle default stroke:#1E4D2B,stroke-width:2px
+```
+
+### AO1. Evidence Review and Data Setup (Alondra Rodriguez) {#sec-ao1}
+
+- **PO2**: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries.
+- **AO1**: Synthesize published evidence on LLM-simulated survey respondents and assemble a clean secondary data set describing customers and businesses in the four SGV industries.
+  - **Data Source**: Published research on LLM survey respondents; U.S. Census American Community Survey (ACS), County Business Patterns, and Esri Tapestry segmentation data.
+
+#### How to Address AO1
+
+This AO gathers what is already known. It reviews published studies on AI survey respondents and collects public data for each industry, including local demographics from the ACS, business counts from County Business Patterns, and lifestyle profiles from Esri Tapestry. The output is a short evidence summary and a cleaned, documented data set that the other AOs can build on.
+
+#### How AO1 Will Help Achieve PO2
+
+The data set supplies the realistic respondent profiles used to prompt the AI panels and the industry context shown on the dashboard. The evidence summary tells the team which uses of AI respondents are well supported and which need extra caution.
+
+### AO2. Perceptual Maps and Customer Segments (Simran Kaur) {#sec-ao2}
+
+- **PO2**: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries.
+- **AO2**: For each of the four SGV industries, build a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, with each map and segment tiered by the confidence level assigned in AO3.
+  - **Data Source**: AI-simulated survey panels (Claude, ChatGPT, and Gemini) rating competing brands on industry-specific attributes and overall similarity, with respondent profiles drawn from the AO1 data set.
+
+#### How to Address AO2
+
+Perceptual maps place competing brands on a chart based on how customers see them, for example affordable versus premium or traditional versus modern. Brands that sit close together are seen as similar, and empty space can point to gaps in the market. The maps will be built with multidimensional scaling (MDS), and each industry will use its own attribute set rather than one generic chart. This follows @li2024, who showed that LLMs can produce perceptual maps that closely match those built from real customer surveys.
+
+Customer segments group respondents who want similar things, such as price-focused shoppers or quality-first buyers. Segments will be estimated with latent class clustering rather than k-means, because latent class handles a mix of attitudinal and demographic variables and gives each respondent a probability of belonging to each segment. Each segment gets a short profile describing who its members are, what they care about, and how to reach them.
+
+Because AI tends to get rankings right more often than exact numbers, the maps will emphasize where brands sit relative to each other rather than precise scores [@lin2026]. AI panels are also known to be weaker at the subgroup level than in aggregate [@bisbee2024], so segment-level results will carry their own confidence flag from AO3 instead of inheriting a single project-wide rating.
+
+#### How AO2 Will Help Achieve PO2
+
+The maps and segment profiles are the core content of the SGV Insights Dashboard. They give a small business owner a quick read on where competitors stand, where the gaps are, and which customer groups to target, with a clear signal of how much each result can be trusted.
+
+### AO3. Validating the AI Panels (Gabriela Raygoza Quintero) {#sec-ao3}
+
+- **PO2**: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries.
+- **AO3**: Assess the validity of large language model panels by comparing their responses against the human benchmark.
+  - **Data Source**: Responses from three AI panels (Claude, ChatGPT, and Gemini) and Dr. Lin's benchmark panel of about 600 real respondents [@lin2026].
+
+#### How to Address AO3
+
+The same survey will be given to all three AI panels and compared with the human benchmark. Two scores will guide the comparison. Krippendorff's alpha checks whether panels agree with each other, with 0.80 or above treated as strong and 0.67 as the minimum [@krippendorff2018]. The F1 score checks how often the AI answers match the human answers. Following "trust the order, test the level," the analysis first checks whether the AI ranks options in the same order as people and then measures how far off its exact numbers are.
+
+#### How AO3 Will Help Achieve PO2
+
+Each finding will be sorted into one of three groups: use as is, use for rankings only, or do not use. This rating tells TBFI and its clients how much to trust each result on the dashboard and decides which AO2 maps and segments are published.
+
+### AO4. Consultant Training Performance Evaluation (Yushan Huang) {#sec-ao4}
+
+- **PO1**: Build the Do Tank Simulator.
+- **PO4**: Train TBFI's first consultant cohort using the simulator.
+- **AO4**: Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.
+  - **Data Source**: Pre-training and post-training skill-checkpoint scores from TBFI's incoming consultants.
+
+#### How to Address AO4
+
+Consultants will complete a standardized skill checkpoint before and after the simulator, and the two sets of scores will be compared to measure the direction and size of any change. The specific skill dimensions and scoring criteria will be refined using the simulation-based learning and training-evaluation literature reviewed in Chapter 2. Because checkpoint gains alone do not prove transfer to real client work, results will be interpreted with that limit in mind.
+
+#### How AO4 Will Help Achieve PO1 and PO4
+
+The results show which parts of the simulator work and which need redesign (PO1), and whether the simulator can serve as a repeatable onboarding tool for future consultant cohorts (PO4).
+
+### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
+
+- **PO3**: Run a digital marketing plan that brings TBFI its first client inquiries and sponsors.
+- **AO5**: Identify which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel.
+  - **Data Source**: Website and campaign analytics (GA4 and UTM-tagged traffic), inquiry form submissions, demo completions, and TBFI's sponsor meeting and acquisition records.
+
+#### How to Address AO5
+
+The independent variable is marketing channel: search engine optimization (SEO), social media, email, referral networks, and paid online advertising. The dependent variables are qualified intake inquiries, sponsor meetings, sponsor acquisitions, and conversion rates at each funnel stage. Funnel analytics and comparative statistics will show which channels move prospects furthest through the funnel, and baseline metrics collected before the campaign will be compared with post-campaign results.
+
+#### How AO5 Will Help Achieve PO3
+
+The analysis tells TBFI where to spend its limited marketing budget, shifting resources toward the channels with the highest sponsor acquisition rates and return on investment.
+
+## Significance of the Topic {#sec-significance}
+
+This project matters to three groups. Local businesses get research they could not afford before; a bakery or a senior care provider in the SGV can learn what its customers want without spending \$10,000. TBFI gets working tools, a sales demo, and its first clients, and the simulator lets it train new consultants faster so the program can grow. The research field gets a real-world test of AI survey panels, since most studies so far have been run under controlled conditions rather than with actual local businesses [@argyle2023; @bisbee2024]. For our team, the project builds skills that employers want: working with AI tools, testing data quality, building dashboards, and running digital campaigns.
+
+# CHAPTER 2: BACKGROUND AND ANALYTICS OBJECTIVES {#sec-ch2}
+
+## Client (Company) Background
+
+### Company Mission/Vision
+
+[To be completed.]
+
+### Core Competencies
+
+[To be completed.]
+
+### Value Propositions
+
+[To be completed.]
+
+### Business Objectives
+
+[To be completed.]
+
+## Description of the Client's Current Marketing Program
+
+### Marketing Team and Expertise
+
+[To be completed.]
+
+### Current Target Market
+
+[To be completed.]
+
+### Current Positioning and Perceptual Map
+
+[To be completed.]
+
+### Current Product/Services
+
+[To be completed.]
+
+### Current Pricing
+
+[To be completed.]
+
+### Current Marketing Channels
+
+[To be completed.]
+
+### Current Integrated Marketing Communications
+
+[To be completed.]
+
+## Description of the Company's Current Digital Marketing Practices
+
+### Brand Persona
+
+[To be completed.]
+
+### Digital Marketing Channels/Medium
+
+[To be completed.]
+
+### Other Digital Marketing Channels and Tactics
+
+[To be completed.]
+
+### Allocation of Resources to Customer-Influence Efforts
+
+[To be completed.]
+
+### Analytics Infrastructure
+
+[To be completed.]
+
+## Competitive Analysis
+
+### Industry Size
+
+[To be completed.]
+
+### Industry Outlook
+
+[To be completed.]
+
+### Key Competitors and Their Digital Marketing Strategies
+
+[To be completed.]
+
+## Customer Analysis
+
+### Segments and Their Brief Justification
+
+[To be completed.]
+
+### Segment Analysis
+
+[To be completed.]
+
+## SWOT Analysis
+
+### Strengths
+
+[To be completed.]
+
+### Weaknesses
+
+[To be completed.]
+
+### Opportunities
+
+[To be completed.]
+
+### Threats
+
+[To be completed.]
+
+### Summary: SWOT Quadrants
+
+[To be completed.]
+
+## Investigation of Currently Available Research Framework/Model {#sec-lit-review}
+
+This section reviews the research frameworks, models, and evidence relevant to each analytics objective. For each AO, it asks whether established research already answers the question, whether that information is adequate for TBFI, what additional analysis is needed, and whether the AO should be kept, revised, or narrowed.
+
+### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+
+**Analytics Objective:** Synthesize published evidence on LLM-simulated survey respondents and assemble a clean secondary data set describing customers and businesses in the four SGV industries.
+
+#### Existence of Well-established Models
+
+[Alondra: Review the major theories, frameworks, models, and previous empirical studies relevant to AO1. Explain what previous researchers studied, what data or methods they used, what they found, and how those findings relate to the TBFI project. This should be the main literature-review section, approximately 2–3 pages.]
+
+#### Adequateness of Gathered Information
+
+[Alondra: In about one paragraph, explain whether the existing literature and currently available information are sufficient to address AO1.]
+
+#### Need for Additional Analysis
+
+[Alondra: In about one paragraph, explain what additional analysis the TBFI project needs that the existing literature cannot answer alone.]
+
+#### Assessment and Affirmation of Analytics Objectives
+
+[Alondra: Evaluate whether AO1 should be retained, revised, or narrowed, and state the final measurable AO1.]
+
+### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+
+**Analytics Objective:** For each of the four SGV industries, build a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, with each map and segment tiered by the confidence level assigned in AO3.
+
+#### Existence of Well-established Models
+
+AO2 rests on two of the oldest ideas in marketing strategy. @smith1956 argued that firms do better when they treat a market as a set of groups with different needs rather than as a single demand curve, which is the logic of segmentation. @ries1981 popularized positioning, the idea that a brand's position exists in the customer's mind and only makes sense relative to competitors. A perceptual map makes that relative position visible, and segmentation tells us whose minds we are looking at. AO2 needs both, because a single map averaged across all customers can hide the fact that different groups see the same brands quite differently.
+
+Perceptual mapping methods fall into two families. Decompositional methods start from overall judgments of how similar brands are and use multidimensional scaling (MDS) to find the smallest number of dimensions that reproduces those judgments. @kruskal1964 formalized nonmetric MDS and the "stress" measure of fit that is still used to decide how many dimensions a map should have. Compositional methods start instead from ratings of each brand on named attributes and reduce them with factor analysis or discriminant analysis. @hauser1979 compared these approaches directly and found that attribute-based factor analysis produced maps that were more interpretable and more predictive than similarity-based MDS. MDS keeps one important advantage: it does not require the researcher to choose attributes in advance, which matters when the dimensions customers actually use are unknown. That is a real concern for some of the SGV categories, such as ADU and prefab housing or cross-border e-commerce, where there is little prior research on how customers frame the choice. @bijmolt1999 later compared several MDS procedures for perceptual mapping, a reminder that the specific procedure is a modeling choice that should be reported and checked rather than treated as neutral. The practical lesson for AO2 is not to rely on a single technique. Collecting both attribute ratings and overall similarity judgments from the panel allows an MDS map with attribute directions fitted onto it, and a factor-analytic map can serve as a robustness check.
+
+Segmentation has an equally established methods literature. @wedel2000 provide the standard framework, classifying segmentation bases (for example, demographics versus benefits sought) and methods (a priori versus post hoc, descriptive versus predictive). @punj1983 reviewed how cluster analysis was being used in marketing research and stressed that cluster solutions need to be validated rather than accepted as given. More recent work has moved toward model-based clustering. Latent class cluster analysis treats segments as unobserved groups estimated from a probability model, which means the number of segments can be chosen with fit statistics rather than judgment, variables of different scale types can be combined, and each respondent receives a probability of membership in each segment [@vermunt2002]. In simulation studies, latent class clustering recovered true segment membership better than k-means when segments differed in their spread or correlation structure [@magidson2002]. @vidden2016 reached a similar conclusion in a market segmentation setting: latent class analysis performed best in most conditions, both in assigning respondents correctly and in identifying the correct number of segments, while k-means held up reasonably well only with continuous variables. Because the TBFI panel will mix attitudinal ratings with categorical demographic profiles, this evidence supports latent class over k-means.
+
+The two tasks can also be combined. @desarbo1994 reviewed latent class MDS models, which estimate a perceptual space and a set of segments at the same time, so that each segment can weight the map's dimensions differently or hold its own view of the brands. This is the direct precedent for estimating AO2's maps and segments jointly. These models are more demanding to estimate, so a two-step approach, segmenting first and then building a map for each segment, is a reasonable fallback if the joint model does not converge on the panel data.
+
+The newer question is whether these methods still work when the respondents are simulated. @li2024 found that perceptual data generated by an LLM aligned closely with data from human surveys, which supports AO2's basic premise. @brand2023 found that GPT's answers to purchase questions behaved in line with economic theory and produced plausible willingness-to-pay estimates, and @wang2026 propose using LLM-generated responses to augment, rather than replace, human data in market research. The main warning comes from @bisbee2024. Their synthetic respondents reproduced average opinions well, but the responses showed much less variation than real survey data, and nearly half of the regression coefficients estimated from synthetic data differed significantly from those estimated on human data, with about a third of those pointing in the opposite direction. Reduced variation is a particular problem for segmentation, because clustering depends on real differences between respondents. If the AI panel makes everyone look alike, the model may find too few segments or produce segments that reflect prompt artifacts rather than customers. @argyle2023 offer a partial counterpoint, showing that when an LLM is conditioned on detailed demographic backstories it can reproduce many subgroup patterns. Taken together, the evidence suggests that subgroup recovery is possible but not guaranteed, and that it needs to be tested rather than assumed.
+
+#### Adequateness of Gathered Information
+
+The literature answers the "how" question well. MDS, attribute-based mapping, and latent class clustering are established and defensible methods, joint models of positioning and segmentation exist, and there is published evidence that LLM-generated data can support perceptual mapping in aggregate [@li2024]. It does not answer the "does it hold here" question. No study covers these four SGV industries or the small, local businesses TBFI serves, and none tests whether LLM panels recover customer segments as opposed to aggregate perceptions. That is exactly where @bisbee2024 found the largest risk, through compressed variance and unstable subgroup relationships. The gathered information is therefore sufficient to choose methods but not sufficient to trust the outputs.
+
+#### Need for Additional Analysis
+
+TBFI needs its own analysis for two reasons. First, there is no published positioning or segmentation work for these hyper-local categories, so the maps and segments have to be built from new panel data. Second, the general LLM-survey literature cannot stand in for testing this team's specific panels on these specific industries. Each map and segment solution therefore needs two checks before it reaches the dashboard: an internal check of model fit (MDS stress, latent class fit statistics, and how cleanly respondents are assigned to segments) and an external check against the human benchmark through AO3. Comparing results across the three AI panels adds a further test, since a segment that appears in only one model's data is more likely to be an artifact than a real customer group.
+
+#### Assessment and Affirmation of Analytics Objectives
+
+The literature supports retaining AO2 with one refinement to method. Because @hauser1979 found attribute-based maps more interpretable and predictive while MDS avoids having to fix attributes in advance, AO2 will collect both attribute ratings and overall similarity judgments, build an MDS map with fitted attribute directions, and compare it with a factor-analytic map as a robustness check. Segments will be estimated with latent class clustering, with the number of segments chosen by fit statistics and interpretability, and maps and segments will be estimated jointly where the panel data support it [@desarbo1994], with a segment-then-map approach as the fallback.
+
+The final measurable AO2 is: for each of the four SGV industries, produce a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, report MDS stress and latent class fit for each solution, and tier every map and segment as use as is, use for rankings only, or do not use according to AO3's validation before it reaches the SGV Insights Dashboard (PO2). This version keeps the objective tied to data the team can actually collect, makes the quality checks explicit, and directly addresses the subgroup weakness identified in the literature.
+
+### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+
+**Analytics Objective:** Assess the validity of large language model panels by comparing their responses against the human benchmark.
+
+#### Existence of Well-established Models
+
+[Gabriela: will update after meeting with client.]
+
+#### Adequateness of Gathered Information
+
+[Gabriela: will update after meeting with client.]
+
+#### Need for Additional Analysis
+
+[Gabriela: will update after meeting with client.]
+
+#### Assessment and Affirmation of Analytics Objectives
+
+[Gabriela: Based on the literature, assess and refine AO3. State the final measurable AO3 and explain how the analysis will determine which synthetic-panel results can be trusted.]
+
+### AO4. Consultant Training Performance Evaluation (Yushan Huang)
+
+**Analytics Objective:** Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.
+
+#### Existence of Well-established Models
+
+Simulation-based learning and experiential learning provide an established foundation for evaluating the TBFI Do Tank Simulator as a consultant-training tool. These approaches emphasize learning through active participation in realistic tasks rather than relying only on passive instruction. This framework is relevant to TBFI because the simulator is intended to reproduce major stages of a consulting engagement and provide future consultants with opportunities to practice decisions and analytical tasks in a controlled training environment.
+
+Research provides evidence that simulation-based learning can support the development of complex professional skills. Chernikova et al. [-@chernikova2020], in a meta-analysis of simulation-based learning in higher education, found that simulations can support complex skills such as problem solving, decision making, communication, and collaboration. However, the effectiveness of simulation depends partly on the design of the learning environment. The study emphasizes the importance of scaffolding and indicates that instructional support should reflect learners' prior knowledge. This finding is relevant to TBFI because incoming consultants may begin with different levels of experience in market research, analytics, and consulting. Therefore, the simulator should not simply present a sequence of tasks. Structured explanations, examples, feedback, and opportunities for reflection can help make simulator participation a more meaningful learning experience.
+
+Similar evidence is found in research on computer-based simulation games. Sitzmann [-@sitzmann2011] conducted a meta-analysis of 65 studies involving 6,476 trainees and found that computer-based simulation games can produce meaningful learning outcomes. The effectiveness of simulation was related to the design of the learning experience and the degree to which trainees were actively engaged. These findings suggest that simulator participation alone should not be treated as evidence of successful training. For TBFI, the simulator should function as an active learning environment in which consultants make decisions, observe consequences, receive feedback, and have opportunities to revise their work.
+
+Evidence from business education provides additional support for this approach. Faisal et al. [-@faisal2022] systematically reviewed 57 empirical studies of business simulation games and found that simulations were associated with multiple types of learning outcomes, including knowledge acquisition, cognitive skills, interactive skills, and behavioral outcomes. This research is especially relevant to the TBFI project because the Do Tank Simulator is designed around a business and market-research consulting engagement. Its purpose extends beyond teaching factual information. Trainees are expected to apply research and analytics concepts while completing consulting-related activities. The review also identified substantial variation in how simulation outcomes have been assessed, indicating that evaluation measures should be aligned with the specific skills the training is intended to develop.
+
+Although the literature generally supports simulation and experiential learning, previous research also cautions against assuming that simulation automatically produces skill development. Gosen and Washbush [-@gosen2004] reviewed research on experiential learning effectiveness and concluded that the literature generally supports its educational value while also identifying weaknesses in the research designs and measurements used in many studies. For the TBFI project, this distinction is important. Existing evidence provides a rationale for using simulation as a training approach, but it cannot establish that the TBFI Do Tank Simulator itself improves consultant performance. The effectiveness of this specific training tool therefore needs to be evaluated using measurable outcomes.
+
+Research on instructional games further suggests that learning outcomes depend on how the simulation is constructed. Wilson et al. [-@wilson2009] reviewed relationships between game attributes and learning outcomes and argued that the relationship between simulation features and learning is not automatic. Features such as feedback, interaction, challenge, and fidelity may influence different types of learning outcomes. This supports designing the TBFI simulator around explicit learning objectives rather than assuming that completion of the simulator is itself an adequate indicator of learning. It also supports measuring performance through multiple relevant tasks or outcomes when feasible.
+
+A standardized pre-training and post-training skill checkpoint provides one practical way to evaluate performance change, but research identifies important limitations of this design. Marsden and Torgerson [-@marsden2012] examined methodological concerns with single-group pre-test/post-test designs and showed that observed score changes can be affected by factors such as regression to the mean, maturation, history, and testing effects. Consequently, a higher post-training score cannot by itself establish that the simulator caused the improvement. Experimental or quasi-experimental designs provide stronger evidence for causal claims, but a pre/post approach can still provide useful evidence of performance change in an initial pilot when its limitations are clearly recognized.
+
+Pretesting itself can also influence subsequent performance. Pan and Carpenter [-@pan2023] reviewed research on prequestioning and pretesting and found that completing a pretest may influence later learning by directing attention and affecting subsequent learning processes. This creates an additional concern for AO4 because trainees could perform better on the post-training checkpoint partly because they have already encountered similar material. To reduce this problem, the TBFI evaluation should consider aligned but non-identical pre- and post-training tasks rather than simply repeating exactly the same questions or activities.
+
+Training evaluation also requires a distinction between immediate training outcomes and transfer to authentic professional work. Bates [-@bates2004], in a critical analysis of the Kirkpatrick training-evaluation model, questioned assumptions about relationships among different levels of training outcomes. For AO4, an increase in a skill-checkpoint score may provide evidence of learning during training, but it should not automatically be interpreted as proof that a consultant will perform better in an actual client engagement.
+
+More recent research on workplace training transfer reinforces the need to distinguish immediate training outcomes from later application. Ardondi et al. [-@ardondi2026] reviewed training-transfer assessment tools across workplace-learning studies and identified substantial variation in how transfer is conceptualized and measured. This suggests that a single overall checkpoint score may be too narrow if TBFI eventually wants to make broader claims about readiness for real consulting work. Performance scores could therefore be supplemented, when feasible, with additional evidence related to the application of skills beyond the immediate training activity.
+
+Hjellvik and Mallam [-@hjellvik2024] provide additional evidence concerning simulator-based assessment and training transfer. Their research distinguishes performance measured under simulator conditions from performance demonstrated under a transfer condition and provides evidence that simulator-based competency assessment can be related to later performance. For TBFI, this distinction is useful because it suggests that simulator-based assessment can provide meaningful evidence while also showing why transfer should be considered separately. A consultant who performs well on tasks inside the Do Tank Simulator demonstrates competency within the training environment, while broader claims about client readiness would be strengthened by evidence from an additional or more authentic task when feasible.
+
+Taken together, the literature supports the use of simulation as an active and experiential training environment while also showing why the outcomes of the TBFI simulator should be measured carefully. The strongest common themes are the importance of realistic tasks, scaffolding, active participation, feedback, reflection, and performance-based measurement. The literature also indicates that pre/post comparisons can document performance change but have limitations when used to make strong causal or transfer claims. These findings support the use of standardized skill checkpoints before and after simulator training, while suggesting that the specific scoring dimensions should be aligned with the consulting activities taught by the simulator and refined as the training design develops.
+
+#### Adequateness of Gathered Information
+
+The existing literature provides an adequate theoretical and methodological foundation for developing an initial evaluation of the TBFI Do Tank Simulator. Prior research supports simulation-based and experiential learning as approaches for developing complex skills and identifies active engagement, scaffolding, feedback, and realistic tasks as important design features [@chernikova2020; @sitzmann2011; @faisal2022]. The literature also provides guidance on the strengths and limitations of pre/post assessment and on the distinction between performance in a training environment and transfer to professional practice [@marsden2012; @pan2023; @hjellvik2024]. However, the gathered information is not sufficient to determine whether the TBFI Do Tank Simulator itself produces measurable changes in consultant performance. The studies were conducted in different educational and professional contexts, and none evaluates the specific combination of market-research and analytics consulting activities included in the TBFI simulator. In addition, the final skill dimensions, scoring rubric, and benchmark for satisfactory consultant performance have not yet been established. Therefore, the literature provides a foundation for the evaluation design but cannot replace project-specific performance data.
+
+#### Need for Additional Analysis
+
+Additional analysis is required to determine whether consultant performance changes after completing the TBFI Do Tank Simulator. The project will need to operationalize consultant performance through standardized skill-checkpoint measures that correspond to the tasks and learning objectives included in the simulator. Incoming consultants can complete a checkpoint before training and an aligned post-training checkpoint after completing the simulator. The resulting paired scores can then be used to examine the direction and magnitude of performance changes. Depending on the eventual sample size, measurement scale, and distribution of the scores, an appropriate paired-samples analysis can be selected. Effect sizes and confidence intervals should also be considered rather than relying only on statistical significance. If feasible, rubric-based performance measures, rater-agreement checks, or an additional client-style task could provide complementary evidence. Because single-group pre/post designs have important validity limitations [@marsden2012], the initial results should be interpreted as evidence of measured performance change rather than definitive proof that simulator participation alone caused the change.
+
+#### Assessment and Affirmation of Analytics Objectives
+
+The literature review supports retaining the general purpose of AO4 but also indicates that the original objective should be narrowed and made more measurable. The earlier question, "Does the simulator improve consultant skills?" is too broad because it does not specify how consultant performance will be operationalized or how improvement will be measured. It can also imply a causal conclusion that a single-group pre/post design may not be able to establish [@marsden2012].
+
+Based on the literature, the revised AO4 is: **Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.** This version separates the project objective of building the simulator from the analytics objective of measuring its training outcomes. It identifies consultant performance as the outcome, specifies a before-and-after comparison, and identifies standardized skill-checkpoint scores as the primary measurement approach.
+
+The exact dimensions included in the skill checkpoints should be finalized as the simulator's learning objectives and scoring rubric are developed. The TBFI simulator is intended to expose consultants to multiple stages of a consulting engagement, so the performance measures should ultimately correspond to the competencies the simulator is actually designed to teach. Existing simulation research also supports evaluating applied performance rather than relying only on simulator completion or participant reactions [@faisal2022; @wilson2009].
+
+AO4 therefore remains aligned with the broader TBFI project while becoming more analytically actionable. The revised objective can be addressed with observable performance data and analyzed quantitatively, while interpretation of the results can remain appropriately cautious about causality and real-world transfer. This formulation can guide the later development of the skill-checkpoint instrument, scoring rubric, and statistical analysis plan.
+
+### AO5. Marketing Funnel Analytics (Veronica Vega)
+
+**Analytics Objective:** Identify which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel.
+
+#### Existence of Well-established Models
+
+AO5 aims to identify the most effective digital marketing channels for qualified sponsor inquiries and sponsor acquisitions. Therefore, established research frameworks and models for digital marketing funnels, customer acquisition, conversion rates, channel effectiveness and marketing attribution need to be reviewed. These models represent a theoretical basis for analyzing customer behavior and evaluating the marketing efforts of organizations. Website activity, inquiry volume, demo completions, customer interactions, conversion rates and acquisition figures are indicators of the performance of marketing channels and thus of relevance for the marketing funnel analysis of AO5 [@brand2023; @wang2026].
+
+For digital marketing in particular, there are established frameworks such as the Marketing Funnel Model which plots the buyer's journey through a series of stages. The classic model contains five stages of customer behavior (Awareness, Interest, Consideration, Conversion and Retention). As consumers progress through the various stages of the marketing funnel, website visits and sales can be used to gauge awareness and interest, and conversions such as inquiries, demos, consultations and sales can be used to assess later stages of the funnel. The performance of the marketing funnel can be quantified in terms of the volume of traffic to the website, the number of inquiries and resulting conversions as well as customer acquisition costs and return on investment (ROI) measures [@brand2023].
+
+The AIDA Model (Attention, Interest, Desire, and Action) is another marketing framework that can be useful to researchers by breaking down the processes of customer decision making in the digital marketing space. As the Marketing Funnel Model above measures conversions at different levels of the customer journey, metrics will vary for each stage of AIDA, such as counts of Attention, Interest, and Desire generated and the conversion rates and engagement metrics for Action stages (e.g., email marketing click-through rates for people who have reached the Desire stage). For example, ROI and conversion of leads to customers can be compared across search engine optimization (SEO), social media marketing, email marketing and paid online advertising [@li2024].
+
+Today's customers are not taking a straight-line journey to purchase. The Customer Journey Framework describes in detail how customers interact with a company's various marketing touchpoints, both online and offline. An example customer journey would be: a customer sees a post from a business in their social feed, clicks through to the business's website by searching for it on a search engine, comes back to the site via an email campaign a few days later, and books a meeting by way of a referral from a friend [@li2024; @brand2023].
+
+A marketing attribution model is also used to assess marketing channel effectiveness. It assesses which marketing activity has caused a customer conversion. Common types of attribution models include first-touch attribution, last-touch attribution, linear attribution and multi-touch attribution models. All of these models are relevant to AO5 and can help TBFI determine which digital marketing channels are generating the most qualified sponsor inquiries and sponsor acquisitions [@brand2023; @wang2026].
+
+Measuring the deeper end of the funnel provides better insight into whether marketing efforts are translating into business value. In addition to tracking website traffic and other metrics that measure awareness and interest, previous research supports the use of metrics such as lead generation, lead quality, conversion rates, customer acquisition cost, and customer lifetime value to evaluate marketing channel effectiveness.
+
+Together, the Marketing Funnel Model, AIDA Model, Customer Journey Framework, and Marketing Attribution Models define the current state of understanding of digital marketing funnels and offer means of measuring the performance of individual and collective online marketing channels [@wang2026; @lin2026]. Metrics such as website traffic, quantity of inquiries, demo completion rates, quality and quantity of customer interactions, and conversion rates enable the application of funnel analytics to TBFI's online marketing efforts in order to measure and maximize their effectiveness.
+
+#### Adequateness of Gathered Information
+
+There is significant prior work that describes and measures the performance of various parts of the digital marketing funnel, including customer acquisition and conversion, as well as individual marketing channels such as SEO, social media, email, referral and paid media. We draw upon a number of established frameworks and metrics that organizations use to measure and manage their marketing efforts. Importantly, there is substantial prior work on the conversion optimization and attribution aspects of digital marketing that can inform our research. Recent studies have also demonstrated the growing value of AI-assisted market research and advanced analytics methods for understanding customer behavior and evaluating marketing performance [@brand2023; @wang2026]. Although the prior work provides solid theoretical foundations for the study of digital marketing, there is no prior work that specifically focuses on the processes and activities used in TBFI's sponsor acquisition efforts within the context of the organization's unique customer journey and overall business objectives.
+
+#### Need for Additional Analysis
+
+While there is valuable information regarding the performance of digital marketing channels available from previous studies, in-depth analysis of a specific organization's digital marketing channels is required to identify the optimal mix of channels to create the highest quality sponsor inquiries and conversions. This is because customer behavior, conversion rates, and channel performance vary greatly between industries and companies. Furthermore, researchers have cautioned that synthetic or AI-generated data may not consistently represent real-world customer behavior. Bisbee et al. [-@bisbee2024] argued that large language models may introduce validity concerns when used as substitutes for human-generated data. Similarly, Aher et al. [-@aher2023] found that simulated responses may vary depending on prompt design and modeling assumptions. In the case of TBFI, in addition to general digital marketing metrics, project-specific metrics such as website visits, demo completions, intake inquiries, meetings with potential sponsors and conversions need to be analyzed to understand how prospective sponsors progress through TBFI's marketing funnel and at which points they enter and drop off. Such analysis can support data-driven marketing decisions and enhance the return on future online marketing efforts.
+
+#### Assessment and Affirmation of Analytics Objectives
+
+A literature review on marketing funnel analytics, customer journey analysis and attribution models has identified that, for acquiring customers in today's digital marketing environment, it is most important to assess the influence of multiple marketing channels and to measure conversion instead of traffic. The literature also revealed challenges in attribution and data quality which have to be addressed in an organization-specific manner.
+
+Research supports the use of marketing funnel analytics, customer journey analysis, and conversion measurement for evaluating digital marketing effectiveness [@brand2023; @li2024; @wang2026; @lin2026]. At the same time, previous studies identify challenges associated with attribution accuracy and synthetic data validity, reinforcing the need for organization-specific analysis [@aher2023; @bisbee2024].
+
+The final measurable AO5 is: analyze the relative effectiveness of SEO, social media marketing, email marketing, referral networks and paid online advertising by measuring website visits, demo completions, intakes, meetings with potential sponsors, sponsor acquisitions and conversion rates throughout the marketing funnel.
+
+The findings from AO5 will support TBFI's business-intake objectives by identifying which online marketing channels generate the greatest volume of qualified sponsor inquiries leading to sponsor acquisitions. The data will allow TBFI to make better marketing investments, improve the overall performance of its marketing funnel, and increase the efficiency of sponsor acquisition.
+
+# CHAPTER 3: METHODS {#sec-ch3}
+
+## Survey Data
+
+### Population
+
+[To be completed.]
+
+### Sampling Frame
+
+[To be completed.]
+
+### Sampling Method
+
+[To be completed.]
+
+### Data Collection
+
+[To be completed.]
+
+### Sample Characteristics
+
+[To be completed.]
+
+### Measures
+
+[To be completed.]
+
+### Analytics Methods to Employ
+
+#### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+
+[To be completed.]
+
+#### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+
+[To be completed.]
+
+#### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+
+[To be completed.]
+
+#### AO4. Consultant Training Performance Evaluation (Yushan Huang)
+
+[To be completed.]
+
+#### AO5. Marketing Funnel Analytics (Veronica Vega)
+
+[To be completed.]
+
+## Secondary Data
+
+### Data Source
+
+[To be completed.]
+
+### Population
+
+[To be completed.]
+
+### Sampling Frame
+
+[To be completed.]
+
+### Sampling Method
+
+[To be completed.]
+
+### Data Wrangling
+
+[To be completed.]
+
+### Understanding the Data
+
+[To be completed.]
+
+### Programming
+
+[To be completed.]
+
+### Sample Characteristics
+
+[To be completed.]
+
+### Measures
+
+[To be completed.]
+
+### Analytics Methods to Employ
+
+#### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+
+[To be completed.]
+
+#### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+
+[To be completed.]
+
+#### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+
+[To be completed.]
+
+#### AO4. Consultant Training Performance Evaluation (Yushan Huang)
+
+[To be completed.]
+
+#### AO5. Marketing Funnel Analytics (Veronica Vega)
+
+[To be completed.]
+
+# CHAPTER 4: ANALYSIS/MODELING AND RESULTS {#sec-ch4}
+
+## AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+
+### Introduction
+
+[To be completed.]
+
+### Descriptive Analytics and Results
+
+[To be completed.]
+
+### Predictive Analytics and Results
+
+[To be completed.]
+
+### Summary Findings
+
+[To be completed.]
+
+## AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+
+### Introduction
+
+[To be completed.]
+
+### Descriptive Analytics and Results
+
+[To be completed.]
+
+### Predictive Analytics and Results
+
+[To be completed.]
+
+### Summary Findings
+
+[To be completed.]
+
+## AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+
+### Introduction
+
+[To be completed.]
+
+### Descriptive Analytics and Results
+
+[To be completed.]
+
+### Predictive Analytics and Results
+
+[To be completed.]
+
+### Summary Findings
+
+[To be completed.]
+
+## AO4. Consultant Training Performance Evaluation (Yushan Huang)
+
+### Introduction
+
+[To be completed.]
+
+### Descriptive Analytics and Results
+
+[To be completed.]
+
+### Predictive Analytics and Results
+
+[To be completed.]
+
+### Summary Findings
+
+[To be completed.]
+
+## AO5. Marketing Funnel Analytics (Veronica Vega)
+
+### Introduction
+
+[To be completed.]
+
+### Descriptive Analytics and Results
+
+[To be completed.]
+
+### Predictive Analytics and Results
+
+[To be completed.]
+
+### Summary Findings
+
+[To be completed.]
+
+# CHAPTER 5: DATA-INFORMED MARKETING STRATEGY AND CONCLUSION {#sec-ch5}
+
+## AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+
+### Summary of Findings from Data Analysis – AO1
+
+[To be completed.]
+
+### Recommendations
+
+[To be completed.]
+
+## AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+
+### Summary of Findings from Data Analysis – AO2
+
+[To be completed.]
+
+### Recommendations
+
+[To be completed.]
+
+## AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+
+### Summary of Findings from Data Analysis – AO3
+
+[To be completed.]
+
+### Recommendations
+
+[To be completed.]
+
+## AO4. Consultant Training Performance Evaluation (Yushan Huang)
+
+### Summary of Findings from Data Analysis – AO4
+
+[To be completed.]
+
+### Recommendations
+
+[To be completed.]
+
+## AO5. Marketing Funnel Analytics (Veronica Vega)
+
+### Summary of Findings from Data Analysis – AO5
+
+[To be completed.]
+
+### Recommendations
+
+[To be completed.]
+
+## Concrete Digital Marketing Plan
+
+### Target Market
+
+[To be completed.]
+
+### Positioning and Perceptual Map
+
+[To be completed.]
+
+### Brand Persona
+
+[To be completed.]
+
+### Campaign Objectives
+
+[To be completed.]
+
+### SEO Strategy
+
+[To be completed.]
+
+### Website and Landing Page Plan
+
+[To be completed.]
+
+### Social Media Strategy
+
+[To be completed.]
+
+### Email Marketing Strategy
+
+[To be completed.]
+
+### Paid Advertising Strategy
+
+[To be completed.]
+
+### Other Digital Marketing Channels and Tactics
+
+[To be completed.]
+
+### Implementation Timeline
+
+[To be completed.]
+
+## Implementation of the Concrete Digital Marketing Plan
+
+[To be completed.]
+
+## Post-Implementation Analysis
+
+### Measurement and Post-Implementation Analysis
+
+[To be completed.]
+
+## Conclusion and Recommendations
+
+[To be completed.]
+
+## Limitations for Theory and Practice
+
+### Limitations for Theory
+
+[To be completed.]
+
+### Limitations for Practice
+
+[To be completed.]
+
+## Future Directions
+
+### Directions for Future Research
+
+[To be completed.]
+
+### Directions for Future Marketing Efforts
+
+[To be completed.]
+
+# REFERENCES {#sec-references}
+
+::: {#refs}
+:::
+
+# APPENDIX {#sec-appendix}
+
+## Data
+
+### Link to Data
+
+[To be completed.]
+
+### Data Dictionary
+
+[To be completed.]
+
+## Programming Code
+
+[To be completed.]
+
+## Literature Review Folder
+
+[To be completed.]
+
+## Survey Instrument
+
+[To be completed.]
+
+## IRB Approval
+
+[To be completed.]
+
+## Other Technical Details
+
+[To be completed.]
+
