@@ -181,21 +181,21 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 ::: callout-important
 ## Group 8 Git/GitHub Collaboration Agreement
 
--   **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
+- **Pull and push:** Each member will pull the latest changes before editing and push completed work after rendering, reviewing, and committing it. Members will confirm that their commits appear on GitHub before handing work to the next person.
 
--   **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
+- **Work assignments:** The group will assign sections by name in a shared task list or GitHub Issue so everyone knows their responsibilities.
 
--   **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
+- **Editing coordination:** During this practice assignment, members will edit the shared report one at a time. For future work, simultaneous editing will be limited to separate, agreed-upon sections or files.
 
--   **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
+- **Commit messages:** Members will use focused, descriptive messages that identify the work completed, such as “Add Alondra’s responses to Prompts 9 and 10.”
 
--   **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
+- **Branches and pull requests:** Major revisions or changes requiring group review will use a branch and pull request. Small, coordinated edits may be committed directly to the main branch.
 
--   **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
+- **Conflicts and failed pushes:** Members will communicate with the affected teammate, pull the latest changes, and carefully combine the necessary content. They will render and review the resolved report before committing and pushing. Members will not force-push or overwrite a teammate’s work to bypass a conflict.
 
--   **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
+- **Rendering checks:** Every member will render and inspect the report after their changes. A designated final editor will verify the complete report, links, and required files before submission.
 
--   **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
+- **Confidentiality:** Members will review staged files, maintain appropriate `.gitignore` rules, and keep confidential data and credentials out of the repository. Uncertain material will be checked with the instructor before sharing.
 
 **Agreement status:** All group members have reviewed this agreement and agree to follow it.
 :::
@@ -214,8 +214,8 @@ A `.gitignore` file tells Git which untracked files or folders to ignore, helpin
 
 ## Required Links
 
--   **Group GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
--   **Repository commit history:** <https://github.com/gabrielarq1/CEP--Group-8/commits/main>
+- **Group GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
+- **Repository commit history:** <https://github.com/gabrielarq1/CEP--Group-8/commits/main>
 
 ## Collaboration Confirmation
 
