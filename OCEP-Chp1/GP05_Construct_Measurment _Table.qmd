@@ -1,15 +1,15 @@
 ---
 title: "GP05 - Construct and Measurement Table"
 author: "Alondra Rodriguez, Simran Kaur, Gabriela Raygoza Quintero, Yushan Huang, Veronica Vega"
-date: "today"
-format: html
+date: today
+format:
+  html:
+    embed-resources: true
+    code-tools:
+      source: true
 ---
 
-# GP05 - Construct and Measurement Table
-
-## Project Title
-
-**Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard for TBFI**
+# **Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard for TBFI**
 
 ## Assignment Purpose
 
@@ -64,3 +64,11 @@ We propose reorganizing the project around two domains: (1) Synthetic Respondent
 **PO3: Promotion & Business Intake.** Run a data-informed digital marketing strategy to grow awareness and qualified business intake among SGV businesses.
 
 **AO1: Synthetic Respondent Validity** (Domain 1, supports PO1). Evaluate how well AI respondent panels reproduce human responses by comparing rank order and level differences against human benchmark data.
+
+## Attachments
+
+**HTML report link:**\
+<https://gabrielarq1.github.io/CEP--Group-8/OCEP-Chp1/GP05_Construct_Measurment%20_Table.html>
+
+**Repository link:**\
+<https://github.com/gabrielarq1/CEP--Group-8>
