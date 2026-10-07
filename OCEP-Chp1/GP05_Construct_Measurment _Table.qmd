@@ -7,18 +7,6 @@ format: html
 
 # GP05 - Construct and Measurement Table
 
-## Team Information
-
-**Team 8**
-
-Team Members:
-
--   Alondra Rodriguez
--   Simran Kaur
--   Gabriela Raygoza Quintero
--   Yushan Huang
--   Veronica Vega
-
 ## Project Title
 
 **Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard for TBFI**
@@ -55,12 +43,24 @@ The completed Construct and Measurement Table is available using the link below:
 
 **Google Document Link:**
 
-PASTE-YOUR-GOOGLE-DOC-LINK-HERE
+[Team 8 GP05 Construct and Measurement Table](https://docs.google.com/document/d/1ZI18GTDaXHCRTz3x4cXcZvnghRol7qQ8/edit?usp=sharing)
 
 ## Summary
 
-The Construct and Measurement Table was created to operationalize the major constructs used throughout the project. The table identifies construct definitions, measurements, scale types, research objectives, and the role of each construct in future analysis. The constructs are aligned with the project objectives involving AI-generated consumer insights, perceptual mapping, validation of simulated panels, consultant training effectiveness, and marketing funnel analytics.
+Our Construct and Measurement Table connects the five analytics objectives to the measures needed for the TBFI project. AO1 covers published evidence and secondary customer and business data. AO2 measures brand perceptions and customer preferences to create perceptual maps and customer segments. AO3 compares AI-generated responses with the human benchmark to assess validity. AO4 measures changes in consultant performance before and after the simulator. AO5 tracks qualified sponsor inquiries and acquisitions across digital marketing channels. Together, the table identifies how each concept will be measured, its source, scale type, and role in analysis, providing a consistent blueprint for data collection and evaluation.
 
 ## Evidence
 
 The shared Construct and Measurement Table has been completed collaboratively and stored in the group's shared Google Drive folder.
+
+## Proposed Revised POs and AOs (not yet approved by Dr Lin)
+
+We propose reorganizing the project around two domains: (1) Synthetic Respondents & Perceptual Mapping and (2) LLM-Based Text Classification. Findings from both will become best practices and training resources for TBFI, with funnel analytics tracking promotion and business intake.
+
+**PO1: AI-Powered Marketing Research Validation.** Develop and validate AI research methods that give TBFI and SGV businesses reliable consumer insights.
+
+**PO2: Consultant Training & Decision Support.** Turn validated AI research methods into an evidence-based training and decision-support system for TBFI consultants.
+
+**PO3: Promotion & Business Intake.** Run a data-informed digital marketing strategy to grow awareness and qualified business intake among SGV businesses.
+
+**AO1: Synthetic Respondent Validity** (Domain 1, supports PO1). Evaluate how well AI respondent panels reproduce human responses by comparing rank order and level differences against human benchmark data.
