@@ -70,5 +70,9 @@ We propose reorganizing the project around two domains: (1) Synthetic Respondent
 **HTML report link:**\
 <https://gabrielarq1.github.io/CEP--Group-8/OCEP-Chp1/GP05_Construct_Measurment%20_Table.html>
 
+**Project Report**
+
+[Group 8 CEP Project Report](https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html)
+
 **Repository link:**\
 <https://github.com/gabrielarq1/CEP--Group-8>
