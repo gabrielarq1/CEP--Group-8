@@ -457,10 +457,10 @@ Each team member owns one analytics objective. Together, they support the four P
 
 |   | AO | Owner | What it answers | Supports |
 |---------------|---------------|---------------|---------------|---------------|
-| 📑 | AO1 | Yushan Huang | What does current research say about AI respondents, and what data do we have for the four industries? | PO2 |
+| 📑 | AO1 | Alondra Rodriguez | What does current research say about AI respondents, and what data do we have for the four industries? | PO2 |
 | 🗺️ | AO2 | Simran Kaur | How do customers see brands in each industry, and what groups do they fall into? | PO2 |
 | ✅ | AO3 | Gabriela Raygoza Quintero | Can we trust the AI panels? How closely do they match real people? | PO2 |
-| 🎮 | AO4 | Alondra Rodriguez | Does the simulator improve consultant skills? | PO1, PO4 |
+| 🎮 | AO4 | Yushan Huang| Does the simulator improve consultant skills? | PO1, PO4 |
 | 📈 | AO5 | Veronica Vega | Which marketing channels bring in real client inquiries? | PO3 |
 
 : Table 1. Analytics objectives, owners, and the project objectives they support.
