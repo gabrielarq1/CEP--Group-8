@@ -13,11 +13,11 @@ format: html
 
 Team Members:
 
-- Alondra Rodriguez
-- Simran Kaur
-- Gabriela Raygoza Quintero
-- Yushan Huang
-- Veronica Vega
+-   Alondra Rodriguez
+-   Simran Kaur
+-   Gabriela Raygoza Quintero
+-   Yushan Huang
+-   Veronica Vega
 
 ## Project Title
 
