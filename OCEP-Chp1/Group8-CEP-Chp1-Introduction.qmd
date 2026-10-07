@@ -558,23 +558,23 @@ This chapter reviews the existing research frameworks, models, and empirical evi
 ### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
 
 **Analytics Objective:**\
-\[Alondra: Copy the complete revised AO1 from Chapter 1 here.\]
+Review research on AI-generated survey respondents and assess available data for the four SGV industries, producing an evidence summary and data inventory to support the SGV Insights Dashboard under PO2.
 
 #### Existence of Well-established Models
 
-\[Alondra: Review the major theories, frameworks, models, and previous empirical studies relevant to AO1. Explain what previous researchers studied, what data or methods they used, what they found, and how those findings relate to the TBFI project. This should be the main literature-review section and should be approximately 2–3 pages.\]
+Argyle et al. used demographic profiles to generate AI survey responses and found that they reproduced some patterns in human survey data \[\@argyle2023\]. Aher et al. tested whether language models could replicate human-subject experiments, finding both successful replications and behavioral distortions \[\@aher2023\]. Bisbee et al. found that similar AI and human response averages could conceal differences in variability and relationships between variables \[\@bisbee2024\]. These studies give TBFI a framework for assessing the potential and limitations of AI respondents.
 
 #### Adequateness of Gathered Information
 
-\[Alondra: In approximately one paragraph, explain whether the existing literature and currently available information are sufficient to address AO1. Identify what is already known and what remains uncertain in the TBFI context.\]
+Existing research provides a foundation for the project but does not establish whether AI respondents accurately represent consumers in the four SGV industries. The relevance, geographic coverage, and accessibility of proposed sources such as Census ACS, County Business Patterns, and Esri Tapestry also need assessment. The available information supports initial planning, but further investigation is necessary.
 
 #### Need for Additional Analysis
 
-\[Alondra: In approximately one paragraph, explain what additional analysis the TBFI project needs to conduct that cannot be answered by the existing literature alone.\]
+The team will compare study findings, assess available data for each industry, and document useful variables, geographic coverage, and information gaps. Selected data will be organized with consistent definitions and source details. This work will support AO2’s mapping and segmentation and help identify potential benchmarks for AO3’s validation.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-\[Alondra: Based on the literature review, evaluate whether AO1 should be retained, revised, narrowed, or otherwise clarified. State the final measurable AO1 and explain why it is appropriate for the project.\]
+AO1 should be retained with clearer deliverables: an evidence summary, a data inventory covering all four SGV industries, and an information-gap assessment. These outputs make the objective measurable and provide a documented foundation for the SGV Insights Dashboard while keeping AI-panel validation under AO3.
 
 ### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
 
