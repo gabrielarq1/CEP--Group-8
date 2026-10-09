@@ -46,11 +46,11 @@ The customer questionnaire, consultant assessment, and funnel record form serve 
 
 ## Instructions and planned survey logic
 
--   **Required:** Consent and eligibility questions. Other customer questions remain optional.
--   **Exit paths:** Declined consent, age under 18, no qualifying SGV connection, or no selected industry end the survey under the proposed eligibility rules. Confirm these rules before implementation.
--   **Industry assignment:** Assign one eligible industry using an agreed rule and pipe its name into later questions.
--   **Brand logic:** Carry familiar brands forward; show brand ratings only for those brands. Skip the rating block when no named brands are familiar.
--   **Response rules:** Mark single-choice and multiple-choice questions clearly; make “None of these” exclusive. Treat “Cannot judge” and other non-response options separately from numerical ratings.
+- **Required:** Consent and eligibility questions. Other customer questions remain optional.
+- **Exit paths:** Declined consent, age under 18, no qualifying SGV connection, or no selected industry end the survey under the proposed eligibility rules. Confirm these rules before implementation.
+- **Industry assignment:** Assign one eligible industry using an agreed rule and pipe its name into later questions.
+- **Brand logic:** Carry familiar brands forward; show brand ratings only for those brands. Skip the rating block when no named brands are familiar.
+- **Response rules:** Mark single-choice and multiple-choice questions clearly; make “None of these” exclusive. Treat “Cannot judge” and other non-response options separately from numerical ratings.
 
 These are planned settings. Required labels and routing notes still need to be added to the Word draft, then implemented and tested in Qualtrics.
 
@@ -87,6 +87,12 @@ We have not yet received approval for our revised POs and AOs or our questionnai
 
 [CEP-Group 8 Qualtrics Draft](https://cpp.pdx1.qualtrics.com/survey-builder/SV_2ujgUci31v9QF4W/edit)
 
+> Here are some images of our survey draft:
+>
+> ![Cover Page](images/Screenshot 2026-10-08 214150.png){fig-align="center"}
+>
+> ![](images/Screenshot 2026-10-08 214204.png){fig-align="center"}
+
 ### Measurement Table
 
 [Group 8 C&M Table](https://docs.google.com/document/d/1ZI18GTDaXHCRTz3x4cXcZvnghRol7qQ8/edit?usp=sharing)
@@ -107,4 +113,4 @@ Stevens, S. S. (1946). On the theory of scales of measurement. *Science, 103*(26
 
 Sullivan, G. M., & Artino, A. R., Jr. (2013). Analyzing and interpreting data from Likert-type scales. *Journal of Graduate Medical Education, 5*(4), 541–542. <https://doi.org/10.4300/JGME-5-4-18>
 
-##
+## 
