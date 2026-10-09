@@ -20,13 +20,13 @@ Our group developed a draft for questionnaire and supporting measurement forms f
 
 The customer questionnaire moves from general, easy questions to specific questions using the funneling approach:
 
-1.  ***Cover page and consent:*** Purpose, survey duration, voluntary participation, risks and benefits, privacy, and researcher contacts.
-2.  ***Screening:*** Age, connection to the San Gabriel Valley, and industry experience.
-3.  ***Past behavior:*** Purchase frequency, recency, brand familiarity, and brands used.
-4.  ***Main questions:*** Brand attribute ratings and selection-factor importance for perceptual mapping and segmentation.
-5.  ***Additional proposed items:*** Brand attitude, future consideration, preferences, and information sources.
-6.  ***Open-ended feedback:*** Two questions about unmet needs and experiences influencing brand opinions.
-7.  ***Demographic controls:*** Age group, gender, employment, student status, household income, and location.
+1.  **Cover page and consent:** Purpose, survey duration, voluntary participation, risks and benefits, privacy, and researcher contacts.
+2.  **Screening:** Age, connection to the San Gabriel Valley, and industry experience.
+3.  **Past behavior:** Purchase frequency, recency, brand familiarity, and brands used.
+4.  **Main questions:** Brand attribute ratings and selection-factor importance for perceptual mapping and segmentation.
+5.  **Additional proposed items:** Brand attitude, future consideration, preferences, and information sources.
+6.  **Open-ended feedback:** Two questions about unmet needs and experiences influencing brand opinions.
+7.  **Demographic controls:** Age group, gender, employment, student status, household income, and location.
 
 Industry-specific attributes, brand lists, exact human benchmark wording, consent details, and survey duration still need confirmation. Additional proposed items and controls will be reviewed for relevance and respondent burden.
 
@@ -46,11 +46,11 @@ The customer questionnaire, consultant assessment, and funnel record form serve 
 
 ## Instructions and planned survey logic
 
-- ***Required*****:** Consent and eligibility questions. Other customer questions remain optional.
-- ***Exit paths:*** Declined consent, age under 18, no qualifying SGV connection, or no selected industry end the survey under the proposed eligibility rules. Confirm these rules before implementation.
-- ***Industry assignment:*** Assign one eligible industry using an agreed rule and pipe its name into later questions.
-- ***Brand logic:*** Carry familiar brands forward; show brand ratings only for those brands. Skip the rating block when no named brands are familiar.
-- ***Response rules:*** Mark single-choice and multiple-choice questions clearly; make “None of these” exclusive. Treat “Cannot judge” and other non-response options separately from numerical ratings.
+-   **Required:** Consent and eligibility questions. Other customer questions remain optional.
+-   **Exit paths:** Declined consent, age under 18, no qualifying SGV connection, or no selected industry end the survey under the proposed eligibility rules. Confirm these rules before implementation.
+-   **Industry assignment:** Assign one eligible industry using an agreed rule and pipe its name into later questions.
+-   **Brand logic:** Carry familiar brands forward; show brand ratings only for those brands. Skip the rating block when no named brands are familiar.
+-   **Response rules:** Mark single-choice and multiple-choice questions clearly; make “None of these” exclusive. Treat “Cannot judge” and other non-response options separately from numerical ratings.
 
 These are planned settings. Required labels and routing notes still need to be added to the Word draft, then implemented and tested in Qualtrics.
 
@@ -99,7 +99,13 @@ We have not yet received approval for our revised POs and AOs or our questionnai
 
 ### Project links
 
-[Group 8 Project Report](https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html) · [Group Repository](https://github.com/gabrielarq1/CEP--Group-8)
+[Group 8 Project Report](https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html)
+
+[Group Repository](https://github.com/gabrielarq1/CEP--Group-8)
+
+[Questionnaire design](https://gabrielarq1.github.io/CEP--Group-8/CEP-G8-Qualtrics/Group8-TBFI-Survey.html)
+
+
 
 ::: callout-warning
 ## Note on Objective Revisions
@@ -113,4 +119,4 @@ Stevens, S. S. (1946). On the theory of scales of measurement. *Science, 103*(26
 
 Sullivan, G. M., & Artino, A. R., Jr. (2013). Analyzing and interpreting data from Likert-type scales. *Journal of Graduate Medical Education, 5*(4), 541–542. <https://doi.org/10.4300/JGME-5-4-18>
 
-## 
+##
