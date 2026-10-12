@@ -19,6 +19,7 @@ execute:
   message: false
 ---
 
+```{=html}
 <style>
 :root { --tfbi-navy:#173454; --tfbi-blue:#2b6693; }
 h1,h2 { color:var(--tfbi-navy); }
@@ -27,14 +28,15 @@ table { font-size:0.86rem; }
 th { background:#eaf1f8; }
 .callout { margin-top:1rem; }
 </style>
+```
 
 ::: {.callout-note title="Status and scope"}
 **Planning document — not a report of implemented tracking.** This blueprint specifies proposed GA4/GTM instrumentation for TBFI's future landing page, Do Tank intake-demo, and business-intake workflow. Event availability, website access, consent configuration, CRM integration, and meeting-booking technology require confirmation with TBFI. No actual performance or test results are claimed.
 :::
 
-**Client:** Tarkington Business Futures Institute (TBFI), Cal Poly Pomona  
-**Project:** *Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard*  
-**Project alignment:** PO3 — TBFI Promotion & Business Intake (future digital marketing measurement workstream; not one of the five current Analytics Objectives)  
+**Client:** Tarkington Business Futures Institute (TBFI), Cal Poly Pomona\
+**Project:** *Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard*\
+**Project alignment:** PO3 — TBFI Promotion & Business Intake (future digital marketing measurement workstream; not one of the five current Analytics Objectives)\
 **Proposed funnel:** Website visit → AI demo start → AI demo completion → business inquiry → qualified inquiry → sponsor meeting
 
 # Deliverable 1 — Analytics Blueprint
@@ -52,7 +54,7 @@ The broader capstone also includes PO1 (validation of AI-powered marketing resea
 All KPIs below use the **same selected reporting date range** and the **GA4 property reporting time zone** unless explicitly noted. *Sessions* are GA4 sessions; *users* are distinct GA4 users. Event-based counts are deduplicated as specified. Campaign and landing-page analyses are subject to consent, attribution, and data-availability limits.
 
 | ID / decision-oriented stakeholder question | KPI(s) and exact operational definition | Diagnostic dimensions / cuts | Proposed data source | Assumptions and notes |
-|:--|:--|:--|:--|:--|
+|:--------------|:--------------|:--------------|:--------------|:--------------|
 | **Q1. Which acquisition channels bring relevant prospective business visitors, so TBFI can prioritize outreach?** | **Sessions:** distinct `user_pseudo_id` + `ga_session_id` combinations where available, or GA4 Sessions metric. **Engagement rate:** engaged sessions / total sessions × 100, using GA4's engaged-session definition. | Session default channel group, session source/medium, campaign, landing page, device category, geo (when permitted). | GA4 reports / Explore; BigQuery for audited session logic; Looker Studio for display. | Channel classification follows GA4 session attribution. Consent and UTM tagging can create `(not set)` or unattributed traffic. Engagement is a proxy for relevance, not lead qualification. |
 | **Q2. Does the landing page motivate visitors to try the AI intake demo?** | **Demo starts:** unique `demo_start` events per `demo_session_id`. **Demo start rate:** sessions with ≥1 valid `demo_start` / eligible landing-page sessions × 100. **CTA click rate:** sessions with ≥1 `select_content` event for `content_type=demo_cta` / eligible landing-page sessions × 100. | Channel, campaign, landing page, device, CTA placement, demo version. | GA4 event reporting; BigQuery for distinct-session calculations. | *Eligible landing-page sessions* = sessions landing on a page displaying the demo CTA. Track CTA visibility/eligibility in implementation or use a maintained eligible-page list. |
 | **Q3. Where do prospects abandon the intake demo, and how can the experience improve?** | **Demo completions:** distinct `demo_session_id` with `demo_complete`. **Demo completion rate:** demo sessions with `demo_complete` / demo sessions with `demo_start` × 100. **Step completion rate:** demo sessions reaching step *n* / demo sessions reaching step *n−1* × 100. | Demo version, step ID, device, channel, campaign, entry page. | GA4 custom events; BigQuery funnel query; Looker Studio. | A `demo_complete` fires only after the required final step, not on mere page exit. The simulator must issue a stable `demo_session_id` and `step_id`; repeated steps should not inflate unique progression. |
@@ -112,7 +114,7 @@ flowchart TB
 Use GA4 recommended events where applicable (`page_view`, `select_content`, `form_start`, `generate_lead`); use consistently named custom events for the simulator and booking flow. Implement via GTM or application-side instrumentation with a documented data layer. Standard GA4 session attribution fields (source/medium/campaign) should be captured through normal UTM/session processing, **not manually copied into every event**. The table identifies **required business parameters** in addition to GA4 automatically collected fields. Register needed event-scoped custom dimensions in GA4 before relying on them in UI reports; BigQuery can inspect exported event parameters directly.
 
 | KPI / question supported | GA4 event name | Exact proposed trigger / location | Required business parameters | Notes / edge cases |
-|:--|:--|:--|:--|:--|
+|:--------------|:--------------|:--------------|:--------------|:--------------|
 | Q1 traffic, landing-page performance | `page_view` | Initial page load and actual SPA route changes on TBFI landing page / simulator as applicable. | `page_location`, `page_title` (standard page context). | Prevent duplicate automatic + manual pageviews; validate SPA route behavior; respect consent. |
 | Q2 demo CTA click rate | `select_content` | User activates a tracked **Start Demo** CTA on an eligible TBFI page. | `content_type=demo_cta`, `item_id` (CTA identifier), `cta_location`. | Only real activations; define consistent placement values; clicking does not imply demo loaded. |
 | Q2 demo start rate; Q3 demo funnel | `demo_start` (custom) | Simulator initializes a new user-initiated intake-demo attempt and displays first actionable step. | `demo_session_id`, `demo_version`, `entry_point`. | One start per new demo attempt; new attempt gets new opaque ID. Separate training-mode and intake-demo traffic via `demo_mode`. |
@@ -129,7 +131,7 @@ Use GA4 recommended events where applicable (`page_view`, `select_content`, `for
 ## 3.2 KPI-to-event coverage check
 
 | KPI | Minimum tracking/data needed | Computation location |
-|:--|:--|:--|
+|:-----------------------|:-----------------------|:-----------------------|
 | Sessions / engagement rate | GA4 session and engagement data | GA4 UI / BigQuery |
 | Demo start / CTA click rates | `page_view`, `select_content`, `demo_start` + eligible landing-page definition | BigQuery / GA4 Explore |
 | Demo completion / step rates | `demo_start`, `demo_step_complete`, `demo_complete`, stable `demo_session_id` | BigQuery |
@@ -156,7 +158,7 @@ Use a test environment or clearly tagged test records. Record tester, date, devi
 ## 4.2 Executable test cases (proposed)
 
 | ID / path | Steps to perform | Expected event(s) | Expected parameters / dimensions and pass criterion |
-|:--|:--|:--|:--|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **TC01 — Direct desktop visit** | In a fresh desktop browser session with permitted consent, open the landing page directly; navigate to one internal page. | `page_view` on each genuine page/route view. | Correct `page_location`, `page_title`, device=`desktop`; no double-counted pageview per route. |
 | **TC02 — LinkedIn campaign mobile visit** | On mobile, open a test landing URL tagged with `utm_source=linkedin&utm_medium=social&utm_campaign=tbfi_demo_test`; inspect GA4 session attribution. | `page_view`. | Session source=`linkedin`, medium=`social`, campaign=`tbfi_demo_test`, expected landing page, device=`mobile` (subject to reporting processing); no UTM loss after redirect. |
 | **TC03 — Demo CTA and start** | On the landing page, click Start Demo once and wait until the intake demo's first actionable step is displayed. | `select_content` then `demo_start`. | `content_type=demo_cta`, CTA `item_id`, `cta_location`; `demo_session_id`, `demo_version`, `demo_mode=intake`; one start per attempt. |
@@ -170,7 +172,7 @@ Use a test environment or clearly tagged test records. Record tester, date, devi
 
 The following is an **illustrative query**, not a query that has been run. Replace the project, dataset, and date window with the actual GA4 export configuration. It verifies event counts and the presence of `demo_session_id` without exposing personal data.
 
-```sql
+``` sql
 SELECT
   event_name,
   COUNT(*) AS event_rows,
@@ -192,23 +194,23 @@ ORDER BY event_name;
 
 ### Project documents
 
-Lin, Y. F. (2026). *Simulated market research at scale: An AI consultant-training simulation and emerging-industry insights dashboard for the Tarkington Business Futures Institute* [MSDM culminating project proposal, 2026–2027]. California State Polytechnic University, Pomona. Unpublished course project document.
+Lin, Y. F. (2026). *Simulated market research at scale: An AI consultant-training simulation and emerging-industry insights dashboard for the Tarkington Business Futures Institute* \[MSDM culminating project proposal, 2026–2027\]. California State Polytechnic University, Pomona. Unpublished course project document.
 
-Lin, Y. F. (2026). *MSDM project forum: Simulated market research at scale* [Project presentation]. California State Polytechnic University, Pomona. Unpublished course presentation.
+Lin, Y. F. (2026). *MSDM project forum: Simulated market research at scale* \[Project presentation\]. California State Polytechnic University, Pomona. Unpublished course presentation.
 
-MSDM Project Team. (2026). *Revised project objectives and analytics objectives: Faculty-feedback alignment* [Unpublished team working document, proposed revision]. California State Polytechnic University, Pomona.
+MSDM Project Team. (2026). *Revised project objectives and analytics objectives: Faculty-feedback alignment* \[Unpublished team working document, proposed revision\]. California State Polytechnic University, Pomona.
 
-Lin, Y. F. (2026, October 11). *Feedback on proposed project objectives and analytics objectives* [Faculty email correspondence]. Unpublished communication.
+Lin, Y. F. (2026, October 11). *Feedback on proposed project objectives and analytics objectives* \[Faculty email correspondence\]. Unpublished communication.
 
 ### Technical documentation
 
-Google. (n.d.). *Recommended events*. Google Analytics Developer Documentation. https://developers.google.com/analytics/devguides/collection/ga4/reference/events
+Google. (n.d.). *Recommended events*. Google Analytics Developer Documentation. <https://developers.google.com/analytics/devguides/collection/ga4/reference/events>
 
-Google. (n.d.). *About events*. Google Analytics Help. https://support.google.com/analytics/answer/9322688
+Google. (n.d.). *About events*. Google Analytics Help. <https://support.google.com/analytics/answer/9322688>
 
-Google. (n.d.). *BigQuery Export schema*. Google Analytics Help. https://support.google.com/analytics/answer/7029846
+Google. (n.d.). *BigQuery Export schema*. Google Analytics Help. <https://support.google.com/analytics/answer/7029846>
 
-Google. (n.d.). *Preview and debug containers*. Tag Manager Help. https://support.google.com/tagmanager/answer/6107056
+Google. (n.d.). *Preview and debug containers*. Tag Manager Help. <https://support.google.com/tagmanager/answer/6107056>
 
 **Document scope:** The project documents provide TBFI's business context and proposed marketing funnel. The Google documentation informs the GA4/GTM event, parameter, and validation design. Event names specific to TBFI (such as `demo_start`, `demo_complete`, and `meeting_booked`) are **proposed custom instrumentation**, not features confirmed to be deployed. The revised PO/AO alignment is proposed in response to faculty feedback and is not represented as formally approved. AO5 refers only to the Evidence Map & Methods Dashboard under PO1; this GA4 plan belongs to PO3 as a later-phase workstream.
 
@@ -217,17 +219,16 @@ Google. (n.d.). *Preview and debug containers*. Tag Manager Help. https://suppor
 - **GitHub Repository:** [ADD YOUR TEAM REPOSITORY URL](https://github.com/REPLACE-WITH-TEAM/REPLACE-WITH-REPO)
 - **GitHub Pages:** [ADD YOUR PUBLISHED REPORT URL](https://REPLACE-WITH-TEAM.github.io/REPLACE-WITH-REPO/)
 
-
 ## C. Team contribution log (five members; confirm actual assignments before submission)
 
 The following is a **proposed division of responsibilities** for a five-member team. Update the roles and evidence to reflect work actually completed before submitting the report.
 
 | Team member | Proposed contribution / section | Date or evidence |
-|:--|:--|:--|
+|:-----------------------|:-----------------------|:-----------------------|
 | Member 1 | Project alignment (PO3 future-phase measurement), client context, stakeholder questions, and KPI definitions | To be confirmed |
 | Member 2 — name to be added | KPI Tree design, metric hierarchy, and diagnostic dimensions | To be confirmed |
-|**Yushan Huang** | GA4 event and parameter map, triggers, and naming conventions | 10/11/26 |
+| **Yushan Huang** | GA4 event and parameter map, triggers, and naming conventions | 10/11/26 |
 | Member 4 — name to be added | GTM/GA4 validation checklist, test cases, and BigQuery checks | To be confirmed |
-| Member 5 — name to be added | Quarto formatting, report integration, quality review, and GitHub publication | To be confirmed |
+| Gabriela Raygoza Quintero | Quarto formatting, report integration, quality review, and GitHub publication | 10-11-2026 |
 
 **Open decisions for TBFI:** confirm qualification rules; approve attribution model and maturation window; identify eligible pages; document demo steps and mode; select form and scheduler; confirm GA4/GTM and CRM access; review consent/privacy configuration; enable and validate BigQuery export if available.
