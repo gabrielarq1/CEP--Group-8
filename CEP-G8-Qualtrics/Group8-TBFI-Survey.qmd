@@ -105,8 +105,6 @@ We have not yet received approval for our revised POs and AOs or our questionnai
 
 [Questionnaire design](https://gabrielarq1.github.io/CEP--Group-8/CEP-G8-Qualtrics/Group8-TBFI-Survey.html)
 
-
-
 ::: callout-warning
 ## Note on Objective Revisions
 

@@ -1,6 +1,6 @@
 ---
 title: "GA4-1 | TBFI Analytics Blueprint"
-subtitle: "AI Tool Engagement and Business-Intake Measurement Plan"
+subtitle: "Measuring AI Demo Engagement and Business Inquiries"
 author: "MSDM Project Team | Tarkington Business Futures Institute"
 date: "2026-10-11"
 format:
@@ -9,7 +9,6 @@ format:
     toc-depth: 2
     number-sections: true
     theme: cosmo
-    code-fold: true
     embed-resources: true
     smooth-scroll: true
     page-layout: full
@@ -21,178 +20,125 @@ execute:
 
 ```{=html}
 <style>
-:root { --tfbi-navy:#173454; --tfbi-blue:#2b6693; }
-h1,h2 { color:var(--tfbi-navy); }
-h3 { color:var(--tfbi-blue); }
-table { font-size:0.86rem; }
-th { background:#eaf1f8; }
-.callout { margin-top:1rem; }
+:root { --tfbi-green:#1b4332; --tfbi-black:#000000; }
+h1,h2 { color:var(--tfbi-green); }
+h3 { color:var(--tfbi-black); }
+table { font-size:0.9rem; color:var(--tfbi-black); }
+th { background:var(--tfbi-green); color:#ffffff; }
 </style>
 ```
 
-::: {.callout-note title="Status and scope"}
-**Planning document — not a report of implemented tracking.** This blueprint specifies proposed GA4/GTM instrumentation for TBFI's future landing page, Do Tank intake-demo, and business-intake workflow. Event availability, website access, consent configuration, CRM integration, and meeting-booking technology require confirmation with TBFI. No actual performance or test results are claimed.
-:::
-
 **Client:** Tarkington Business Futures Institute (TBFI), Cal Poly Pomona\
-**Project:** *Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard*\
-**Project alignment:** PO3 — TBFI Promotion & Business Intake (future digital marketing measurement workstream; not one of the five current Analytics Objectives)\
-**Proposed funnel:** Website visit → AI demo start → AI demo completion → business inquiry → qualified inquiry → sponsor meeting
+**Project:** Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard\
+**Project alignment:** PO3 : TBFI promotion and business intake\
+**Proposed journey:** Website visit → demo engagement → business inquiry → qualification review→ sponsor meeting
 
-# Deliverable 1 — Analytics Blueprint
+# Analytics Blueprint
 
-## 1.1 Client context and measurement purpose
+## Purpose
 
-TBFI is an applied-innovation institute serving prospective sponsor organizations, including small and medium-sized businesses in the San Gabriel Valley (SGV). Its proposed AI-powered research offerings include a **Do Tank Simulator** (consultant-training tool and prospective-client intake demonstration) and an **SGV Emerging-Industry Insights Dashboard**. The marketing objective is to attract relevant business prospects, demonstrate TBFI's research capabilities, and convert interest into qualified business inquiries and sponsor meetings. This is a **lead-generation** context, not an online retail checkout.
+This report develops a digital measurement plan for TBFI’s project, *Simulated Market Research at Scale: An AI Consultant-Training Simulation and Emerging-Industry Insights Dashboard*. The plan focuses on how prospective sponsors, including small and medium-sized businesses in the San Gabriel Valley, discover these offerings, engage with the demo, and submit business inquiries.
 
-The broader capstone also includes PO1 (validation of AI-powered marketing research methods) and PO2 (consultant training and decision support). Those research-validation outcomes require benchmark and methodological data outside GA4; this blueprint specifies the **future PO3 digital marketing and business-intake measurement workstream**, which is not numbered as one of the five current AOs. Under Dr. Lin’s October 2026 feedback, AO1–AO4 remain research-validation objectives and AO5 is the Evidence Map & Methods Dashboard under PO1. This measurement plan is proposed for implementation after the relevant TBFI products and intake pathways exist; it is not a report of deployed tracking. The proposed marketing channels include a landing page, LinkedIn, email, and outreach partners. The project proposal schedules instrumentation and baseline work for spring 2027 and campaign execution for summer 2027.
+The primary outcome is **qualified business inquiries (QBI)**, with sponsor meetings as a supporting outcome. GA4 will help measure website engagement and inquiry submissions, while TBFI will assess inquiry quality using consistent criteria and maintain records of qualification and meetings. This is a proposed plan for future implementation; evaluating AI research validity and consultant learning outcomes remains part of the broader capstone.
 
-**Primary measurement outcome (North Star):** **Qualified Business Inquiries (QBI)**, counted as unique, valid inquiry records that meet documented eligibility criteria after TBFI review. **Supporting downstream outcome:** Sponsor Meetings Booked. A submitted form is **not automatically** a qualified inquiry.
+## Measurement Questions and KPIs
 
-## 1.2 Stakeholder questions and KPI measurement contract
+The following questions guide how TBFI will measure its digital outreach and business-intake process. Each question is linked to a KPI, a measurement definition, and a proposed data source. GA4 will track website activity, while TBFI’s inquiry records will confirm qualification and sponsor meetings. Results should use a consistent reporting period.
 
-All KPIs below use the **same selected reporting date range** and the **GA4 property reporting time zone** unless explicitly noted. *Sessions* are GA4 sessions; *users* are distinct GA4 users. Event-based counts are deduplicated as specified. Campaign and landing-page analyses are subject to consent, attribution, and data-availability limits.
+| Measurement question | KPI | How it is measured | Data source |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| Which channels bring visitors who engage with TBFI’s website? | Sessions and engagement rate | Compare visits and the percentage of engaged sessions across channels. | GA4 |
+| Does the landing page encourage visitors to try the demo? | Demo start rate | Percentage of sessions on eligible landing pages that include a demo start. | GA4 |
+| Do visitors complete the demo, and where do they stop? | Demo completion rate and step drop-off | Percentage of started demo attempts that are completed; identify steps where visitors stop. | GA4 |
+| Does demo engagement lead to business inquiries? | Demo-to-inquiry rate | Percentage of completed demo attempts linked to a successful inquiry submission, where tracking allows. | GA4 and inquiry records |
+| Which channels generate qualified inquiries and sponsor meetings? | Qualified business inquiries (QBI) and meetings booked | Count unique inquiries meeting TBFI’s qualification criteria and qualified inquiries resulting in a confirmed meeting, by channel where available. | TBFI inquiry and meeting records |
 
-| ID / decision-oriented stakeholder question | KPI(s) and exact operational definition | Diagnostic dimensions / cuts | Proposed data source | Assumptions and notes |
-|:--------------|:--------------|:--------------|:--------------|:--------------|
-| **Q1. Which acquisition channels bring relevant prospective business visitors, so TBFI can prioritize outreach?** | **Sessions:** distinct `user_pseudo_id` + `ga_session_id` combinations where available, or GA4 Sessions metric. **Engagement rate:** engaged sessions / total sessions × 100, using GA4's engaged-session definition. | Session default channel group, session source/medium, campaign, landing page, device category, geo (when permitted). | GA4 reports / Explore; BigQuery for audited session logic; Looker Studio for display. | Channel classification follows GA4 session attribution. Consent and UTM tagging can create `(not set)` or unattributed traffic. Engagement is a proxy for relevance, not lead qualification. |
-| **Q2. Does the landing page motivate visitors to try the AI intake demo?** | **Demo starts:** unique `demo_start` events per `demo_session_id`. **Demo start rate:** sessions with ≥1 valid `demo_start` / eligible landing-page sessions × 100. **CTA click rate:** sessions with ≥1 `select_content` event for `content_type=demo_cta` / eligible landing-page sessions × 100. | Channel, campaign, landing page, device, CTA placement, demo version. | GA4 event reporting; BigQuery for distinct-session calculations. | *Eligible landing-page sessions* = sessions landing on a page displaying the demo CTA. Track CTA visibility/eligibility in implementation or use a maintained eligible-page list. |
-| **Q3. Where do prospects abandon the intake demo, and how can the experience improve?** | **Demo completions:** distinct `demo_session_id` with `demo_complete`. **Demo completion rate:** demo sessions with `demo_complete` / demo sessions with `demo_start` × 100. **Step completion rate:** demo sessions reaching step *n* / demo sessions reaching step *n−1* × 100. | Demo version, step ID, device, channel, campaign, entry page. | GA4 custom events; BigQuery funnel query; Looker Studio. | A `demo_complete` fires only after the required final step, not on mere page exit. The simulator must issue a stable `demo_session_id` and `step_id`; repeated steps should not inflate unique progression. |
-| **Q4. How effectively does demo engagement generate business inquiries?** | **Submitted inquiries:** distinct successful `generate_lead` events by `lead_id`. **Demo-to-inquiry rate:** demo sessions linked to ≥1 successful inquiry / demo sessions with `demo_complete` × 100. **Inquiry form completion rate:** distinct form attempts with successful `generate_lead` / distinct form attempts with `form_start` × 100. | Channel, campaign, device, form ID, demo version, business industry (only if appropriate and consented). | GA4/GTM; BigQuery for linked events; CRM or secure lead database for deduplication. | Link demo-to-lead through a consent-compliant anonymous ID or approved first-party session linkage. `generate_lead` fires only after server-confirmed successful submission. No personal contact details in GA4. |
-| **Q5. Which sources yield qualified inquiries and sponsor meetings rather than low-value submissions?** | **QBI:** count of unique `lead_id` records marked `qualified` in CRM under criteria below. **Qualified lead rate:** QBI / unique valid submitted inquiries × 100. **Meeting booking rate:** unique qualified leads with ≥1 confirmed meeting / QBI × 100. | First-touch and/or agreed lead-acquisition channel, campaign, SGV eligibility, industry category, lead status, reporting cohort. | CRM/lead tracker as system of record; approved GA4–CRM linkage in BigQuery; Looker Studio. | Lead status and confirmed meeting are authoritative in CRM, **not inferred from GA4 pageviews**. If CRM is unavailable, report submissions and mark qualification/meeting KPIs unavailable, not zero. |
+### Measurement Guidelines
 
-### Definitions and governance decisions
+-   A **valid inquiry** is a unique, non-test submission that TBFI can review. Spam and duplicate submissions should be excluded.
+-   A **qualified inquiry** is a valid inquiry that meets criteria approved by TBFI, such as a relevant organizational need and a reasonable fit with TBFI's services.
+-   A **confirmed meeting** is a scheduled meeting recorded by TBFI. Rescheduled meetings should not be counted as new inquiries.
+-   Report direct inquiries separately from inquiries that followed demo use. A prospect may contact TBFI without using the demo.
+-   Use GA4 to understand website behavior. Use TBFI's lead records to report qualification and meeting outcomes. If those records are not available, label the related KPIs “not available” rather than treating them as zero.
+-   Do not send names, email addresses, phone numbers, or inquiry text to GA4. Use only the information needed for aggregate analysis and follow TBFI's consent and privacy requirements.
+-   The channel attribution approach and reporting period should be documented before comparing lead quality across campaigns.
 
-- **Qualified business inquiry (proposed rule, requires TBFI sign-off):** a non-test, non-spam, unique inquiry from an identifiable organization or authorized representative, describing a plausible business/research need relevant to TBFI's services and eligible for follow-up. SGV location can be a diagnostic/priority field, not an automatic exclusion unless TBFI approves it. Record `lead_id`, qualification status, reviewer, decision timestamp, and reason code in the secure lead system.
-- **Valid inquiry:** a server-accepted submission with a unique `lead_id`, excluding duplicate retries, internal tests, and spam; `generate_lead` should fire once per successful inquiry.
-- **Meeting booked:** a confirmed scheduling-system/CRM appointment tied to `lead_id`; reschedules do not count as new booked leads. Cancellations should be reported separately if available.
-- **Time and attribution:** event activity uses GA4 property time zone; CRM qualification and meeting metrics should be cohort-based (e.g., inquiries created in the reporting period, with a stated maturation window such as 30 days). Choose and document first-touch versus lead-acquisition attribution before publishing channel-level lead quality.
-- **Privacy:** never send names, emails, phone numbers, free-text inquiry content, or other personally identifiable information to GA4. Use opaque non-PII IDs only, subject to policy and consent. Suppress or limit analytics as required by consent settings.
-- **Implementation status:** TBFI must confirm actual landing-page URLs, simulator steps, form behavior, GTM access, cross-domain paths, and CRM/scheduler availability. These are **proposed definitions**, not existing implementation facts.
+# **KPI Framework**
 
-# Deliverable 2 — KPI Tree / Metric Hierarchy
-
-The hierarchy below maps the business-intake outcome to acquisition, demo engagement, inquiry conversion, and lead quality. The driver metrics are diagnostic influences rather than terms to be added together.
+The proposed framework shows how website visits, demo engagement, and inquiry submissions connect to qualified business inquiries and sponsor meetings. Each metric measures a different stage and should be evaluated separately.
 
 ```{mermaid}
 flowchart TB
-  NS["NORTH STAR<br/>Qualified Business Inquiries (QBI)"]
-  A["Acquisition"]
-  E["Engagement & Demo Intent"]
-  F["Inquiry Funnel"]
-  Q["Lead Quality & Meetings"]
-  NS --> A
-  NS --> E
-  NS --> F
-  NS --> Q
-  A --> A1["Sessions"]
-  A --> A2["Engaged sessions / engagement rate"]
-  A --> A3["Channel & campaign mix"]
-  E --> E1["Demo CTA click rate"]
-  E --> E2["Demo start rate"]
-  E --> E3["Demo completion rate"]
-  F --> F1["Form starts"]
-  F --> F2["Valid inquiries"]
-  F --> F3["Demo-to-inquiry rate"]
-  Q --> Q1["Qualified lead rate"]
-  Q --> Q2["Meetings booked"]
-  Q --> Q3["Meeting booking rate"]
-  classDef north fill:#173454,color:#fff,stroke:#173454,stroke-width:2px;
-  classDef branch fill:#dbeaf5,color:#173454,stroke:#447da7;
-  class NS north;
-  class A,E,F,Q branch;
+  QBI["Qualified business inquiries"]
+  Traffic["Website visits"]
+  Demo["Demo engagement"]
+  Inquiry["Inquiry submissions"]
+  Outcome["Qualified inquiries and meetings"]
+  QBI --> Traffic
+  QBI --> Demo
+  QBI --> Inquiry
+  QBI --> Outcome
+  Traffic --> Sessions["Sessions by channel"]
+  Demo --> Start["Demo starts"]
+  Demo --> Complete["Demo completions"]
+  Inquiry --> Forms["Form starts and submissions"]
+  Outcome --> Rate["Qualification and meeting rates"]
 ```
 
-**Diagnostic cuts applied across the tree:** session channel/source/medium, UTM campaign, landing page, device category, geographic region (where available), demo version, CTA placement, and business industry/lead qualification status in the CRM. Do **not** segment GA4 data using personally identifying attributes.
+Will be comparing results by channel, campaign, landing page, device, and demo version to identify where visitors drop off and which outreach efforts generate qualified business inquiries.
 
-**Funnel interpretation:** Traffic → demo start → demo completion → submitted inquiry → qualified inquiry → sponsor meeting. Because visitors may inquire without completing a demo, separately report **direct inquiries** and **demo-assisted inquiries**. Do not assume a strictly linear funnel for every prospect.
+::: {.callout-tip title="Planned Comparisons"}
+We will compare results by channel, campaign, landing page, device, and demo version to identify where visitors drop off and which outreach efforts generate qualified business inquiries.
+:::
 
-# Deliverable 3 — Event / Parameter Map
+# Event Map
 
-## 3.1 Instrumentation principles
+The event map outlines the visitor actions TBFI plans to track. It uses existing GA4 events where appropriate and proposed custom events for demo activity. Final tracking will depend on the website, demo, and inquiry form setup.
 
-Use GA4 recommended events where applicable (`page_view`, `select_content`, `form_start`, `generate_lead`); use consistently named custom events for the simulator and booking flow. Implement via GTM or application-side instrumentation with a documented data layer. Standard GA4 session attribution fields (source/medium/campaign) should be captured through normal UTM/session processing, **not manually copied into every event**. The table identifies **required business parameters** in addition to GA4 automatically collected fields. Register needed event-scoped custom dimensions in GA4 before relying on them in UI reports; BigQuery can inspect exported event parameters directly.
-
-| KPI / question supported | GA4 event name | Exact proposed trigger / location | Required business parameters | Notes / edge cases |
-|:--------------|:--------------|:--------------|:--------------|:--------------|
-| Q1 traffic, landing-page performance | `page_view` | Initial page load and actual SPA route changes on TBFI landing page / simulator as applicable. | `page_location`, `page_title` (standard page context). | Prevent duplicate automatic + manual pageviews; validate SPA route behavior; respect consent. |
-| Q2 demo CTA click rate | `select_content` | User activates a tracked **Start Demo** CTA on an eligible TBFI page. | `content_type=demo_cta`, `item_id` (CTA identifier), `cta_location`. | Only real activations; define consistent placement values; clicking does not imply demo loaded. |
-| Q2 demo start rate; Q3 demo funnel | `demo_start` (custom) | Simulator initializes a new user-initiated intake-demo attempt and displays first actionable step. | `demo_session_id`, `demo_version`, `entry_point`. | One start per new demo attempt; new attempt gets new opaque ID. Separate training-mode and intake-demo traffic via `demo_mode`. |
-| Q3 step completion/drop-off | `demo_step_complete` (custom) | User successfully completes a required simulator step. | `demo_session_id`, `step_id`, `step_index`, `demo_version`, `demo_mode`. | Fire on successful completion, not every click; track repeated steps with unique step progression. |
-| Q3 demo completion rate | `demo_complete` (custom) | Simulator confirms all required steps of the intake-demo track are complete. | `demo_session_id`, `demo_version`, `demo_mode`, `steps_completed`. | Fire once per completed attempt; exclude consultant training sessions from sponsor-intake KPI using `demo_mode=intake`. |
-| Q4 inquiry form completion | `form_start` | User first interacts with an eligible business-intake form. | `form_id`, `form_name` (when available). | GA4 enhanced measurement may auto-collect this; do not double-fire via GTM. Embedded/third-party forms need separate verification. |
-| Q4 submitted inquiries | `generate_lead` | Back end confirms a **successful, valid** business-intake form submission. | `lead_id` (opaque), `form_id`, `lead_source_context` (e.g., demo/direct). | One event per accepted inquiry; avoid duplicates from refresh/retries; no PII or free-text form values. |
-| Q5 downstream booking diagnostic | `meeting_booked` (custom; optional) | Booking system confirms an appointment tied to an inquiry and approved for analytics collection. | `lead_id` (opaque), `booking_id` (opaque), `meeting_type`. | CRM/scheduler is the source of truth. If booking occurs offline or linkage is unavailable, **do not** claim GA4 captures all meetings. |
-
-**Additional implementation specification:** Standardize parameter values in lowercase snake_case (e.g., `demo_mode=intake`, `demo_mode=training`). `demo_session_id`, `lead_id`, and `booking_id` must be non-PII random identifiers. Parameter names must remain consistent across app versions. Avoid sending `lead_status` or qualification decisions to GA4 unless reviewed for privacy and approved; CRM-based aggregation is preferable.
-
-**Cross-domain / embedded-flow decision:** If the demo, form, or scheduler lives on a separate domain, confirm GA4 cross-domain configuration and consent propagation. Where that is not feasible, document breaks in session continuity and rely on approved CRM reconciliation instead of assuming end-to-end GA4 attribution.
-
-## 3.2 KPI-to-event coverage check
-
-| KPI | Minimum tracking/data needed | Computation location |
-|:-----------------------|:-----------------------|:-----------------------|
-| Sessions / engagement rate | GA4 session and engagement data | GA4 UI / BigQuery |
-| Demo start / CTA click rates | `page_view`, `select_content`, `demo_start` + eligible landing-page definition | BigQuery / GA4 Explore |
-| Demo completion / step rates | `demo_start`, `demo_step_complete`, `demo_complete`, stable `demo_session_id` | BigQuery |
-| Inquiry form completion | `form_start`, `generate_lead`, form attempt linkage where available | BigQuery / CRM |
-| Demo-to-inquiry rate | `demo_complete`, `generate_lead`, approved linking identifier | BigQuery + secure lead system |
-| QBI / qualified lead rate / meeting booking rate | Valid `lead_id`, qualification decisions, confirmed bookings | CRM / approved BigQuery join |
-
-# Deliverable 4 — Validation Checklist and Test Cases
-
-## 4.1 Pre-launch validation checklist
-
-Use a test environment or clearly tagged test records. Record tester, date, device/browser, consent state, expected result, observed result, pass/fail, and issue owner. **All items below are planned checks, not completed tests.**
-
-- [ ] **GTM collection:** Open GTM Preview/Tag Assistant; verify correct container, triggers, tags, and data-layer values; confirm one event per intended action; test SPA navigation.
-- [ ] **Consent and privacy:** Test accepted and denied analytics consent; ensure collection respects configured consent behavior and that no PII appears in event payloads or URLs.
-- [ ] **GA4 DebugView / Realtime:** Confirm each expected event arrives and required parameters are populated with correct types and values; inspect event naming consistency.
-- [ ] **Attribution and pages:** Verify UTMs map to session source/medium/campaign; confirm landing page and page-location dimensions are meaningful, including across redirects.
-- [ ] **Demo funnel integrity:** Check start, step, completion order; test restart/refresh/back navigation; exclude `demo_mode=training` from intake reports.
-- [ ] **Lead integrity:** Verify server-confirmed submission, deduplication, opaque `lead_id`, and no event on failed validation; reconcile test submissions to secure lead records.
-- [ ] **Cross-domain and embedded components:** Check demo/form/scheduler transitions, attribution continuity, and known limitations.
-- [ ] **BigQuery (if enabled):** After export processing, locate events in `events_*`, extract parameters from `event_params`, and compare test counts/IDs against DebugView and the lead system. Daily export timing may delay visibility.
-- [ ] **CRM qualification and booking:** Verify valid inquiry, qualified status, and meeting status can be linked without exporting PII into GA4; document unmatched records.
-
-## 4.2 Executable test cases (proposed)
-
-| ID / path | Steps to perform | Expected event(s) | Expected parameters / dimensions and pass criterion |
+| Action | Event name | When it fires | Key details |
 |:-----------------|:-----------------|:-----------------|:-----------------|
-| **TC01 — Direct desktop visit** | In a fresh desktop browser session with permitted consent, open the landing page directly; navigate to one internal page. | `page_view` on each genuine page/route view. | Correct `page_location`, `page_title`, device=`desktop`; no double-counted pageview per route. |
-| **TC02 — LinkedIn campaign mobile visit** | On mobile, open a test landing URL tagged with `utm_source=linkedin&utm_medium=social&utm_campaign=tbfi_demo_test`; inspect GA4 session attribution. | `page_view`. | Session source=`linkedin`, medium=`social`, campaign=`tbfi_demo_test`, expected landing page, device=`mobile` (subject to reporting processing); no UTM loss after redirect. |
-| **TC03 — Demo CTA and start** | On the landing page, click Start Demo once and wait until the intake demo's first actionable step is displayed. | `select_content` then `demo_start`. | `content_type=demo_cta`, CTA `item_id`, `cta_location`; `demo_session_id`, `demo_version`, `demo_mode=intake`; one start per attempt. |
-| **TC04 — Demo steps and successful completion** | Complete all required intake-demo steps in order; refresh the completion page once. | `demo_step_complete` per required step; exactly one `demo_complete` for the attempt. | Stable `demo_session_id`, correct `step_id`/`step_index`, `steps_completed`, `demo_mode=intake`; refresh does not duplicate completion. |
-| **TC05 — Form failure then valid inquiry** | Begin the inquiry form; submit with required fields missing; correct entries and submit successfully once; refresh confirmation. | `form_start` once per form attempt; `generate_lead` only after success. | Correct `form_id`, opaque `lead_id`, `lead_source_context`; no `generate_lead` on validation failure or duplicate on refresh; CRM has one valid test inquiry. |
-| **TC06 — Training-mode exclusion** | Open the consultant-training simulator (if same GA4 property); complete a training run. | `demo_start`, step events, `demo_complete` as configured. | `demo_mode=training`; events excluded from sponsor-intake demo KPI and dashboard filters. |
-| **TC07 — Booking and CRM reconciliation** | Mark a test inquiry qualified in CRM, then book a confirmed meeting through the configured scheduler (if integrated). | `meeting_booked` only if instrumentation exists; otherwise no GA4 event is required. | CRM has one qualified `lead_id` and one confirmed booking; any optional event uses opaque `lead_id`/`booking_id`; KPI is computed from CRM regardless of GA4 event availability. |
-| **TC08 — Consent and cross-domain** | Repeat demo → form path with analytics consent denied; if a third-party form is used, cross to its domain and return. | Only events allowed by the deployed consent configuration. | No prohibited analytics collection or PII; document attribution/session breaks and form completion visibility. |
+| View a page | `page_view` | A visitor opens a website page. | Page URL and page title. |
+| Click the demo button | `select_content` | A visitor clicks “Start Demo.” | Button location; `content_type = demo_cta`. |
+| Start the demo | `demo_start` — custom | The first interactive demo step loads after the visitor chooses to begin. | Demo attempt ID, version, and mode (intake or training). |
+| Complete a demo step | `demo_step_complete` — custom | A visitor successfully completes a required step. | Demo attempt ID, step, version, and mode. |
+| Complete the demo | `demo_complete` — custom | A visitor finishes all required demo steps. | Demo attempt ID, version, and mode; count once per completed attempt. |
+| Start an inquiry form | `form_start` | A visitor first interacts with the inquiry form. | Form identifier; check existing tracking to avoid duplicates. |
+| Submit an inquiry | `generate_lead` | The system confirms a successful inquiry submission. | Form identifier and anonymous inquiry ID; count once per submission. |
+| Book a sponsor meeting | `meeting_booked` — optional custom | The booking system confirms a meeting. | Anonymous inquiry and booking IDs, if integration is available. |
 
-## 4.3 BigQuery verification query (template; run only after export is enabled)
+# Validation Checklist and Test Cases
 
-The following is an **illustrative query**, not a query that has been run. Replace the project, dataset, and date window with the actual GA4 export configuration. It verifies event counts and the presence of `demo_session_id` without exposing personal data.
+Proposed checks should be completed before TBFI relies on the results.
 
-``` sql
-SELECT
-  event_name,
-  COUNT(*) AS event_rows,
-  COUNTIF((SELECT ep.value.string_value
-           FROM UNNEST(event_params) ep
-           WHERE ep.key = 'demo_session_id') IS NOT NULL) AS rows_with_demo_session_id
-FROM `YOUR_PROJECT.YOUR_GA4_DATASET.events_*`
-WHERE _TABLE_SUFFIX BETWEEN '20270401' AND '20270407'
-  AND event_name IN ('demo_start','demo_step_complete','demo_complete')
-GROUP BY event_name
-ORDER BY event_name;
-```
+## Pre-launch Checklist
 
-**Pass/fail rule:** A test passes only when its expected trigger, event count, required parameters, and source-of-truth reconciliation are verified. Missing integration or export should be recorded as **Not available / Pending**, not as a pass.
+-   [ ] Confirm that page views and campaign links appear correctly in GA4.
+-   [ ] Click each tracked demo button and verify that it records once.
+-   [ ] Start and complete the demo; confirm events appear in the correct order.
+-   [ ] Submit a valid test inquiry and confirm it is counted once.
+-   [ ] Test a form with missing required information; it should not count as a successful inquiry.
+-   [ ] Check that no names, contact details, or free-text responses are sent to GA4.
+-   [ ] Test the website on desktop and mobile.
+-   [ ] Verify tracking follows the approved consent settings.
+-   [ ] Compare test submissions with TBFI’s inquiry records and document tracking gaps.
 
-# Appendix — Sources, links, and team contribution
+## Sample Test Cases
+
+| Test | Steps | Expected result |
+|:-----------------------|:-----------------------|:-----------------------|
+| Website visit | Open a tagged campaign link and visit the landing page. | GA4 records the page view and expected campaign information. |
+| Demo use | Click the demo button, start the demo, and complete its required steps. | Click, start, step, and completion events appear in order without duplicates. |
+| Inquiry submission | Submit a valid test inquiry, then refresh the confirmation page. | One successful inquiry is recorded and matches TBFI’s inquiry records. Refreshing does not create a duplicate. |
+| Form error | Submit the form with required information missing. | No successful inquiry event is recorded. |
+| Privacy and consent | Test with analytics consent accepted and declined; inspect the event data. | Tracking follows the approved consent settings and excludes personal information. |
+
+::: {.callout-note title="Recording Test Results Notes"}
+Record the test date, tester, result (pass, fail, or pending), and any issue requiring follow-up. Mark a test as passed only when its expected result is verified. If a feature or integration is unavailable, mark the test as pending.
+:::
+
+# Appendix : Sources, publication links, and team contribution
 
 ## A. References
-
-### Project documents
 
 Lin, Y. F. (2026). *Simulated market research at scale: An AI consultant-training simulation and emerging-industry insights dashboard for the Tarkington Business Futures Institute* \[MSDM culminating project proposal, 2026–2027\]. California State Polytechnic University, Pomona. Unpublished course project document.
 
@@ -202,33 +148,17 @@ MSDM Project Team. (2026). *Revised project objectives and analytics objectives:
 
 Lin, Y. F. (2026, October 11). *Feedback on proposed project objectives and analytics objectives* \[Faculty email correspondence\]. Unpublished communication.
 
-### Technical documentation
+## B. Publication links
 
-Google. (n.d.). *Recommended events*. Google Analytics Developer Documentation. <https://developers.google.com/analytics/devguides/collection/ga4/reference/events>
+-   **GitHub Repository:** [CEP Group 8](https://github.com/gabrielarq1/CEP--Group-8/tree/main/GA4-1)
+-   **Published report:** [GA4-1 Analytics Blueprint](https://gabrielarq1.github.io/CEP--Group-8/GA4-1/GA4-1_TBFI_Analytics_Blueprint.html)
 
-Google. (n.d.). *About events*. Google Analytics Help. <https://support.google.com/analytics/answer/9322688>
+## C. Team contribution assignments
 
-Google. (n.d.). *BigQuery Export schema*. Google Analytics Help. <https://support.google.com/analytics/answer/7029846>
-
-Google. (n.d.). *Preview and debug containers*. Tag Manager Help. <https://support.google.com/tagmanager/answer/6107056>
-
-**Document scope:** The project documents provide TBFI's business context and proposed marketing funnel. The Google documentation informs the GA4/GTM event, parameter, and validation design. Event names specific to TBFI (such as `demo_start`, `demo_complete`, and `meeting_booked`) are **proposed custom instrumentation**, not features confirmed to be deployed. The revised PO/AO alignment is proposed in response to faculty feedback and is not represented as formally approved. AO5 refers only to the Evidence Map & Methods Dashboard under PO1; this GA4 plan belongs to PO3 as a later-phase workstream.
-
-## B. Publication links (replace before submission)
-
-- **GitHub Repository:** [ADD YOUR TEAM REPOSITORY URL](https://github.com/REPLACE-WITH-TEAM/REPLACE-WITH-REPO)
-- **GitHub Pages:** [ADD YOUR PUBLISHED REPORT URL](https://REPLACE-WITH-TEAM.github.io/REPLACE-WITH-REPO/)
-
-## C. Team contribution log (five members; confirm actual assignments before submission)
-
-The following is a **proposed division of responsibilities** for a five-member team. Update the roles and evidence to reflect work actually completed before submitting the report.
-
-| Team member | Proposed contribution / section | Date or evidence |
-|:-----------------------|:-----------------------|:-----------------------|
-| Member 1 | Project alignment (PO3 future-phase measurement), client context, stakeholder questions, and KPI definitions | To be confirmed |
-| Member 2 — name to be added | KPI Tree design, metric hierarchy, and diagnostic dimensions | To be confirmed |
-| **Yushan Huang** | GA4 event and parameter map, triggers, and naming conventions | 10/11/26 |
-| Member 4 — name to be added | GTM/GA4 validation checklist, test cases, and BigQuery checks | To be confirmed |
-| Gabriela Raygoza Quintero | Quarto formatting, report integration, quality review, and GitHub publication | 10-11-2026 |
-
-**Open decisions for TBFI:** confirm qualification rules; approve attribution model and maturation window; identify eligible pages; document demo steps and mode; select form and scheduler; confirm GA4/GTM and CRM access; review consent/privacy configuration; enable and validate BigQuery export if available.
+| Order | Team member | Assigned section |
+|:--------------------------:|:---------------------|:---------------------|
+| 1 | Alondra Rodriguez | Client context, measurement purpose, stakeholder questions, and KPI definitions |
+| 2 | Simran Kaur | KPI tree and metric hierarchy |
+| 3 | Yushan Huang | GA4 event map |
+| 4 | Veronica “Vero” Vega | Validation checklist and test cases |
+| 5 | Gabriela Raygoza Quintero | Report integration, formatting, and publication links |
