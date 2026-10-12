@@ -136,7 +136,7 @@ Proposed checks should be completed before TBFI relies on the results.
 Record the test date, tester, result (pass, fail, or pending), and any issue requiring follow-up. Mark a test as passed only when its expected result is verified. If a feature or integration is unavailable, mark the test as pending.
 :::
 
-# Appendix : Sources, publication links, and team contribution
+# Appendix :
 
 ## A. References
 
@@ -157,8 +157,8 @@ Lin, Y. F. (2026, October 11). *Feedback on proposed project objectives and anal
 
 | Order | Team member | Assigned section |
 |:--------------------------:|:---------------------|:---------------------|
-| 1 | Alondra Rodriguez | Client context, measurement purpose, stakeholder questions, and KPI definitions |
+| 1 | Alondra Rodriguez | Client context, measurement purpose, measurement questions, and KPI definitions |
 | 2 | Simran Kaur | KPI tree and metric hierarchy |
 | 3 | Yushan Huang | GA4 event map |
-| 4 | Veronica “Vero” Vega | Validation checklist and test cases |
+| 4 | Veronica Vega | Validation checklist and test cases |
 | 5 | Gabriela Raygoza Quintero | Report integration, formatting, and publication links |
