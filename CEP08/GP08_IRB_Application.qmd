@@ -1,1 +1,83 @@
+---
+title: "GP08-2 | IRB Application Preparation and Submission"
+subtitle: "Course submission package and IRB applicability statement"
+author: "CEP Group 8 — MSDM, Cal Poly Pomona"
+date: "2026-10-16"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    embed-resources: true
+    self-contained-math: true
+    theme: cosmo
+    code-fold: true
+execute:
+  echo: false
+---
 
+> **Submission status:** Course preparation package. No Cayuse IRB protocol has been filed or approved. This report does not represent an IRB determination or permission to recruit participants.
+
+## 1. Assignment Overview
+
+This package documents our preparation for **GP08-2: IRB Application Preparation and Submission**. It includes evidence of human-subjects training, a published Qualtrics questionnaire created for a course-based survey-design exercise, the informed-consent cover page, and the related Construct and Measurement Table. The instructor has not yet provided comments on the questionnaire or table.
+
+## 2. Current CEP Project and IRB Applicability
+
+Our CEP project direction was recently revised in consultation with Dr. Lin. The current work is an **AI-assisted meta-analysis using CALIPER**, focused on personalization in digital marketing communication. It is designed to use existing published studies and previously deposited human-coded secondary data, rather than recruiting new survey participants. Dr. Lin indicated that no new survey or IRB application is planned for this revised project.
+
+The Qualtrics survey linked below reflects an **earlier SGV/TBFI consumer-survey design exercise**. It is included here as evidence of questionnaire design and informed-consent preparation; it is **not the data-collection instrument for the current CALIPER meta-analysis**. Publishing a link does not authorize recruitment. We are not representing this survey as IRB-approved and are not using it to recruit research participants.
+
+**Cayuse status:** No online study draft or Cayuse draft URL is available for this project. Whether the course instructor will accept this explanation in place of a draft protocol and application document remains **pending instructor confirmation**. Any official human-subjects/IRB determination is made by the institution's authorized office, not by the student team.
+
+## 3. IRB Package Checklist
+
+| Required component | Evidence / status |
+|:--|:--|
+| CITI certificates for PI and Co-PIs | [Yushan Huang — CITI certificate](assets/CITI_Yushan_Huang.pdf) available. |
+| IRB application draft (Word / Google Doc) | Not prepared for the revised secondary-data-only CEP project; course substitution subject to instructor confirmation. |
+| Cayuse online application draft URL | Not available: no Cayuse study draft has been created. |
+| Informed consent form | [Consent cover page — first screenshot](#consent-evidence) and [second screenshot](#consent-evidence) below. |
+| Qualtrics questionnaire link | [Published Qualtrics survey](https://cpp.az1.qualtrics.com/jfe/form/SV_2ujgUci31v9QF4W) — course design demonstration only. |
+
+## 4. CITI Training Evidence
+
+**Yushan Huang** completed the **Human Research — College of Business Administration — Basic Course** under California State Polytechnic University, Pomona requirements on **October 9, 2026**. The certificate lists an expiration date of **October 9, 2031**.
+
+[Open the CITI completion certificate (PDF)](assets/CITI_Yushan_Huang.pdf)
+
+**Note:** This is the certificate provided for this package. The report does not claim that certificates for all listed team members have been collected.
+
+## 5. Qualtrics Questionnaire and Measurement Preparation
+
+**Questionnaire:** [Open the published Qualtrics survey](https://cpp.az1.qualtrics.com/jfe/form/SV_2ujgUci31v9QF4W).
+
+The survey cover page describes a San Gabriel Valley consumer-perception questionnaire, estimates a **7–9 minute** completion time, and includes a voluntary-participation statement and an affirmative/negative consent choice. The survey was created for questionnaire-design practice and is separate from the current CALIPER research plan.
+
+**Construct and Measurement Table:** [Open Group 8's GP05 C&M Table](https://docs.google.com/document/d/1ZI18GTDaXHCRTz3x4cXcZvnghRol7qQ8/edit?usp=sharing). The earlier GP05 source file is also included in the submission bundle. It describes the earlier project scope and has **not** been updated to represent the revised CALIPER objectives.
+
+**Faculty feedback:** No feedback had been received as of this report's preparation. Revisions will be made when the instructor provides comments.
+
+## 6. Informed Consent Cover Page {#consent-evidence}
+
+The screenshots below show the current cover page, including the study purpose, estimated time, voluntary participation, privacy and risk/benefit language, contact details, and Yes/No consent choices. The screenshots are evidence of the course exercise, not proof of IRB approval.
+
+![Qualtrics informed consent — upper section](assets/Informed_Consent_Top.png){width=85%}
+
+![Qualtrics informed consent — lower section and consent choices](assets/Informed_Consent_Bottom.png){width=85%}
+
+**Pre-recruitment check:** If this survey were ever used for actual human-subjects research, the team would first need to verify its consent language, privacy practices, appropriate rights contact, eligibility and refusal-termination logic, and any required institutional review/approval. The current exercise does not authorize recruitment.
+
+## 7. IRB Preparation Process and Next Steps
+
+1. Retain the completed CITI training documentation.
+2. Review the CPP IRB instructions and the professor's successful application examples.
+3. Keep the Qualtrics questionnaire and informed-consent cover page available for instructional review.
+4. Ask the course instructor whether the revised secondary-data-only CEP project may substitute an IRB applicability statement for the requested Cayuse draft and Word application draft.
+5. Incorporate instructor feedback into the survey, C&M Table, and submission package as applicable.
+6. Do **not** submit an IRB protocol or recruit participants based solely on this course report.
+
+**Institutional resource:** [CPP IRB Protocol Information](https://www.cpp.edu/research/research-compliance/irb/protocol.shtml).
+
+## 8. Submission Note
+
+This HTML/QMD package is submitted for **course feedback**. It transparently identifies the materials currently available and the two outstanding Cayuse/application-draft requirements. It does not assert an official exemption, approved protocol, or completed IRB application.
