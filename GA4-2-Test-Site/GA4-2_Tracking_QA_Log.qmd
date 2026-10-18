@@ -1,0 +1,164 @@
+---
+title: "GA4-2 | Tracking QA Log"
+subtitle: "Classroom QA Sandbox — TBFI-Inspired Test Journey"
+author: "CEP Group 8"
+date: "2026-10-18"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    embed-resources: true
+    page-layout: full
+  pdf:
+    toc: true
+    number-sections: true
+    geometry: margin=0.8in
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<style>
+h1,h2 {color:#1b4332;} h3 {color:#244c3c;} table {font-size:.9rem;}
+</style>
+```
+
+**Client context:** Tarkington Business Futures Institute (TBFI), Cal Poly Pomona  
+**Test environment:** [Classroom QA Sandbox](https://gabrielarq1.github.io/CEP--Group-8/GA4-2-Test-Site/)  
+**Test date:** October 18, 2026  
+**Evidence type:** Student-generated test traffic; not actual TBFI visitor or lead data  
+**Scope:** GA4-2 Milestone 2 — tracking QA and documentation
+
+# Project Context and Purpose
+
+Our CEP project has changed direction following guidance from our faculty advisor, Dr. Lin. The current project focuses on an AI-assisted meta-analysis using CALIPER, rather than a website analytics implementation. **GA4 is not required for the current CEP research workflow.** Our earlier GA4-1 Analytics Blueprint therefore remains a proposed measurement design rather than a description of a deployed TBFI system.
+
+Nevertheless, we undertook this assignment to demonstrate practical familiarity with Google Tag Manager (GTM), GA4 event collection, debugging, and quality assurance. We independently built a small GitHub Pages classroom sandbox inspired by the *proposed* GA4-1 journey, connected GTM to a newly created GA4 web stream, and performed hands-on tests. This report distinguishes **observed evidence** from **unverified or pending** functionality. No real TBFI customers, inquiries, or meetings were tracked.
+
+::: {.callout-important title="Scope and interpretation"}
+This is a classroom proof of technical learning, **not** a production deployment or a claim that TBFI currently uses GA4. Screenshots demonstrate only the specific checks described below. The sandbox form is simulated and should not be used to collect personal information.
+:::
+
+# Deliverable 1 — Screenshot-Backed QA Checklist
+
+## A. GTM / Collection Layer
+
+**Container:** `GTM-T879DLHP`  
+**GA4 destination / Measurement ID:** `G-Q064XV7DZ4`  
+**Baseline tag:** `GA4 - Google Tag - All Pages`  
+**Trigger:** `Initialization – All Pages` (`gtm.init`)
+
+| Check | Test performed / evidence | Result | Interpretation |
+|---|---|---|---|
+| GTM container detection | Tag Assistant detected `GTM-T879DLHP` on the sandbox. | **Pass** | GTM snippet loaded in the test environment. |
+| Base GA4 tag firing | Tag Assistant showed the Google Analytics tag as *Succeeded / Fired*. | **Pass** | The baseline tag executed under the Initialization trigger. |
+| Destination match | Tag details showed `G-Q064XV7DZ4`. | **Pass** | The tested tag targeted the newly created GA4 stream. |
+| Unexpected duplicate `page_view` | Multiple Page View hits were visible in a debugging history, but not isolated to a single controlled page load. | **Pending** | Cannot conclude that duplicates occurred or did not occur. |
+| `select_content`, `demo_start`, `demo_step_complete`, `demo_complete` | Demo UI responded to clicks; no custom GTM event-tag firing evidence captured. | **Not verified** | Working interface is not proof of GA4 event collection. |
+| `form_start`, `generate_lead`, `meeting_booked` | No corresponding GTM tag/trigger QA evidence captured. | **Not verified** | Simulated form/meeting workflow needs separate tests. |
+
+![A1. GTM Preview: baseline Google Analytics tag fired successfully.](images/A1_GTM_Tag_Fired.png){fig-alt="GTM Tags Fired panel" width="90%"}
+
+![A2. GTM tag details: Measurement ID, firing trigger and hits. Multiple hits require a controlled duplicate check.](images/A2_GTM_Tag_Details.png){fig-alt="GTM tag details" width="90%"}
+
+## B. GA4 DebugView / Realtime Event Parameters
+
+The new GA4 property received baseline events during the test session. The DebugView screenshot showed `page_view`, `first_visit`, `session_start`, and `user_engagement`. An expanded `page_view` displayed `page_location`, `page_title`, `ga_session_id`, and `debug_mode`.
+
+| Check | Observation | Result |
+|---|---|---|
+| `page_view` received | Visible in DebugView. | **Pass** |
+| Baseline session events | `first_visit`, `session_start`, `user_engagement` visible in the captured window. | **Observed** |
+| `page_title` populated | TBFI QA page title displayed. | **Pass** |
+| `page_location` populated | GitHub Pages URL displayed, but truncated in screenshot. | **Partially verified** |
+| `ga_session_id` and `debug_mode` | Both populated in expanded event details. | **Pass** |
+| Custom funnel events and parameters | No DebugView evidence for demo and lead events. | **Not verified** |
+
+![B1. GA4 DebugView: baseline event names observed.](images/B1_DebugView_Events.png){fig-alt="GA4 DebugView event list" width="95%"}
+
+![B2. Expanded page_view parameters.](images/B2_DebugView_Parameters.png){fig-alt="GA4 DebugView page view parameters" width="95%"}
+
+## C. GA4 Reporting Sanity Checks
+
+The Realtime report showed **one active user in the preceding 30 minutes** and **11 views for the test page title** at the time of capture. These counts are classroom test traffic, not business KPIs. In the same session, the standard Tech Details report returned *No data available*, including after the date was changed to October 18, 2026. A processing delay is plausible but **not independently confirmed**.
+
+| Required dimension | Observation | QA status |
+|---|---|---|
+| Page title | Test page title and 11 views shown in Realtime. | **Pass for Realtime only** |
+| Page location | Populated in DebugView, complete value not visible. | **Partially verified** |
+| Source / medium | DebugView showed referral context from Tag Assistant; standard acquisition report not tested. | **Pending** |
+| Campaign | No controlled UTM campaign test or standard campaign report captured. | **Pending** |
+| Device category | Tech Details standard report showed no data. | **Pending** |
+
+![C1. Realtime overview with test traffic and page title.](images/C1_Realtime_Overview.png){fig-alt="GA4 Realtime overview" width="95%"}
+
+![C2. Tech Details report for October 18: no processed data available at time of testing.](images/C2_Tech_Details_Pending.png){fig-alt="GA4 Tech Details no data" width="95%"}
+
+## D. BigQuery Export
+
+**Status: Not validated.** No evidence of an active GA4-to-BigQuery link, `events_*` tables, or query results was obtained for this classroom property. We therefore make no claim that the sandbox's events were exported. If export is enabled later, validation should occur after export tables become available, by checking event names and parameter values against a new controlled GA4 test session.
+
+Illustrative validation query **(not executed; replace the project and dataset placeholders)**:
+
+```sql
+SELECT
+  event_date,
+  event_name,
+  (SELECT ep.value.string_value
+   FROM UNNEST(event_params) AS ep
+   WHERE ep.key = 'page_location') AS page_location,
+  (SELECT ep.value.string_value
+   FROM UNNEST(event_params) AS ep
+   WHERE ep.key = 'page_title') AS page_title
+FROM `YOUR_PROJECT.YOUR_DATASET.events_*`
+WHERE _TABLE_SUFFIX BETWEEN '20261018' AND '20261019'
+  AND event_name = 'page_view'
+LIMIT 100;
+```
+
+This SQL demonstrates the intended `UNNEST(event_params)` method but **is not evidence of a completed BigQuery check**.
+
+# Deliverable 2 — Issues Log: Findings and Fixes Attempted
+
+| ID | Issue / finding | Detected in | Severity | Suspected cause | Action taken / attempted | Status |
+|---|---|---|---|---|---|---|
+| I-01 | Initial tag destination did not match the latest web stream. | GA4 setup / GTM | High | Multiple measurement IDs appeared during setup. | Updated GTM tag to `G-Q064XV7DZ4`; confirmed in Tag Assistant. | **Resolved** |
+| I-02 | Tag Assistant debugging session disconnected intermittently. | Tag Assistant | Medium | Connected test window closed or session replaced. | Reopened/reconnected debug window; confirmed baseline tag firing. | **Partially resolved** |
+| I-03 | Standard Tech Details report showed no data on test date. | GA4 UI | Medium | New property / possible reporting latency; exact cause not proven. | Changed date range to Oct 18 and checked Realtime and DebugView. | **Unresolved** |
+| I-04 | Custom demo and lead events not validated end-to-end. | GTM / DebugView | High | Event-specific tags and triggers not yet confirmed. | Verified demo UI behavior; deferred event-tag QA. | **Unresolved** |
+| I-05 | BigQuery export not verified. | BigQuery | Medium | No export setup or tables demonstrated. | Documented limitation and drafted future validation query. | **Unresolved** |
+| I-06 | Possible duplicate page-view hits could not be assessed. | GTM Preview | Medium | Multiple page views observed across debugging history; single-load test absent. | Flagged for controlled one-refresh/one-hit test. | **Unresolved** |
+
+*Severity describes potential analytical impact, not a confirmed production incident.*
+
+# Deliverable 3 — Remaining Risks and Mitigation Plan
+
+| Risk | Why it matters for analysis | Impact | Mitigation |
+|---|---|---|---|
+| Missing custom funnel tags | Demo start/completion and lead-conversion KPIs cannot be trusted without event-level validation. | High | Configure event-specific GTM triggers/tags; test each action once and inspect DebugView parameters. |
+| Duplicate page views | Inflated page views could distort engagement and funnel rates. | Medium | Perform controlled fresh-session tests; inspect hits sent and event counts per page load. |
+| Reporting latency / very low test volume | Realtime success does not guarantee standard-report readiness. | Medium | Recheck standard reports after processing; preserve exact dates and screenshots. |
+| Incomplete UTM and channel validation | Attribution and campaign comparisons may be misleading. | Medium | Test known tagged URLs; inspect session source/medium and campaign once processed. |
+| Consent / privacy configuration | Test behavior may differ across consent states; collection must avoid personal information. | High | Test accepted/declined consent scenarios where implemented; send no personal or free-text form data. |
+| No verified BigQuery export | Downstream SQL and attribution milestones cannot be validated on this property. | Medium | Enable export only if needed and authorized; compare exported events with controlled GA4 tests. |
+| Classroom-only synthetic traffic | Small self-generated sessions cannot represent TBFI customer behavior. | High | Clearly label test traffic; never infer business performance or customer demand. |
+
+# Conclusion and Learning Outcomes
+
+Although GA4 is no longer required for our current CALIPER-based CEP research, the team undertook a separate implementation to demonstrate applied analytics skills. We built and published a test website, installed GTM, configured a GA4 stream, verified baseline tag firing, and observed `page_view` events and parameters in DebugView and Realtime.
+
+The exercise also clarified an important QA principle: **a working website, a fired tag, a received event, and a populated standard report are four different levels of evidence**. Our baseline collection tests succeeded, while custom conversion events, complete reporting dimensions, and BigQuery remain pending. Reporting these limitations transparently is part of the learning outcome and prevents unsupported conclusions.
+
+# Appendix — Publication and Evidence
+
+- **GitHub repository:** [CEP Group 8](https://github.com/gabrielarq1/CEP--Group-8)
+- **Classroom test site:** [GA4-2 Test Site](https://gabrielarq1.github.io/CEP--Group-8/GA4-2-Test-Site/)
+- **GA4-1 blueprint:** [Prior GA4-1 folder](https://github.com/gabrielarq1/CEP--Group-8/tree/main/GA4-1)
+- **GA4-2 published report:** *Add the GitHub Pages URL after uploading and publishing this report.*
+- **Evidence screenshots:** The six images included in the `images/` folder are the actual captured test screens. Screenshots are not evidence for any row marked pending or not verified.
+
+**Submission note:** The QMD can be rendered to HTML with `quarto render GA4-2_Tracking_QA_Log.qmd --to html`. If a PDF is also required, render with `--to pdf` in an environment with a working TeX installation, or print the HTML to PDF. Keep the `images/` folder beside the QMD source when rendering.
