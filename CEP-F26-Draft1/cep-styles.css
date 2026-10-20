@@ -1,0 +1,85 @@
+/* Group 8 CEP styles: CPP green + gold accents, one font throughout (Source Sans, same as the MSDM template) */
+:root { --cep-green: #1E4D2B; --cep-gold: #E0B12B; --cep-gray: #5f6368; }
+
+body, h1, h2, h3, h4, .title, .subtitle, caption, figcaption, table,
+#TOC, #toc-title, .mermaid, .mermaid * {
+  font-family: "Source Sans Pro", "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif !important;
+}
+
+/* Chapter titles */
+h1:not(.title) {
+  color: var(--cep-green); text-align: center; text-transform: uppercase;
+  font-weight: 700; margin-top: 3rem;
+}
+
+/* Major sections: green with a short gold bar underneath */
+h2 { color: var(--cep-green); font-weight: 700; border-bottom: none; padding-bottom: .35rem; }
+h2::after { content: ""; display: block; width: 50px; height: 3px; background: var(--cep-gold); margin-top: .5rem; }
+
+h3 { color: var(--cep-green); font-weight: 700; font-style: italic; }
+h4 { color: var(--cep-green); font-weight: 400; font-style: italic; }
+
+/* Section numbers in muted gray */
+.header-section-number { color: var(--cep-gray); }
+
+/* Green title panel */
+#title-block-header {
+  background: var(--cep-green); border-bottom: 4px solid var(--cep-gold);
+  border-radius: 4px; padding: 2rem 2.25rem 1.5rem; margin-bottom: 2.5rem;
+}
+#title-block-header .title {
+  color: #fff; font-weight: 700; text-align: center;
+  font-size: 2.4rem; line-height: 1.15; margin-bottom: .6rem;
+}
+#title-block-header .subtitle {
+  color: var(--cep-gold); text-align: center; font-weight: 700;
+  font-size: 1.2rem; line-height: 1.4; max-width: 46rem; margin: 0 auto;
+}
+#title-block-header .quarto-title-meta { line-height: 1.5; margin-top: 1.5rem; }
+#title-block-header .quarto-title-meta-contents p { margin-bottom: .15rem; }
+#title-block-header .quarto-title-meta-heading { color: var(--cep-gold); text-transform: uppercase; letter-spacing: .04em; }
+#title-block-header .quarto-title-meta-contents,
+#title-block-header .quarto-title-meta-contents p { color: #fff; }
+
+/* Right-side table of contents */
+#toc-title { color: #444; font-weight: 400; font-size: .95rem; }
+#TOC { font-size: .9rem; line-height: 1.35; }
+#TOC > ul > li > a { text-transform: uppercase; font-weight: 700; color: #222; }
+#TOC ul ul a { color: #444; }
+#TOC a.active { color: var(--cep-green); border-left-color: var(--cep-green); }
+
+/* Tables and captions */
+caption, figcaption { font-weight: 700; color: inherit; }
+table { font-size: 12pt; }
+thead th { border-bottom: 2px solid var(--cep-green) !important; }
+
+/* Title page block */
+.title-page { text-align: center; margin: 1rem 0 2rem; }
+.title-page p { margin-bottom: 1.25rem; }
+
+/* Authors on one line, date underneath */
+#title-block-header .quarto-title-meta { display: grid; grid-template-columns: 1fr; row-gap: 1rem; text-align: center; }
+#title-block-header .quarto-title-meta-contents p:not(.date) { display: inline; margin: 0; }
+#title-block-header .quarto-title-meta-contents p:not(.date):not(:last-child)::after { content: " · "; color: var(--cep-gold); }
+
+/* Authors on one line in the green panel only */
+#title-block-header .quarto-title-meta { grid-template-columns: 1fr auto; column-gap: 2rem; }
+#title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p {
+  display: inline; margin: 0;
+}
+#title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p:not(:last-child)::after {
+  content: " · "; color: var(--cep-gold);
+}
+
+/* Other Links box in the sidebar: keep it visible and styled like the TOC title */
+#TOC .quarto-other-links ul,
+#TOC .quarto-other-links ul.collapse {
+  display: block !important; visibility: visible !important; height: auto !important;
+}
+#TOC .quarto-other-links h2 {
+  color: #444; font-size: .95rem; font-weight: 400; margin-top: 1.25rem; padding-bottom: 0;
+}
+#TOC .quarto-other-links h2::after { display: none; }
+#TOC .quarto-other-links a { color: #444; text-transform: none; font-weight: 400; }
+#TOC .quarto-other-links a:hover { color: var(--cep-green); }
+#TOC .quarto-other-links i { margin-right: .35rem; }

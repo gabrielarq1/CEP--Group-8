@@ -2,6 +2,7 @@
 title: "GA4-1 | TBFI Analytics Blueprint"
 subtitle: "Measuring AI Demo Engagement and Business Inquiries"
 author: 
+
   - "Yushan Huang"
   - "Simran Kaur"
   - "Gabriela Raygoza Quintero "
@@ -161,7 +162,7 @@ Lin, Y. F. (2026, October 11). *Feedback on proposed project objectives and anal
 ## C. Team contribution assignments
 
 | Order | Team member | Assigned section |
-|:-----------------:|:---------------------|:---------------------|
+|:--------------------:|:-----------------------|:-----------------------|
 | 1 | Alondra Rodriguez | Client context, measurement purpose, measurement questions, and KPI definitions |
 | 2 | Simran Kaur | KPI tree and metric hierarchy |
 | 3 | Yushan Huang | GA4 event map |

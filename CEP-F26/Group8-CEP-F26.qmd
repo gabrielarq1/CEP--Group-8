@@ -1,19 +1,18 @@
 ---
-title: " MSDM Culminating Experience Project " 
-subtitle: "Simulated Market Research at Scale: <br> An AI Consultant-Training Simulation and <br> Emerging-Industry Insights Dashboard for TBFI"
+title: " MSDM Culminating Experience Project "
+subtitle: "AI-Assisted Evidence Synthesis for Marketing Decisions: <br> Validating a CALIPER Meta-Analysis of Personalization <br> and a Consultant Decision Dashboard for TBFI"
 author:
   - "Yushan Huang"
   - "Simran Kaur"
   - "Gabriela Raygoza Quintero"
   - "Alondra Rodriguez"
-  - "Veronica Vega"
 date: today
 format:
   html:
     toc: true
-    toc-depth: 3
+    toc-depth: 4
     toc-title: "Table of contents"
-    toc-expand: false
+    toc-expand: 1
     toc-location: right
     number-sections: true
     number-depth: 3
@@ -45,10 +44,12 @@ bibliography: references.bib
 csl: styles/american-marketing-association.csl
 ---
 
+<!-- Rewritten 18 Oct 2026 for the CALIPER meta-analysis direction (Lin, 14 Oct 2026 document). Each AO owner should revise their own 1.3.x, 2.7.x and 3.2.10 subsections before 22 Oct. -->
+
 # TITLE PAGE {.unnumbered}
 
 ::: {.title-page}
-**SIMULATED MARKET RESEARCH AT SCALE: AN AI CONSULTANT-TRAINING SIMULATION AND EMERGING-INDUSTRY INSIGHTS DASHBOARD FOR TBFI**
+**AI-ASSISTED EVIDENCE SYNTHESIS FOR MARKETING DECISIONS: VALIDATING A CALIPER META-ANALYSIS OF PERSONALIZATION AND A CONSULTANT DECISION DASHBOARD FOR TBFI**
 
 A Project Presented to the Faculty of the  
 College of Business Administration  
@@ -61,8 +62,7 @@ By
 Yushan Huang  
 Simran Kaur  
 Gabriela Raygoza Quintero  
-Alondra Rodriguez  
-Veronica Vega
+Alondra Rodriguez
 
 2027
 :::
@@ -97,10 +97,6 @@ Veronica Vega
 
 [75–100 word summary, to be completed in the summer semester.]
 
-**Veronica Vega**
-
-[75–100 word summary, to be completed in the summer semester.]
-
 # TABLE OF CONTENTS {.unnumbered}
 
 The table of contents appears in the sidebar on the right.
@@ -109,142 +105,102 @@ The table of contents appears in the sidebar on the right.
 
 ## Background and Business Problem(s) {#sec-background}
 
-Market research helps businesses understand what customers want, but it is expensive. A professional study usually costs between \$8,000 and \$15,000 [@lin2026]. Most small businesses in the San Gabriel Valley (SGV) cannot afford that, so they make big decisions about pricing, new products, or where to open based on guesswork.
+Small and mid-sized businesses in the San Gabriel Valley (SGV) make marketing decisions every week. Should a restaurant personalize its emails? Will a targeted Instagram ad that uses a customer's location feel helpful or creepy? Most of these businesses cannot pay for a custom study, so they rely on intuition or on whatever a platform vendor tells them. A large body of published consumer research already answers many of these questions, but it is scattered across hundreds of articles, written for academics, and rarely summarized in a form a business owner can use.
 
-AI may offer a cheaper option. Recent studies show that large language models (LLMs) can act like survey respondents. When given a profile such as age, income, and location, an LLM can answer survey questions in ways that often resemble real people's answers [@argyle2023; @aher2023; @horton2023]. In marketing, researchers have used this approach to estimate willingness to pay and to map how customers see competing brands [@brand2023; @li2024; @wang2026].
+A meta-analysis solves part of this problem. It pulls the results of many studies together and estimates how large an effect is on average, how much it varies, and what it depends on [@grewal2018; @borenstein2021]. Personalization is a good example. Some studies find that personalized messages raise purchase intention and clicks, while others find that they trigger privacy concerns and ad avoidance, a tension known as the personalization paradox [@aguirre2015; @bleier2015]. A recent meta-analysis in the *Journal of Marketing* combined 1,536 effect sizes from 290 studies and found that personalization mostly works, that its negative effects are small, and that it works best when it draws on data closely tied to a consumer's self-concept, such as interests and values [@eisend2026].
 
-There is a catch. AI answers are not always right. They can be overconfident, too uniform, or biased toward certain groups [@bisbee2024]. A common finding is that AI tends to get the order right (which option people prefer most) but the exact numbers wrong (how much they prefer it). Dr. Lin summarizes this as "trust the order, test the level" [@lin2026]. AI-generated research is only useful once it has been checked against real data.
+The catch is cost and speed. A meta-analysis takes trained coders months to read every article, pull out sample sizes and test statistics, and decide which outcomes count as attitudes, behaviors, or privacy reactions. Human coders make mistakes too; studies of published meta-analyses find extraction errors in a meaningful share of values [@gotzsche2007; @mathes2017]. Large language models (LLMs) can now screen articles and extract data [@khraisha2024; @gartlehner2024] and label text as well as or better than crowd workers [@gilardi2023]. But an AI coder is only useful if we know how accurate it is, and agreement between two AI coders does not prove that either one is right.
 
-Our client is the Tarkington Business Futures Institute (TBFI), a new applied "Do Tank" inside Cal Poly Pomona's College of Business Administration [@cpp2026; @tbfi2026]. TBFI wants to offer low-cost research to local businesses, and it faces three problems. Training new student consultants one at a time does not scale. Prospective clients want to see a working demo rather than a slide deck. And local businesses need research they can both afford and trust. Our team is TBFI's first student consultant cohort, and our job is to build the tools that address these problems, test that they work, and use them to bring in TBFI's first clients.
+Our client is the Tarkington Business Futures Institute (TBFI), an applied "Do Tank" inside Cal Poly Pomona's College of Business Administration [@cpp2026; @tbfi2026]. TBFI wants to give local businesses research-backed advice quickly and at low cost. To do that, it needs a way to synthesize published evidence that is fast enough to keep up with new studies and trustworthy enough to put in front of a client. This project builds and tests that workflow. We use CALIPER, a protocol in which two AI coders from different model families code the same material and their disagreements are used to improve the coding rules; a rule change is kept only if it makes the coding more accurate against human coding [@caliper2026]. The anchor is the personalization meta-analysis by @eisend2026, whose authors posted each human coder's values on Harvard Dataverse [@eisend2026data]. That gives every part of the project a human benchmark without any new data collection [@lin2026plan].
+
+**Why this matters beyond TBFI.** TBFI first came to this project interested in synthetic respondents, and the market for them is growing. Vendors now sell AI personas and simulated markets that answer business questions. Where these vendors report validation, they usually test whether a persona repeats one person's held-out answers. Published comparisons of synthetic and human respondents show that LLMs can reproduce many aggregate patterns but can also be overconfident, too uniform, or biased for some groups [@argyle2023; @aher2023; @horton2023; @brand2023; @li2024; @bisbee2024; @wang2026]. No public benchmark tests whether a simulated panel reproduces the *effects* that real experiments find, for example how much personalization changes attitudes and behavior. A meta-analysis coded with CALIPER can provide that benchmark: effect sizes and moderators from published experiments, each value tied to a page in the source article and checked against human coders. Its limit is that a meta-analysis averages published and mostly lab studies, so it calibrates effects rather than individual answers [@lin2026plan].
 
 ## Project Objectives (PO's) {#sec-po}
 
-The project has four business objectives, drawn from Dr. Lin's proposal [@lin2026].
+The project has three business objectives [@lin2026plan].
 
-- **PO1**: Build the Do Tank Simulator, a browser-based training game that walks a user through a full consulting engagement (intake, research design, AI survey panel, perceptual map, and client readout), with at least 10 rounds and a short version TBFI can use as a sales demo.
-- **PO2**: Build the SGV Insights Dashboard, which reports AI-generated customer insights (perceptual maps, customer segments, and a trust report) for four SGV industries: specialty food and beverage, ADU and prefab housing, cross-border e-commerce and logistics, and health and senior services.
-- **PO3**: Run a digital marketing plan (landing page, LinkedIn and email content, and outreach to local chambers of commerce) that brings TBFI its first client inquiries and sponsors.
-- **PO4**: Train TBFI's first consultant cohort using the simulator.
+- **PO1. AI-assisted evidence synthesis**: Develop and validate an AI-assisted meta-analysis workflow (CALIPER) that extracts and codes published consumer research about as accurately as trained human coders, so that TBFI can answer business questions with research evidence quickly.
+- **PO2. TBFI consultant decision support**: Turn the validated evidence into a dashboard and a consultant playbook on personalization. The playbook says which personalization tactics work, for whom, and in which channels, and where the evidence is too thin to advise.
+- **PO3. TBFI promotion and business intake (spring and summer)**: Develop and run a data-informed digital marketing plan that uses the dashboard and playbook as content to raise TBFI's visibility and qualified business intake among SGV businesses, measured with GA4 and UTM-tagged campaigns. This is the team's Chapter 5 plan.
 
 ## Analytics Objectives {#sec-ao}
 
-Each team member owns one analytics objective (AO), and together the five AOs support the four POs. @tbl-ao-po lists every AO in full next to the project objective it supports, so readers do not need to refer back to the previous section.
+Each AO has one owner, one primary PO, a human benchmark, and a measurable result. All four AO owners learn the full workflow on the same development articles, but each answers a different question. @tbl-ao-po lists every AO next to the project objective it supports.
 
 | AO and Owner | Analytics Objective | Project Objective Supported |
 |:-----------------|:-----------------------------|:-----------------------------|
-| AO1. Evidence Review and Data Setup (Alondra Rodriguez) | Synthesize published evidence on LLM-simulated survey respondents and assemble a clean secondary data set describing customers and businesses in the four SGV industries. | PO2: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries. |
-| AO2. Perceptual Maps and Customer Segments (Simran Kaur) | For each of the four SGV industries, build a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, with each map and segment tiered by the confidence level assigned in AO3. | PO2: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries. |
-| AO3. Validating the AI Panels (Gabriela Raygoza Quintero) | Assess the validity of large language model panels by comparing their responses against the human benchmark. | PO2: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries. |
-| AO4. Consultant Training Performance Evaluation (Yushan Huang) | Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores. | PO1: Build the Do Tank Simulator. PO4: Train TBFI's first consultant cohort using the simulator. |
-| AO5. Marketing Funnel Analytics (Veronica Vega) | Identify which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel. | PO3: Run a digital marketing plan that brings TBFI its first client inquiries and sponsors. |
+| AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez) | Measure how accurately AI extracts the numbers a meta-analysis needs (sample sizes, effect sizes, test statistics, and which results count as effects), comparing single-pass extraction with evidence-linked extraction. | PO1: Develop and validate an AI-assisted meta-analysis workflow. |
+| AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero) | Test whether CALIPER rule revision lets AI coders assign each study's outcome to the meta-analysis's outcome categories as accurately as human coders. | PO1: Develop and validate an AI-assisted meta-analysis workflow. |
+| AO3. Do Coding Errors Change the Conclusions? (Yushan Huang) | Estimate how much the pooled effects, heterogeneity, and moderator results change when AI-extracted numbers and AI outcome classifications replace the human values. | PO1 (feeds PO2): Validate the workflow and identify which findings are robust enough to advise on. |
+| AO4. Evidence Update and Decision Dashboard (Simran Kaur) | Test whether AI-assisted screening finds personalization studies published after the meta-analysis's search cutoff as completely as two human screeners, and whether TBFI consultants can use the resulting dashboard to answer questions correctly. | PO2: Turn validated evidence into a dashboard and consultant playbook. |
 
 : Summary of Analytics Objectives and the Project Objectives They Support {#tbl-ao-po}
 
-@fig-po-ao shows the same relationships visually. Three AOs feed the dashboard, one evaluates the simulator and the training it delivers, and one measures the marketing plan.
+@fig-po-ao shows the study design. Development articles tune the AO1 and AO2 methods, the test set is run once, and AO3 tests whether coding errors change the conclusions. AO4 adds studies published after the authors' search cutoff and feeds the dashboard and playbook (PO2), which the digital marketing plan (PO3) then promotes. The dashed boxes are the spring transfer test and the optional RA-led research track [@lin2026plan].
 
-```{mermaid}
-%%| label: fig-po-ao
-%%| fig-cap: "How the Business Problem Connects to the Project and Analytics Objectives"
-%%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 28, "rankSpacing": 70}, "themeVariables": {"fontSize": "15px"}}}%%
-flowchart LR
-  P["Business problem:<br>research is too costly<br>for small businesses"]
-  P --> PO1["PO1: Do Tank Simulator"]
-  P --> PO4["PO4: Consultant training"]
-  P --> PO2["PO2: Insights Dashboard"]
-  P --> PO3["PO3: Digital marketing plan"]
-  PO1 --> AO4["AO4: Training performance evaluation"]
-  PO4 --> AO4
-  PO2 --> AO1["AO1: Evidence review and data setup"]
-  PO2 --> AO2["AO2: Perceptual maps and segments"]
-  PO2 --> AO3["AO3: Validating the AI panels"]
-  PO3 --> AO5["AO5: Marketing funnel analytics"]
-  classDef problem fill:#FFF6D6,stroke:#B8860B,stroke-width:3px,color:#1a1a1a,font-weight:bold
-  classDef po fill:#FFFFFF,stroke:#1E4D2B,stroke-width:3px,color:#1E4D2B,font-weight:bold
-  classDef ao fill:#E8F0E6,stroke:#1E4D2B,stroke-width:3px,color:#1a1a1a,font-weight:bold
-  class P problem
-  class PO1,PO2,PO3,PO4 po
-  class AO1,AO2,AO3,AO4,AO5 ao
-  linkStyle default stroke:#1E4D2B,stroke-width:2px
-```
+![Study Design: How the Data, Analytics Objectives, and Project Objectives Connect (adapted from Lin 2026)](fig1-study-design.png){#fig-po-ao width="100%"}
 
-### AO1. Evidence Review and Data Setup (Alondra Rodriguez) {#sec-ao1}
+### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez) {#sec-ao1}
 
-- **PO2**: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries.
-- **AO1**: Synthesize published evidence on LLM-simulated survey respondents and assemble a clean secondary data set describing customers and businesses in the four SGV industries.
-  - **Data Source**: Published research on LLM survey respondents; U.S. Census American Community Survey (ACS), County Business Patterns, and Esri Tapestry segmentation data.
+- **PO1**: Develop and validate an AI-assisted meta-analysis workflow that codes published consumer research about as accurately as trained human coders.
+- **AO1**: How accurately can AI extract the numbers a meta-analysis needs from primary articles (sample sizes, effect sizes, and test statistics), plus the judgment about which results count as effects?
+  - **Data Source**: Full texts of the primary articles in @eisend2026 and the authors' final coded values on Harvard Dataverse [@eisend2026data].
 
 #### How to Address AO1
 
-This AO gathers what is already known. It reviews published studies on AI survey respondents and collects public data for each industry, including local demographics from the ACS, business counts from County Business Patterns, and lifestyle profiles from Esri Tapestry. The output is a short evidence summary and a cleaned, documented data set that the other AOs can build on.
+Two AI workflows run on the same development articles. In single-pass extraction, one model reads the article and returns the values. In evidence-linked extraction, the model must quote the page and table for every value, and a second model checks that the quote supports it. Each value is compared with the authors' final coded value. Results are broken down by field type, separating plain numbers from judgment calls such as which effect to code, and errors are sorted into reading errors (the right number was misread) and scope errors (the wrong result was treated as an effect).
 
-#### How AO1 Will Help Achieve PO2
+#### How AO1 Will Help Achieve PO1
 
-The data set supplies the realistic respondent profiles used to prompt the AI panels and the industry context shown on the dashboard. The evidence summary tells the team which uses of AI respondents are well supported and which need extra caution.
+AO1 shows which parts of extraction AI can do reliably and which still need a person. Its output is an accuracy table by field type, an error taxonomy, and a verification rule TBFI can adopt. The extracted numbers also feed AO3.
 
-### AO2. Perceptual Maps and Customer Segments (Simran Kaur) {#sec-ao2}
+### AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero) {#sec-ao2}
 
-- **PO2**: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries.
-- **AO2**: For each of the four SGV industries, build a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, with each map and segment tiered by the confidence level assigned in AO3.
-  - **Data Source**: AI-simulated survey panels (Claude, ChatGPT, and Gemini) rating competing brands on industry-specific attributes and overall similarity, with respondent profiles drawn from the AO1 data set.
+- **PO1**: Develop and validate an AI-assisted meta-analysis workflow that codes published consumer research about as accurately as trained human coders.
+- **AO2**: Primary studies often give the same construct different definitions and measures, or give different names to the same thing. Can CALIPER revise the codebook rules so that AI coders assign each study's outcome (dependent variable) to the meta-analysis's outcome categories as accurately as the human coders?
+  - **Data Source**: The outcome wording, coder 1, coder 2, and final outcome codes in the Dataverse file [@eisend2026data]; the outcome definitions in Table 3 and moderator rules in Table 5 of @eisend2026; and the primary articles.
 
 #### How to Address AO2
 
-Perceptual maps place competing brands on a chart based on how customers see them, for example affordable versus premium or traditional versus modern. Brands that sit close together are seen as similar, and empty space can point to gaps in the market. The maps will be built with multidimensional scaling (MDS), and each industry will use its own attribute set rather than one generic chart. This follows @li2024, who showed that LLMs can produce perceptual maps that closely match those built from real customer surveys.
+The meta-analysts' outcome categories and their definitions stay fixed. Only the rules that map a study's label, definition, and measure to a category are revised. Four conditions are compared: (0) the author's outcome wording plus the codebook, with no article text; (a) category names only, with the article; (b) one AI coder with the article and the codebook; and (c) two AI coders from different model families plus CALIPER rule revision. Comparing (0) with (b) shows how much reading the actual measure adds beyond its name. Coders never see effect sizes, significance, or whether hypotheses were supported.
 
-Customer segments group respondents who want similar things, such as price-focused shoppers or quality-first buyers. Segments will be estimated with latent class clustering rather than k-means, because latent class handles a mix of attitudinal and demographic variables and gives each respondent a probability of belonging to each segment. Each segment gets a short profile describing who its members are, what they care about, and how to reach them.
+#### How AO2 Will Help Achieve PO1
 
-Because AI tends to get rankings right more often than exact numbers, the maps will emphasize where brands sit relative to each other rather than precise scores [@lin2026]. AI panels are also known to be weaker at the subgroup level than in aggregate [@bisbee2024], so segment-level results will carry their own confidence flag from AO3 instead of inheriting a single project-wide rating.
+AO2 produces a revised codebook with a log of every rule change, a validity table by condition, and a crosswalk from author labels to categories. These show whether AI classification can be trusted and where human review is still needed. The AI classifications also feed AO3.
 
-#### How AO2 Will Help Achieve PO2
+### AO3. Do Coding Errors Change the Conclusions? (Yushan Huang) {#sec-ao3}
 
-The maps and segment profiles are the core content of the SGV Insights Dashboard. They give a small business owner a quick read on where competitors stand, where the gaps are, and which customer groups to target, with a clear signal of how much each result can be trusted.
-
-### AO3. Validating the AI Panels (Gabriela Raygoza Quintero) {#sec-ao3}
-
-- **PO2**: Build the SGV Insights Dashboard of AI-generated customer insights for four SGV industries.
-- **AO3**: Assess the validity of large language model panels by comparing their responses against the human benchmark.
-  - **Data Source**: Responses from three AI panels (Claude, ChatGPT, and Gemini) and Dr. Lin's benchmark panel of about 600 real respondents [@lin2026].
+- **PO1 (feeds PO2)**: Validate the workflow and identify which personalization findings are robust enough for TBFI to advise on.
+- **AO3**: How much do the meta-analysis's pooled effects, heterogeneity, and moderator results change when AI-extracted numbers replace the human values, and when outcomes are classified differently?
+  - **Data Source**: The Dataverse data and the authors' R scripts [@eisend2026data], AO1 extracted values, and AO2 classifications.
 
 #### How to Address AO3
 
-The same survey will be given to all three AI panels and compared with the human benchmark. Two scores will guide the comparison. Krippendorff's alpha checks whether panels agree with each other, with 0.80 or above treated as strong and 0.67 as the minimum [@krippendorff2018]. The F1 score checks how often the AI answers match the human answers. Following "trust the order, test the level," the analysis first checks whether the AI ranks options in the same order as people and then measures how far off its exact numbers are.
+The analysis runs in three steps. First, the published results are reproduced with the authors' data and scripts; this must match before anything else starts. Second, the models are re-estimated with the effect sizes and sample sizes extracted in AO1 (number robustness). Third, every effect size is held at its published value and only the outcome classification changes, using four versions: coder 1, coder 2, AI before alignment, and AI after alignment (classification robustness). Each estimate is compared with the published one in standard-error units, and sign and significance flips are counted.
 
-#### How AO3 Will Help Achieve PO2
+#### How AO3 Will Help Achieve PO1 and PO2
 
-Each finding will be sorted into one of three groups: use as is, use for rankings only, or do not use. This rating tells TBFI and its clients how much to trust each result on the dashboard and decides which AO2 maps and segments are published.
+AO3 answers the question a manager would ask: do AI coding errors change the advice? Its one-page brief, "Which personalization findings are fragile and which hold," decides which results go on the dashboard as firm guidance and which carry a caution.
 
-### AO4. Consultant Training Performance Evaluation (Yushan Huang) {#sec-ao4}
+### AO4. Evidence Update and Decision Dashboard (Simran Kaur) {#sec-ao4}
 
-- **PO1**: Build the Do Tank Simulator.
-- **PO4**: Train TBFI's first consultant cohort using the simulator.
-- **AO4**: Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.
-  - **Data Source**: Pre-training and post-training skill-checkpoint scores from TBFI's incoming consultants.
+- **PO2**: Turn the validated evidence into a dashboard and a consultant playbook on personalization.
+- **AO4**: Can an AI-assisted search and screening workflow find personalization studies published after the meta-analysis's search cutoff about as completely as two human screeners? Can TBFI consultants use the resulting dashboard to answer questions correctly?
+  - **Data Source**: Database search results (EBSCO, ScienceDirect, and ProQuest Dissertations and Theses, with Google Scholar for citation searching) for studies published after the search period of @eisend2026; screening decisions from two independent human screeners; the validated results from AO1 to AO3; and a dashboard walkthrough with TBFI staff.
 
 #### How to Address AO4
 
-Consultants will complete a standardized skill checkpoint before and after the simulator, and the two sets of scores will be compared to measure the direction and size of any change. The specific skill dimensions and scoring criteria will be refined using the simulation-based learning and training-evaluation literature reviewed in Chapter 2. Because checkpoint gains alone do not prove transfer to real client work, results will be interpreted with that limit in mind.
+The search repeats the keyword strategy of @eisend2026 for the period after its cutoff and logs every database, query, date, and hit count. An AI screener then makes include or exclude decisions on titles and abstracts, and two human screeners independently screen the same records. Agreement between the humans is measured with Cohen's kappa, and the AI's decisions are scored for recall and precision against the human consensus. Recall matters most, because a study the screener misses never reaches the evidence base. Eligible new studies are added to an updated evidence map and reported in a PRISMA flow diagram [@page2021].
 
-#### How AO4 Will Help Achieve PO1 and PO4
+The validated evidence then goes into a dashboard (Looker Studio or Streamlit) and a draft consultant playbook. To test whether the dashboard works, TBFI staff answer a set of realistic client questions using it, such as "Does personalizing an email with the customer's first name raise click-through?" Their answers are scored against an answer key built from the AO3 results.
 
-The results show which parts of the simulator work and which need redesign (PO1), and whether the simulator can serve as a repeatable onboarding tool for future consultant cohorts (PO4).
+#### How AO4 Will Help Achieve PO2
 
-### AO5. Marketing Funnel Analytics (Veronica Vega) {#sec-ao5}
-
-- **PO3**: Run a digital marketing plan that brings TBFI its first client inquiries and sponsors.
-- **AO5**: Identify which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel.
-  - **Data Source**: Website and campaign analytics (GA4 and UTM-tagged traffic), inquiry form submissions, demo completions, and TBFI's sponsor meeting and acquisition records.
-
-#### How to Address AO5
-
-The independent variable is marketing channel: search engine optimization (SEO), social media, email, referral networks, and paid online advertising. The dependent variables are qualified intake inquiries, sponsor meetings, sponsor acquisitions, and conversion rates at each funnel stage. Funnel analytics and comparative statistics will show which channels move prospects furthest through the funnel, and baseline metrics collected before the campaign will be compared with post-campaign results.
-
-#### How AO5 Will Help Achieve PO3
-
-The analysis tells TBFI where to spend its limited marketing budget, shifting resources toward the channels with the highest sponsor acquisition rates and return on investment.
+AO4 turns the research into something a TBFI consultant can use in a client meeting. The screening test shows whether TBFI can keep the evidence current without paying for a full human review every year, and the walkthrough shows whether the dashboard leads consultants to the right answer. The dashboard and playbook are also the main content for the PO3 marketing plan.
 
 ## Significance of the Topic {#sec-significance}
 
-This project matters to three groups. Local businesses get research they could not afford before; a bakery or a senior care provider in the SGV can learn what its customers want without spending \$10,000. TBFI gets working tools, a sales demo, and its first clients, and the simulator lets it train new consultants faster so the program can grow. The research field gets a real-world test of AI survey panels, since most studies so far have been run under controlled conditions rather than with actual local businesses [@argyle2023; @bisbee2024]. For our team, the project builds skills that employers want: working with AI tools, testing data quality, building dashboards, and running digital campaigns.
+This project matters to four groups. SGV businesses get practical guidance on personalization, a tactic they already use in email, social ads, and websites, based on hundreds of published studies rather than on vendor claims. TBFI gets a tested workflow for turning research into advice, a dashboard and playbook it can show prospective clients, and a way to keep that evidence current as new studies appear. The research field gets a direct test of AI coding against posted human coding at every step, from reading a number off a table to the final pooled estimate, along with a benchmark that synthetic-respondent tools could later be held to. For our team, the project builds skills employers want: evaluating AI output against a ground truth, working with secondary data in R, designing dashboards for decision makers, and running a measured digital campaign.
 
 # CHAPTER 2: BACKGROUND AND ANALYTICS OBJECTIVES {#sec-ch2}
 
@@ -366,277 +322,177 @@ This project matters to three groups. Local businesses get research they could n
 
 ## Investigation of Currently Available Research Framework/Model {#sec-lit-review}
 
-This section reviews the research frameworks, models, and evidence relevant to each analytics objective. For each AO, it asks whether established research already answers the question, whether that information is adequate for TBFI, what additional analysis is needed, and whether the AO should be kept, revised, or narrowed.
+This section reviews the research frameworks, models, and evidence relevant to each analytics objective. For each AO, it asks whether established research already answers the question, whether that information is adequate for TBFI, what additional analysis is needed, and whether the AO should be kept, revised, or narrowed. The literature on synthetic and human respondents collected in the 16 October search log supports the motivation in @sec-background and is not repeated here.
 
-### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
 
-**Analytics Objective:** Synthesize published evidence on LLM-simulated survey respondents and assemble a clean secondary data set describing customers and businesses in the four SGV industries.
-
-#### Existence of Well-established Models
-
-[Alondra: Review the major theories, frameworks, models, and previous empirical studies relevant to AO1. Explain what previous researchers studied, what data or methods they used, what they found, and how those findings relate to the TBFI project. This should be the main literature-review section, approximately 2–3 pages.]
-
-#### Adequateness of Gathered Information
-
-[Alondra: In about one paragraph, explain whether the existing literature and currently available information are sufficient to address AO1.]
-
-#### Need for Additional Analysis
-
-[Alondra: In about one paragraph, explain what additional analysis the TBFI project needs that the existing literature cannot answer alone.]
-
-#### Assessment and Affirmation of Analytics Objectives
-
-[Alondra: Evaluate whether AO1 should be retained, revised, or narrowed, and state the final measurable AO1.]
-
-### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
-
-**Analytics Objective:** For each of the four SGV industries, build a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, with each map and segment tiered by the confidence level assigned in AO3.
+**Analytics Objective:** Measure how accurately AI extracts the numbers a meta-analysis needs from primary articles, comparing single-pass extraction with evidence-linked extraction.
 
 #### Existence of Well-established Models
 
-AO2 rests on two of the oldest ideas in marketing strategy. @smith1956 argued that firms do better when they treat a market as a set of groups with different needs rather than as a single demand curve, which is the logic of segmentation. @ries1981 popularized positioning, the idea that a brand's position exists in the customer's mind and only makes sense relative to competitors. A perceptual map makes that relative position visible, and segmentation tells us whose minds we are looking at. AO2 needs both, because a single map averaged across all customers can hide the fact that different groups see the same brands quite differently.
-
-Perceptual mapping methods fall into two families. Decompositional methods start from overall judgments of how similar brands are and use multidimensional scaling (MDS) to find the smallest number of dimensions that reproduces those judgments. @kruskal1964 formalized nonmetric MDS and the "stress" measure of fit that is still used to decide how many dimensions a map should have. Compositional methods start instead from ratings of each brand on named attributes and reduce them with factor analysis or discriminant analysis. @hauser1979 compared these approaches directly and found that attribute-based factor analysis produced maps that were more interpretable and more predictive than similarity-based MDS. MDS keeps one important advantage: it does not require the researcher to choose attributes in advance, which matters when the dimensions customers actually use are unknown. That is a real concern for some of the SGV categories, such as ADU and prefab housing or cross-border e-commerce, where there is little prior research on how customers frame the choice. @bijmolt1999 later compared several MDS procedures for perceptual mapping, a reminder that the specific procedure is a modeling choice that should be reported and checked rather than treated as neutral. The practical lesson for AO2 is not to rely on a single technique. Collecting both attribute ratings and overall similarity judgments from the panel allows an MDS map with attribute directions fitted onto it, and a factor-analytic map can serve as a robustness check.
-
-Segmentation has an equally established methods literature. @wedel2000 provide the standard framework, classifying segmentation bases (for example, demographics versus benefits sought) and methods (a priori versus post hoc, descriptive versus predictive). @punj1983 reviewed how cluster analysis was being used in marketing research and stressed that cluster solutions need to be validated rather than accepted as given. More recent work has moved toward model-based clustering. Latent class cluster analysis treats segments as unobserved groups estimated from a probability model, which means the number of segments can be chosen with fit statistics rather than judgment, variables of different scale types can be combined, and each respondent receives a probability of membership in each segment [@vermunt2002]. In simulation studies, latent class clustering recovered true segment membership better than k-means when segments differed in their spread or correlation structure [@magidson2002]. @vidden2016 reached a similar conclusion in a market segmentation setting: latent class analysis performed best in most conditions, both in assigning respondents correctly and in identifying the correct number of segments, while k-means held up reasonably well only with continuous variables. Because the TBFI panel will mix attitudinal ratings with categorical demographic profiles, this evidence supports latent class over k-means.
-
-The two tasks can also be combined. @desarbo1994 reviewed latent class MDS models, which estimate a perceptual space and a set of segments at the same time, so that each segment can weight the map's dimensions differently or hold its own view of the brands. This is the direct precedent for estimating AO2's maps and segments jointly. These models are more demanding to estimate, so a two-step approach, segmenting first and then building a map for each segment, is a reasonable fallback if the joint model does not converge on the panel data.
-
-The newer question is whether these methods still work when the respondents are simulated. @li2024 found that perceptual data generated by an LLM aligned closely with data from human surveys, which supports AO2's basic premise. @brand2023 found that GPT's answers to purchase questions behaved in line with economic theory and produced plausible willingness-to-pay estimates, and @wang2026 propose using LLM-generated responses to augment, rather than replace, human data in market research. The main warning comes from @bisbee2024. Their synthetic respondents reproduced average opinions well, but the responses showed much less variation than real survey data, and nearly half of the regression coefficients estimated from synthetic data differed significantly from those estimated on human data, with about a third of those pointing in the opposite direction. Reduced variation is a particular problem for segmentation, because clustering depends on real differences between respondents. If the AI panel makes everyone look alike, the model may find too few segments or produce segments that reflect prompt artifacts rather than customers. @argyle2023 offer a partial counterpoint, showing that when an LLM is conditioned on detailed demographic backstories it can reproduce many subgroup patterns. Taken together, the evidence suggests that subgroup recovery is possible but not guaranteed, and that it needs to be tested rather than assumed.
+Meta-analysis has well-established rules for turning reported statistics into a common effect size. Means, *t* values, and regression coefficients are converted into correlations or standardized mean differences using standard formulas [@borenstein2021], and @eisend2026 follow these guidelines when converting results into correlations. Standard practice also calls for double extraction by two people, because single extraction misses or misreads values [@mathes2017]. Even in published meta-analyses, a review of standardized-mean-difference extractions found errors serious enough to change conclusions in some cases [@gotzsche2007].
 
 #### Adequateness of Gathered Information
 
-The literature answers the "how" question well. MDS, attribute-based mapping, and latent class clustering are established and defensible methods, joint models of positioning and segmentation exist, and there is published evidence that LLM-generated data can support perceptual mapping in aggregate [@li2024]. It does not answer the "does it hold here" question. No study covers these four SGV industries or the small, local businesses TBFI serves, and none tests whether LLM panels recover customer segments as opposed to aggregate perceptions. That is exactly where @bisbee2024 found the largest risk, through compressed variance and unstable subgroup relationships. The gathered information is therefore sufficient to choose methods but not sufficient to trust the outputs.
+Early tests show that LLMs can extract study data, but accuracy varies with the field. In a proof-of-concept study, an LLM extracted most data elements correctly but struggled with more complex values [@gartlehner2024], and GPT-4 performed well on some extraction tasks and poorly on others [@khraisha2024]. These studies come mostly from medicine, score extraction against a single human reference, and rarely separate reading errors from decisions about which result counts as an effect. None test the kind of consumer-research articles TBFI would rely on.
 
 #### Need for Additional Analysis
 
-TBFI needs its own analysis for two reasons. First, there is no published positioning or segmentation work for these hyper-local categories, so the maps and segments have to be built from new panel data. Second, the general LLM-survey literature cannot stand in for testing this team's specific panels on these specific industries. Each map and segment solution therefore needs two checks before it reaches the dashboard: an internal check of model fit (MDS stress, latent class fit statistics, and how cleanly respondents are assigned to segments) and an external check against the human benchmark through AO3. Comparing results across the three AI panels adds a further test, since a segment that appears in only one model's data is more likely to be an artifact than a real customer group.
+AO1 fills that gap by scoring AI extraction field by field against the posted values of a marketing meta-analysis, by separating plain numbers from judgment calls, and by testing whether requiring a page-level quote and a second-model check reduces unsupported values.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-The literature supports retaining AO2 with one refinement to method. Because @hauser1979 found attribute-based maps more interpretable and predictive while MDS avoids having to fix attributes in advance, AO2 will collect both attribute ratings and overall similarity judgments, build an MDS map with fitted attribute directions, and compare it with a factor-analytic map as a robustness check. Segments will be estimated with latent class clustering, with the number of segments chosen by fit statistics and interpretability, and maps and segments will be estimated jointly where the panel data support it [@desarbo1994], with a segment-then-map approach as the fallback.
+AO1 is affirmed as written. It compares single-pass and evidence-linked extraction on the development articles, reports field-level accuracy, numeric match within a set tolerance (for example, an absolute difference in *r* of .01 or less), missed-effect and extra-effect rates, and the unsupported-value rate, and ends with a verification rule TBFI can adopt.
 
-The final measurable AO2 is: for each of the four SGV industries, produce a perceptual map of competing brands and a latent class customer segmentation from the AI-simulated panel, report MDS stress and latent class fit for each solution, and tier every map and segment as use as is, use for rankings only, or do not use according to AO3's validation before it reaches the SGV Insights Dashboard (PO2). This version keeps the objective tied to data the team can actually collect, makes the quality checks explicit, and directly addresses the subgroup weakness identified in the literature.
+### AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
 
-### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
-
-**Analytics Objective:** Assess the validity of large language model panels by comparing their responses against the human benchmark.
+**Analytics Objective:** Test whether CALIPER rule revision lets AI coders assign each study's outcome to the meta-analysis's outcome categories as accurately as human coders.
 
 #### Existence of Well-established Models
 
-[Gabriela: will update after meeting with client.]
+Content analysis treats a codebook as a measurement instrument. Coders apply written rules, and reliability is checked with agreement statistics such as Cohen's kappa and Krippendorff's alpha [@cohen1960; @krippendorff2018]. @eisend2026 follow this model: two coders independently assigned every outcome to the categories defined in their Table 3 (Cohen's kappa = .857), and a third coder resolved disagreements. CALIPER extends the same logic to LLM coders. It keeps the construct definition fixed, uses disagreements between models from different families to write better operational rules, and keeps a revision only if it improves accuracy against reference labels on a development sample [@caliper2026].
 
 #### Adequateness of Gathered Information
 
-[Gabriela: will update after meeting with client.]
+LLMs can label text at or above crowd-worker quality [@gilardi2023], and CALIPER improved out-of-sample accuracy for the constructs it refined [@caliper2026]. However, CALIPER has been tested on constructs expressed in text such as reviews and service conversations, not on mapping a study's outcome measure to a meta-analytic category. That task is harder, because the same label can cover different measures and the deciding detail is often in the scale items or the method section. The human coders also disagreed on about 16% of the rows both coded, with the most disagreement on positive affect, avoidance, and attitude toward company [@lin2026plan].
 
 #### Need for Additional Analysis
 
-[Gabriela: will update after meeting with client.]
+AO2 tests whether CALIPER's rule-revision loop transfers to outcome classification, and it separates how much accuracy comes from reading the measure versus reading only its name. It also reports how often AI coders agree and are still wrong, because agreement alone does not show accuracy.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-[Gabriela: Based on the literature, assess and refine AO3. State the final measurable AO3 and explain how the analysis will determine which synthetic-panel results can be trusted.]
+AO2 is affirmed as written. It compares four conditions, from label only to two AI coders with CALIPER revision, and reports macro-F1 and Cohen's kappa against the final codes, Krippendorff's alpha among AI coders, the agree-and-wrong rate, abstentions, disagreement types, and the change from the development set to the test set. Applying the same procedure to the personalization-type moderators is an optional extension.
 
-### AO4. Consultant Training Performance Evaluation (Yushan Huang)
+### AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
 
-**Analytics Objective:** Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.
+**Analytics Objective:** Estimate how much the pooled effects, heterogeneity, and moderator results change when AI-extracted numbers and AI outcome classifications replace the human values.
 
 #### Existence of Well-established Models
 
-Simulation-based learning and experiential learning provide an established foundation for evaluating the TBFI Do Tank Simulator as a consultant-training tool. These approaches emphasize learning through active participation in realistic tasks rather than relying only on passive instruction. This framework is relevant to TBFI because the simulator is intended to reproduce major stages of a consulting engagement and provide future consultants with opportunities to practice decisions and analytical tasks in a controlled training environment.
-
-Research provides evidence that simulation-based learning can support the development of complex professional skills. Chernikova et al. [-@chernikova2020], in a meta-analysis of simulation-based learning in higher education, found that simulations can support complex skills such as problem solving, decision making, communication, and collaboration. However, the effectiveness of simulation depends partly on the design of the learning environment. The study emphasizes the importance of scaffolding and indicates that instructional support should reflect learners' prior knowledge. This finding is relevant to TBFI because incoming consultants may begin with different levels of experience in market research, analytics, and consulting. Therefore, the simulator should not simply present a sequence of tasks. Structured explanations, examples, feedback, and opportunities for reflection can help make simulator participation a more meaningful learning experience.
-
-Similar evidence is found in research on computer-based simulation games. Sitzmann [-@sitzmann2011] conducted a meta-analysis of 65 studies involving 6,476 trainees and found that computer-based simulation games can produce meaningful learning outcomes. The effectiveness of simulation was related to the design of the learning experience and the degree to which trainees were actively engaged. These findings suggest that simulator participation alone should not be treated as evidence of successful training. For TBFI, the simulator should function as an active learning environment in which consultants make decisions, observe consequences, receive feedback, and have opportunities to revise their work.
-
-Evidence from business education provides additional support for this approach. Faisal et al. [-@faisal2022] systematically reviewed 57 empirical studies of business simulation games and found that simulations were associated with multiple types of learning outcomes, including knowledge acquisition, cognitive skills, interactive skills, and behavioral outcomes. This research is especially relevant to the TBFI project because the Do Tank Simulator is designed around a business and market-research consulting engagement. Its purpose extends beyond teaching factual information. Trainees are expected to apply research and analytics concepts while completing consulting-related activities. The review also identified substantial variation in how simulation outcomes have been assessed, indicating that evaluation measures should be aligned with the specific skills the training is intended to develop.
-
-Although the literature generally supports simulation and experiential learning, previous research also cautions against assuming that simulation automatically produces skill development. Gosen and Washbush [-@gosen2004] reviewed research on experiential learning effectiveness and concluded that the literature generally supports its educational value while also identifying weaknesses in the research designs and measurements used in many studies. For the TBFI project, this distinction is important. Existing evidence provides a rationale for using simulation as a training approach, but it cannot establish that the TBFI Do Tank Simulator itself improves consultant performance. The effectiveness of this specific training tool therefore needs to be evaluated using measurable outcomes.
-
-Research on instructional games further suggests that learning outcomes depend on how the simulation is constructed. Wilson et al. [-@wilson2009] reviewed relationships between game attributes and learning outcomes and argued that the relationship between simulation features and learning is not automatic. Features such as feedback, interaction, challenge, and fidelity may influence different types of learning outcomes. This supports designing the TBFI simulator around explicit learning objectives rather than assuming that completion of the simulator is itself an adequate indicator of learning. It also supports measuring performance through multiple relevant tasks or outcomes when feasible.
-
-A standardized pre-training and post-training skill checkpoint provides one practical way to evaluate performance change, but research identifies important limitations of this design. Marsden and Torgerson [-@marsden2012] examined methodological concerns with single-group pre-test/post-test designs and showed that observed score changes can be affected by factors such as regression to the mean, maturation, history, and testing effects. Consequently, a higher post-training score cannot by itself establish that the simulator caused the improvement. Experimental or quasi-experimental designs provide stronger evidence for causal claims, but a pre/post approach can still provide useful evidence of performance change in an initial pilot when its limitations are clearly recognized.
-
-Pretesting itself can also influence subsequent performance. Pan and Carpenter [-@pan2023] reviewed research on prequestioning and pretesting and found that completing a pretest may influence later learning by directing attention and affecting subsequent learning processes. This creates an additional concern for AO4 because trainees could perform better on the post-training checkpoint partly because they have already encountered similar material. To reduce this problem, the TBFI evaluation should consider aligned but non-identical pre- and post-training tasks rather than simply repeating exactly the same questions or activities.
-
-Training evaluation also requires a distinction between immediate training outcomes and transfer to authentic professional work. Bates [-@bates2004], in a critical analysis of the Kirkpatrick training-evaluation model, questioned assumptions about relationships among different levels of training outcomes. For AO4, an increase in a skill-checkpoint score may provide evidence of learning during training, but it should not automatically be interpreted as proof that a consultant will perform better in an actual client engagement.
-
-More recent research on workplace training transfer reinforces the need to distinguish immediate training outcomes from later application. Ardondi et al. [-@ardondi2026] reviewed training-transfer assessment tools across workplace-learning studies and identified substantial variation in how transfer is conceptualized and measured. This suggests that a single overall checkpoint score may be too narrow if TBFI eventually wants to make broader claims about readiness for real consulting work. Performance scores could therefore be supplemented, when feasible, with additional evidence related to the application of skills beyond the immediate training activity.
-
-Hjellvik and Mallam [-@hjellvik2024] provide additional evidence concerning simulator-based assessment and training transfer. Their research distinguishes performance measured under simulator conditions from performance demonstrated under a transfer condition and provides evidence that simulator-based competency assessment can be related to later performance. For TBFI, this distinction is useful because it suggests that simulator-based assessment can provide meaningful evidence while also showing why transfer should be considered separately. A consultant who performs well on tasks inside the Do Tank Simulator demonstrates competency within the training environment, while broader claims about client readiness would be strengthened by evidence from an additional or more authentic task when feasible.
-
-Taken together, the literature supports the use of simulation as an active and experiential training environment while also showing why the outcomes of the TBFI simulator should be measured carefully. The strongest common themes are the importance of realistic tasks, scaffolding, active participation, feedback, reflection, and performance-based measurement. The literature also indicates that pre/post comparisons can document performance change but have limitations when used to make strong causal or transfer claims. These findings support the use of standardized skill checkpoints before and after simulator training, while suggesting that the specific scoring dimensions should be aligned with the consulting activities taught by the simulator and refined as the training design develops.
+Random-effects meta-analysis is the standard model when true effects are expected to vary across studies. It estimates a pooled effect, the between-study variance (tau²), and the share of variation due to real differences rather than chance (I²) [@borenstein2021; @higgins2002]. Multilevel models handle several effect sizes from the same study, and meta-regression tests moderators. The metafor package in R implements all of these [@viechtbauer2010], and @eisend2026 used it for their analyses. Sensitivity analysis, which re-estimates a model under different reasonable choices, is also standard; @eisend2026 report one in which variables with missing values are dropped.
 
 #### Adequateness of Gathered Information
 
-The existing literature provides an adequate theoretical and methodological foundation for developing an initial evaluation of the TBFI Do Tank Simulator. Prior research supports simulation-based and experiential learning as approaches for developing complex skills and identifies active engagement, scaffolding, feedback, and realistic tasks as important design features [@chernikova2020; @sitzmann2011; @faisal2022]. The literature also provides guidance on the strengths and limitations of pre/post assessment and on the distinction between performance in a training environment and transfer to professional practice [@marsden2012; @pan2023; @hjellvik2024]. However, the gathered information is not sufficient to determine whether the TBFI Do Tank Simulator itself produces measurable changes in consultant performance. The studies were conducted in different educational and professional contexts, and none evaluates the specific combination of market-research and analytics consulting activities included in the TBFI simulator. In addition, the final skill dimensions, scoring rubric, and benchmark for satisfactory consultant performance have not yet been established. Therefore, the literature provides a foundation for the evaluation design but cannot replace project-specific performance data.
+Prior work shows that extraction errors happen [@gotzsche2007; @mathes2017], and AI extraction studies report accuracy at the level of individual values [@gartlehner2024; @khraisha2024]. What is missing is the link from value-level errors to conclusions. A 5% error rate may not matter if errors are random and small, or it may flip a moderator if errors cluster in one outcome category. Classification choices are rarely tested at all, even though they decide which effects enter each model.
 
 #### Need for Additional Analysis
 
-Additional analysis is required to determine whether consultant performance changes after completing the TBFI Do Tank Simulator. The project will need to operationalize consultant performance through standardized skill-checkpoint measures that correspond to the tasks and learning objectives included in the simulator. Incoming consultants can complete a checkpoint before training and an aligned post-training checkpoint after completing the simulator. The resulting paired scores can then be used to examine the direction and magnitude of performance changes. Depending on the eventual sample size, measurement scale, and distribution of the scores, an appropriate paired-samples analysis can be selected. Effect sizes and confidence intervals should also be considered rather than relying only on statistical significance. If feasible, rubric-based performance measures, rater-agreement checks, or an additional client-style task could provide complementary evidence. Because single-group pre/post designs have important validity limitations [@marsden2012], the initial results should be interpreted as evidence of measured performance change rather than definitive proof that simulator participation alone caused the change.
+AO3 provides that link. Because the Dataverse file includes each human coder's classification, it can compare the effect of human disagreement with the effect of AI disagreement on the same models.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-The literature review supports retaining the general purpose of AO4 but also indicates that the original objective should be narrowed and made more measurable. The earlier question, "Does the simulator improve consultant skills?" is too broad because it does not specify how consultant performance will be operationalized or how improvement will be measured. It can also imply a causal conclusion that a single-group pre/post design may not be able to establish [@marsden2012].
+AO3 is affirmed as written. It reproduces the published results first, then reports number robustness and classification robustness in separate rows, measuring change in standard-error units, sign and significance flips, change in prediction-interval width, and effects that move between models. As an optional extension, it can use the new studies found in AO4 as a prospective test of whether the meta-analytic prediction interval covers their effects.
 
-Based on the literature, the revised AO4 is: **Evaluate changes in consultant performance before and after completing the TBFI Do Tank Simulator using standardized skill-checkpoint scores.** This version separates the project objective of building the simulator from the analytics objective of measuring its training outcomes. It identifies consultant performance as the outcome, specifies a before-and-after comparison, and identifies standardized skill-checkpoint scores as the primary measurement approach.
+### AO4. Evidence Update and Decision Dashboard (Simran Kaur)
 
-The exact dimensions included in the skill checkpoints should be finalized as the simulator's learning objectives and scoring rubric are developed. The TBFI simulator is intended to expose consultants to multiple stages of a consulting engagement, so the performance measures should ultimately correspond to the competencies the simulator is actually designed to teach. Existing simulation research also supports evaluating applied performance rather than relying only on simulator completion or participant reactions [@faisal2022; @wilson2009].
-
-AO4 therefore remains aligned with the broader TBFI project while becoming more analytically actionable. The revised objective can be addressed with observable performance data and analyzed quantitatively, while interpretation of the results can remain appropriately cautious about causality and real-world transfer. This formulation can guide the later development of the skill-checkpoint instrument, scoring rubric, and statistical analysis plan.
-
-### AO5. Marketing Funnel Analytics (Veronica Vega)
-
-**Analytics Objective:** Identify which digital marketing channels generate the highest rates of qualified sponsor inquiries and sponsor acquisitions throughout the marketing funnel.
+**Analytics Objective:** Test whether AI-assisted screening finds personalization studies published after the meta-analysis's search cutoff as completely as two human screeners, and whether TBFI consultants can use the resulting dashboard to answer questions correctly.
 
 #### Existence of Well-established Models
 
-AO5 aims to identify the most effective digital marketing channels for qualified sponsor inquiries and sponsor acquisitions. Therefore, established research frameworks and models for digital marketing funnels, customer acquisition, conversion rates, channel effectiveness and marketing attribution need to be reviewed. These models represent a theoretical basis for analyzing customer behavior and evaluating the marketing efforts of organizations. Website activity, inquiry volume, demo completions, customer interactions, conversion rates and acquisition figures are indicators of the performance of marketing channels and thus of relevance for the marketing funnel analysis of AO5 [@brand2023; @wang2026].
+Systematic reviews follow established steps for finding and screening studies. PRISMA 2020 sets the reporting standard, including a flow diagram that records how many records were found, screened, excluded, and included [@page2021]. Screening by two independent reviewers is the norm, with agreement checked by Cohen's kappa [@cohen1960]. Because evidence goes out of date, researchers have proposed living systematic reviews that are updated as new studies appear [@elliott2014]. @eisend2026 followed this tradition: they searched EBSCO, ScienceDirect, and ProQuest Dissertations with combinations of personalization and advertising keywords, added Google Scholar and backward and forward citation searching, and covered work published until 2024.
 
-For digital marketing in particular, there are established frameworks such as the Marketing Funnel Model which plots the buyer's journey through a series of stages. The classic model contains five stages of customer behavior (Awareness, Interest, Consideration, Conversion and Retention). As consumers progress through the various stages of the marketing funnel, website visits and sales can be used to gauge awareness and interest, and conversions such as inquiries, demos, consultations and sales can be used to assess later stages of the funnel. The performance of the marketing funnel can be quantified in terms of the volume of traffic to the website, the number of inquiries and resulting conversions as well as customer acquisition costs and return on investment (ROI) measures [@brand2023].
-
-The AIDA Model (Attention, Interest, Desire, and Action) is another marketing framework that can be useful to researchers by breaking down the processes of customer decision making in the digital marketing space. As the Marketing Funnel Model above measures conversions at different levels of the customer journey, metrics will vary for each stage of AIDA, such as counts of Attention, Interest, and Desire generated and the conversion rates and engagement metrics for Action stages (e.g., email marketing click-through rates for people who have reached the Desire stage). For example, ROI and conversion of leads to customers can be compared across search engine optimization (SEO), social media marketing, email marketing and paid online advertising [@li2024].
-
-Today's customers are not taking a straight-line journey to purchase. The Customer Journey Framework describes in detail how customers interact with a company's various marketing touchpoints, both online and offline. An example customer journey would be: a customer sees a post from a business in their social feed, clicks through to the business's website by searching for it on a search engine, comes back to the site via an email campaign a few days later, and books a meeting by way of a referral from a friend [@li2024; @brand2023].
-
-A marketing attribution model is also used to assess marketing channel effectiveness. It assesses which marketing activity has caused a customer conversion. Common types of attribution models include first-touch attribution, last-touch attribution, linear attribution and multi-touch attribution models. All of these models are relevant to AO5 and can help TBFI determine which digital marketing channels are generating the most qualified sponsor inquiries and sponsor acquisitions [@brand2023; @wang2026].
-
-Measuring the deeper end of the funnel provides better insight into whether marketing efforts are translating into business value. In addition to tracking website traffic and other metrics that measure awareness and interest, previous research supports the use of metrics such as lead generation, lead quality, conversion rates, customer acquisition cost, and customer lifetime value to evaluate marketing channel effectiveness.
-
-Together, the Marketing Funnel Model, AIDA Model, Customer Journey Framework, and Marketing Attribution Models define the current state of understanding of digital marketing funnels and offer means of measuring the performance of individual and collective online marketing channels [@wang2026; @lin2026]. Metrics such as website traffic, quantity of inquiries, demo completion rates, quality and quantity of customer interactions, and conversion rates enable the application of funnel analytics to TBFI's online marketing efforts in order to measure and maximize their effectiveness.
+On the decision side, marketing dashboards are well established as a way to put a small set of key metrics in front of managers so they can act on them [@pauwels2009]. A dashboard is judged by whether it helps the user make the right decision, not by how much it displays.
 
 #### Adequateness of Gathered Information
 
-There is significant prior work that describes and measures the performance of various parts of the digital marketing funnel, including customer acquisition and conversion, as well as individual marketing channels such as SEO, social media, email, referral and paid media. We draw upon a number of established frameworks and metrics that organizations use to measure and manage their marketing efforts. Importantly, there is substantial prior work on the conversion optimization and attribution aspects of digital marketing that can inform our research. Recent studies have also demonstrated the growing value of AI-assisted market research and advanced analytics methods for understanding customer behavior and evaluating marketing performance [@brand2023; @wang2026]. Although the prior work provides solid theoretical foundations for the study of digital marketing, there is no prior work that specifically focuses on the processes and activities used in TBFI's sponsor acquisition efforts within the context of the organization's unique customer journey and overall business objectives.
+Machine-learning tools have been used for years to prioritize records during screening and reduce the number a person must read [@omaraeves2015; @vandeschoot2021]. More recently, GPT-4 was tested as a screener and performed unevenly across tasks and languages [@khraisha2024]. Three gaps remain. Most tests come from medicine and public health rather than marketing. Few test LLM screening on a real update, where the question is whether the tool finds the new studies a human team would include. And no study we found connects an updated marketing evidence base to a tool that consultants test on realistic questions.
+
+The meta-analysis itself is also aging. Its search ends in 2024, while personalization keeps changing with generative AI content, new privacy rules, and new ad formats. TBFI cannot advise SGV clients from a fixed snapshot.
 
 #### Need for Additional Analysis
 
-While there is valuable information regarding the performance of digital marketing channels available from previous studies, in-depth analysis of a specific organization's digital marketing channels is required to identify the optimal mix of channels to create the highest quality sponsor inquiries and conversions. This is because customer behavior, conversion rates, and channel performance vary greatly between industries and companies. Furthermore, researchers have cautioned that synthetic or AI-generated data may not consistently represent real-world customer behavior. Bisbee et al. [-@bisbee2024] argued that large language models may introduce validity concerns when used as substitutes for human-generated data. Similarly, Aher et al. [-@aher2023] found that simulated responses may vary depending on prompt design and modeling assumptions. In the case of TBFI, in addition to general digital marketing metrics, project-specific metrics such as website visits, demo completions, intake inquiries, meetings with potential sponsors and conversions need to be analyzed to understand how prospective sponsors progress through TBFI's marketing funnel and at which points they enter and drop off. Such analysis can support data-driven marketing decisions and enhance the return on future online marketing efforts.
+AO4 tests AI screening on a real evidence update in marketing, measured against two human screeners, and then tests whether the dashboard built from the validated evidence leads TBFI consultants to correct answers. To give the AI screener a development step before it sees the new records, it can first be calibrated on records from the original search, scored against the authors' own include and exclude decisions listed in their web appendices. This keeps the development and test logic consistent with AO1 and AO2.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-A literature review on marketing funnel analytics, customer journey analysis and attribution models has identified that, for acquiring customers in today's digital marketing environment, it is most important to assess the influence of multiple marketing channels and to measure conversion instead of traffic. The literature also revealed challenges in attribution and data quality which have to be addressed in an organization-specific manner.
-
-Research supports the use of marketing funnel analytics, customer journey analysis, and conversion measurement for evaluating digital marketing effectiveness [@brand2023; @li2024; @wang2026; @lin2026]. At the same time, previous studies identify challenges associated with attribution accuracy and synthetic data validity, reinforcing the need for organization-specific analysis [@aher2023; @bisbee2024].
-
-The final measurable AO5 is: analyze the relative effectiveness of SEO, social media marketing, email marketing, referral networks and paid online advertising by measuring website visits, demo completions, intakes, meetings with potential sponsors, sponsor acquisitions and conversion rates throughout the marketing funnel.
-
-The findings from AO5 will support TBFI's business-intake objectives by identifying which online marketing channels generate the greatest volume of qualified sponsor inquiries leading to sponsor acquisitions. The data will allow TBFI to make better marketing investments, improve the overall performance of its marketing funnel, and increase the efficiency of sponsor acquisition.
+AO4 is affirmed with two clarifications. First, screening is the main analytic question and the dashboard walkthrough is the applied test, so each has its own benchmark: the human screener consensus for screening and an answer key for the dashboard. Second, the update window is defined in Chapter 3 so that the end of the original search period is covered without double-counting studies already in the anchor data. The AO reports screener agreement (Cohen's kappa), AI recall and precision against the human consensus, the number of new eligible studies, and the share of dashboard tasks answered correctly. Its outputs are a PRISMA flow diagram, an updated evidence map, the dashboard, and the consultant playbook draft.
 
 # CHAPTER 3: METHODS {#sec-ch3}
 
 ## Survey Data
 
-### Population
+This project does not collect survey data. All four AOs use secondary data, namely published articles and a public dataset, so the methods follow the secondary-data path in @sec-secondary. In place of a survey instrument, the team uses a shared extraction schema and codebook v0 (@sec-appendix-schema). The AO4 dashboard walkthrough with TBFI staff is product testing, not research on people.
 
-[To be completed.]
-
-### Sampling Frame
-
-[To be completed.]
-
-### Sampling Method
-
-[To be completed.]
-
-### Data Collection
-
-[To be completed.]
-
-### Sample Characteristics
-
-[To be completed.]
-
-### Measures
-
-[To be completed.]
-
-### Analytics Methods to Employ
-
-#### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
-
-[To be completed.]
-
-#### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
-
-[To be completed.]
-
-#### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
-
-[To be completed.]
-
-#### AO4. Consultant Training Performance Evaluation (Yushan Huang)
-
-[To be completed.]
-
-#### AO5. Marketing Funnel Analytics (Veronica Vega)
-
-[To be completed.]
-
-## Secondary Data
+## Secondary Data {#sec-secondary}
 
 ### Data Source
 
-[To be completed.]
+@tbl-data lists the data used in the project.
+
+| Role | Source |
+|:-----------------|:---------------------------------------------|
+| Anchor meta-analysis (primary data for all AOs) | @eisend2026, *Journal of Marketing*, open access |
+| Human benchmark dataset | Harvard Dataverse replication files [@eisend2026data], CC0 license. Effect-size rows with outcome and moderator codes from coders 1, 2, and 3, inconsistency flags, each primary study's own outcome wording (variable V2DESCRI), the authors' R scripts, and the correlation matrix |
+| Codebook in the article | Table 3 of @eisend2026 defines the outcome categories with examples of related concepts. Table 5 lists the moderator codes, their kappas, and decision rules. No separate coding manual is published |
+| Outcome-code crosswalk | The dataset stores outcome categories as 44 numeric codes. A draft crosswalk in the project data folder maps each code to its name using Table 3 and the authors' R script; Dr. Lin checks it before use |
+| Primary articles | Full texts obtained through the Cal Poly Pomona library and shared in a private folder under a signed Research Paper Access and Use Acknowledgment. Never stored or posted publicly |
+| New studies (AO4) | Records from EBSCO, ScienceDirect, and ProQuest Dissertations and Theses, with Google Scholar for citation searching, published after the anchor search period |
+| Transfer test (spring, if on schedule) | @eisend2025, with Dataverse replication data (CC BY 4.0) |
+
+: Data Sources {#tbl-data}
 
 ### Population
 
-[To be completed.]
+The population for AO1 to AO3 is the set of primary studies included in @eisend2026, that is, experiments and surveys that compared personalized with nonpersonalized marketing communication, or measured perceived personalization, and reported an effect on a consumer response. The population for AO4 is studies meeting the same inclusion criteria that appeared after the anchor search period.
 
 ### Sampling Frame
 
-[To be completed.]
+For AO1 to AO3, the sampling frame is the list of primary articles in the Dataverse file for which the team has full text. Of the 209 primary articles targeted, the library obtained 186 and 166 are shared with the team; the 23 gaps are listed in the paper folder README and are reported rather than replaced. For AO4, the sampling frame is every record returned by the logged searches after duplicates and records already in the anchor dataset are removed.
 
 ### Sampling Method
 
-[To be completed.]
+In week 10 the team draws a development set of about 20 primary articles and reserves a separate test set of about 20, both sampled at the article level so that all effects from one article stay in the same set. All four AOs share this split. Prompts and coding rules are tuned on the development set only, and the test set is run once, in March, after the methods are frozen. For AO4, all records returned by the search are screened; if the number is very large, a random sample is drawn for double human screening and the sample size is reported.
 
 ### Data Wrangling
 
-[To be completed.]
+The Dataverse files are downloaded, checked against the published counts, and stored in the shared OneDrive folder. Outcome codes are mapped to category names with the crosswalk. Every value coded by any team member, by hand or with AI, is stored as one record in the shared extraction schema, with one record per value (@sec-appendix-schema). Coders never overwrite another coder's file; disagreements are resolved in a separate adjudication file that keeps every original value. For AO3, records are reshaped into one row per effect before modeling. For AO4, search exports are combined, deduplicated by DOI and title, and matched against the anchor dataset.
 
 ### Understanding the Data
 
-[To be completed.]
+The published analysis integrates 1,536 effect sizes from 290 studies in 229 papers, of which 1,125 effect sizes are assigned to the consumer response categories used in the meta-regressions [@eisend2026]. The Dataverse file holds about 2,450 effect-size rows from about 310 studies [@lin2026plan], which suggests it also contains rows dropped before analysis, such as responses that appeared in only one or two studies. The week 10 data-integrity check reconciles these counts before any AO uses the data. Coders 1 and 2 disagreed on about 16% of the outcome rows both coded, with the highest disagreement for positive affect (58%), avoidance (42%), and attitude toward company (38%) [@lin2026plan].
 
 ### Programming
 
-[To be completed.]
+Analysis uses R, with metafor for meta-analytic models [@viechtbauer2010] and irr for agreement statistics. AI coding uses Python or the CALIPER web application. The dashboard is built in Looker Studio or Streamlit. Every model name, version, prompt, and run date is logged. References are managed in the team's Zotero group library, and the report is written in Quarto.
 
 ### Sample Characteristics
 
-[To be completed.]
+[To be completed after the development and test sets are drawn in week 10: number of articles, studies, and effects per set; publication years; share of experiments versus surveys; channels; and outcome categories represented. For AO4: records found, screened, and included by source.]
 
 ### Measures
 
-[To be completed.]
+The shared extraction schema defines the measures (@sec-appendix-schema). Each record holds the unit identifiers, the codebook field, the coded value or a null with its reason, the page and verbatim snippet that support it, a one-sentence justification naming the codebook rule applied, AI confidence, reading difficulty, and the type of judgment involved. A separate outcome construct record keeps the author's label, definition, operationalization, measure type, assigned category, and disagreement type in separate fields. Effect sizes are correlations (*r*) as in @eisend2026.
 
 ### Analytics Methods to Employ
 
-#### AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+#### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
 
-[To be completed.]
+Single-pass and evidence-linked AI extraction are run on the development articles and compared with the authors' final coded values. Metrics are field-level accuracy, numeric match within a set tolerance (for example, an absolute difference in *r* of .01 or less), missed-effect and extra-effect rates, the unsupported-value rate, and cost and time per article. Results are reported by field type and by reading difficulty, and errors are classified as reading errors or scope errors.
 
-#### AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+#### AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
 
-[To be completed.]
+Four conditions are compared on the development articles and then once on the test set: (0) label only, (a) category names only with the article, (b) one AI coder with the article and the codebook, and (c) two AI coders from different model families plus CALIPER rule revision [@caliper2026]. Accuracy against final codes is measured with macro-F1 and Cohen's kappa. Agreement among AI coders is measured separately with Krippendorff's alpha [@krippendorff2018], together with the rate of AI coders agreeing and being wrong, the abstention rate and whether each abstention is justified, and the share of disagreements by type. Coders and the reviser never see effect sizes, significance, or hypothesis results.
 
-#### AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+#### AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
 
-[To be completed.]
+Random-effects and multilevel meta-analyses are estimated in R with metafor, following the authors' scripts [@viechtbauer2010]. Step 1 reproduces the published estimates. Step 2 re-estimates them with AO1's extracted effect sizes and sample sizes. Step 3 holds effect sizes fixed and varies only the outcome classification across coder 1, coder 2, AI before alignment, and AI after alignment. For each version, the analysis reports the pooled effect, tau², I², moderator coefficients, 95% confidence and prediction intervals, and the number of effects entering each model, and measures change in standard-error units, sign and significance flips, and effects that move between models.
 
-#### AO4. Consultant Training Performance Evaluation (Yushan Huang)
+#### AO4. Evidence Update and Decision Dashboard (Simran Kaur)
 
-[To be completed.]
+*Search.* The keyword strategy of @eisend2026 ("personalization," "personalized," "location-based," or "(online) behavioral" combined with "advertising," "market\* communication," "marketing," or "target\*") is rerun in EBSCO, ScienceDirect, and ProQuest Dissertations and Theses. Because the anchor search covered work "until 2024," the update window starts on 1 January 2024, and any record already in the anchor dataset is removed during deduplication. Google Scholar is used for forward and backward citation searching rather than as a primary database, because its results cannot be reproduced exactly. Each search is logged with database, query, date, and number of hits.
 
-#### AO5. Marketing Funnel Analytics (Veronica Vega)
+*Screening.* The inclusion and exclusion criteria from @eisend2026 are written as a screening codebook. Before seeing the new records, the AI screening prompt is calibrated on a sample of records from the original search, scored against the authors' own include and exclude decisions. Two human screeners then independently screen the titles and abstracts of the new records, and disagreements are resolved by discussion to form a consensus. The frozen AI screener runs on the same records. Human agreement is measured with Cohen's kappa [@cohen1960]. AI performance is measured by recall (the share of human-included studies the AI also includes), precision (the share of AI-included studies the humans also include), and the share of records a human would no longer need to read. Records included at title and abstract are checked at full text, effects from newly eligible studies are recorded in the shared schema, and the process is reported in a PRISMA 2020 flow diagram [@page2021].
 
-[To be completed.]
+*Dashboard and walkthrough.* The dashboard presents the validated pooled effects by outcome, the main moderators (such as data type and channel), the robustness flags from AO3, and the new studies from the update, in an updated evidence map. An answer key of realistic client questions is written from the AO3 results before the walkthrough. TBFI staff answer the questions using the dashboard, and the share of tasks answered correctly and the time per task are recorded. Questions answered incorrectly guide revisions before the dashboard is used in the PO3 campaign.
+
+## Ethics and Data Use
+
+None of the AOs collects data from people, so the capstone needs no IRB application. Dr. Lin may ask to use the team's coding records (calibration coding, time logs, and disagreements) in a separate research paper; he will obtain an IRB determination and ask for written consent before the 13 November calibration coding, and no grade depends on that consent. Articles are cited, never redistributed. Only values, page pointers, and short quotes go into the shared dataset.
 
 # CHAPTER 4: ANALYSIS/MODELING AND RESULTS {#sec-ch4}
 
-## AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+## AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
 
 ### Introduction
 
@@ -654,7 +510,7 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 [To be completed.]
 
-## AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+## AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
 
 ### Introduction
 
@@ -672,7 +528,7 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 [To be completed.]
 
-## AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+## AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
 
 ### Introduction
 
@@ -690,7 +546,7 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 [To be completed.]
 
-## AO4. Consultant Training Performance Evaluation (Yushan Huang)
+## AO4. Evidence Update and Decision Dashboard (Simran Kaur)
 
 ### Introduction
 
@@ -708,27 +564,13 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 [To be completed.]
 
-## AO5. Marketing Funnel Analytics (Veronica Vega)
+## Transfer Test (If on Schedule)
 
-### Introduction
-
-[To be completed.]
-
-### Descriptive Analytics and Results
-
-[To be completed.]
-
-### Predictive Analytics and Results
-
-[To be completed.]
-
-### Summary Findings
-
-[To be completed.]
+[To be completed in April. The frozen AO1 and AO2 methods are run once on about 10 articles from @eisend2025.]
 
 # CHAPTER 5: DATA-INFORMED MARKETING STRATEGY AND CONCLUSION {#sec-ch5}
 
-## AO1. Evidence Review and Data Setup (Alondra Rodriguez)
+## AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
 
 ### Summary of Findings from Data Analysis – AO1
 
@@ -738,7 +580,7 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 [To be completed.]
 
-## AO2. Perceptual Maps and Customer Segments (Simran Kaur)
+## AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
 
 ### Summary of Findings from Data Analysis – AO2
 
@@ -748,7 +590,7 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 [To be completed.]
 
-## AO3. Validating the AI Panels (Gabriela Raygoza Quintero)
+## AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
 
 ### Summary of Findings from Data Analysis – AO3
 
@@ -758,19 +600,9 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 [To be completed.]
 
-## AO4. Consultant Training Performance Evaluation (Yushan Huang)
+## AO4. Evidence Update and Decision Dashboard (Simran Kaur)
 
 ### Summary of Findings from Data Analysis – AO4
-
-[To be completed.]
-
-### Recommendations
-
-[To be completed.]
-
-## AO5. Marketing Funnel Analytics (Veronica Vega)
-
-### Summary of Findings from Data Analysis – AO5
 
 [To be completed.]
 
@@ -869,11 +701,11 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 ### Link to Data
 
-[To be completed.]
+[To be completed: link to the shared OneDrive data folder. Dataverse source: <https://doi.org/10.7910/DVN/KJRWWM>.]
 
 ### Data Dictionary
 
-[To be completed.]
+[To be completed after the week 10 data-integrity check.]
 
 ## Programming Code
 
@@ -881,17 +713,69 @@ The findings from AO5 will support TBFI's business-intake objectives by identify
 
 ## Literature Review Folder
 
-[To be completed.]
+[To be completed: link to the Zotero group library and the 16 October search log.]
 
-## Survey Instrument
+## Extraction Schema and Codebook v0 {#sec-appendix-schema}
 
-[To be completed.]
+This schema replaces a survey instrument. Every value any team member codes, by hand or with AI, is stored as one record in the format in @tbl-schema-a. One record holds one value, so a study with three effects and ten fields produces thirty records. @fig-schema shows how one value moves through the schema, using illustrative records rather than data from a real article.
+
+![How One Value Moves Through the Schema (illustrative records; adapted from Lin 2026)](fig2-schema.png){#fig-schema width="100%"}
+
+| Field | What to Record | Used Most In |
+|:-----------|:-----------------------------------|:-----------|
+| unit_id | Paper, study, and effect identifiers; Dataverse identifiers (IDP, IDD, IDES) for articles in the anchor meta-analysis | AO1, AO3 |
+| field | The codebook field name (for example, sample size, effect size, outcome category) | All |
+| value | The coded value, or null with the reason when the article does not report it | All |
+| evidence_location | Page, table, column, panel, or figure | AO1 |
+| evidence_snippet | The verbatim text that contains the value | AO1 |
+| justification | One sentence naming the codebook rule applied | AO2 |
+| confidence | 0 to 1 (AI coders only; optional) | AO2 |
+| reading_difficulty | Text, simple table, complex table, figure, appendix, scanned page, or computed from other statistics | AO1 |
+| judgment_type | None, main specification, construct mapping, effect direction, moderator, or scope (which results count as effects) | AO1, AO2 |
+
+: Record for Every Coded Value (All AOs) {#tbl-schema-a}
+
+| Field | What to Record |
+|:-----------------|:---------------------------------------------|
+| author_label | The outcome's name exactly as the paper writes it; for anchor articles, start from the dataset wording (V2DESCRI) and check it against the article |
+| author_definition | The paper's definition, verbatim, with its location, or "none given" |
+| operationalization | The items, scale source, or behavioral metric, verbatim |
+| measure_type | Multi-item scale, single item, behavioral measure, or observed outcome |
+| classification | The outcome category from the codebook |
+| disagreement_type | Filled after comparing coders: rule gap, missing evidence, or real difference |
+
+: Outcome Construct Record (One per Effect, Owned by AO2 and Filled by Everyone) {#tbl-schema-b}
+
+**Coding rules.** (1) Code only what the article reports; never infer a value that is not printed or cannot be computed by a codebook rule. (2) Keep the label, definition, operationalization, and classification in separate fields; never fill in a definition from the label. (3) Effect sizes, significance, and hypothesis results are hidden while outcomes are coded and while the codebook is revised. (4) Never overwrite another coder's file; disagreements are resolved in a separate adjudication file that keeps every coder's original value.
 
 ## IRB Approval
 
-[To be completed.]
+Not required for the capstone, because no AO collects data from people (see Chapter 3, Ethics and Data Use). Any IRB determination Dr. Lin obtains for the separate research track will be filed here.
 
 ## Other Technical Details
 
-[To be completed.]
+### Project Timeline
 
+| Date | Program Week | Deliverable |
+|:-----------|:-----------|:---------------------------------------|
+| Fri 16 Oct | FA W08 | Search log in the shared folder; each student drafts their own AO section |
+| Thu 22 Oct | FA W09 | Initial proposal presentation: Chapters 1–3 and slides |
+| Fri 30 Oct | FA W10 | Data integrity: Dataverse files downloaded, variables confirmed, full-text access checked, development and test sets drawn |
+| Fri 13 Nov | FA W12 | All four hand-code the same 5 development articles with codebook v0; AO baselines; AO4 screening starts |
+| Fri 20 Nov | FA W13 | One result table per AO on the development set; revised Chapters 1–3 |
+| Week of 30 Nov | FA W15 | Final proposal defense |
+| Fri 29 Jan | SP W01 | Analysis plan per AO; AO3 reproduction of published results |
+| Fri 12 Feb | SP W03 | Main comparisons on the development set; Chapter 4 draft sections |
+| Week of 22 Feb | SP W05 | Preliminary results presentation |
+| Fri 12 Mar | SP W07 | Codebook and workflows frozen; test set run once |
+| Fri 26 Mar | SP W09 | Final results per AO, AO3 robustness, AO4 updated evidence |
+| Week of 5 Apr | SP W10 | Final analysis and recommendations presentation |
+| Fri 16 Apr | SP W11 | Transfer test, if on schedule |
+| Fri 23 Apr | SP W12 | Digital marketing plan draft (PO3); dashboard alpha |
+| Fri 7 May | SP W14 | Plan rehearsal; dashboard beta |
+| Week of 10 May | SP W15 | Digital marketing plan presentation (IBM 6400) |
+| Fri 11 Jun | SU W02 | Campaign running with verified GA4 tracking; dashboard v1 public |
+| 24 Jul | SU W08 | Final presentation (Chapter 5 complete) |
+| Fri 30 Jul | SU W09 | Complete report, abstract, and individual contribution statements |
+
+: Project Timeline Aligned with the MSDM Program [@lin2026plan] {#tbl-timeline}
