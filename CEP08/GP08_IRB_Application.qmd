@@ -31,19 +31,31 @@ The Qualtrics survey linked below reflects an **earlier SGV/TBFI consumer-survey
 
 ## 3. IRB Package Checklist
 
-| Required component | Evidence / status |
-|:--|:--|
-| CITI certificates for PI and Co-PIs | [Yushan Huang — CITI certificate](assets/CITI_Yushan_Huang.pdf) available. |
-| IRB application draft (Word / Google Doc) | Not prepared for the revised secondary-data-only CEP project; course substitution subject to instructor confirmation. |
-| Cayuse online application draft URL | Not available: no Cayuse study draft has been created. |
-| Informed consent form | [Consent cover page — first screenshot](#consent-evidence) and [second screenshot](#consent-evidence) below. |
-| Qualtrics questionnaire link | [Published Qualtrics survey](https://cpp.az1.qualtrics.com/jfe/form/SV_2ujgUci31v9QF4W) — course design demonstration only. |
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Required component                        | Evidence / status                                                                                                                 |
++:==========================================+:==================================================================================================================================+
+| CITI certificates for PI and Co-PIs       | [Yushan Huang — CITI certificate](assets/CITI_Yushan_Huang.pdf) available.                                                        |
+|                                           |                                                                                                                                   |
+|                                           | [Gabriela Raygoza Quintero- CITI certificate](https://www.citiprogram.org/verify/?wc6928900-a785-4482-9a31-fc9489026dab-80299254) |
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| IRB application draft (Word / Google Doc) | Not prepared for the revised secondary-data-only CEP project; course substitution subject to instructor confirmation.             |
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Cayuse online application draft URL       | Not available: no Cayuse study draft has been created.                                                                            |
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Informed consent form                     | [Consent cover page — first screenshot](#consent-evidence) and [second screenshot](#consent-evidence) below.                      |
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Qualtrics questionnaire link              | [Published Qualtrics survey](https://cpp.az1.qualtrics.com/jfe/form/SV_2ujgUci31v9QF4W) — course design demonstration only.       |
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 ## 4. CITI Training Evidence
 
-**Yushan Huang** completed the **Human Research — College of Business Administration — Basic Course** under California State Polytechnic University, Pomona requirements on **October 9, 2026**. The certificate lists an expiration date of **October 9, 2031**.
+> **Yushan Huang** completed the **Human Research — College of Business Administration — Basic Course** under California State Polytechnic University, Pomona requirements on **October 9, 2026**. The certificate lists an expiration date of **October 9, 2031**.
+>
+> [Open the CITI completion certificate (PDF)](assets/CITI_Yushan_Huang.pdf)
 
-[Open the CITI completion certificate (PDF)](assets/CITI_Yushan_Huang.pdf)
+> **Gabriela Raygoza Quintero** completed the **Human Research — College of Business Administration — Basic Course** under California State Polytechnic University, Pomona requirements on **October 19, 2026**. The certificate lists an expiration date of **October 19, 2031**.
+>
+> [Open the CITI completion certificate (PDF)](https://www.citiprogram.org/verify/?wc6928900-a785-4482-9a31-fc9489026dab-80299254)
 
 **Note:** This is the certificate provided for this package. The report does not claim that certificates for all listed team members have been collected.
 
@@ -61,20 +73,20 @@ The survey cover page describes a San Gabriel Valley consumer-perception questio
 
 The screenshots below show the current cover page, including the study purpose, estimated time, voluntary participation, privacy and risk/benefit language, contact details, and Yes/No consent choices. The screenshots are evidence of the course exercise, not proof of IRB approval.
 
-![Qualtrics informed consent — upper section](assets/Informed_Consent_Top.png){width=85%}
+![Qualtrics informed consent — upper section](images/Screenshot 2026-10-19 193721.png)
 
-![Qualtrics informed consent — lower section and consent choices](assets/Informed_Consent_Bottom.png){width=85%}
+![Qualtrics informed consent — lower section and consent choices](images/Screenshot 2026-10-19 193740.png)
 
 **Pre-recruitment check:** If this survey were ever used for actual human-subjects research, the team would first need to verify its consent language, privacy practices, appropriate rights contact, eligibility and refusal-termination logic, and any required institutional review/approval. The current exercise does not authorize recruitment.
 
 ## 7. IRB Preparation Process and Next Steps
 
-1. Retain the completed CITI training documentation.
-2. Review the CPP IRB instructions and the professor's successful application examples.
-3. Keep the Qualtrics questionnaire and informed-consent cover page available for instructional review.
-4. Ask the course instructor whether the revised secondary-data-only CEP project may substitute an IRB applicability statement for the requested Cayuse draft and Word application draft.
-5. Incorporate instructor feedback into the survey, C&M Table, and submission package as applicable.
-6. Do **not** submit an IRB protocol or recruit participants based solely on this course report.
+1.  Retain the completed CITI training documentation.
+2.  Review the CPP IRB instructions and the professor's successful application examples.
+3.  Keep the Qualtrics questionnaire and informed-consent cover page available for instructional review.
+4.  Ask the course instructor whether the revised secondary-data-only CEP project may substitute an IRB applicability statement for the requested Cayuse draft and Word application draft.
+5.  Incorporate instructor feedback into the survey, C&M Table, and submission package as applicable.
+6.  Do **not** submit an IRB protocol or recruit participants based solely on this course report.
 
 **Institutional resource:** [CPP IRB Protocol Information](https://www.cpp.edu/research/research-compliance/irb/protocol.shtml).
 
