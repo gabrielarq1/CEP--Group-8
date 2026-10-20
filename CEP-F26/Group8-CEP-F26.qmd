@@ -41,7 +41,7 @@ crossref:
   tbl-title: "Table"
   title-delim: "."
 bibliography: references.bib
-csl: styles/american-marketing-association.csl
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/american-marketing-association.csl
 ---
 
 <!-- Rewritten 18 Oct 2026 for the CALIPER meta-analysis direction (Lin, 14 Oct 2026 document). Each AO owner should revise their own 1.3.x, 2.7.x and 3.2.10 subsections before 22 Oct. -->
@@ -111,13 +111,13 @@ A meta-analysis solves part of this problem. It pulls the results of many studie
 
 The catch is cost and speed. A meta-analysis takes trained coders months to read every article, pull out sample sizes and test statistics, and decide which outcomes count as attitudes, behaviors, or privacy reactions. Human coders make mistakes too; studies of published meta-analyses find extraction errors in a meaningful share of values [@gotzsche2007; @mathes2017]. Large language models (LLMs) can now screen articles and extract data [@khraisha2024; @gartlehner2024] and label text as well as or better than crowd workers [@gilardi2023]. But an AI coder is only useful if we know how accurate it is, and agreement between two AI coders does not prove that either one is right.
 
-Our client is the Tarkington Business Futures Institute (TBFI), an applied "Do Tank" inside Cal Poly Pomona's College of Business Administration [@cpp2026; @tbfi2026]. TBFI wants to give local businesses research-backed advice quickly and at low cost. To do that, it needs a way to synthesize published evidence that is fast enough to keep up with new studies and trustworthy enough to put in front of a client. This project builds and tests that workflow. We use CALIPER, a protocol in which two AI coders from different model families code the same material and their disagreements are used to improve the coding rules; a rule change is kept only if it makes the coding more accurate against human coding [@caliper2026]. The anchor is the personalization meta-analysis by @eisend2026, whose authors posted each human coder's values on Harvard Dataverse [@eisend2026data]. That gives every part of the project a human benchmark without any new data collection [@lin2026plan].
+Our client is the Tarkington Business Futures Institute (TBFI) at Cal Poly Pomona's College of Business Administration [@cpp2026; @tbfi2026]. TBFI wants to give local businesses research-backed advice quickly and at low cost. To do that, it needs a way to synthesize published evidence that is fast enough to keep up with new studies and trustworthy enough to put in front of a client. This project builds and tests that workflow. We use CALIPER, a protocol in which two AI coders from different model families code the same material and their disagreements are used to improve the coding rules; a rule change is kept only if it makes the coding more accurate against human coding [@caliper2026]. CALIPER is also available as a no-code web application [@caliperapp2026]. The anchor is the personalization meta-analysis by @eisend2026, whose authors posted each human coder's values on Harvard Dataverse [@eisend2026data]. That gives every part of the project a human benchmark without any new data collection.
 
-**Why this matters beyond TBFI.** TBFI first came to this project interested in synthetic respondents, and the market for them is growing. Vendors now sell AI personas and simulated markets that answer business questions. Where these vendors report validation, they usually test whether a persona repeats one person's held-out answers. Published comparisons of synthetic and human respondents show that LLMs can reproduce many aggregate patterns but can also be overconfident, too uniform, or biased for some groups [@argyle2023; @aher2023; @horton2023; @brand2023; @li2024; @bisbee2024; @wang2026]. No public benchmark tests whether a simulated panel reproduces the *effects* that real experiments find, for example how much personalization changes attitudes and behavior. A meta-analysis coded with CALIPER can provide that benchmark: effect sizes and moderators from published experiments, each value tied to a page in the source article and checked against human coders. Its limit is that a meta-analysis averages published and mostly lab studies, so it calibrates effects rather than individual answers [@lin2026plan].
+**Why this matters beyond TBFI.** TBFI first came to this project interested in synthetic respondents, and the market for them is growing. Vendors now sell AI personas and simulated markets that answer business questions. Where these vendors report validation, they usually test whether a persona repeats one person's held-out answers. Published comparisons of synthetic and human respondents show that LLMs can reproduce many aggregate patterns but can also be overconfident, too uniform, or biased for some groups [@argyle2023; @aher2023; @horton2023; @brand2023; @li2024; @bisbee2024; @wang2026]. No public benchmark tests whether a simulated panel reproduces the *effects* that real experiments find, for example how much personalization changes attitudes and behavior. A meta-analysis coded with CALIPER can provide that benchmark: effect sizes and moderators from published experiments, each value tied to a page in the source article and checked against human coders. Its limit is that a meta-analysis averages published and mostly lab studies, so it calibrates effects rather than individual answers.
 
 ## Project Objectives (PO's) {#sec-po}
 
-The project has three business objectives [@lin2026plan].
+The project has three business objectives.
 
 - **PO1. AI-assisted evidence synthesis**: Develop and validate an AI-assisted meta-analysis workflow (CALIPER) that extracts and codes published consumer research about as accurately as trained human coders, so that TBFI can answer business questions with research evidence quickly.
 - **PO2. TBFI consultant decision support**: Turn the validated evidence into a dashboard and a consultant playbook on personalization. The playbook says which personalization tactics work, for whom, and in which channels, and where the evidence is too thin to advise.
@@ -136,7 +136,7 @@ Each AO has one owner, one primary PO, a human benchmark, and a measurable resul
 
 : Summary of Analytics Objectives and the Project Objectives They Support {#tbl-ao-po}
 
-@fig-po-ao shows the study design. Development articles tune the AO1 and AO2 methods, the test set is run once, and AO3 tests whether coding errors change the conclusions. AO4 adds studies published after the authors' search cutoff and feeds the dashboard and playbook (PO2), which the digital marketing plan (PO3) then promotes. The dashed boxes are the spring transfer test and the optional RA-led research track [@lin2026plan].
+@fig-po-ao shows the study design. Development articles tune the AO1 and AO2 methods, the test set is run once, and AO3 tests whether coding errors change the conclusions. AO4 adds studies published after the authors' search cutoff and feeds the dashboard and playbook (PO2), which the digital marketing plan (PO3) then promotes. The dashed boxes are the spring transfer test and the optional RA-led research track.
 
 ![Study Design: How the Data, Analytics Objectives, and Project Objectives Connect (adapted from Lin 2026)](fig1-study-design.png){#fig-po-ao width="100%"}
 
@@ -354,7 +354,7 @@ Content analysis treats a codebook as a measurement instrument. Coders apply wri
 
 #### Adequateness of Gathered Information
 
-LLMs can label text at or above crowd-worker quality [@gilardi2023], and CALIPER improved out-of-sample accuracy for the constructs it refined [@caliper2026]. However, CALIPER has been tested on constructs expressed in text such as reviews and service conversations, not on mapping a study's outcome measure to a meta-analytic category. That task is harder, because the same label can cover different measures and the deciding detail is often in the scale items or the method section. The human coders also disagreed on about 16% of the rows both coded, with the most disagreement on positive affect, avoidance, and attitude toward company [@lin2026plan].
+LLMs can label text at or above crowd-worker quality [@gilardi2023], and CALIPER improved out-of-sample accuracy for the constructs it refined [@caliper2026]. However, CALIPER has been tested on constructs expressed in text such as reviews and service conversations, not on mapping a study's outcome measure to a meta-analytic category. That task is harder, because the same label can cover different measures and the deciding detail is often in the scale items or the method section. The human coders also disagreed on about 16% of the rows both coded, with the most disagreement on positive affect, avoidance, and attitude toward company [@eisend2026data].
 
 #### Need for Additional Analysis
 
@@ -450,11 +450,11 @@ The Dataverse files are downloaded, checked against the published counts, and st
 
 ### Understanding the Data
 
-The published analysis integrates 1,536 effect sizes from 290 studies in 229 papers, of which 1,125 effect sizes are assigned to the consumer response categories used in the meta-regressions [@eisend2026]. The Dataverse file holds about 2,450 effect-size rows from about 310 studies [@lin2026plan], which suggests it also contains rows dropped before analysis, such as responses that appeared in only one or two studies. The week 10 data-integrity check reconciles these counts before any AO uses the data. Coders 1 and 2 disagreed on about 16% of the outcome rows both coded, with the highest disagreement for positive affect (58%), avoidance (42%), and attitude toward company (38%) [@lin2026plan].
+The published analysis integrates 1,536 effect sizes from 290 studies in 229 papers, of which 1,125 effect sizes are assigned to the consumer response categories used in the meta-regressions [@eisend2026]. The Dataverse file holds about 2,450 effect-size rows from about 310 studies [@eisend2026data], which suggests it also contains rows dropped before analysis, such as responses that appeared in only one or two studies. The week 10 data-integrity check reconciles these counts before any AO uses the data. Coders 1 and 2 disagreed on about 16% of the outcome rows both coded, with the highest disagreement for positive affect (58%), avoidance (42%), and attitude toward company (38%) [@eisend2026data].
 
 ### Programming
 
-Analysis uses R, with metafor for meta-analytic models [@viechtbauer2010] and irr for agreement statistics. AI coding uses Python or the CALIPER web application. The dashboard is built in Looker Studio or Streamlit. Every model name, version, prompt, and run date is logged. References are managed in the team's Zotero group library, and the report is written in Quarto.
+Analysis uses R, with metafor for meta-analytic models [@viechtbauer2010] and irr for agreement statistics. AI coding uses Python or the CALIPER web application [@caliperapp2026]. The dashboard is built in Looker Studio or Streamlit. Every model name, version, prompt, and run date is logged. References are managed in the team's Zotero group library, and the report is written in Quarto.
 
 ### Sample Characteristics
 
@@ -472,7 +472,7 @@ Single-pass and evidence-linked AI extraction are run on the development article
 
 #### AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
 
-Four conditions are compared on the development articles and then once on the test set: (0) label only, (a) category names only with the article, (b) one AI coder with the article and the codebook, and (c) two AI coders from different model families plus CALIPER rule revision [@caliper2026]. Accuracy against final codes is measured with macro-F1 and Cohen's kappa. Agreement among AI coders is measured separately with Krippendorff's alpha [@krippendorff2018], together with the rate of AI coders agreeing and being wrong, the abstention rate and whether each abstention is justified, and the share of disagreements by type. Coders and the reviser never see effect sizes, significance, or hypothesis results.
+Four conditions are compared on the development articles and then once on the test set: (0) label only, (a) category names only with the article, (b) one AI coder with the article and the codebook, and (c) two AI coders from different model families plus CALIPER rule revision [@caliper2026; @caliperapp2026]. Accuracy against final codes is measured with macro-F1 and Cohen's kappa. Agreement among AI coders is measured separately with Krippendorff's alpha [@krippendorff2018], together with the rate of AI coders agreeing and being wrong, the abstention rate and whether each abstention is justified, and the share of disagreements by type. Coders and the reviser never see effect sizes, significance, or hypothesis results.
 
 #### AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
 
@@ -778,4 +778,4 @@ Not required for the capstone, because no AO collects data from people (see Chap
 | 24 Jul | SU W08 | Final presentation (Chapter 5 complete) |
 | Fri 30 Jul | SU W09 | Complete report, abstract, and individual contribution statements |
 
-: Project Timeline Aligned with the MSDM Program [@lin2026plan] {#tbl-timeline}
+: Project Timeline Aligned with the MSDM Program {#tbl-timeline}
