@@ -93,6 +93,6 @@ The screenshots below show the current cover page, including the study purpose, 
 
 **Institutional resource:** [CPP IRB Protocol Information](https://www.cpp.edu/research/research-compliance/irb/protocol.shtml).
 
-[**IRB report pages link**](https://gabrielarq1.github.io/CEP--Group-8/GP08_IRB_Application.html)
+**IRB report pages link:** <https://gabrielarq1.github.io/CEP--Group-8/CEP08/GP08_IRB_Application.html>
 
 ##
