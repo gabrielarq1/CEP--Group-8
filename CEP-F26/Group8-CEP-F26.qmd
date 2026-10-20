@@ -48,20 +48,20 @@ csl: https://raw.githubusercontent.com/citation-style-language/styles/master/ame
 
 # TITLE PAGE {.unnumbered}
 
-::: {.title-page}
+::: title-page
 **AI-ASSISTED EVIDENCE SYNTHESIS FOR MARKETING DECISIONS: VALIDATING A CALIPER META-ANALYSIS OF PERSONALIZATION AND A CONSULTANT DECISION DASHBOARD FOR TBFI**
 
-A Project Presented to the Faculty of the  
-College of Business Administration  
+A Project Presented to the Faculty of the\
+College of Business Administration\
 California State Polytechnic University, Pomona
 
-In Partial Fulfillment of the Requirements for the Degree  
+In Partial Fulfillment of the Requirements for the Degree\
 Master of Science in Digital Marketing
 
-By  
-Yushan Huang  
-Simran Kaur  
-Gabriela Raygoza Quintero  
+By\
+Yushan Huang\
+Simran Kaur\
+Gabriela Raygoza Quintero\
 Alondra Rodriguez
 
 2027
@@ -69,33 +69,33 @@ Alondra Rodriguez
 
 # SIGNATURE PAGE {.unnumbered}
 
-[To be completed in the summer semester using the front matters template.]
+\[To be completed in the summer semester using the front matters template.\]
 
 # ACKNOWLEDGMENTS PAGE {.unnumbered}
 
-[Optional. To be completed in the summer semester.]
+\[Optional. To be completed in the summer semester.\]
 
 # ABSTRACT {.unnumbered}
 
-[To be completed in the summer semester (250 words maximum, including Purpose, Design/methodology/approach, Findings, Originality/Value, Practical implications, and up to six keywords).]
+\[To be completed in the summer semester (250 words maximum, including Purpose, Design/methodology/approach, Findings, Originality/Value, Practical implications, and up to six keywords).\]
 
 # SUMMARY OF INDIVIDUAL CONTRIBUTION {.unnumbered}
 
 **Yushan Huang**
 
-[75–100 word summary, to be completed in the summer semester.]
+\[75–100 word summary, to be completed in the summer semester.\]
 
 **Simran Kaur**
 
-[75–100 word summary, to be completed in the summer semester.]
+\[75–100 word summary, to be completed in the summer semester.\]
 
 **Gabriela Raygoza Quintero**
 
-[75–100 word summary, to be completed in the summer semester.]
+\[75–100 word summary, to be completed in the summer semester.\]
 
 **Alondra Rodriguez**
 
-[75–100 word summary, to be completed in the summer semester.]
+\[75–100 word summary, to be completed in the summer semester.\]
 
 # TABLE OF CONTENTS {.unnumbered}
 
@@ -128,13 +128,13 @@ The project has three business objectives.
 Each AO has one owner, one primary PO, a human benchmark, and a measurable result. All four AO owners learn the full workflow on the same development articles, but each answers a different question. @tbl-ao-po lists every AO next to the project objective it supports.
 
 | AO and Owner | Analytics Objective | Project Objective Supported |
-|:-----------------|:-----------------------------|:-----------------------------|
+|:-----------------|:--------------------------|:--------------------------|
 | AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez) | Measure how accurately AI extracts the numbers a meta-analysis needs (sample sizes, effect sizes, test statistics, and which results count as effects), comparing single-pass extraction with evidence-linked extraction. | PO1: Develop and validate an AI-assisted meta-analysis workflow. |
 | AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero) | Test whether CALIPER rule revision lets AI coders assign each study's outcome to the meta-analysis's outcome categories as accurately as human coders. | PO1: Develop and validate an AI-assisted meta-analysis workflow. |
 | AO3. Do Coding Errors Change the Conclusions? (Yushan Huang) | Estimate how much the pooled effects, heterogeneity, and moderator results change when AI-extracted numbers and AI outcome classifications replace the human values. | PO1 (feeds PO2): Validate the workflow and identify which findings are robust enough to advise on. |
 | AO4. Evidence Update and Decision Dashboard (Simran Kaur) | Test whether AI-assisted screening finds personalization studies published after the meta-analysis's search cutoff as completely as two human screeners, and whether TBFI consultants can use the resulting dashboard to answer questions correctly. | PO2: Turn validated evidence into a dashboard and consultant playbook. |
 
-: Summary of Analytics Objectives and the Project Objectives They Support {#tbl-ao-po}
+: Summary of Analytics Objectives and the Project Objectives They Support
 
 @fig-po-ao shows the study design. Development articles tune the AO1 and AO2 methods, the test set is run once, and AO3 tests whether coding errors change the conclusions. AO4 adds studies published after the authors' search cutoff and feeds the dashboard and playbook (PO2), which the digital marketing plan (PO3) then promotes. The dashed boxes are the spring transfer test and the optional RA-led research track.
 
@@ -208,117 +208,117 @@ This project matters to four groups. SGV businesses get practical guidance on pe
 
 ### Company Mission/Vision
 
-[To be completed.]
+\[To be completed.\]
 
 ### Core Competencies
 
-[To be completed.]
+\[To be completed.\]
 
 ### Value Propositions
 
-[To be completed.]
+\[To be completed.\]
 
 ### Business Objectives
 
-[To be completed.]
+\[To be completed.\]
 
 ## Description of the Client's Current Marketing Program
 
 ### Marketing Team and Expertise
 
-[To be completed.]
+\[To be completed.\]
 
 ### Current Target Market
 
-[To be completed.]
+\[To be completed.\]
 
 ### Current Positioning and Perceptual Map
 
-[To be completed.]
+\[To be completed.\]
 
 ### Current Product/Services
 
-[To be completed.]
+\[To be completed.\]
 
 ### Current Pricing
 
-[To be completed.]
+\[To be completed.\]
 
 ### Current Marketing Channels
 
-[To be completed.]
+\[To be completed.\]
 
 ### Current Integrated Marketing Communications
 
-[To be completed.]
+\[To be completed.\]
 
 ## Description of the Company's Current Digital Marketing Practices
 
 ### Brand Persona
 
-[To be completed.]
+\[To be completed.\]
 
 ### Digital Marketing Channels/Medium
 
-[To be completed.]
+\[To be completed.\]
 
 ### Other Digital Marketing Channels and Tactics
 
-[To be completed.]
+\[To be completed.\]
 
 ### Allocation of Resources to Customer-Influence Efforts
 
-[To be completed.]
+\[To be completed.\]
 
 ### Analytics Infrastructure
 
-[To be completed.]
+\[To be completed.\]
 
 ## Competitive Analysis
 
 ### Industry Size
 
-[To be completed.]
+\[To be completed.\]
 
 ### Industry Outlook
 
-[To be completed.]
+\[To be completed.\]
 
 ### Key Competitors and Their Digital Marketing Strategies
 
-[To be completed.]
+\[To be completed.\]
 
 ## Customer Analysis
 
 ### Segments and Their Brief Justification
 
-[To be completed.]
+\[To be completed.\]
 
 ### Segment Analysis
 
-[To be completed.]
+\[To be completed.\]
 
 ## SWOT Analysis
 
 ### Strengths
 
-[To be completed.]
+\[To be completed.\]
 
 ### Weaknesses
 
-[To be completed.]
+\[To be completed.\]
 
 ### Opportunities
 
-[To be completed.]
+\[To be completed.\]
 
 ### Threats
 
-[To be completed.]
+\[To be completed.\]
 
 ### Summary: SWOT Quadrants
 
-[To be completed.]
+\[To be completed.\]
 
 ## Investigation of Currently Available Research Framework/Model {#sec-lit-review}
 
@@ -421,7 +421,7 @@ This project does not collect survey data. All four AOs use secondary data, name
 @tbl-data lists the data used in the project.
 
 | Role | Source |
-|:-----------------|:---------------------------------------------|
+|:--------------------|:--------------------------------------------------|
 | Anchor meta-analysis (primary data for all AOs) | @eisend2026, *Journal of Marketing*, open access |
 | Human benchmark dataset | Harvard Dataverse replication files [@eisend2026data], CC0 license. Effect-size rows with outcome and moderator codes from coders 1, 2, and 3, inconsistency flags, each primary study's own outcome wording (variable V2DESCRI), the authors' R scripts, and the correlation matrix |
 | Codebook in the article | Table 3 of @eisend2026 defines the outcome categories with examples of related concepts. Table 5 lists the moderator codes, their kappas, and decision rules. No separate coding manual is published |
@@ -430,7 +430,7 @@ This project does not collect survey data. All four AOs use secondary data, name
 | New studies (AO4) | Records from EBSCO, ScienceDirect, and ProQuest Dissertations and Theses, with Google Scholar for citation searching, published after the anchor search period |
 | Transfer test (spring, if on schedule) | @eisend2025, with Dataverse replication data (CC BY 4.0) |
 
-: Data Sources {#tbl-data}
+: Data Sources
 
 ### Population
 
@@ -438,15 +438,15 @@ The population for AO1 to AO3 is the set of primary studies included in @eisend2
 
 ### Sampling Frame
 
-For AO1 to AO3, the sampling frame is the list of primary articles in the Dataverse file for which the team has full text. Of the 209 primary articles targeted, the library obtained 186 and 166 are shared with the team; the 23 gaps are listed in the paper folder README and are reported rather than replaced. For AO4, the sampling frame is every record returned by the logged searches after duplicates and records already in the anchor dataset are removed.
+For AO1 to AO3, the sampling frame is the list of primary articles which the team has full text. Of the 310 primary articles targeted and a total of 2,450 specific effects included in the @eisend2026, anchor meta-analysis.
 
 ### Sampling Method
 
-In week 10 the team draws a development set of about 20 primary articles and reserves a separate test set of about 20, both sampled at the article level so that all effects from one article stay in the same set. All four AOs share this split. Prompts and coding rules are tuned on the development set only, and the test set is run once, in March, after the methods are frozen. For AO4, all records returned by the search are screened; if the number is very large, a random sample is drawn for double human screening and the sample size is reported.
+Sampling will be conducted at the article level. The team focused on a development set of about 20 primary articles and reserves a separate test set of about 20, both sampled at the article level so that all effects from one article stay in the same set. All four AOs share this split. Prompts and coding rules are tuned on the development set only, and the test set is run once, in March, after the methods are frozen. For AO4, all records returned by the search are screened; if the number is very large, a random sample is drawn for double human screening and the sample size is reported.
 
 ### Data Wrangling
 
-The Dataverse files are downloaded, checked against the published counts, and stored in the shared OneDrive folder. Outcome codes are mapped to category names with the crosswalk. Every value coded by any team member, by hand or with AI, is stored as one record in the shared extraction schema, with one record per value (@sec-appendix-schema). Coders never overwrite another coder's file; disagreements are resolved in a separate adjudication file that keeps every original value. For AO3, records are reshaped into one row per effect before modeling. For AO4, search exports are combined, deduplicated by DOI and title, and matched against the anchor dataset.
+The Dataverse files are downloaded, checked against the published counts, and stored in a shared secured folder. Outcome codes are mapped to category names with the crosswalk. Every value coded by any team member, by hand or with AI, is stored as one record in the shared extraction schema, with one record per value (@sec-appendix-schema). Coders never overwrite another coder's file; disagreements are resolved in a separate adjudication file that keeps every original value. For AO3, records are reshaped into one row per effect before modeling. For AO4, search exports are combined, deduplicated by DOI and title, and matched against the anchor dataset.
 
 ### Understanding the Data
 
@@ -458,7 +458,7 @@ Analysis uses R, with metafor for meta-analytic models [@viechtbauer2010] and ir
 
 ### Sample Characteristics
 
-[To be completed after the development and test sets are drawn in week 10: number of articles, studies, and effects per set; publication years; share of experiments versus surveys; channels; and outcome categories represented. For AO4: records found, screened, and included by source.]
+Although the units of analysis are from published articles, sample characteristics from the studies include personalization moderators such as demographic, socioeconomic, and geographic data of the subjects from the original experiments conducted. Relelvant variables that are extracted to reflect consumer behavior and attitudes, making a distinction between behavioral outcomes, such as clicks or purchases, or their attitude outcomes such as their attitude toward the company or their engagement.
 
 ### Measures
 
@@ -496,73 +496,73 @@ None of the AOs collects data from people, so the capstone needs no IRB applicat
 
 ### Introduction
 
-[To be completed.]
+\[To be completed.\]
 
 ### Descriptive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Predictive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Summary Findings
 
-[To be completed.]
+\[To be completed.\]
 
 ## AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
 
 ### Introduction
 
-[To be completed.]
+\[To be completed.\]
 
 ### Descriptive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Predictive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Summary Findings
 
-[To be completed.]
+\[To be completed.\]
 
 ## AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
 
 ### Introduction
 
-[To be completed.]
+\[To be completed.\]
 
 ### Descriptive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Predictive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Summary Findings
 
-[To be completed.]
+\[To be completed.\]
 
 ## AO4. Evidence Update and Decision Dashboard (Simran Kaur)
 
 ### Introduction
 
-[To be completed.]
+\[To be completed.\]
 
 ### Descriptive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Predictive Analytics and Results
 
-[To be completed.]
+\[To be completed.\]
 
 ### Summary Findings
 
-[To be completed.]
+\[To be completed.\]
 
 ## Transfer Test (If on Schedule)
 
@@ -574,121 +574,121 @@ None of the AOs collects data from people, so the capstone needs no IRB applicat
 
 ### Summary of Findings from Data Analysis – AO1
 
-[To be completed.]
+\[To be completed.\]
 
 ### Recommendations
 
-[To be completed.]
+\[To be completed.\]
 
 ## AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
 
 ### Summary of Findings from Data Analysis – AO2
 
-[To be completed.]
+\[To be completed.\]
 
 ### Recommendations
 
-[To be completed.]
+\[To be completed.\]
 
 ## AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
 
 ### Summary of Findings from Data Analysis – AO3
 
-[To be completed.]
+\[To be completed.\]
 
 ### Recommendations
 
-[To be completed.]
+\[To be completed.\]
 
 ## AO4. Evidence Update and Decision Dashboard (Simran Kaur)
 
 ### Summary of Findings from Data Analysis – AO4
 
-[To be completed.]
+\[To be completed.\]
 
 ### Recommendations
 
-[To be completed.]
+\[To be completed.\]
 
 ## Concrete Digital Marketing Plan
 
 ### Target Market
 
-[To be completed.]
+\[To be completed.\]
 
 ### Positioning and Perceptual Map
 
-[To be completed.]
+\[To be completed.\]
 
 ### Brand Persona
 
-[To be completed.]
+\[To be completed.\]
 
 ### Campaign Objectives
 
-[To be completed.]
+\[To be completed.\]
 
 ### SEO Strategy
 
-[To be completed.]
+\[To be completed.\]
 
 ### Website and Landing Page Plan
 
-[To be completed.]
+\[To be completed.\]
 
 ### Social Media Strategy
 
-[To be completed.]
+\[To be completed.\]
 
 ### Email Marketing Strategy
 
-[To be completed.]
+\[To be completed.\]
 
 ### Paid Advertising Strategy
 
-[To be completed.]
+\[To be completed.\]
 
 ### Other Digital Marketing Channels and Tactics
 
-[To be completed.]
+\[To be completed.\]
 
 ### Implementation Timeline
 
-[To be completed.]
+\[To be completed.\]
 
 ## Implementation of the Concrete Digital Marketing Plan
 
-[To be completed.]
+\[To be completed.\]
 
 ## Post-Implementation Analysis
 
 ### Measurement and Post-Implementation Analysis
 
-[To be completed.]
+\[To be completed.\]
 
 ## Conclusion and Recommendations
 
-[To be completed.]
+\[To be completed.\]
 
 ## Limitations for Theory and Practice
 
 ### Limitations for Theory
 
-[To be completed.]
+\[To be completed.\]
 
 ### Limitations for Practice
 
-[To be completed.]
+\[To be completed.\]
 
 ## Future Directions
 
 ### Directions for Future Research
 
-[To be completed.]
+\[To be completed.\]
 
 ### Directions for Future Marketing Efforts
 
-[To be completed.]
+\[To be completed.\]
 
 # REFERENCES {#sec-references}
 
@@ -701,19 +701,19 @@ None of the AOs collects data from people, so the capstone needs no IRB applicat
 
 ### Link to Data
 
-[To be completed: link to the shared OneDrive data folder. Dataverse source: <https://doi.org/10.7910/DVN/KJRWWM>.]
+\[To be completed: link to the shared OneDrive data folder. Dataverse source: <https://doi.org/10.7910/DVN/KJRWWM>.\]
 
 ### Data Dictionary
 
-[To be completed after the week 10 data-integrity check.]
+\[To be completed after the week 10 data-integrity check.\]
 
 ## Programming Code
 
-[To be completed.]
+\[To be completed.\]
 
 ## Literature Review Folder
 
-[To be completed: link to the Zotero group library and the 16 October search log.]
+\[To be completed: link to the Zotero group library and the 16 October search log.\]
 
 ## Extraction Schema and Codebook v0 {#sec-appendix-schema}
 
@@ -722,7 +722,7 @@ This schema replaces a survey instrument. Every value any team member codes, by 
 ![How One Value Moves Through the Schema (illustrative records; adapted from Lin 2026)](fig2-schema.png){#fig-schema width="100%"}
 
 | Field | What to Record | Used Most In |
-|:-----------|:-----------------------------------|:-----------|
+|:---------------|:---------------------------------------|:---------------|
 | unit_id | Paper, study, and effect identifiers; Dataverse identifiers (IDP, IDD, IDES) for articles in the anchor meta-analysis | AO1, AO3 |
 | field | The codebook field name (for example, sample size, effect size, outcome category) | All |
 | value | The coded value, or null with the reason when the article does not report it | All |
@@ -733,10 +733,10 @@ This schema replaces a survey instrument. Every value any team member codes, by 
 | reading_difficulty | Text, simple table, complex table, figure, appendix, scanned page, or computed from other statistics | AO1 |
 | judgment_type | None, main specification, construct mapping, effect direction, moderator, or scope (which results count as effects) | AO1, AO2 |
 
-: Record for Every Coded Value (All AOs) {#tbl-schema-a}
+: Record for Every Coded Value (All AOs)
 
 | Field | What to Record |
-|:-----------------|:---------------------------------------------|
+|:--------------------|:--------------------------------------------------|
 | author_label | The outcome's name exactly as the paper writes it; for anchor articles, start from the dataset wording (V2DESCRI) and check it against the article |
 | author_definition | The paper's definition, verbatim, with its location, or "none given" |
 | operationalization | The items, scale source, or behavioral metric, verbatim |
@@ -744,7 +744,7 @@ This schema replaces a survey instrument. Every value any team member codes, by 
 | classification | The outcome category from the codebook |
 | disagreement_type | Filled after comparing coders: rule gap, missing evidence, or real difference |
 
-: Outcome Construct Record (One per Effect, Owned by AO2 and Filled by Everyone) {#tbl-schema-b}
+: Outcome Construct Record (One per Effect, Owned by AO2 and Filled by Everyone)
 
 **Coding rules.** (1) Code only what the article reports; never infer a value that is not printed or cannot be computed by a codebook rule. (2) Keep the label, definition, operationalization, and classification in separate fields; never fill in a definition from the label. (3) Effect sizes, significance, and hypothesis results are hidden while outcomes are coded and while the codebook is revised. (4) Never overwrite another coder's file; disagreements are resolved in a separate adjudication file that keeps every coder's original value.
 
@@ -757,7 +757,7 @@ Not required for the capstone, because no AO collects data from people (see Chap
 ### Project Timeline
 
 | Date | Program Week | Deliverable |
-|:-----------|:-----------|:---------------------------------------|
+|:---------------|:---------------|:----------------------------------------|
 | Fri 16 Oct | FA W08 | Search log in the shared folder; each student drafts their own AO section |
 | Thu 22 Oct | FA W09 | Initial proposal presentation: Chapters 1–3 and slides |
 | Fri 30 Oct | FA W10 | Data integrity: Dataverse files downloaded, variables confirmed, full-text access checked, development and test sets drawn |
@@ -778,4 +778,4 @@ Not required for the capstone, because no AO collects data from people (see Chap
 | 24 Jul | SU W08 | Final presentation (Chapter 5 complete) |
 | Fri 30 Jul | SU W09 | Complete report, abstract, and individual contribution statements |
 
-: Project Timeline Aligned with the MSDM Program {#tbl-timeline}
+: Project Timeline Aligned with the MSDM Program
