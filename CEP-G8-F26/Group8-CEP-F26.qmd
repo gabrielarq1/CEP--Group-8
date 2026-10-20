@@ -138,7 +138,7 @@ Each AO has one owner, one primary PO, a human benchmark, and a measurable resul
 
 @fig-po-ao shows the study design. Development articles tune the AO1 and AO2 methods, the test set is run once, and AO3 tests whether coding errors change the conclusions. AO4 adds studies published after the authors' search cutoff and feeds the dashboard and playbook (PO2), which the digital marketing plan (PO3) then promotes. The dashed boxes are the spring transfer test and the optional RA-led research track.
 
-![Study Design: How the Data, Analytics Objectives, and Project Objectives Connect (figure by Dr. Yufan Lin)](fig1-study-design.png){#fig-po-ao width="100%"}
+![Study Design: How the Data, Analytics Objectives, and Project Objectives Connect (adapted from Lin 2026)](fig1-study-design.png){#fig-po-ao width="100%"}
 
 ### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez) {#sec-ao1}
 
@@ -719,7 +719,7 @@ None of the AOs collects data from people, so the capstone needs no IRB applicat
 
 This schema replaces a survey instrument. Every value any team member codes, by hand or with AI, is stored as one record in the format in @tbl-schema-a. One record holds one value, so a study with three effects and ten fields produces thirty records. @fig-schema shows how one value moves through the schema, using illustrative records rather than data from a real article.
 
-![How One Value Moves Through the Schema (illustrative records; figure by Dr. Yufan Lin)](fig2-schema.png){#fig-schema width="100%"}
+![How One Value Moves Through the Schema (illustrative records; adapted from Lin 2026)](fig2-schema.png){#fig-schema width="100%"}
 
 | Field | What to Record | Used Most In |
 |:-----------|:-----------------------------------|:-----------|
