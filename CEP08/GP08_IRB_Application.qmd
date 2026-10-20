@@ -1,5 +1,5 @@
 ---
-title: "GP08-2 | IRB Application Preparation and Submission"
+title: "IRB Application Preparation and Submission"
 subtitle: "Course submission package and IRB applicability statement"
 author: "Yushan Huang, Gabriela Raygoza Quintero, Alondra Rodriguez, and Simran Kaur"
 date: "2026-10-16"
