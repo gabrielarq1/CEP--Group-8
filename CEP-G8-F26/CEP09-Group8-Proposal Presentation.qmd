@@ -1,0 +1,70 @@
+---
+title: "CEP09: Presentation Preparation and Deliverables"
+subtitle: "AI-Assisted Evidence Synthesis for Marketing Decisions"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+format:
+  html:
+    theme: cosmo
+    embed-resources: true
+---
+
+## Project overview
+
+Our group is working with the Tarkington Business Futures Institute (TBFI) on an AI-assisted approach to bringing together research evidence for marketing decisions. We use a published meta-analysis of personalization in marketing communication and its replication data as a human benchmark to assess the CALIPER workflow.
+
+The project examines how accurately AI can extract and classify information from research articles, whether coding differences affect the conclusions, and how updated evidence can be presented in a dashboard and playbook for TBFI.
+
+**Client:** Tarkington Business Futures Institute (TBFI)\
+**Faculty project lead:** Dr. Yufan (Frank) Lin
+
+## Project progress
+
+Our project has evolved since our initial proposal. We originally focused on comparing synthetic respondents with human survey responses. After discussions with Dr. Lin, we shifted to an AI-assisted meta-analysis using existing research on personalization in marketing communication.
+
+As a result, we revised our project objectives (POs) and analytics objectives (AOs) to align with the new scope. Our current objectives focus on validating AI-assisted research coding, understanding how coding errors affect findings, and making the evidence useful to TBFI through a dashboard and playbook. Each team member now leads one AO.
+
+We have received the meta-analysis data and research articles, developed our proposed methods, and presented the updated project to TBFI. Our next steps are to prepare and check the data, begin coding and validation, and continue refining the report based on faculty feedback.
+
+## Data source
+
+Our project uses the data for *Personalization in Marketing Communication: A Meta-Analysis* by Eisend, Niewiadomska, and van Noort (2026), available through Harvard Dataverse. The published meta-analysis includes 290 studies and 1,536 effect sizes. The full dataset contains 2,452 rows before analysis filters are applied, so the two counts describe different things.
+
+[View the Harvard Dataverse data](https://doi.org/10.7910/DVN/KJRWWM)
+
+We also have a set of research articles and other materials to help us compare AI coding with the published human-coded data.
+
+## What is CALIPER?
+
+CALIPER is an AI-assisted coding workflow that helps classify information from research articles using clearly defined coding rules. It compares AI coders' decisions and uses human-coded benchmarks to evaluate whether revisions to those rules improve accuracy. In our project, we will use CALIPER to examine how consistently AI identifies and classifies outcomes related to personalization.
+
+[View the CALIPER application](https://caliper-app-production.up.railway.app/)
+
+## Our meta-analysis plan
+
+A meta-analysis combines findings from multiple studies to understand an overall pattern. Our team plans to use the published personalization meta-analysis as a benchmark and evaluate whether AI-assisted coding can support a reliable update to the evidence.
+
+We will compare AI-extracted values and outcome classifications with human-coded data, examine whether coding differences change the conclusions, and search for eligible studies published after the original search cutoff. We also plan to present the evidence in a dashboard and playbook and assess whether TBFI users can use the dashboard to answer practical questions.
+
+## Written report
+
+[View the written report (GitHub Pages)](https://gabrielarq1.github.io/CEP--Group-8/CEP-G8-F26/Group8-CEP-F26.html)
+
+The report presents the project's background and problem, project and analytics objectives, and proposed data and methods. It brings together Chapters 1–3 of our culminating experience project.
+
+## Presentation slides
+
+[View the CEP09 presentation (Canva)](https://canva.link/btdtzgpw4vvmhbh)
+
+The presentation introduces TBFI and the need for trustworthy research evidence, explains meta-analysis and CALIPER, and describes each team member's analytics objective, planned methods, and expected outputs.
+
+## Project repository
+
+[Group 8 GitHub repository](https://github.com/gabrielarq1/CEP--Group-8)
+
+[CEP09 proposal](https://gabrielarq1.github.io/CEP--Group-8/CEP-G8-F26/CEP09-Group8-Proposal%20Presentation.html)
+
+The repository contains our project files, including the Quarto source for the written report.
