@@ -1,0 +1,150 @@
+---
+title: "IC10-2: Analytics Objective and Method Confirmation"
+subtitle: "AI-Assisted Evidence Synthesis for Marketing Decisions: <br> A CALIPER Meta-Analysis of Personalization for TBFI"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "Table of contents"
+    toc-location: right
+    number-sections: false
+    number-depth: 2
+    theme: cosmo
+    fontsize: 12pt
+    embed-resources: true
+    smooth-scroll: true
+    tbl-cap-location: top
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+        :root { --cep-green: #1E4D2B; --cep-gold: #E0B12B; --cep-gray: #5f6368; }
+        body, h1, h2, h3, .title, .subtitle, caption, table, #TOC, #toc-title {
+          font-family: "Source Sans 3", "Source Sans Pro", "Segoe UI", Helvetica, Arial, sans-serif !important; }
+        h1:not(.title) { color: var(--cep-green); text-align: center; text-transform: uppercase; font-weight: 700; margin-top: 3rem; }
+        h1:not(.title)::after { content: ""; display: block; width: 50px; height: 3px; background: var(--cep-gold); margin: .5rem auto 0; }
+        .header-section-number { color: var(--cep-gray); }
+        #title-block-header { background: var(--cep-green); border-bottom: 4px solid var(--cep-gold); border-radius: 4px; padding: 2rem 2.25rem 1.5rem; margin-bottom: 2.5rem; }
+        #title-block-header .title { color: #fff; font-weight: 700; text-align: center; font-size: 2.4rem; }
+        #title-block-header .subtitle { color: var(--cep-gold); text-align: center; font-weight: 700; font-size: 1.2rem; }
+        #title-block-header .quarto-title-meta-heading { color: var(--cep-gold); text-transform: uppercase; }
+        #title-block-header .quarto-title-meta-contents, #title-block-header .quarto-title-meta-contents p { color: #fff; }
+        #TOC > ul > li > a { text-transform: uppercase; font-weight: 700; color: #222; }
+        #TOC a.active { color: var(--cep-green); border-left-color: var(--cep-green); }
+        caption { font-weight: 700; color: inherit; }
+        table { font-size: 11pt; }
+        thead th { background: var(--cep-green) !important; color: #fff !important; }
+        td { vertical-align: top; }
+        #tbl-tasks td:first-child, .dat td:first-child { width: 34%; font-weight: 700; color: var(--cep-green); background: #F4F8F3; }
+        #title-block-header .quarto-title-meta { display: grid !important; grid-template-columns: 3fr 1fr !important; column-gap: 2rem; }
+        #title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p { display: inline; margin: 0; }
+        #title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p:not(:last-child)::after { content: " · "; color: var(--cep-gold); }
+        </style>
+---
+
+# Task List After Feedback
+
+Tasks for Chapters 1 to 3, based on faculty and peer feedback and the project timeline. Each AO owner revises their own sections; shared sections are split as shown.
+
+| Task | Source | Owner | Due |
+|:-----|:-------|:------|:----|
+| Get Dr. Lin's approval of AO4 and its method (this document) | IC10-2 | Simran Kaur | Before Nov 13 |
+| Confirm the two human screeners, the search window start (1 Jan 2024), and Google Scholar for citation searching only | Open questions to Dr. Lin on the AO4 plan | Simran Kaur | Before Nov 13 |
+| Write the AO4 screening codebook and calibrate the AI screener on records from the original search | Ch. 3 method | Simran Kaur | Nov 13 |
+| Run the logged database search and export records for screening | Ch. 3 method | Simran Kaur | Nov 13 |
+| Agree on who extracts effects from newly eligible AO4 studies | AO3 depends on them | Simran Kaur, Yushan Huang | Nov 13 |
+| Define the AO2 independent variable by naming the four coding conditions in Ch. 1 and Ch. 3 | CEP 12 table review | Gabriela Raygoza Quintero | Nov 20 |
+| Review the AO2 test and rationale rows added to the CEP 12 table | CEP 12 table review | Gabriela Raygoza Quintero | Nov 20 |
+| Confirm field-level tolerance rules beyond \|Δr\| ≤ .01 for AO1 | AO1 rationale | Alondra Rodriguez | Nov 20 |
+| Reconcile Dataverse row counts with the published counts before AO3 reproduction | Week 10 data-integrity check | Yushan Huang | Nov 20 |
+| Hand-code the same 5 development articles with codebook v0 | Project timeline | All four members | Nov 13 |
+| One result table per AO on the development set | Project timeline | Each AO owner | Nov 20 |
+| Fill in Chapter 2 client sections (2.1 to 2.6) | Ch. 2 placeholders | Split across all four members | Nov 20 |
+| Fill in Sample Characteristics and Data Dictionary after the development and test sets are drawn | Ch. 3 placeholders | Each AO owner, merged by Gabriela Raygoza Quintero | Nov 20 |
+| Keep one font, references in references.bib, no icons, AO/PO spelled out in tables | Dr. Jung's earlier report feedback | Gabriela Raygoza Quintero (repo), all members check | Ongoing |
+| Revise Chapters 1 to 3 and push to the shared repo | GP01 to GP08 | All four members | Nov 20 |
+| Final proposal defense | Program schedule | All four members | Week of Nov 30 |
+
+: Post-Proposal Task List {#tbl-tasks}
+
+# Analytics Methods to Employ
+
+### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
+
+AO1 tests how accurately AI can pull the numbers a meta-analysis needs from primary articles: sample sizes, effect sizes, test statistics, and the call on which results count as effects. Two workflows run on the same development articles. In single-pass extraction, one model reads the article and returns the values. In evidence-linked extraction, the model must quote the page and table for every value, and a second model checks that the quote supports it. Each AI value is compared with the authors' final coded value in the Harvard Dataverse file (Eisend, Niewiadomska, and van Noort 2026), using a tolerance of |Δr| ≤ .01 for correlations and exact matching for sample sizes. Holding the articles, fields, benchmark, and scoring rules constant means any difference in accuracy comes from the workflow itself. Human double extraction is the standard because single extraction misses or misreads values (Mathes, Klaßen, and Pieper 2017), and early LLM extraction studies show accuracy varies by field (Gartlehner et al. 2024), which is why results are broken down by field type.
+
+The independent variable is the extraction approach (single pass vs. evidence-linked). The dependent variables are value-level accuracy (match or no match), absolute numerical error, missed- and extra-effect rates, unsupported values (a value the quoted snippet does not contain), and time and cost per article. The features used to explain errors are field type, judgment type (none, main specification, construct mapping, effect direction, moderator, or scope), and reading difficulty (text, simple table, complex table, figure, appendix, scanned page, or computed). Because both approaches code the same values, the comparison is paired: article-level accuracy differences are compared across approaches, and errors are sorted into reading errors (the right number misread) and scope errors (the wrong result treated as an effect). The workflow is tuned on the development articles and frozen before the held-out test set is run once.
+
+### AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
+
+Primary studies often use the same construct name for different measures, or different names for the same thing. AO2 tests whether CALIPER rule revision lets AI coders assign each study's outcome to the meta-analysis's outcome categories as accurately as human coders. CALIPER has two AI coders from different model families code the same material and uses their disagreements to rewrite the codebook's mapping rules; a revision is kept only if it improves accuracy against reference labels on the development set (Lin et al., under review). The meta-analysis's outcome categories and definitions (Table 3 of Eisend, Niewiadomska, and van Noort 2026) stay fixed; only the mapping rules change. Four conditions are compared on the same outcomes: (0) the author's label only, (a) category names with the article, (b) one AI coder with the article and codebook, and (c) two AI coders with CALIPER rule revision. Comparing (0) with (b) shows how much reading the actual measure adds beyond its name.
+
+The independent variable is the coding condition, and the dependent variable is classification accuracy against the final human code. The features are the author's construct label and definition, the operationalization (scale items, scale source, or behavioral metric), measure type, and the coder 1, 2, and 3 codes from the Dataverse file; effect sizes, significance, and hypothesis results are hidden so the findings cannot steer the coding. Accuracy is measured with Cohen's kappa and macro-F1 per condition, with bootstrapped 95% confidence intervals that resample articles. Cochran's Q tests whether accuracy differs across the four related conditions, followed by pairwise McNemar tests with a Bonferroni correction. Agreement between the two AI coders is measured separately with Krippendorff's alpha (Krippendorff 2018), alongside the agree-and-wrong rate, since two coders can agree and still be wrong. The human coders' own agreement (kappa = .857) sets a realistic ceiling.
+
+### AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
+
+AO3 asks the question a manager would ask: do AI coding errors change the advice? It runs a robustness analysis on the meta-analysis itself. First, the published results are reproduced with the authors' data and R scripts; nothing else starts until this matches. Second, the models are re-estimated with the effect sizes and sample sizes extracted in AO1 (number robustness). Third, every effect size is held at its published value and only the outcome classification changes, using five versions: the published final code, human coder 1, human coder 2, AI before alignment, and AI after alignment from AO2 (classification robustness). Random-effects and multilevel models are the standard when true effects vary across studies and several effects come from the same study (Borenstein et al. 2021), and the authors fit them with the metafor package in R (Viechtbauer 2010), so using the same models and settings isolates the effect of the coding change.
+
+The independent variables are the source of the numeric values (human vs. AO1 AI) and the classification version. The dependent variables are the pooled effect, heterogeneity (tau² and I²; Higgins and Thompson 2002), moderator coefficients, 95% confidence and prediction intervals, and the number of effects entering each model. The features are the unit identifiers (IDP for paper, IDD for study, IDES for effect), effect size r converted to Fisher's z, sample size and its sampling variance, outcome category codes, and the published moderators such as personalization data type and channel. Each estimate is compared with the published one in standard-error units, and the analysis counts sign and significance flips and effects that move between models. Findings that change are flagged as fragile, and those flags decide which results go on the AO4 dashboard as firm guidance and which carry a caution.
+
+### AO4. Evidence Update and Decision Dashboard (Simran Kaur)
+
+AO4 has two parts, so it uses two sets of methods. The first part asks whether an AI screener can find personalization studies published after the anchor meta-analysis as completely as two human screeners. I treat this as a binary classification problem. Each database record is one case, and each screener labels it include or exclude based on the eligibility rules in Eisend, Niewiadomska, and van Noort (2026). I rerun the authors' keyword search in EBSCO, ScienceDirect, and ProQuest Dissertations and Theses for work published from 1 January 2024 on, log every query, date, and hit count, and remove duplicates and studies already in the Dataverse file. Google Scholar is used only for citation searching because its results cannot be reproduced exactly. Two human screeners code each title and abstract independently, and their agreement is measured with Cohen's kappa (Cohen 1960). Their consensus becomes the benchmark. The AI screener is first calibrated on records from the original search, scored against the authors' own include and exclude decisions, and then frozen before it sees any new record. This keeps the development and test logic the same as in AO1 and AO2.
+
+The main metric is recall, the share of human-included studies that the AI also includes, because a study the screener misses never reaches the evidence base. I also report precision, F1, and the share of records a person would no longer need to read, each with a Wilson 95% confidence interval. McNemar's test compares the AI's paired decisions with the human consensus, and Fisher's exact test checks whether AI misses cluster by database or record type. The features are the record fields (title, abstract, publication year, record type, source database, abstract availability, DOI, and duplicate flag) and four screening items coded yes, no, or unclear: whether the study compares personalized with nonpersonalized communication or measures perceived personalization, whether it measures a consumer response, whether it reports statistics convertible to r, and whether it falls inside the update window. These are the same criteria the human screeners use, so any difference in decisions comes from the screener, not the rules. Machine-assisted screening is well established for reducing reading load (O'Mara-Eves et al. 2015; van de Schoot et al. 2021), but LLM screening has rarely been tested on a real update in marketing (Khraisha et al. 2024), which is the gap AO4 fills. Included studies are reported in a PRISMA 2020 flow diagram (Page et al. 2021).
+
+The second part asks whether TBFI consultants can use the dashboard to answer client questions correctly. The dashboard (Looker Studio or Streamlit) shows the validated pooled effects by outcome, the main moderators such as data type and channel, the AO3 robustness flags, and the newly found studies. A dashboard is useful only if it leads the user to the right decision (Pauwels et al. 2009), so I test it with a task-based walkthrough rather than a satisfaction survey. Before the walkthrough, I write an answer key of realistic client questions from the AO3 results, for example whether using a customer's first name in an email raises click-through. TBFI staff answer each question with the dashboard, and each answer is scored correct or incorrect. The independent variables are the AO3 robustness flag behind each question (robust vs. caution) and question type (a single pooled effect vs. a "for whom or which channel" moderator question); the dependent variables are task accuracy and time on task; consultant and task order are controls. Because only a few staff will take part, I report the proportion correct with a Wilson 95% confidence interval, use Fisher's exact test for accuracy by flag and question type, and use a Mann-Whitney U test for time on task. A mixed-effects logistic regression with consultant as a random effect is added only if there are enough tasks. Questions answered incorrectly guide dashboard revisions before it is used in the PO3 campaign.
+
+# Approval Statements
+
+Each member confirms approval of their own analytics objective and method with our faculty lead, Dr. Yufan Lin. Approval requests have been shared with Dr. Lin and will be confirmed at our next meeting. This document will be updated with the approval dates once he approves.
+
+| Member | Analytics objective approved | Analytics method approved |
+|:-------|:-----------------------------|:--------------------------|
+| Alondra Rodriguez | AO1: Effect-Size Extraction Accuracy, approved on [DATE] | Single-pass vs. evidence-linked extraction scored against Dataverse values, paired accuracy comparison, approved on [DATE] |
+| Gabriela Raygoza Quintero | AO2: Outcome Construct Alignment with CALIPER, approved on [DATE] | Four coding conditions scored by kappa and macro-F1, Cochran's Q and McNemar tests, Krippendorff's alpha, approved on [DATE] |
+| Yushan Huang | AO3: Do Coding Errors Change the Conclusions?, approved on [DATE] | Reproduction plus random-effects and multilevel meta-analysis in metafor under number and classification versions, approved on [DATE] |
+| Simran Kaur | AO4: Evidence Update and Decision Dashboard, approved on [DATE] | AI vs. human screening scored by kappa, recall, precision, and McNemar's test; task-based dashboard walkthrough, approved on [DATE] |
+
+: Approval of Analytics Objectives and Methods by Dr. Yufan Lin {#tbl-approval}
+
+# Appendix {.unnumbered}
+
+- **GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
+- **Full CEP report:** <https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html>
+
+**References**
+
+Borenstein, Michael, Larry V. Hedges, Julian P. T. Higgins, and Hannah R. Rothstein (2021), *Introduction to Meta-Analysis*, 2nd ed. Hoboken, NJ: Wiley.
+
+Cohen, Jacob (1960), "A Coefficient of Agreement for Nominal Scales," *Educational and Psychological Measurement*, 20 (1), 37–46.
+
+Eisend, Martin, Dominika Niewiadomska, and Guda van Noort (2026), "Personalization in Marketing Communication: A Meta-Analysis," *Journal of Marketing*.
+
+Gartlehner, Gerald, et al. (2024), "Data Extraction for Evidence Synthesis Using a Large Language Model: A Proof-of-Concept Study," *Research Synthesis Methods*, 15 (4), 576–89.
+
+Higgins, Julian P. T. and Simon G. Thompson (2002), "Quantifying Heterogeneity in a Meta-Analysis," *Statistics in Medicine*, 21 (11), 1539–58.
+
+Khraisha, Qusai, Sophie Put, Johanna Kappenberg, Azza Warraitch, and Kristin Hadfield (2024), "Can Large Language Models Replace Humans in Systematic Reviews?" *Research Synthesis Methods*, 15 (4), 616–26.
+
+Krippendorff, Klaus (2018), *Content Analysis: An Introduction to Its Methodology*, 4th ed. Thousand Oaks, CA: Sage.
+
+Lin, Yufan, et al. (under review), "CALIPER: A Protocol for Measuring Constructs with Large Language Models," *Journal of Marketing*.
+
+Mathes, Tim, Pauline Klaßen, and Dawid Pieper (2017), "Frequency of Data Extraction Errors and Methods to Increase Data Extraction Quality: A Methodological Review," *BMC Medical Research Methodology*, 17, 152.
+
+O'Mara-Eves, Alison, James Thomas, John McNaught, Makoto Miwa, and Sophia Ananiadou (2015), "Using Text Mining for Study Identification in Systematic Reviews," *Systematic Reviews*, 4, 5.
+
+Page, Matthew J., et al. (2021), "The PRISMA 2020 Statement: An Updated Guideline for Reporting Systematic Reviews," *BMJ*, 372, n71.
+
+Pauwels, Koen, et al. (2009), "Dashboards as a Service: Why, What, How, and What Research Is Needed?" *Journal of Service Research*, 12 (2), 175–89.
+
+van de Schoot, Rens, et al. (2021), "An Open Source Machine Learning Framework for Efficient and Transparent Systematic Reviews," *Nature Machine Intelligence*, 3 (2), 125–33.
+
+Viechtbauer, Wolfgang (2010), "Conducting Meta-Analyses in R with the metafor Package," *Journal of Statistical Software*, 36 (3), 1–48.
