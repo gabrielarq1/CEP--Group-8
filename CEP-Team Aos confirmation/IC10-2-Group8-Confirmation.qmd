@@ -53,7 +53,7 @@ format:
 Tasks for Chapters 1 to 3, based on faculty and peer feedback and the project timeline. Each AO owner revises their own sections; shared sections are split as shown.
 
 | Task | Source | Owner | Due |
-|:-----|:-------|:------|:----|
+|:----------------|:--------------------|:-----------------|:----------------|
 | Get Dr. Lin's approval of AO4 and its method (this document) | IC10-2 | Simran Kaur | Before Nov 13 |
 | Confirm the two human screeners, the search window start (1 Jan 2024), and Google Scholar for citation searching only | Open questions to Dr. Lin on the AO4 plan | Simran Kaur | Before Nov 13 |
 | Write the AO4 screening codebook and calibrate the AI screener on records from the original search | Ch. 3 method | Simran Kaur | Nov 13 |
@@ -77,7 +77,7 @@ Tasks for Chapters 1 to 3, based on faculty and peer feedback and the project ti
 
 ### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
 
-AO1 tests how accurately AI can pull the numbers a meta-analysis needs from primary articles: sample sizes, effect sizes, test statistics, and the call on which results count as effects. Two workflows run on the same development articles. In single-pass extraction, one model reads the article and returns the values. In evidence-linked extraction, the model must quote the page and table for every value, and a second model checks that the quote supports it. Each AI value is compared with the authors' final coded value in the Harvard Dataverse file (Eisend, Niewiadomska, and van Noort 2026), using a tolerance of |Δr| ≤ .01 for correlations and exact matching for sample sizes. Holding the articles, fields, benchmark, and scoring rules constant means any difference in accuracy comes from the workflow itself. Human double extraction is the standard because single extraction misses or misreads values (Mathes, Klaßen, and Pieper 2017), and early LLM extraction studies show accuracy varies by field (Gartlehner et al. 2024), which is why results are broken down by field type.
+AO1 tests how accurately AI can pull the numbers a meta-analysis needs from primary articles: sample sizes, effect sizes, test statistics, and the call on which results count as effects. Two workflows run on the same development articles. In single-pass extraction, one model reads the article and returns the values. In evidence-linked extraction, the model must quote the page and table for every value, and a second model checks that the quote supports it. Each AI value is compared with the authors' final coded value in the Harvard Dataverse file (Eisend, Niewiadomska, and van Noort 2026), using a tolerance of \|Δr\| ≤ .01 for correlations and exact matching for sample sizes. Holding the articles, fields, benchmark, and scoring rules constant means any difference in accuracy comes from the workflow itself. Human double extraction is the standard because single extraction misses or misreads values (Mathes, Klaßen, and Pieper 2017), and early LLM extraction studies show accuracy varies by field (Gartlehner et al. 2024), which is why results are broken down by field type.
 
 The independent variable is the extraction approach (single pass vs. evidence-linked). The dependent variables are value-level accuracy (match or no match), absolute numerical error, missed- and extra-effect rates, unsupported values (a value the quoted snippet does not contain), and time and cost per article. The features used to explain errors are field type, judgment type (none, main specification, construct mapping, effect direction, moderator, or scope), and reading difficulty (text, simple table, complex table, figure, appendix, scanned page, or computed). Because both approaches code the same values, the comparison is paired: article-level accuracy differences are compared across approaches, and errors are sorted into reading errors (the right number misread) and scope errors (the wrong result treated as an effect). The workflow is tuned on the development articles and frozen before the held-out test set is run once.
 
@@ -106,18 +106,19 @@ The second part asks whether TBFI consultants can use the dashboard to answer cl
 Each member confirms approval of their own analytics objective and method with our faculty lead, Dr. Yufan Lin. Approval requests have been shared with Dr. Lin and will be confirmed at our next meeting. This document will be updated with the approval dates once he approves.
 
 | Member | Analytics objective approved | Analytics method approved |
-|:-------|:-----------------------------|:--------------------------|
-| Alondra Rodriguez | AO1: Effect-Size Extraction Accuracy, approved on [DATE] | Single-pass vs. evidence-linked extraction scored against Dataverse values, paired accuracy comparison, approved on [DATE] |
-| Gabriela Raygoza Quintero | AO2: Outcome Construct Alignment with CALIPER, approved on [DATE] | Four coding conditions scored by kappa and macro-F1, Cochran's Q and McNemar tests, Krippendorff's alpha, approved on [DATE] |
-| Yushan Huang | AO3: Do Coding Errors Change the Conclusions?, approved on [DATE] | Reproduction plus random-effects and multilevel meta-analysis in metafor under number and classification versions, approved on [DATE] |
-| Simran Kaur | AO4: Evidence Update and Decision Dashboard, approved on [DATE] | AI vs. human screening scored by kappa, recall, precision, and McNemar's test; task-based dashboard walkthrough, approved on [DATE] |
+|:--------------|:-----------------------------|:--------------------------|
+| Alondra Rodriguez | AO1: Effect-Size Extraction Accuracy, approved on \[DATE\] | Single-pass vs. evidence-linked extraction scored against Dataverse values, paired accuracy comparison, approved on \[DATE\] |
+| Gabriela Raygoza Quintero | AO2: Outcome Construct Alignment with CALIPER, approved on \[DATE\] | Four coding conditions scored by kappa and macro-F1, Cochran's Q and McNemar tests, Krippendorff's alpha, approved on \[DATE\] |
+| Yushan Huang | AO3: Do Coding Errors Change the Conclusions?, approved on \[DATE\] | Reproduction plus random-effects and multilevel meta-analysis in metafor under number and classification versions, approved on \[DATE\] |
+| Simran Kaur | AO4: Evidence Update and Decision Dashboard, approved on \[DATE\] | AI vs. human screening scored by kappa, recall, precision, and McNemar's test; task-based dashboard walkthrough, approved on \[DATE\] |
 
 : Approval of Analytics Objectives and Methods by Dr. Yufan Lin {#tbl-approval}
 
 # Appendix {.unnumbered}
 
-- **GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
-- **Full CEP report:** <https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html>
+-   **GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
+-   **Full CEP report:** <https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html>
+-   **Group 8 - AO Confirmation :** <https://gabrielarq1.github.io/CEP--Group-8/CEP-Team%20Aos%20confirmation/IC10-2-Group8-Confirmation.html>
 
 **References**
 
