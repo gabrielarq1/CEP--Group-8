@@ -1,0 +1,124 @@
+---
+title: "CEP 12: Data Analysis Table"
+subtitle: "AI-Assisted Evidence Synthesis for Marketing Decisions: <br> A CALIPER Meta-Analysis of Personalization for TBFI"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "Table of contents"
+    toc-location: right
+    number-sections: true
+    number-depth: 2
+    theme: cosmo
+    fontsize: 12pt
+    embed-resources: true
+    smooth-scroll: true
+    tbl-cap-location: top
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+        :root { --cep-green: #1E4D2B; --cep-gold: #E0B12B; --cep-gray: #5f6368; }
+        body, h1, h2, h3, .title, .subtitle, caption, table, #TOC, #toc-title {
+          font-family: "Source Sans 3", "Source Sans Pro", "Segoe UI", Helvetica, Arial, sans-serif !important; }
+        h1:not(.title) { color: var(--cep-green); text-align: center; text-transform: uppercase; font-weight: 700; margin-top: 3rem; }
+        h1:not(.title)::after { content: ""; display: block; width: 50px; height: 3px; background: var(--cep-gold); margin: .5rem auto 0; }
+        .header-section-number { color: var(--cep-gray); }
+        #title-block-header { background: var(--cep-green); border-bottom: 4px solid var(--cep-gold); border-radius: 4px; padding: 2rem 2.25rem 1.5rem; margin-bottom: 2.5rem; }
+        #title-block-header .title { color: #fff; font-weight: 700; text-align: center; font-size: 2.4rem; }
+        #title-block-header .subtitle { color: var(--cep-gold); text-align: center; font-weight: 700; font-size: 1.2rem; }
+        #title-block-header .quarto-title-meta-heading { color: var(--cep-gold); text-transform: uppercase; }
+        #title-block-header .quarto-title-meta-contents, #title-block-header .quarto-title-meta-contents p { color: #fff; }
+        #TOC > ul > li > a { text-transform: uppercase; font-weight: 700; color: #222; }
+        #TOC a.active { color: var(--cep-green); border-left-color: var(--cep-green); }
+        caption { font-weight: 700; color: inherit; }
+        table { font-size: 11pt; }
+        thead th { background: var(--cep-green) !important; color: #fff !important; }
+        td { vertical-align: top; }
+        td:first-child { width: 27%; font-weight: 700; color: var(--cep-green); background: #F4F8F3; }
+        </style>
+    other-links:
+      - text: GitHub Repository
+        icon: github
+        href: https://github.com/gabrielarq1/CEP--Group-8
+      - text: Full CEP Report
+        icon: journal-text
+        href: https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html
+      - text: MS in Digital Marketing
+        icon: mortarboard-fill
+        href: https://www.cpp.edu/programs/cba/gp/masters-digital-marketing.shtml
+    link-external-icon: true
+    link-external-newwindow: true
+crossref:
+  tbl-title: "Table"
+  title-delim: "."
+---
+
+# Overview {.unnumbered}
+
+Our project uses secondary data only: the Harvard Dataverse replication files for Eisend, Niewiadomska, and van Noort (2026), the authors' R scripts, and the coding outputs from AO1 and AO2. There is no survey questionnaire, so the "question items" below are dataset fields, coded variables, and derived indicators. Each table lists one analytics objective's research question, its constructs and their roles (independent, dependent, control), the items that measure them, their scales of measurement, and the statistical tests we will use.
+
+# AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
+
+| Field | Data analysis plan |
+|:------|:-------------------|
+| Research question | How accurately can AI extract sample sizes, effect sizes, and test statistics from primary articles? Does evidence-linked extraction with a second-model check improve accuracy compared with single-pass extraction? |
+| Constructs / roles (IV, DV, controls) | **IV:** Extraction approach: single pass vs. evidence-linked extraction with second-model verification.<br><br>**DV:** Extraction accuracy, numerical error, missed and extra effects, unsupported values, and time/cost per article.<br><br>**Controls:** Use the same articles, extraction fields, human benchmarks, and scoring rules for both approaches. |
+| Question items / data fields | Article, study, and effect IDs; sample size; effect size; test statistic; final human-coded value; AI-extracted value; evidence location and supporting quotation; reading difficulty; judgment type; model/version; prompt; processing time and cost. |
+| Measurement scales | **Nominal:** Extraction approach, field type, error category, and correct/incorrect or supported/unsupported classifications.<br>**Ratio:** Sample size, error counts, time, and cost.<br>**Interval:** Effect sizes, test statistics, and absolute differences between AI and benchmark values. |
+| Statistical analysis / test | Calculate field-level accuracy, absolute numerical error, missed- and extra-effect rates, and unsupported-value rates for each approach. Compare approaches on the same articles using paired article-level accuracy differences. Summarize results by field type and error category, alongside average time and cost per article. |
+| Rationale / notes | The authors' final Dataverse values provide the human benchmark. Separate reading errors from scope errors, such as selecting the wrong effect. Use the proposed tolerance of \|Δr\| ≤ .01 for correlations and confirm rules for other fields. Develop the workflow on development articles, then freeze it before evaluating the held-out test set. |
+
+: AO1 Data Analysis Plan {#tbl-ao1}
+
+# AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero)
+
+| Field | Data analysis plan |
+|:------|:-------------------|
+| Research question | Primary studies often give the same construct name different definitions and measures, or give different names to the same thing. Can CALIPER revise the codebook rules so that AI coders assign each study's outcome (dependent variable) to the meta-analysis's outcome categories as accurately as the human coders? |
+| Constructs / roles (IV, DV, controls) | **IV:** AI coding condition that is assigned.<br><br>**DV:** Accuracy of AI-assigned outcome coding against the final human codes.<br><br>**Controls:** The meta-analysis outcome categories and definitions remain fixed. Mapping rules are revised using development articles and frozen before testing. |
+| Question items / data fields | Published research articles and secondary data from the Harvard Dataverse file. Fields include the author's construct label and definition, operationalization (survey items, scale source, or behavioral metric), measure type, assigned category, justification, disagreement type (rule gap, missing evidence, real difference), individual coder 1, 2, and 3 codes, and final human codes. |
+| Measurement scales | The outcome categories, measure types, coding conditions, and disagreements are treated as nominal data. AI classification accuracy (correct / incorrect against the final human code) is nominal (binary). Accuracy, macro-F1, kappa, and alpha are summary statistics computed from these nominal codes. |
+| Statistical analysis / test | Compare four conditions on the same development outcomes, then run the frozen rules once on the test set: (0) label only, (a) category names with the article, (b) one AI coder with the article and codebook, (c) two AI coders from different model families with CALIPER rule revision.<br><br>**Accuracy against the final human codes:** Cohen's kappa and macro-F1 for each condition, with bootstrapped 95% CIs (resampling articles). Cochran's Q tests whether accuracy differs across the four related conditions, followed by pairwise McNemar tests with a Bonferroni correction.<br><br>**Agreement between the two AI coders:** Krippendorff's alpha, reported with the agree-and-wrong rate, the abstention rate, and the share of disagreements by type. A mixed-effects logistic regression (correct ~ condition + measure type + (1 \| article)) checks whether gains hold across measure types. |
+| Rationale / notes | The final human codes in the Dataverse file are the benchmark, and the human coders' own agreement (kappa = .857) sets a realistic ceiling. Agreement between AI coders is reported separately from accuracy, since two coders can agree and still be wrong.<br><br>Comparing condition (0) with (b) shows how much reading the actual measure adds beyond its name. Coders and the rule reviser never see effect sizes, significance, or hypothesis results, so classifications can't be steered by the findings. |
+
+: AO2 Data Analysis Plan {#tbl-ao2}
+
+# AO3. Do Coding Errors Change the Conclusions? (Yushan Huang)
+
+| Field | Data analysis plan |
+|:------|:-------------------|
+| Research question | How much do the meta-analysis's pooled effects, heterogeneity, and moderator results change when AI-extracted numbers replace the human values, and when outcomes are classified differently? |
+| Constructs / roles (IV, DV, controls) | **IV / analysis condition:** Source of numeric values (published human benchmark vs. AO1 AI extraction) and outcome classification version (published final code, human coder 1, human coder 2, AI before alignment, AI after alignment).<br><br>**DV:** Pooled effect, heterogeneity (tau², I²), moderator coefficients, 95% confidence and prediction intervals, model inclusion counts, and conclusion changes.<br><br>**Controls:** Keep the same underlying studies/effects, model specifications, moderators, and estimation settings as the published R scripts wherever applicable; hold published effect sizes fixed in classification-only comparisons. |
+| Question items / data fields | No survey items. Unit identifiers: IDP (paper), IDD (study), IDES (effect). Published and AO1-extracted effect size (r), sample size, and derived sampling variance; final and coder-specific outcome category codes (including AO2 AI classifications); published moderator variables; model estimates, standard errors, p-values, CI/PI bounds, tau², I², and effect counts. Exact column names beyond the documented IDs are verified against the replication files. |
+| Measurement scales | **Nominal:** Analysis condition and outcome category; significance/sign flip (binary).<br>**Continuous (interval-like):** Effect size r, standard errors, moderator coefficients, CI/PI limits, and standardized estimate differences.<br>**Ratio:** Sample size and effect count.<br>**Nonnegative quantitative:** tau², I², and interval width. |
+| Statistical analysis / test | First reproduce published estimates using the authors' R scripts. Then fit the same random-effects / multilevel meta-analysis and meta-regression models in R (metafor) using AO1 values for number robustness. Separately, keep published effect sizes fixed and rerun models under human coder 1, human coder 2, AI pre-alignment, and AI post-alignment classifications. Compare each model with the published benchmark using change in standard-error units; report pooled estimates, tau², I², moderator coefficients, 95% CI/PI, PI-width change, sign/significance flips, and effects moving between models. |
+| Interpretation / decision rule | Assess whether conclusions remain directionally and statistically consistent across coding versions; flag fragile outcomes or moderator findings for caution in the TBFI consultant dashboard. This is a sensitivity/robustness analysis, not a simple independent-samples t-test. Do not infer actual robustness until the models are run. |
+
+: AO3 Data Analysis Plan {#tbl-ao3}
+
+# AO4. Evidence Update and Decision Dashboard (Simran Kaur)
+
+| Field | Data analysis plan |
+|:------|:-------------------|
+| Research question | **RQ4a:** Can an AI screener find personalization studies published after the meta-analysis search cutoff as completely as two independent human screeners?<br><br>**RQ4b:** Can TBFI consultants use the resulting dashboard to answer realistic client questions correctly? |
+| Constructs / roles (IV, DV, controls) | **IV:** Screener (frozen AI screener vs. human consensus) for RQ4a. For RQ4b, the AO3 robustness flag on the finding each question draws on (robust vs. caution) and question type (single pooled effect vs. moderator question).<br><br>**DV:** Include/exclude decision for each record and agreement between the two human screeners (RQ4a); task accuracy against the AO3 answer key and time on task (RQ4b).<br><br>**Controls:** Same records, search strings, and eligibility criteria for every screener; source database, record type, and abstract availability; consultant and task order in the walkthrough. |
+| Question items / data fields | **Search log:** database (EBSCO, ScienceDirect, ProQuest Dissertations and Theses), query string, search date, hit count.<br><br>**Record fields:** title, abstract, publication year, record type, DOI, and a duplicate flag against the anchor Dataverse file.<br><br>**Screening codebook items**, each coded yes / no / unclear: (1) compares personalized vs. nonpersonalized communication or measures perceived personalization; (2) measures a consumer response; (3) reports statistics convertible to r; (4) published on or after 1 Jan 2024 and not already in the anchor dataset.<br><br>**Decisions:** screener 1, screener 2, consensus, and AI include/exclude.<br><br>**Walkthrough:** consultant ID, question ID, question type, robustness flag, answer given, correct/incorrect, seconds per question. |
+| Measurement scales | **Nominal:** screener, include/exclude decision, eligibility items, database, record type, abstract available, robustness flag, question type, correct/incorrect.<br>**Ordinal:** task order.<br>**Interval:** publication year.<br>**Ratio:** hit counts, number of records and included studies, time on task. |
+| Statistical analysis / test | **RQ4a:** Cohen's kappa between the two human screeners. AI recall (priority), precision, and F1 against the human consensus, with Wilson 95% CIs. McNemar's test on paired AI vs. consensus decisions. Fisher's exact test on AI misses by database and record type. Report the share of records humans no longer need to read and PRISMA 2020 flow counts.<br><br>**RQ4b:** Proportion of tasks answered correctly with a Wilson 95% CI. Fisher's exact test on accuracy by robustness flag and by question type. Mixed-effects logistic regression (correct ~ flag + question type + (1 \| consultant)) only if there are enough tasks. Mann–Whitney U test on time on task by question type. |
+| Rationale / notes | Recall matters most, because a study the screener misses never reaches the evidence base. The update window starts 1 Jan 2024 since the anchor search ran until 2024, and records already in the Dataverse file are removed during deduplication. Google Scholar is used only for citation searching because its results can't be reproduced exactly.<br><br>The AI screener is calibrated on records from the original search, scored against the authors' own include/exclude decisions, and frozen before it sees the new records. The walkthrough has only a few TBFI staff, so exact tests and confidence intervals come first. |
+
+: AO4 Data Analysis Plan {#tbl-ao4}
+
+# Appendix {.unnumbered}
+
+- **GitHub repository:** <https://github.com/gabrielarq1/CEP--Group-8>
+- **GitHub Pages (this page):** <https://gabrielarq1.github.io/CEP--Group-8/CEP12/CEP12-Data-Analysis-Table.html>
+- **Full CEP report:** <https://gabrielarq1.github.io/CEP--Group-8/CEP-F26/Group8-CEP-F26.html>
+- **Anchor data (Harvard Dataverse):** <https://doi.org/10.7910/DVN/KJRWWM>
