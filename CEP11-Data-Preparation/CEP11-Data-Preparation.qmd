@@ -1,0 +1,572 @@
+---
+title: "CEP 11: Data Preparation"
+subtitle: "AI-Assisted Evidence Synthesis for Marketing Decisions <br> Preparing the Eisend et al. (2026) Replication Data for Group 8"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: "Table of contents"
+    number-sections: false
+    theme: cosmo
+    fontsize: 12pt
+    embed-resources: true
+    code-fold: show
+    code-tools: true
+    code-overflow: wrap
+    df-print: kable
+    fig-cap-location: top
+    tbl-cap-location: top
+    include-in-header:
+      text: |
+        <style>
+        :root { --cep-green: #1E4D2B; --cep-gold: #E0B12B; --cep-gray: #5f6368; }
+        body, h1, h2, h3, h4, .title, .subtitle, caption, figcaption, table, #TOC, #toc-title {
+          font-family: "Source Sans Pro", "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif !important; }
+        h1:not(.title) { color: var(--cep-green); font-weight: 700; margin-top: 2.5rem; }
+        h2 { color: var(--cep-green); font-weight: 700; border-bottom: none; padding-bottom: .35rem; }
+        h2::after { content: ""; display: block; width: 50px; height: 3px; background: var(--cep-gold); margin-top: .5rem; }
+        h3 { color: var(--cep-green); font-weight: 700; font-style: italic; }
+        .header-section-number { color: var(--cep-gray); }
+        #title-block-header { background: var(--cep-green); border-bottom: 4px solid var(--cep-gold);
+          border-radius: 4px; padding: 2rem 2.25rem 1.5rem; margin-bottom: 2.5rem; }
+        #title-block-header .title { color: #fff; font-weight: 700; text-align: center; font-size: 2.4rem; line-height: 1.15; }
+        #title-block-header .subtitle { color: var(--cep-gold); text-align: center; font-weight: 700; font-size: 1.15rem;
+          line-height: 1.4; max-width: 46rem; margin: 0 auto; }
+        #title-block-header .quarto-title-meta { display: grid; grid-template-columns: 1fr auto; column-gap: 2rem;
+          text-align: center; margin-top: 1.5rem; }
+        #title-block-header .quarto-title-meta-heading { color: var(--cep-gold); text-transform: uppercase; letter-spacing: .04em; }
+        #title-block-header .quarto-title-meta-contents, #title-block-header .quarto-title-meta-contents p { color: #fff; }
+        #title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p { display: inline; margin: 0; }
+        #title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p:not(:last-child)::after {
+          content: " · "; color: var(--cep-gold); }
+        #TOC > ul > li > a { text-transform: uppercase; font-weight: 700; color: #222; }
+        #TOC a.active { color: var(--cep-green); border-left-color: var(--cep-green); }
+        caption, figcaption { font-weight: 700; color: inherit; }
+        thead th { border-bottom: 2px solid var(--cep-green) !important; }
+        .callout { border-left-color: var(--cep-green) !important; }
+        </style>
+execute:
+  warning: false
+  message: false
+---
+
+# Overview
+
+Our project does not collect survey data. Every analytics objective (AO) works from published research, and the data the whole project rests on is the replication packet that Eisend, Niewiadomska, and van Noort posted on Harvard Dataverse for their *Journal of Marketing* meta-analysis of personalization (doi: [10.7910/DVN/KJRWWM](https://doi.org/10.7910/DVN/KJRWWM)). So this assignment applies the survey data-preparation workflow from Case 31 to the two SPSS files in that packet:
+
+- **personalization.sav** is our main project data. Each row is one effect size coded from a primary study, with the codes from coders 1, 2, and 3. It is the human benchmark for AO1 to AO3 and the base the AO4 evidence update adds to.
+- **manager-survey.sav** is a real survey. The authors asked 201 marketing managers how they use personalization and how useful and surprising they found six key findings. It is the closest thing in our project to survey data, and it speaks directly to PO2, the consultant playbook for TBFI.
+
+Each learning objective maps onto these files as follows.
+
+| Learning objective | Where it happens in this report |
+|:--|:--|
+| Prepare raw data before download | [Step 1](#sec-step1): source, version, and exclusion checks for both files |
+| Edit variable labels | [Meta-analysis labels](#sec-meta-labels) and [survey labels](#sec-survey-labels) |
+| Assign values to nominal levels | [Meta-analysis values](#sec-meta-values) and [survey labels](#sec-survey-labels) |
+| Set measures by scale type | [Set measures](#sec-meta-measures) |
+| Create new variables with `mutate()` | [New variables](#sec-meta-mutate) |
+| Recode into different variables | [Outcome recode](#sec-meta-recode) and [survey recode](#sec-survey-recode) |
+| Reliability analysis | [Coder agreement](#sec-meta-reliability) and [Cronbach's alpha](#sec-survey-alpha) |
+| Composite scale | [Composite scales](#sec-survey-composite) |
+
+: How the Learning Objectives Map to Our Data {#tbl-map}
+
+# Step 1: Prepare the Raw Data Before Download {#sec-step1}
+
+The Qualtrics steps in the assignment (deleting pretest responses and keeping only legitimate responses) have a direct equivalent for both files.
+
+**personalization.sav.** We downloaded the full replication packet from Dataverse and checked it against the authors' readme. The packet has four data files (personalization.sav, personalizationcorrelation.sav, manager-survey.sav, corrmatrix.xls), two R scripts, and four AMOS files. The authors' `exclude` variable plays the role of "keep only legitimate responses." Only rows with `exclude = 0` enter their analyses, and their R scripts filter on it every time.
+
+**manager-survey.sav.** The survey was fielded on Prolific in two rounds (July 8 and July 10). The file already flags testers and exclusions: `tester`, `exclude`, and a `remarks` field explaining why. The file also holds personal and device data (Prolific ID, city, latitude, longitude, browser, device model). None of that is needed for analysis, so it is dropped as the first cleaning step and never printed.
+
+# Step 2: Read the SPSS Files
+
+```{r}
+#| label: setup
+library(haven)     # read SPSS files with labels
+library(dplyr)
+library(tidyr)
+library(labelled)  # edit variable and value labels
+library(psych)     # reliability (alpha, kappa)
+library(knitr)
+library(ggplot2)
+
+# Chart colors (validated for color-vision deficiency) and a quiet theme
+green <- "#2F7D4A"; gold <- "#B7861A"; muted <- "#C9CDD2"
+theme_cep <- theme_minimal(base_size = 13) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_line(color = "#ECEEF0"),
+        plot.title.position = "plot", axis.title = element_text(color = "#5f6368"),
+        strip.text = element_text(face = "bold", hjust = 0))
+
+# The replication files live in the repo's dataverse_files folder.
+# This works when chunks run from the repo root (Positron console)
+# and when Quarto renders from this file's own folder.
+data_dir <- if (dir.exists("dataverse_files")) "dataverse_files" else "../dataverse_files"
+out_dir <- if (dir.exists("CEP11-Data-Preparation")) "CEP11-Data-Preparation" else "."
+
+meta_raw <- read_sav(file.path(data_dir, "personalization.sav"))
+survey_raw <- read_sav(file.path(data_dir, "manager-survey.sav"))
+
+tibble(
+  file = c("personalization.sav", "manager-survey.sav"),
+  rows = c(nrow(meta_raw), nrow(survey_raw)),
+  variables = c(ncol(meta_raw), ncol(survey_raw))
+) |> kable(caption = "Raw Files as Downloaded")
+```
+
+personalization.sav has 2,452 rows and 237 variables. That is far more than the published analysis uses, because it keeps every coded row (including exclusions) and every coder's version of each code.
+
+# Preparing the Meta-Analysis Data (personalization.sav)
+
+## Keep the Analysis Variables
+
+We keep the identifiers, the effect-size variables, the outcome codes from each coder, the five data-type moderators with both coders' codes, and a few study descriptors. The free-text and author-contact fields stay in the raw file.
+
+```{r}
+#| label: meta-select
+meta <- meta_raw |>
+  select(IDES, IDD, IDP, exclude,
+         ES_RAW, VAR_RAW, ESW, VAR, SAMPLE,
+         DV, DVcoder1, DVcoder2, DVcoder3,
+         PERSUASIONSUCCESS, PERSUASIONFAILURE, ATTITUDES, BEHAVIORCAT,
+         demographic1, demographic2, psychographic1, psychographic2,
+         socioeconomic1, socioeconomic2, geographic1, geographic2,
+         behavioral1, behavioral2,
+         DEMOGRAPHIC_LEV2, PSYCHOGRAPHIC_LEV2, SOCIOECONOMIC_LEV2,
+         GEOGRAPHIC_LEV2, BEHAVIORAL_LEV2,
+         SOCIAL_MEDIA, ONLINE, STUDENT_MULTIPLE, USA, YEAR, AGE, GENDER)
+dim(meta)
+```
+
+## Edit Variable Labels {#sec-meta-labels}
+
+Several key variables arrive with no label at all, including the effect sizes the models run on. We add plain-language labels so every table and output is readable.
+
+```{r}
+#| label: meta-labels
+var_label(meta) <- list(
+  IDES = "Effect size ID",
+  IDD = "Study (data set) ID",
+  IDP = "Paper ID",
+  exclude = "Exclusion code (0 = included in published analysis)",
+  ES_RAW = "Effect size, uncorrected correlation r",
+  VAR_RAW = "Sampling variance of uncorrected r",
+  ESW = "Effect size used in the authors' models (corrected)",
+  VAR = "Sampling variance of ESW",
+  SAMPLE = "Sample size for this effect",
+  DV = "Outcome category, final code",
+  DVcoder1 = "Outcome category, coder 1",
+  DVcoder2 = "Outcome category, coder 2",
+  DVcoder3 = "Outcome category, coder 3 (tie-breaker)"
+)
+
+tibble(variable = names(meta)[1:13],
+       label = unlist(var_label(meta)[1:13])) |>
+  kable(caption = "Edited Variable Labels")
+```
+
+## Assign Values to Nominal Levels {#sec-meta-values}
+
+The final outcome code `DV` is stored as a bare number from 1 to 50, while the coder variables carry the 44 category names. We copy those value labels onto `DV` so code 30 reads as "purchase/behavioral intentions" instead of 30. The yes/no moderators get "no" and "yes" labels, and the exclusion codes get labels from the readme logic (0 = included, other values = excluded at different coding rounds).
+
+```{r}
+#| label: meta-values
+dv_labels <- attr(meta_raw$DVcoder1, "labels")
+meta <- meta |>
+  mutate(DV = labelled(as.numeric(DV), dv_labels, label = "Outcome category, final code"))
+
+yes_no <- c(no = 0, yes = 1)
+meta <- meta |>
+  set_value_labels(PERSUASIONSUCCESS = yes_no, PERSUASIONFAILURE = yes_no,
+                   ATTITUDES = yes_no, BEHAVIORCAT = yes_no,
+                   DEMOGRAPHIC_LEV2 = yes_no, PSYCHOGRAPHIC_LEV2 = yes_no,
+                   SOCIOECONOMIC_LEV2 = yes_no, GEOGRAPHIC_LEV2 = yes_no,
+                   BEHAVIORAL_LEV2 = yes_no, SOCIAL_MEDIA = yes_no,
+                   ONLINE = yes_no, USA = yes_no)
+
+meta |>
+  filter(!is.na(DV)) |>
+  count(DV = as_factor(DV), sort = TRUE) |>
+  slice_head(n = 10) |>
+  kable(caption = "Ten Most Common Outcome Categories (All Coded Rows, Final Code)")
+```
+
+## Set Measures by Scale Type {#sec-meta-measures}
+
+R has no "measure" setting like SPSS, so the scale of measurement is set through the variable type. Nominal variables become factors, IDs stay as identifiers, and effect sizes, variances, and sample sizes stay numeric. This follows the measurement scales in our CEP 12 Data Analysis Table.
+
+```{r}
+#| label: meta-measures
+meta <- meta |>
+  mutate(
+    DV_f = as_factor(DV),
+    student_sample = as_factor(STUDENT_MULTIPLE),
+    across(c(PERSUASIONSUCCESS, PERSUASIONFAILURE, ATTITUDES, BEHAVIORCAT,
+             SOCIAL_MEDIA, ONLINE, USA), as_factor)
+  )
+
+tibble(
+  variable = c("IDES, IDD, IDP", "DV, DVcoder1-3, data-type codes, channel flags",
+               "ES_RAW, ESW", "VAR_RAW, VAR", "SAMPLE", "YEAR, AGE, GENDER (% female)"),
+  measure = c("Identifier", "Nominal", "Continuous (scale)", "Continuous (scale)",
+              "Ratio (scale)", "Ratio/interval (scale)"),
+  r_type = c("numeric ID", "factor", "numeric", "numeric", "numeric", "numeric")
+) |> kable(caption = "Measurement Scale Set for Each Variable Group")
+```
+
+## Filter to the Analysis Sample and Confirm the Counts
+
+This is the step that matters most for our project. If our filtered data do not match the published counts, every AO comparison is off from the start.
+
+```{r}
+#| label: meta-filter
+meta |> count(exclude) |> kable(caption = "Rows by Exclusion Code")
+
+meta_inc <- meta |> filter(exclude == 0)
+
+tibble(
+  measure = c("Effect sizes", "Studies (IDD)", "Papers (IDP)"),
+  published = c(1536, 290, 229),
+  our_data = c(nrow(meta_inc), n_distinct(meta_inc$IDD), n_distinct(meta_inc$IDP))
+) |> mutate(difference = our_data - published) |>
+  kable(caption = "Filtered Data vs. Counts Reported in Eisend et al. (2026)")
+```
+
+The effect-size count matches exactly: 1,536. The study count is off by one (289 vs. 290) and the paper count by six (223 vs. 229). The most likely reason is that some IDs were merged or renumbered after the counts in the article were finalized, but we can't confirm that from the file. We will flag this to Dr. Lin and use the 1,536 effect sizes, which are what the models actually run on.
+
+```{r}
+#| label: fig-exclusion
+#| fig-cap: "From 2,452 Coded Rows to the 1,536 Effects in the Published Analysis"
+#| fig-height: 3.2
+meta |>
+  count(exclude) |>
+  mutate(status = if_else(exclude == 0, "Included (exclude = 0)",
+                          paste0("Excluded, code ", exclude)),
+         status = reorder(status, n), kept = exclude == 0) |>
+  ggplot(aes(n, status, fill = kept)) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = scales::comma(n)), hjust = -0.15, size = 4, color = "#333333") +
+  scale_fill_manual(values = c(`TRUE` = green, `FALSE` = muted), guide = "none") +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.12)), labels = scales::comma) +
+  labs(x = "Rows", y = NULL) +
+  theme_cep
+```
+
+Most of what gets dropped is codes 1 and 3. We still need the authors' codebook to know exactly what each exclusion code means, and that is one question for Dr. Lin.
+
+## Create New Variables with `mutate()` {#sec-meta-mutate}
+
+Three new variables, each with a job in the project:
+
+- `var_check` recomputes the sampling variance of *r* from its formula, (1 − *r*²)² / (*n* − 1). If it matches the authors' `VAR_RAW`, we know how their variances were built, which AO1 needs when AI-extracted *r* and *n* replace the human values.
+- `n_data_types` counts how many of the five data types (demographic, psychographic, socioeconomic, geographic, behavioral) a personalization used. This is a dashboard-ready summary for AO4.
+- `dv_agree` flags whether coders 1 and 2 gave the same outcome category, which feeds AO2.
+
+```{r}
+#| label: meta-mutate
+meta_inc <- meta_inc |>
+  mutate(
+    var_check = (1 - ES_RAW^2)^2 / (SAMPLE - 1),
+    n_data_types = DEMOGRAPHIC_LEV2 + PSYCHOGRAPHIC_LEV2 + SOCIOECONOMIC_LEV2 +
+                   GEOGRAPHIC_LEV2 + BEHAVIORAL_LEV2,
+    dv_agree = if_else(as.numeric(DVcoder1) == as.numeric(DVcoder2), "agree", "disagree")
+  )
+
+meta_inc |>
+  filter(!is.na(var_check), !is.na(VAR_RAW)) |>
+  summarise(rows_checked = n(),
+            max_abs_difference = max(abs(var_check - VAR_RAW)),
+            correlation = cor(var_check, VAR_RAW)) |>
+  kable(digits = 4, caption = "Recomputed Variance vs. the Authors' VAR_RAW")
+
+meta_inc |> count(n_data_types) |>
+  kable(caption = "Number of Data Types Used per Effect")
+```
+
+## Recode into Different Variables {#sec-meta-recode}
+
+The authors group the 44 outcome codes into broad families in their R script (personalization-integration.R): persuasion success (for example attitudes, intentions, trust) and persuasion failure (negative affect, avoidance, negative cognitions, intrusiveness, privacy concerns, suspicion). We recode `DV` into a new variable, `dv_family`, using exactly the code lists in their script, and keep the original `DV` untouched.
+
+```{r}
+#| label: meta-recode
+success_codes <- c(1, 3, 4, 5, 7, 30, 31, 8, 13, 16, 26, 35, 39, 41, 42)
+failure_codes <- c(9, 12, 14, 24, 29, 38)
+
+meta_inc <- meta_inc |>
+  mutate(dv_family = case_when(
+    as.numeric(DV) %in% success_codes ~ "Persuasion success",
+    as.numeric(DV) %in% failure_codes ~ "Persuasion failure",
+    TRUE ~ "Other outcome"
+  ),
+  dv_family = factor(dv_family, levels = c("Persuasion success", "Persuasion failure", "Other outcome")))
+
+meta_inc |>
+  count(dv_family, PERSUASIONSUCCESS, PERSUASIONFAILURE) |>
+  kable(caption = "Recoded Outcome Family Checked Against the Authors' Flags")
+```
+
+The recode lines up with the authors' own `PERSUASIONSUCCESS` and `PERSUASIONFAILURE` flags, so the new variable reproduces their grouping.
+
+A quick look at the effect sizes is the last check before analysis. Every included correlation falls between −1 and 1, so there are no impossible values to fix, and the shape of each family matches the published story: success outcomes lean positive, failure outcomes sit close to zero.
+
+```{r}
+#| label: fig-effects
+#| fig-cap: "Distribution of Uncorrected Effect Sizes (r) by Outcome Family, Included Effects"
+#| fig-height: 3.6
+meta_inc |>
+  ggplot(aes(ES_RAW)) +
+  geom_histogram(binwidth = 0.05, boundary = 0, fill = green, color = "white", linewidth = 0.3) +
+  geom_vline(xintercept = 0, color = "#5f6368", linewidth = 0.4) +
+  facet_wrap(~ dv_family, nrow = 1) +
+  labs(x = "Effect size r (more personalized vs. less personalized)", y = "Effects") +
+  theme_cep
+```
+
+## Reliability Analysis: Agreement Between Coders {#sec-meta-reliability}
+
+In a survey, reliability asks whether the items of a scale hang together (Cronbach's alpha). In a meta-analysis, the "instrument" is the codebook, and reliability asks whether two coders applying it independently reach the same code. The standard statistic for two coders and nominal codes is Cohen's kappa. This is also the exact comparison AO2 runs for the AI coders.
+
+```{r}
+#| label: meta-reliability
+kappa_row <- function(data, a, b, name) {
+  x <- data |> select(all_of(c(a, b))) |> mutate(across(everything(), as.numeric)) |> drop_na()
+  k <- cohen.kappa(as.matrix(x))
+  tibble(code = name, rows_both_coded = nrow(x),
+         percent_agree = round(100 * mean(x[[1]] == x[[2]]), 1),
+         cohens_kappa = round(k$kappa, 3))
+}
+
+bind_rows(
+  kappa_row(meta_inc, "DVcoder1", "DVcoder2", "Outcome category (44 codes)"),
+  kappa_row(meta_inc, "demographic1", "demographic2", "Demographic data used"),
+  kappa_row(meta_inc, "psychographic1", "psychographic2", "Psychographic data used"),
+  kappa_row(meta_inc, "socioeconomic1", "socioeconomic2", "Socioeconomic data used"),
+  kappa_row(meta_inc, "geographic1", "geographic2", "Geographic data used"),
+  kappa_row(meta_inc, "behavioral1", "behavioral2", "Behavioral data used")
+) |> kable(caption = "Inter-Coder Reliability, Coder 1 vs. Coder 2 (Included Rows)")
+```
+
+The outcome-category kappa is .857, the same value the authors report in the article, so our prepared data reproduce their reliability check. Values above .80 are usually read as strong agreement and .61 to .80 as substantial (Landis and Koch 1977), so every code here clears the usual bar. The roughly 13% of rows where the coders disagreed are where AO2 will focus.
+
+```{r}
+#| label: fig-disagree
+#| fig-cap: "Outcome Categories with the Most Coder Disagreement (Coder 1 Category, 30+ Rows; Row Count in Parentheses)"
+#| fig-height: 3.8
+overall_disagree <- 100 * mean(meta_inc$dv_agree == "disagree", na.rm = TRUE)
+
+meta_inc |>
+  filter(!is.na(dv_agree)) |>
+  group_by(category = as.character(as_factor(DVcoder1))) |>
+  summarise(rows = n(), percent_disagree = 100 * mean(dv_agree == "disagree")) |>
+  filter(rows >= 30) |>
+  slice_max(percent_disagree, n = 8) |>
+  mutate(category = reorder(paste0(category, " (", rows, ")"), percent_disagree)) |>
+  ggplot(aes(percent_disagree, category)) +
+  geom_col(width = 0.6, fill = green) +
+  geom_text(aes(label = paste0(round(percent_disagree), "%")), hjust = -0.2, size = 3.8, color = "#333333") +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Rows where coders 1 and 2 disagreed (%)", y = NULL,
+       subtitle = paste0("Across all included rows, coders disagreed on ", round(overall_disagree), "%")) +
+  theme_cep
+```
+
+# Preparing the Survey Data (manager-survey.sav)
+
+## Clean: Drop Personal Data and Keep Legitimate Responses
+
+```{r}
+#| label: survey-clean
+survey <- survey_raw |>
+  select(-prolificID, -starts_with("participant_"), -browser, -referer,
+         -session_id, -page_history, -starts_with("rts"), -external_lfdn,
+         -ats, -datetime, -date_of_last_access, -date_of_first_mail)
+
+tibble(step = c("Raw responses", "Testers", "Flagged for exclusion", "Kept for analysis"),
+       n = c(nrow(survey), sum(survey$tester == 1), sum(survey$exclude == 1),
+             sum(survey$exclude == 0 & survey$tester == 0))) |>
+  kable(caption = "Response Screening")
+
+survey_raw |> filter(exclude == 1) |> count(reason = as.character(as_factor(remarks))) |> mutate(reason = coalesce(reason, "no reason recorded")) |>
+  kable(caption = "Why the Excluded Responses Were Removed")
+
+survey <- survey |> filter(exclude == 0, tester == 0)
+```
+
+The authors excluded three responses: one whose open answers were out of context, one that pasted an AI-generated answer (it included "Meta AI:"), and one with no reason recorded in `remarks`. We keep 198 managers.
+
+## Edit Labels and Values {#sec-survey-labels}
+
+Several labels came from the German survey platform (for example "Kein Tester" and "Bereinigt"), and the item labels are long. We replace them with short English labels.
+
+```{r}
+#| label: survey-labels
+survey <- survey |>
+  set_value_labels(tester = c("not a tester" = 0, "tester" = 1),
+                   cleaned = c("not cleaned" = 0, "cleaned" = 1, "checked, not cleaned" = 2),
+                   round = c("Round 1 (July 8)" = 1, "Round 2 (July 10)" = 2))
+
+kf_names <- c(KF1 = "Personalization is a double-edged sword",
+              KF2 = "The type of data used matters",
+              KF3 = "Implicit data can cause backlash",
+              KF4 = "Publicly available data can cause backlash",
+              KF5 = "Transparency about data use helps",
+              KF6 = "Delivery mode does not matter")
+
+for (k in names(kf_names)) {
+  var_label(survey[[paste0(k, "_useful")]]) <- paste0(k, " useful: ", kf_names[k])
+  var_label(survey[[paste0(k, "_surprise")]]) <- paste0(k, " surprising: ", kf_names[k])
+}
+
+survey |> count(gender = as_factor(gender), round = as_factor(round)) |>
+  kable(caption = "Respondents by Gender and Round")
+```
+
+## Recode Out-of-Range Values into New Variables {#sec-survey-recode}
+
+The usefulness and surprise items are 7-point scales (1 = not at all, 7 = very much), but some responses are coded 0, which is not a valid scale point. The authors' own filter variable treats 0 as missing. We recode each item into a new variable (`_c` for clean) with 0 set to `NA`, and keep the originals.
+
+```{r}
+#| label: survey-recode
+items <- c(paste0("KF", 1:6, "_useful"), paste0("KF", 1:6, "_surprise"))
+
+survey |>
+  summarise(across(all_of(items), ~ sum(as.numeric(.x) == 0, na.rm = TRUE))) |>
+  pivot_longer(everything(), names_to = "item", values_to = "zero_responses") |>
+  filter(zero_responses > 0) |>
+  kable(caption = "Items with Out-of-Range Zero Codes")
+
+survey <- survey |>
+  mutate(across(all_of(items), ~ na_if(as.numeric(.x), 0), .names = "{.col}_c"))
+```
+
+## Reliability Analysis {#sec-survey-alpha}
+
+```{r}
+#| label: survey-alpha
+useful_items <- survey |> select(ends_with("_useful_c"))
+surprise_items <- survey |> select(ends_with("_surprise_c"))
+
+a_useful <- psych::alpha(useful_items)
+a_surprise <- psych::alpha(surprise_items)
+
+tibble(scale = c("Usefulness of the six findings", "Surprise of the six findings"),
+       items = c(6, 6),
+       cronbach_alpha = round(c(a_useful$total$raw_alpha, a_surprise$total$raw_alpha), 3),
+       mean_inter_item_r = round(c(a_useful$total$average_r, a_surprise$total$average_r), 3)) |>
+  kable(caption = "Cronbach's Alpha for the Two Rating Sets")
+
+tibble(item_dropped = names(useful_items),
+       alpha_if_dropped = round(a_useful$alpha.drop$raw_alpha, 3)) |>
+  kable(caption = "Usefulness: Alpha if Each Item Is Dropped")
+```
+
+The surprise ratings hang together well (α = .81). The usefulness ratings fall just under the usual .70 cutoff (α = .67). Dropping KF6 ("delivery mode does not matter"), the finding managers rated least useful, brings alpha to .70, right at the cutoff. The lower alpha makes sense: these items rate six different findings rather than measuring one construct, and almost everyone rated every finding as useful, which leaves little variance for the items to share. We keep all six items in the usefulness composite, because each one is a finding the playbook will cover, but we treat that index with caution and report the five-item version as a check.
+
+## Create the Composite Scales {#sec-survey-composite}
+
+```{r}
+#| label: survey-composite
+survey <- survey |>
+  mutate(usefulness_index = rowMeans(across(ends_with("_useful_c")), na.rm = TRUE),
+         usefulness5_index = rowMeans(across(KF1_useful_c:KF5_useful_c), na.rm = TRUE),
+         surprise_index = rowMeans(across(ends_with("_surprise_c")), na.rm = TRUE))
+
+survey |>
+  summarise(across(c(usefulness_index, usefulness5_index, surprise_index),
+                   list(mean = ~ mean(.x), sd = ~ sd(.x), min = ~ min(.x), max = ~ max(.x)))) |>
+  pivot_longer(everything(), names_to = c("index", ".value"), names_pattern = "(.*_index)_(.*)") |>
+  mutate(across(where(is.numeric), ~ round(.x, 2))) |>
+  kable(caption = "Composite Scales (1 to 7)")
+
+survey |>
+  summarise(across(ends_with("_useful_c"), ~ mean(.x, na.rm = TRUE))) |>
+  pivot_longer(everything(), names_to = "item", values_to = "mean_usefulness") |>
+  mutate(finding = kf_names[substr(item, 1, 3)], mean_usefulness = round(mean_usefulness, 2)) |>
+  select(finding, mean_usefulness) |>
+  arrange(desc(mean_usefulness)) |>
+  kable(caption = "Which Findings Managers Found Most Useful")
+```
+
+Managers rate the findings as clearly useful (about 6 out of 7) and only moderately surprising (about 4.5). For the TBFI playbook, that is a useful signal: the guidance is wanted, but much of it confirms what practitioners already suspect, so the playbook should lead with the findings that are both useful and less expected.
+
+```{r}
+#| label: fig-findings
+#| fig-cap: "How Useful and How Surprising Managers Found Each Key Finding (Mean, 1 to 7)"
+#| fig-height: 4
+finding_means <- survey |>
+  summarise(across(c(ends_with("_useful_c"), ends_with("_surprise_c")), ~ mean(.x, na.rm = TRUE))) |>
+  pivot_longer(everything(), names_to = c("kf", "rating"), names_pattern = "(KF\\d)_(useful|surprise)_c") |>
+  mutate(finding = kf_names[kf],
+         rating = if_else(rating == "useful", "Useful", "Surprising"))
+
+order <- finding_means |> filter(rating == "Useful") |> arrange(value) |> pull(finding)
+
+finding_means |>
+  mutate(finding = factor(finding, levels = order)) |>
+  ggplot(aes(value, finding)) +
+  geom_line(aes(group = finding), color = muted, linewidth = 1.2) +
+  geom_point(aes(color = rating, shape = rating), size = 3.6) +
+  geom_text(data = ~ subset(.x, finding == order[length(order)]),
+            aes(label = rating, color = rating), vjust = -1.2, size = 3.8, fontface = "bold") +
+  scale_color_manual(values = c(Useful = green, Surprising = gold), name = NULL) +
+  scale_shape_manual(values = c(Useful = 16, Surprising = 17), name = NULL) +
+  scale_x_continuous(limits = c(1, 7), breaks = 1:7) +
+  scale_y_discrete(expand = expansion(add = c(0.6, 1))) +
+  labs(x = "Mean rating (1 = not at all, 7 = very much)", y = NULL) +
+  theme_cep + theme(legend.position = "top", legend.justification = "left")
+```
+
+# Confirming the Data Are Ready
+
+```{r}
+#| label: confirm
+yn <- function(x) if (isTRUE(x)) "Yes" else "No"
+tibble(
+  check = c("Meta-analysis rows after exclusion filter",
+            "Matches published effect-size count (1,536)",
+            "Recomputed variance matches VAR_RAW",
+            "Outcome kappa matches published value (.857)",
+            "Survey responses kept",
+            "Personal data columns removed from survey",
+            "Out-of-range survey codes set to missing"),
+  result = c(as.character(nrow(meta_inc)),
+             yn(nrow(meta_inc) == 1536),
+             yn(with(filter(meta_inc, !is.na(var_check), !is.na(VAR_RAW)),
+                  max(abs(var_check - VAR_RAW)) < 1e-4)),
+             yn(round(cohen.kappa(as.matrix(drop_na(mutate(select(meta_inc, DVcoder1, DVcoder2),
+                   across(everything(), as.numeric)))))$kappa, 3) == 0.857),
+             as.character(nrow(survey)),
+             yn(!any(c("prolificID", "participant_city", "participant_latitude") %in% names(survey))),
+             yn(all(sapply(survey[paste0(items, "_c")], function(x) !any(x == 0, na.rm = TRUE)))))
+) |>
+  kable(caption = "Final Data Preparation Checks")
+
+saveRDS(meta_inc, file.path(out_dir, "meta_prepared.rds"))
+saveRDS(survey, file.path(out_dir, "survey_prepared.rds"))
+```
+
+Both files are ready for analysis. The prepared meta-analysis data are the benchmark AO1 to AO3 score against, and the outcome-family recode and data-type count go straight into the AO4 dashboard. One open item: the study and paper counts differ slightly from the article (289 vs. 290 studies, 223 vs. 229 papers), which we will confirm with Dr. Lin before the AO baselines.
+
+# References {.unnumbered}
+
+Eisend, M., Niewiadomska, D., & van Noort, G. (2026). Personalization in marketing communication: A meta-analysis. *Journal of Marketing*. https://doi.org/10.1177/00222429261460888
+
+Eisend, M., Niewiadomska, D., & van Noort, G. (2026). *Replication data for: Personalization in marketing communication: A meta-analysis* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/KJRWWM
+
+Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. *Biometrics, 33*(1), 159–174.
+
+# Appendix {.unnumbered}
+
+- GitHub Repo: [github.com/gabrielarq1/CEP--Group-8/tree/main/CEP11-Data-Preparation](https://github.com/gabrielarq1/CEP--Group-8/tree/main/CEP11-Data-Preparation)
+- GitHub Pages: [gabrielarq1.github.io/CEP--Group-8/CEP11-Data-Preparation/CEP11-Data-Preparation.html](https://gabrielarq1.github.io/CEP--Group-8/CEP11-Data-Preparation/CEP11-Data-Preparation.html)
+
+
