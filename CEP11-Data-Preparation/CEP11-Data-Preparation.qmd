@@ -1,0 +1,655 @@
+---
+title: "CEP 11: Data Preparation and Readiness"
+subtitle: "AI-Assisted Evidence Synthesis for Personalization in Marketing Communication"
+author:
+  - "Yushan Huang"
+  - "Simran Kaur"
+  - "Gabriela Raygoza Quintero"
+  - "Alondra Rodriguez"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: "Table of contents"
+    number-sections: false
+    theme: cosmo
+    fontsize: 12pt
+    embed-resources: true
+    code-fold: true
+    code-tools: true
+    code-overflow: wrap
+    fig-cap-location: top
+    tbl-cap-location: top
+    include-in-header:
+      text: |
+        <style>
+        :root { --cep-green: #1E4D2B; --cep-gold: #E0B12B; }
+        body, h1, h2, h3, h4, .title, .subtitle, caption, figcaption, table, #TOC, #toc-title {
+          font-family: "Source Sans Pro", "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif !important; }
+        h2 { color: var(--cep-green); font-weight: 700; border-bottom: none; padding-bottom: .35rem; margin-top: 2.5rem; }
+        h2::after { content: ""; display: block; width: 50px; height: 3px; background: var(--cep-gold); margin-top: .5rem; }
+        h3 { color: var(--cep-green); font-weight: 700; font-style: italic; }
+        #title-block-header { background: var(--cep-green); border-bottom: 4px solid var(--cep-gold);
+          border-radius: 4px; padding: 2rem 2.25rem 1.5rem; margin-bottom: 2.5rem; }
+        #title-block-header .title { color: #fff; font-weight: 700; text-align: center; font-size: 2.3rem; line-height: 1.15; }
+        #title-block-header .subtitle { color: var(--cep-gold); text-align: center; font-weight: 700; font-size: 1.15rem;
+          max-width: 46rem; margin: 0 auto; }
+        #title-block-header .quarto-title-meta { display: grid; grid-template-columns: 1fr auto; column-gap: 2rem;
+          text-align: center; margin-top: 1.5rem; }
+        #title-block-header .quarto-title-meta-heading { color: var(--cep-gold); text-transform: uppercase; letter-spacing: .04em; }
+        #title-block-header .quarto-title-meta-contents, #title-block-header .quarto-title-meta-contents p { color: #fff; }
+        #title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p { display: inline; margin: 0; }
+        #title-block-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p:not(:last-child)::after {
+          content: " · "; color: var(--cep-gold); }
+        #TOC > ul > li > a { font-weight: 700; color: #222; }
+        #TOC a.active { color: var(--cep-green); border-left-color: var(--cep-green); }
+        caption, figcaption { font-weight: 700; color: inherit; }
+        thead th { border-bottom: 2px solid var(--cep-green) !important; }
+        </style>
+execute:
+  echo: true
+  warning: false
+  message: false
+params:
+  data_root: "auto"
+  run_data_checks: true
+---
+
+## Purpose and scope
+
+This report documents data readiness for the CEP's AI-assisted meta-analysis. The project uses the publicly available replication data for *Personalization in Marketing Communication: A Meta-Analysis* (Eisend, Niewiadomska, and van Noort, 2026), together with source-paper evidence and separately stored AI coding outputs.
+
+This is not a GA4 project, and the main data set is not a survey. The analytic unit is an effect-size record from a published study, so preparation focuses on record identity, source provenance, effect-size fields, outcome classifications, moderators, missingness, duplicates, and reproducibility of the published analysis. The one survey in the replication packet (the authors' manager survey) is prepared in the AO4 section because it feeds the consultant playbook.
+
+The raw human-coded replication data are the benchmark. They must remain unchanged. AI-generated values and labels are stored in separate candidate files and joined only through documented record identifiers.
+
+### Folder setup
+
+The report reads the files from the repo's `dataverse_files` folder. It finds that folder whether chunks are run from the repo root or the report is rendered from its own folder. To use a different location, set `data_root` in the YAML to that folder's path. Do not move, overwrite, or redistribute the original files, and keep `dataverse_files/` in `.gitignore`.
+
+```text
+CEP--Group-8/
+  dataverse_files/                     # Dataverse replication packet (not pushed)
+    personalization.sav
+    personalizationcorrelation.sav     # needed for the last part of the integration script
+    manager-survey.sav
+    personalization-integration.R
+    personalization-metareg.R
+  CEP11-Data-Preparation/
+    CEP11-Data-Preparation.qmd
+  data/derived/
+    ai_numeric_candidates.csv          # created later by AO1
+    ai_outcome_candidates.csv          # created later by AO2
+```
+
+## Data sources and governance
+
+| Data asset | Role in the CEP | Handling rule |
+|---|---|---|
+| `personalization.sav` | Human-coded effect-size benchmark and AO3 baseline | Preserve as read-only; do not overwrite values or labels. |
+| Original R scripts | Published-analysis specification and reproduction reference | Copy locally and run unchanged before creating any AI substitution version. |
+| `manager-survey.sav` | Manager ratings of the paper's key findings; input to the AO4 playbook | Drop personal and device fields before any analysis or sharing. |
+| Source articles and excerpts | Evidence used to validate coding decisions | Retain page/table references; do not post or redistribute course-only files. |
+| AI numeric candidate file | AO1 output | Store separately, with record ID, source page, model/version, prompt version, and human-review status. |
+| AI outcome candidate file | AO2 output | Store separately, with record ID, source page, model/version, prompt version, and human-review status. |
+
+No value should be imputed merely because a field is missing. A value that is absent from a source paper stays `not reported` or `NA`; it is never coded as zero.
+
+```{r}
+#| label: setup
+library(haven)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(knitr)
+library(ggplot2)
+
+`%||%` <- function(x, y) if (is.null(x) || length(x) == 0) y else x
+
+# params only exists when rendering; in the console fall back to "auto"
+root_setting <- if (exists("params")) params$data_root else "auto"
+data_root <- if (root_setting != "auto") root_setting else
+  if (dir.exists("dataverse_files")) "dataverse_files" else "../dataverse_files"
+out_dir <- if (dir.exists("CEP11-Data-Preparation")) "CEP11-Data-Preparation" else "."
+
+raw_file <- file.path(data_root, "personalization.sav")
+metareg_script <- file.path(data_root, "personalization-metareg.R")
+integration_script <- file.path(data_root, "personalization-integration.R")
+correlation_file <- file.path(data_root, "personalizationcorrelation.sav")
+survey_file <- file.path(data_root, "manager-survey.sav")
+
+# Chart colors (checked for color-vision deficiency) and a quiet theme
+green <- "#2F7D4A"; gold <- "#B7861A"; muted <- "#C9CDD2"
+theme_cep <- theme_minimal(base_size = 13) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_line(color = "#ECEEF0"), plot.title.position = "plot",
+        axis.title = element_text(color = "#5f6368"), strip.text = element_text(face = "bold", hjust = 0))
+```
+
+```{r}
+#| label: source-file-status
+tibble(
+  source = c("Human-coded SPSS benchmark", "Original meta-regression script",
+             "Original integration script", "Correlation data set (integration-script appendix)",
+             "Manager survey"),
+  file = basename(c(raw_file, metareg_script, integration_script, correlation_file, survey_file)),
+  available = file.exists(c(raw_file, metareg_script, integration_script, correlation_file, survey_file))
+) |> kable(caption = "Required Source Files")
+```
+
+## Data-readiness checks
+
+These checks are the meta-analysis equivalent of the GA4 integrity checklist. They establish whether the benchmark data can support the four analytics objectives before AI candidate values are substituted.
+
+| Readiness question | Check in this report |
+|---|---|
+| Can the team access and preserve the benchmark? | Source files present (above). |
+| Is the coverage sufficient? | Row counts, and the filtered sample against the published counts. |
+| Are required fields available and complete? | Variable dictionary with missingness for the key fields. |
+| Can records be matched safely? | Stable, unique effect-record ID. |
+| Do values make research sense? | Valid ranges for effect sizes and sample sizes. |
+| Is the human coding reliable? | Agreement between coders 1 and 2. |
+| Can the published analysis be reproduced? | AO3 protocol (run the original scripts unchanged). |
+
+### Benchmark overview and record identity
+
+```{r}
+#| label: load-human-benchmark
+human_raw <- read_sav(raw_file)
+human <- as_tibble(human_raw)
+
+if (anyDuplicated(human$IDES)) stop("IDES must be unique before it is used as the effect-record key.")
+
+tibble(measure = c("Rows", "Columns", "Full-row duplicates", "Duplicate IDES values"),
+       value = c(nrow(human), ncol(human), sum(duplicated(human)), sum(duplicated(human$IDES)))) |>
+  kable(caption = "Human-Coded Benchmark Overview")
+
+key_fields <- c("IDES", "IDD", "IDP", "ESW", "VAR", "ES_RAW", "VAR_RAW", "SAMPLE", "DV",
+                "DVcoder1", "DVcoder2", "exclude", "YEAR")
+tibble(
+  field = key_fields,
+  label = vapply(human_raw[key_fields], function(x) attr(x, "label") %||% "(no label)", character(1)),
+  missing_n = vapply(human[key_fields], function(x) sum(is.na(x)), numeric(1)),
+  distinct = vapply(human[key_fields], function(x) n_distinct(x, na.rm = TRUE), numeric(1))
+) |> kable(caption = "Key-Field Dictionary and Missingness (All 2,452 Rows)")
+```
+
+`IDES` is unique across all 2,452 rows, so it is the join key for every AI candidate file. Missing values in `ESW`, `VAR`, and `DV` sit entirely in excluded rows, which the next check confirms. The full 237-variable dictionary is in the collapsed block below.
+
+::: {.callout-note collapse="true"}
+## Full variable dictionary (237 variables)
+
+```{r}
+#| label: variable-dictionary
+tibble(
+  variable = names(human_raw),
+  label = vapply(human_raw, function(x) paste(attr(x, "label") %||% "", collapse = " "), character(1)),
+  missing_pct = round(100 * vapply(human_raw, function(x) mean(is.na(x)), numeric(1)), 1)
+) |> kable()
+```
+:::
+
+### Analysis sample matches the published counts
+
+The published models use only rows with `exclude == 0`. If our filtered data do not match the article, every AO comparison is off from the start.
+
+```{r}
+#| label: fig-exclusion
+#| fig-cap: "From 2,452 Coded Rows to the 1,536 Effects in the Published Analysis"
+#| fig-height: 3
+included <- human |> filter(exclude == 0)
+
+human |>
+  count(exclude) |>
+  mutate(status = if_else(exclude == 0, "Included (exclude = 0)", paste0("Excluded, code ", exclude)),
+         status = reorder(status, n)) |>
+  ggplot(aes(n, status, fill = exclude == 0)) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = scales::comma(n)), hjust = -0.15, size = 4, color = "#333333") +
+  scale_fill_manual(values = c(`TRUE` = green, `FALSE` = muted), guide = "none") +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.12)), labels = scales::comma) +
+  labs(x = "Rows", y = NULL) + theme_cep
+```
+
+```{r}
+#| label: published-counts
+tibble(measure = c("Effect sizes", "Studies (IDD)", "Papers (IDP)"),
+       published = c(1536, 290, 229),
+       our_data = c(nrow(included), n_distinct(included$IDD), n_distinct(included$IDP))) |>
+  mutate(difference = our_data - published) |>
+  kable(caption = "Filtered Data vs. Counts Reported in Eisend et al. (2026)")
+
+included |>
+  summarise(missing_ESW = sum(is.na(ESW)), missing_VAR = sum(is.na(VAR)), missing_DV = sum(is.na(DV)),
+            r_outside_minus1_to_1 = sum(abs(ES_RAW) > 1, na.rm = TRUE),
+            sample_below_10 = sum(SAMPLE < 10, na.rm = TRUE)) |>
+  kable(caption = "Completeness and Range Checks, Included Effects")
+```
+
+The effect-size count matches exactly, and the included rows have no missing effect sizes, variances, or outcome codes and no impossible correlations. The study and paper counts are slightly lower than the article (289 vs. 290 and 223 vs. 229). The likely cause is IDs merged or renumbered after the article's counts were set, but the file can't confirm it, so this goes to Dr. Lin before the AO baselines.
+
+### Outcome families and effect-size ranges
+
+The authors group the 44 outcome codes into broad families in `personalization-integration.R`. We add the category names to `DV` and recode it into a new `dv_family` variable using the same code lists, leaving `DV` untouched. The recode reproduces the authors' own `PERSUASIONSUCCESS` and `PERSUASIONFAILURE` flags row for row.
+
+```{r}
+#| label: fig-effects
+#| fig-cap: "Uncorrected Effect Sizes (r) by Outcome Family, Included Effects"
+#| fig-height: 3.4
+success_codes <- c(1, 3, 4, 5, 7, 30, 31, 8, 13, 16, 26, 35, 39, 41, 42)
+failure_codes <- c(9, 12, 14, 24, 29, 38)
+
+included <- included |>
+  mutate(DV = labelled(as.numeric(DV), attr(human_raw$DVcoder1, "labels")),
+         dv_family = factor(case_when(as.numeric(DV) %in% success_codes ~ "Persuasion success",
+                                      as.numeric(DV) %in% failure_codes ~ "Persuasion failure",
+                                      TRUE ~ "Other outcome"),
+                            levels = c("Persuasion success", "Persuasion failure", "Other outcome")))
+
+stopifnot(all((included$dv_family == "Persuasion success") == (included$PERSUASIONSUCCESS == 1)),
+          all((included$dv_family == "Persuasion failure") == (included$PERSUASIONFAILURE == 1)))
+
+ggplot(included, aes(ES_RAW)) +
+  geom_histogram(binwidth = 0.05, boundary = 0, fill = green, color = "white", linewidth = 0.3) +
+  geom_vline(xintercept = 0, color = "#5f6368", linewidth = 0.4) +
+  facet_wrap(~ dv_family, nrow = 1) +
+  labs(x = "Effect size r (more vs. less personalized)", y = "Effects") + theme_cep
+```
+
+Success outcomes lean positive (937 effects) and failure outcomes sit close to zero (188 effects), which is the shape the article reports.
+
+### Reliability of the human coding
+
+In a meta-analysis the codebook is the measurement instrument, so reliability means agreement between independent coders. We check coder 1 against coder 2 with Cohen's kappa, the same comparison AO2 will run for the AI coders.
+
+```{r}
+#| label: coder-reliability
+kappa_row <- function(a, b, name) {
+  x <- included |> select(all_of(c(a, b))) |> mutate(across(everything(), as.numeric)) |> drop_na()
+  tibble(code = name, rows_both_coded = nrow(x),
+         percent_agree = round(100 * mean(x[[1]] == x[[2]]), 1),
+         cohens_kappa = round(psych::cohen.kappa(as.matrix(x))$kappa, 3))
+}
+
+bind_rows(
+  kappa_row("DVcoder1", "DVcoder2", "Outcome category (44 codes)"),
+  kappa_row("demographic1", "demographic2", "Demographic data used"),
+  kappa_row("psychographic1", "psychographic2", "Psychographic data used"),
+  kappa_row("socioeconomic1", "socioeconomic2", "Socioeconomic data used"),
+  kappa_row("geographic1", "geographic2", "Geographic data used"),
+  kappa_row("behavioral1", "behavioral2", "Behavioral data used")
+) |> kable(caption = "Inter-Coder Reliability, Coder 1 vs. Coder 2 (Included Effects)")
+```
+
+The outcome-category kappa is .857, the same value the article reports, so the prepared data reproduce the authors' reliability check. Every code clears the usual .61 bar for substantial agreement (Landis and Koch 1977).
+
+```{r}
+#| label: fig-disagree
+#| fig-cap: "Outcome Categories with the Most Coder Disagreement (30+ Rows; Row Count in Parentheses)"
+#| fig-height: 3.6
+agree <- included |> filter(!is.na(DVcoder1), !is.na(DVcoder2)) |>
+  mutate(disagree = as.numeric(DVcoder1) != as.numeric(DVcoder2))
+
+agree |>
+  group_by(category = as.character(as_factor(DVcoder1))) |>
+  summarise(rows = n(), pct = 100 * mean(disagree)) |>
+  filter(rows >= 30) |> slice_max(pct, n = 8) |>
+  mutate(category = reorder(paste0(category, " (", rows, ")"), pct)) |>
+  ggplot(aes(pct, category)) +
+  geom_col(width = 0.6, fill = green) +
+  geom_text(aes(label = paste0(round(pct), "%")), hjust = -0.2, size = 3.8, color = "#333333") +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(x = "Rows where coders 1 and 2 disagreed (%)", y = NULL,
+       subtitle = paste0("Across all included rows, coders disagreed on ", round(100 * mean(agree$disagree)), "%")) +
+  theme_cep
+```
+
+Attitude toward the ad is the hardest category for human coders, which tells AO2 where AI coding will need the clearest rules.
+
+### Field map for the CEP
+
+| Analytic role | Dataset field | Required for | Rule |
+|---|---|---|---|
+| Stable effect-record ID | `IDES` | AO1, AO2, AO3 | Match each AI candidate to exactly one benchmark row. Never join by row order. |
+| Paper/article ID | `IDP` | AO1–AO4 | Parent key; one paper can contain multiple studies and effects. AO4 deduplicates new studies against these papers. |
+| Data-set/study cluster ID | `IDD` | AO1, AO2, AO3 | Preserve for the published random-effects hierarchy. |
+| Human weighted effect-size value | `ESW` | AO1, AO3 | The outcome used by the authors' multilevel meta-analysis. |
+| Effect-size sampling variance | `VAR` | AO1, AO3 | Preserve when rerunning the authors' multilevel model. |
+| Raw effect-size fields | `ES_RAW`, `VAR_RAW` | AO1, AO3 | Keep separately; do not substitute them for `ESW`/`VAR` without the authors' transformation. |
+| Final outcome code | `DV` | AO2, AO3, AO4 | Use for individual outcome categories and recompute broad category flags after an AI-code substitution. |
+| Human outcome text / coding history | `V2description`, `DVcoder1`, `DVcoder2`, `DVcoder3`, `DVinconsistencies` | AO2, AO3 | Retain as source and adjudication context; do not overwrite. |
+| Final-inclusion status | `exclude` | AO1–AO4 | The published models use `exclude == 0`; retain the original flag. |
+| Moderator fields | `DEMOGRAPHIC_LEV2` through `PUBLISHED`, as in the meta-regression script | AO3, AO4 | Use only the published moderator definitions and coding rules. |
+| Bibliographic fields | `title`, `authors`, `YEAR` | AO4 | Build the anchor list used to remove duplicates from the update search. |
+| Source-paper/page evidence | External evidence log | AO1, AO2, AO3 | Store in the AI candidate file, not by editing the benchmark. |
+
+## AO1. Effect-size extraction accuracy (Alondra)
+
+<!--
+Owner: Alondra
+Add the AO1 data-preparation narrative, variables, extraction checks, and method here.
+Do not overwrite the AO3 protocol below.
+-->
+
+*Section to be completed by the AO1 owner.*
+
+## AO2. Outcome construct alignment with CALIPER (Gabriela)
+
+<!--
+Owner: Gabriela
+Add the AO2 data-preparation narrative, outcome codebook/crosswalk, classification checks,
+and method here. Keep AI labels in a separate candidate file.
+-->
+
+*Section to be completed by the AO2 owner.*
+
+## AO3. Do coding errors change the conclusions? (Yushan)
+
+### AO3 objective and rationale
+
+AO3 evaluates the practical consequence of AI coding error. It does not ask whether an AI system is perfect. Instead, it asks whether the conclusions of the published meta-analysis change when human-coded values or human outcome classifications are replaced with the corresponding AI outputs.
+
+The human-coded replication data are the benchmark. The first requirement is to reproduce the published results using the authors' original R scripts and the human-coded data. Only after this baseline is documented will AO3 create parallel AI substitution versions. This order matters: a difference from the published result cannot be attributed to AI if the human baseline has not first been reproduced.
+
+### AO3 data structure and preparation rules
+
+AO3 requires three aligned datasets. They must have the same included effect-size records, the same model specification, and the same treatment of dependence, moderators, and missingness. The only difference between versions should be the field being tested.
+
+| Analysis version | Effect-size / numerical fields | Outcome classification | Purpose |
+|---|---|---|---|
+| Human baseline | Human-coded | Human-coded | Reproduce the published results. |
+| Numeric substitution | AI value only where AO1 supplies a matched, reviewable candidate | Human-coded | Estimate the consequence of numerical extraction error. |
+| Outcome substitution | Human-coded | AI outcome code only where AO2 supplies a matched, reviewable candidate | Estimate the consequence of outcome-classification error. |
+
+The team must not silently replace unmatched records, infer missing values, or use row position as an identifier. Every AI candidate must include a stable effect-record ID, a source-paper/page reference, the model and prompt version, and a human-review status. `not reported` stays missing; it is never converted to zero.
+
+### AO3 baseline reproduction protocol
+
+1. Preserve the downloaded `.sav` file and the two original R scripts as read-only reference files.
+2. Load the human benchmark into an object named `personalization`, because both author scripts assume that object already exists; neither script reads the SPSS file itself.
+3. Review the original scripts to identify the exact data fields and model structure. The meta-regression script estimates multilevel models with `ESW` and `VAR`, a random structure of `~1 | IDD/IDES`, and `exclude == 0` filters. It uses outcome-category indicators and its listed moderator fields.
+4. Create an auditable *working copy* only when necessary to redirect the authors' hard-coded output paths. Do not change data filters, model formulas, effect-size transformations, or outcome definitions. Keep the documented diff with the original script.
+5. The final portion of `personalization-integration.R` also requires `personalizationcorrelation.sav`; obtain it from the Dataverse release before claiming a full reproduction of that script.
+6. Run the working-copy scripts and save the console output and produced tables in a dated reproduction folder.
+7. Reconcile the reproduced overall effect, confidence interval, heterogeneity statistic(s), prediction interval where reported, and moderator results with the corresponding published table or figure.
+8. If a result does not match, stop and document the discrepancy before substituting any AI-coded field.
+
+```{r}
+#| label: run-original-analysis
+#| eval: false
+
+# Run this only after metafor and metapower are installed. The author scripts
+# assume a data frame named personalization already exists.
+library(metafor)
+library(broom)
+library(metapower)
+
+personalization <- as.data.frame(human_raw)
+
+# The authors' scripts contain a few hard-coded write.csv destinations. Make a
+# documented working copy that redirects outputs, but do not alter model lines.
+reproduction_dir <- file.path("outputs", format(Sys.Date(), "%Y-%m-%d"), "reproduction")
+dir.create(reproduction_dir, recursive = TRUE, showWarnings = FALSE)
+
+make_working_copy <- function(script_path) {
+  lines <- readLines(script_path, warn = FALSE)
+  lines <- gsub("/Users/eisend/Desktop/", paste0(normalizePath(reproduction_dir), "/"),
+                lines, fixed = TRUE)
+  target <- file.path(reproduction_dir, basename(script_path))
+  writeLines(lines, target)
+  target
+}
+
+metareg_working_copy <- make_working_copy(metareg_script)
+source(metareg_working_copy, echo = TRUE)
+
+# Only run the integration working copy after personalizationcorrelation.sav is available.
+personalizationcorrelation <- as.data.frame(read_sav(correlation_file))
+integration_working_copy <- make_working_copy(integration_script)
+source(integration_working_copy, echo = TRUE)
+```
+
+### AO3 candidate-file contract
+
+AO1 and AO2 should supply separate, tidy candidate files. The exact column names can be finalized during team calibration, but each file needs the following information.
+
+| Candidate-file field | Required content |
+|---|---|
+| `effect_record_id` | The matched `IDES` value from the human benchmark. |
+| `candidate_value` | AO1's accepted AI-derived value on the authors' `ESW` scale. Retain raw statistics separately. |
+| `candidate_outcome_code` | AO2's accepted AI-derived `DV` code. |
+| `source_page` | Page, table, figure, or supplement location supporting the candidate. |
+| `evidence_quote` | Short source excerpt or precise table/figure reference. |
+| `model_version` and `prompt_version` | Versioned provenance for the AI output. |
+| `review_status` | `accepted`, `rejected`, `abstained`, or `needs_review`. |
+| `final_decision` | Preserve the accepted candidate or record why it was not used. |
+
+### AO3 alignment and substitution protocol
+
+Before running a meta-analysis, AO3 will audit the join between the human benchmark and AI candidates. The team should report the number of human records, candidates received, candidates matched, unmatched human records, unmatched AI records, and duplicate candidate IDs. A candidate with an ambiguous or duplicate key is excluded until adjudicated.
+
+```{r}
+#| label: ao3-join-audit-template
+#| eval: false
+
+library(readr)
+
+ai_numeric <- read_csv(file.path("data", "derived", "ai_numeric_candidates.csv"), show_col_types = FALSE)
+ai_outcome <- read_csv(file.path("data", "derived", "ai_outcome_candidates.csv"), show_col_types = FALSE)
+
+stopifnot(!anyDuplicated(ai_numeric$effect_record_id))
+stopifnot(!anyDuplicated(ai_outcome$effect_record_id))
+
+numeric_ready <- ai_numeric |>
+  filter(review_status == "accepted") |>
+  select(effect_record_id, ai_effect_value = candidate_value)
+
+outcome_ready <- ai_outcome |>
+  filter(review_status == "accepted") |>
+  select(effect_record_id, ai_outcome_code = candidate_outcome_code)
+
+human_baseline <- human
+
+numeric_substitution <- human_baseline |>
+  left_join(numeric_ready, by = c("IDES" = "effect_record_id")) |>
+  mutate(ESW = coalesce(ai_effect_value, ESW),
+         effect_origin = if_else(is.na(ai_effect_value), "human", "AI_numeric"))
+
+outcome_substitution <- human_baseline |>
+  left_join(outcome_ready, by = c("IDES" = "effect_record_id")) |>
+  mutate(
+    DV = coalesce(as.numeric(ai_outcome_code), DV),
+    outcome_origin = if_else(is.na(ai_outcome_code), "human", "AI_outcome"),
+    PERSUASIONSUCCESS = case_when(is.na(DV) ~ NA_real_,
+                                  DV %in% c(1, 3, 4, 5, 7, 8, 13, 16, 26, 30, 31, 35, 39, 41, 42) ~ 1, TRUE ~ 0),
+    ATTITUDESBEHAVIOR = case_when(is.na(DV) ~ NA_real_, DV %in% c(1, 3, 4, 5, 7, 30, 31) ~ 1, TRUE ~ 0),
+    ATTITUDES = case_when(is.na(DV) ~ NA_real_, DV %in% c(1, 3, 4, 5, 7) ~ 1, TRUE ~ 0),
+    BEHAVIORCAT = case_when(is.na(DV) ~ NA_real_, DV %in% c(30, 31) ~ 1, TRUE ~ 0),
+    PERSUASIONFAILURE = case_when(is.na(DV) ~ NA_real_, DV %in% c(9, 12, 14, 24, 29, 38) ~ 1, TRUE ~ 0)
+  )
+```
+
+### AO3 analysis and comparison plan
+
+AO3 will run the authors' same analysis pipeline on each of the three aligned data versions. It will not replace the published dependence strategy with a simpler independent-effect model. The exact effect-size transformation, weighting, clustering, moderator model, and missing-data handling will follow the original scripts unless the faculty lead explicitly approves a documented change.
+
+For each model reported in the original study, AO3 will compare:
+
+- the pooled effect and its confidence interval;
+- the change in the pooled estimate in standard-error units, where the published model supplies the needed information;
+- the sign and statistical-significance decision;
+- heterogeneity statistics and the prediction interval, where reported;
+- moderator coefficient signs, confidence intervals, and significance decisions;
+- the number of effects or studies included in each model.
+
+The analysis will first substitute numeric values only, then outcome classifications only. A combined substitution can be reported later as a sensitivity analysis, but it must not replace the two separate tests because it cannot identify which type of error changed the result.
+
+### AO3 robustness-results table
+
+Populate this table after the human baseline has been reproduced and AO1/AO2 have frozen their held-out output. A change should be interpreted as a decision-relevance signal, not merely as a difference in decimal places.
+
+| Published model / decision | Human baseline | AI numeric substitution | AI outcome substitution | Interpretation: robust, fragile, or unresolved |
+|---|---:|---:|---:|---|
+| Overall pooled effect | *To be reproduced* | *To be computed* | *To be computed* | |
+| Overall significance decision | *To be reproduced* | *To be computed* | *To be computed* | |
+| Heterogeneity / prediction interval | *To be reproduced* | *To be computed* | *To be computed* | |
+| Moderator result 1 | *To be reproduced* | *To be computed* | *To be computed* | |
+| Moderator result 2 | *To be reproduced* | *To be computed* | *To be computed* | |
+
+### AO3 decision rule and limitation
+
+AO3 will describe a result as **robust** when the relevant marketing conclusion remains unchanged across the human baseline and both separate AI substitution analyses. It will describe a result as **fragile** when an AI substitution changes the direction, statistical-significance decision, moderator conclusion, or interpretation of the likely range of effects. It will describe a result as **unresolved** when a record cannot be matched, verified, or supported by source evidence.
+
+This design estimates the sensitivity of conclusions to observed AI coding differences. It does not establish that an AI system is universally accurate, and it does not authorize automatic coding without human review.
+
+## AO4. Evidence update and decision dashboard (Simran)
+
+### AO4 objective and data status
+
+AO4 asks two things: whether AI title-and-abstract screening finds post-cutoff personalization studies as completely as human crowd coding (all four students plus the TBFI RA), and whether TBFI consultants can answer client questions correctly with the dashboard. The new search has not run yet, so there are no AO4 search records to clean. This section prepares what AO4 needs before that data arrives: the anchor list for deduplication, the file formats every screener fills in, the agreement setup, and the dashboard inputs from the benchmark.
+
+### Anchor list for deduplication
+
+Any study already in the anchor meta-analysis must be removed from the update search, or it would be counted twice. We build that list now from the included effects, one row per paper, with a normalized title key (lowercase, letters and numbers only) for matching.
+
+```{r}
+#| label: ao4-anchor
+anchor_papers <- included |>
+  distinct(IDP, title, authors, YEAR) |>
+  mutate(title_key = gsub("[^a-z0-9]", "", tolower(title)))
+
+tibble(measure = c("Papers in anchor list", "Unique title keys", "Papers published 2023 or later"),
+       value = c(n_distinct(anchor_papers$IDP), n_distinct(anchor_papers$title_key),
+                 n_distinct(anchor_papers$IDP[anchor_papers$YEAR >= 2023]))) |>
+  kable(caption = "AO4 Anchor List")
+
+readr::write_csv(select(anchor_papers, IDP, title_key, YEAR), file.path(out_dir, "ao4_anchor_titles.csv"))
+```
+
+The 223 papers produce only 222 title keys, so two paper IDs share a title. That is one more item for the count check with Dr. Lin. The update window starts January 1, 2024. Because the anchor search ran "until 2024," papers from 2024 can appear in both, so every search record is matched against this list by DOI first and by title key second before screening starts.
+
+### AO4 screening data files
+
+| File | One row per | Key fields |
+|---|---|---|
+| `ao4_search_log.csv` | Search run | database, query string, date run, date range, hits |
+| `ao4_records.csv` | Deduplicated record | record_id, DOI, title, authors, year, source database, anchor_match (yes/no) |
+| `ao4_human_screening.csv` | Record × coder | record_id, coder (4 students + TBFI RA), include/exclude, exclusion reason |
+| `ao4_consensus.csv` | Record | record_id, adjudicated decision, note on how disagreements were settled |
+| `ao4_ai_screening.csv` | Record | record_id, AI decision, reason, model and prompt version (frozen before new records) |
+
+Every coder screens the same records without seeing anyone else's file, and `not reported` stays missing, matching the team rules above. Because the benchmark has five coders, human agreement is measured with Krippendorff's alpha; the AI is then scored for recall and precision against the adjudicated consensus.
+
+```{r}
+#| label: ao4-agreement-template
+#| eval: false
+library(irr)
+library(readr)
+
+screening <- read_csv("data/derived/ao4_human_screening.csv")
+wide <- screening |>
+  mutate(include = as.integer(decision == "include")) |>
+  select(record_id, coder, include) |>
+  pivot_wider(names_from = record_id, values_from = include)
+
+kripp.alpha(as.matrix(wide[, -1]), method = "nominal")   # coders in rows, records in columns
+```
+
+### Dashboard inputs from the benchmark
+
+The dashboard draws on fields that are already prepared: the outcome family (above), the data types a personalization used, and the AO3 robustness flags once they exist.
+
+```{r}
+#| label: ao4-dashboard-inputs
+included |>
+  mutate(n_data_types = DEMOGRAPHIC_LEV2 + PSYCHOGRAPHIC_LEV2 + SOCIOECONOMIC_LEV2 +
+           GEOGRAPHIC_LEV2 + BEHAVIORAL_LEV2) |>
+  count(dv_family, n_data_types) |>
+  pivot_wider(names_from = n_data_types, values_from = n, values_fill = 0, names_prefix = "types_") |>
+  kable(caption = "Included Effects by Outcome Family and Number of Data Types Used")
+```
+
+### Manager survey: input to the consultant playbook
+
+The replication packet includes the authors' survey of 201 marketing managers, who rated how useful and how surprising they found each of the paper's six key findings (1 to 7). It tells the playbook which findings practitioners value. Preparation follows the course's survey steps: drop personal and device fields (Prolific ID, city, coordinates, browser), keep the authors' included responses, recode out-of-range 0 ratings to missing, check reliability, and build composites.
+
+```{r}
+#| label: ao4-survey
+survey <- read_sav(survey_file) |>
+  select(exclude, tester, starts_with("KF")) |>          # personal and device fields never loaded past this line
+  filter(exclude == 0, tester == 0)
+
+items <- names(select(survey, matches("_(useful|surprise)$")))
+zero_codes <- sum(sapply(survey[items], function(x) sum(as.numeric(x) == 0, na.rm = TRUE)))
+survey <- survey |> mutate(across(all_of(items), ~ na_if(as.numeric(.x), 0), .names = "{.col}_c"))
+
+a_useful <- psych::alpha(select(survey, ends_with("_useful_c")))
+a_surprise <- psych::alpha(select(survey, ends_with("_surprise_c")))
+
+survey <- survey |>
+  mutate(usefulness_index = rowMeans(across(ends_with("_useful_c")), na.rm = TRUE),
+         surprise_index = rowMeans(across(ends_with("_surprise_c")), na.rm = TRUE))
+
+tibble(scale = c("Usefulness (6 findings)", "Surprise (6 findings)"),
+       cronbach_alpha = round(c(a_useful$total$raw_alpha, a_surprise$total$raw_alpha), 2),
+       composite_mean = round(c(mean(survey$usefulness_index), mean(survey$surprise_index)), 2)) |>
+  kable(caption = paste0("Manager Survey: ", nrow(survey), " Responses Kept, ", zero_codes,
+                         " Out-of-Range Zero Codes Set to Missing"))
+```
+
+The surprise ratings are reliable (α = .81). Usefulness is just under the .70 cutoff (α = .67), because nearly everyone rated every finding as useful, so that composite is used with caution.
+
+```{r}
+#| label: fig-findings
+#| fig-cap: "How Useful and How Surprising Managers Found Each Key Finding (Mean, 1 to 7)"
+#| fig-height: 3.8
+kf_names <- c(KF1 = "Personalization is a double-edged sword", KF2 = "The type of data used matters",
+              KF3 = "Implicit data can cause backlash", KF4 = "Publicly available data can cause backlash",
+              KF5 = "Transparency about data use helps", KF6 = "Delivery mode does not matter")
+
+means <- survey |>
+  summarise(across(ends_with("_c"), ~ mean(.x, na.rm = TRUE))) |>
+  pivot_longer(everything(), names_to = c("kf", "rating"), names_pattern = "(KF\\d)_(useful|surprise)_c") |>
+  mutate(finding = kf_names[kf], rating = if_else(rating == "useful", "Useful", "Surprising"))
+ord <- means |> filter(rating == "Useful") |> arrange(value) |> pull(finding)
+
+means |>
+  mutate(finding = factor(finding, levels = ord)) |>
+  ggplot(aes(value, finding)) +
+  geom_line(aes(group = finding), color = muted, linewidth = 1.2) +
+  geom_point(aes(color = rating, shape = rating), size = 3.6) +
+  scale_color_manual(values = c(Useful = green, Surprising = gold), name = NULL) +
+  scale_shape_manual(values = c(Useful = 16, Surprising = 17), name = NULL) +
+  scale_x_continuous(limits = c(1, 7), breaks = 1:7) +
+  labs(x = "Mean rating (1 = not at all, 7 = very much)", y = NULL) +
+  theme_cep + theme(legend.position = "top", legend.justification = "left")
+```
+
+Transparency about data use is the most useful finding and also the least surprising, so the playbook can lead with it as something clients will readily accept.
+
+## Team handoff checklist
+
+- [ ] Copy and retain the raw Dataverse files in the documented local folders.
+- [ ] Render this report once and review the key-field dictionary and range checks.
+- [x] Confirm the shared effect-record ID (`IDES`, unique across 2,452 rows).
+- [ ] Confirm the 289 vs. 290 study and 223 vs. 229 paper counts with Dr. Lin.
+- [ ] Run the original scripts and reconcile the human baseline with published results.
+- [ ] Agree on the AO1/AO2 candidate-file contract before creating AI substitutions.
+- [ ] Run the AO4 search, deduplicate against the anchor list, and start crowd screening.
+- [ ] Freeze the held-out AI outputs before running the final AO3 comparison.
+- [ ] Obtain faculty-lead approval for the AO methods and data-preparation plan.
+
+## References
+
+Eisend, M., Niewiadomska, D., & van Noort, G. (2026). Personalization in marketing communication: A meta-analysis. *Journal of Marketing*. https://doi.org/10.1177/00222429261460888
+
+Eisend, M., Niewiadomska, D., & van Noort, G. (2026). *Replication data for: Personalization in marketing communication: A meta-analysis* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/KJRWWM
+
+Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. *Biometrics, 33*(1), 159–174.
+
+## Appendix
+
+- GitHub Repo: [github.com/gabrielarq1/CEP--Group-8/tree/main/CEP11-Data-Preparation](https://github.com/gabrielarq1/CEP--Group-8/tree/main/CEP11-Data-Preparation)
+- GitHub Pages: [gabrielarq1.github.io/CEP--Group-8/CEP11-Data-Preparation/CEP11-Data-Preparation.html](https://gabrielarq1.github.io/CEP--Group-8/CEP11-Data-Preparation/CEP11-Data-Preparation.html)
