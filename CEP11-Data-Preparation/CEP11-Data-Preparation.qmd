@@ -400,15 +400,13 @@ The objective is to determine whether CALIPER can improve the alignment between 
 
 The human-coded replication dataset serves as the benchmark. The final outcome code (DV) is the primary reference for evaluating AI classifications, while the individual coder fields (DVcoder1, DVcoder2, DVcoder3) and inconsistency documentation provide additional information about human disagreement. The original project proposal reports approximately 16% disagreement between the first two human coders on the rows they both coded. This provides an important reference point when evaluating AI classification performance.
 
-### **AO2 data structure and preparation rules**
-
+### AO2 data structure and preparation rules
 AO2 uses the original human-coded SPSS dataset, personalization.sav, as its reference source. The dataset contains 2,452 effect-size records. The original data must remain unchanged throughout the coding and evaluation process.
 
 The primary outcome variable is DV, which contains the final human-adjudicated outcome classification. Supporting fields include:
 
-|  |  |
+| Dataset field | Purpose in AO2 |
 |------------------------------------|------------------------------------|
-| **Dataset field** | **Purpose in AO2** |
 | IDES | Unique effect-size record identifier used to match AI classifications to the human benchmark. |
 | IDP | Paper identifier used to retain the connection between outcome records and their original studies. |
 | IDD | Study/data-set identifier used to preserve the original record structure. |
@@ -423,15 +421,13 @@ The outcome codebook will use the original meta-analysis categories and their de
 
 A separate outcome crosswalk will connect the terminology used in individual studies to the corresponding meta-analysis outcome categories. The crosswalk will document the author's original construct label, definition, operationalization, measure type, assigned outcome category, and justification for the classification.
 
-### **AO2 outcome codebook and crosswalk**
-
+### AO2 outcome codebook and crosswalk
 The crosswalk will serve as the reference structure for organizing and evaluating outcome classifications. It will distinguish between the terminology used by individual researchers and the standardized outcome categories used in the meta-analysis.
 
 The following information will be documented for each coded outcome:
 
-|  |  |
+| Crosswalk field | Description |
 |------------------------------------|------------------------------------|
-| **Crosswalk field** | **Description** |
 | Original construct label | Outcome terminology used by the primary study's authors. |
 | Construct definition | Explanation of what the outcome is intended to measure. |
 | Operationalization | How the construct was measured, including survey items, scales, or behavioral measures. |
@@ -442,13 +438,11 @@ The following information will be documented for each coded outcome:
 
 The crosswalk will be developed using the original outcome classifications and supporting primary-study evidence. Any proposed changes to coding rules will be documented in a rule-change log. These revisions will be developed using the development articles and frozen before the test-set evaluation to prevent changes to the coding framework based on test results.
 
-### **AO2 classification comparison and CALIPER method**
-
+### AO2 classification comparison and CALIPER method
 AO2 will evaluate four coding conditions to determine how access to article information, standardized category definitions, and CALIPER-assisted rule revisions influence AI classification accuracy.
 
-|  |  |  |
+| Condition | Information provided to AI | Purpose |
 |------------------------|------------------------|------------------------|
-| **Condition** | **Information provided to AI** | **Purpose** |
 | 0\. Label-only | Original outcome wording and codebook, without article text. | Establish baseline classification performance using outcome labels alone. |
 | A. Article and categories | Primary-study article and meta-analysis category names. | Evaluate classification using article evidence without the full coding rules. |
 | B. Single AI coder | Primary-study article and original codebook. | Evaluate whether one AI coder can correctly apply the existing classification rules. |
@@ -458,8 +452,7 @@ Comparing Condition 0 with Condition B will help establish whether reviewing the
 
 The classification process will focus on the relationship between the construct definition, its operationalization, and the final assigned outcome category. AI coders will not use effect-size values, statistical significance, or the direction of study findings to determine outcome classifications. This helps ensure that classification decisions are based on the construct and its measurement rather than the reported results.
 
-### **AO2 classification validation and quality checks**
-
+### AO2 classification validation and quality checks
 AI-generated classifications will be compared against the final human-coded DV values using the unique effect-record identifier, IDES. AI classifications will be stored separately in data/derived/ai_outcome_candidates.csv and will not overwrite the original human-coded benchmark.
 
 The following checks will be applied before the AI candidate file is used for evaluation:
@@ -478,8 +471,7 @@ The following checks will be applied before the AI candidate file is used for ev
 
 The candidate file will include the effect-record ID, candidate outcome code, source-page reference, supporting evidence, model version, prompt version, coding condition, and human-review status. Candidate classifications will be marked as accepted, rejected, abstained, or requiring further review.
 
-### **AO2 evaluation metrics**
-
+### AO2 evaluation metrics
 AI classification performance will be evaluated against the final human-coded outcome classifications using the following measures:
 
 - **Macro-F1:** Measures classification performance across outcome categories while giving each category equal weight, including less frequently represented categories.
@@ -496,8 +488,7 @@ AI classification performance will be evaluated against the final human-coded ou
 
 Results will be compared across the four coding conditions to determine whether access to primary-study evidence, the original codebook, and CALIPER-assisted rule revisions improve classification performance. Performance will also be examined across development and test sets to assess whether improvements transfer to articles that were not used to revise the coding rules.
 
-### **AO2 expected deliverables and handoff to AO3**
-
+### AO2 expected deliverables and handoff to AO3
 AO2 will produce three primary deliverables:
 
 1.  A revised outcome codebook documenting classification definitions, coding rules, and a change log of revisions.
