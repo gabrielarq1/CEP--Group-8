@@ -69,7 +69,7 @@ The raw human-coded replication data are the benchmark. They must remain unchang
 
 The report reads the files from the repo's `dataverse_files` folder. It finds that folder whether chunks are run from the repo root or the report is rendered from its own folder. To use a different location, set `data_root` in the YAML to that folder's path. Do not move, overwrite, or redistribute the original files, and keep `dataverse_files/` in `.gitignore`.
 
-```text
+``` text
 CEP--Group-8/
   dataverse_files/                     # Dataverse replication packet (not pushed)
     personalization.sav
@@ -87,7 +87,7 @@ CEP--Group-8/
 ## Data sources and governance
 
 | Data asset | Role in the CEP | Handling rule |
-|---|---|---|
+|------------------------|------------------------|------------------------|
 | `personalization.sav` | Human-coded effect-size benchmark and AO3 baseline | Preserve as read-only; do not overwrite values or labels. |
 | Original R scripts | Published-analysis specification and reproduction reference | Copy locally and run unchanged before creating any AI substitution version. |
 | `manager-survey.sav` | Manager ratings of the paper's key findings; input to the AO4 playbook | Drop personal and device fields before any analysis or sharing. |
@@ -144,7 +144,7 @@ tibble(
 These checks are the meta-analysis equivalent of the GA4 integrity checklist. They establish whether the benchmark data can support the four analytics objectives before AI candidate values are substituted.
 
 | Readiness question | Check in this report |
-|---|---|
+|------------------------------------|------------------------------------|
 | Can the team access and preserve the benchmark? | Source files present (above). |
 | Is the coverage sufficient? | Row counts, and the filtered sample against the published counts. |
 | Are required fields available and complete? | Variable dictionary with missingness for the key fields. |
@@ -311,7 +311,7 @@ Attitude toward the ad is the hardest category for human coders, which tells AO2
 ### Field map for the CEP
 
 | Analytic role | Dataset field | Required for | Rule |
-|---|---|---|---|
+|------------------|------------------|------------------|------------------|
 | Stable effect-record ID | `IDES` | AO1, AO2, AO3 | Match each AI candidate to exactly one benchmark row. Never join by row order. |
 | Paper/article ID | `IDP` | AO1–AO4 | Parent key; one paper can contain multiple studies and effects. AO4 deduplicates new studies against these papers. |
 | Data-set/study cluster ID | `IDD` | AO1, AO2, AO3 | Preserve for the published random-effects hierarchy. |
@@ -327,23 +327,135 @@ Attitude toward the ad is the hardest category for human coders, which tells AO2
 
 ## AO1. Effect-size extraction accuracy (Alondra)
 
+```{=html}
 <!--
 Owner: Alondra
 Add the AO1 data-preparation narrative, variables, extraction checks, and method here.
 Do not overwrite the AO3 protocol below.
 -->
+```
 
 *Section to be completed by the AO1 owner.*
 
 ## AO2. Outcome construct alignment with CALIPER (Gabriela)
 
-<!--
-Owner: Gabriela
-Add the AO2 data-preparation narrative, outcome codebook/crosswalk, classification checks,
-and method here. Keep AI labels in a separate candidate file.
--->
+### AO2 objective and rationale
 
-*Section to be completed by the AO2 owner.*
+AO2 evaluates whether AI-assisted coding can accurately classify the dependent-variable outcomes reported in primary marketing studies into the outcome categories established by the original meta-analysis. The challenge is that different studies may use different terminology to describe similar constructs, or use the same construct name while measuring different concepts.
+
+The objective is to determine whether CALIPER can improve the alignment between an author's outcome label, its definition, and its actual measurement, while preserving the original meta-analysis outcome categories and definitions. Only the coding rules used to assign outcomes to those categories may be revised.
+
+The human-coded replication dataset serves as the benchmark. The final outcome code (DV) is the primary reference for evaluating AI classifications, while the individual coder fields (DVcoder1, DVcoder2, DVcoder3) and inconsistency documentation provide additional information about human disagreement. The original project proposal reports approximately 16% disagreement between the first two human coders on the rows they both coded. This provides an important reference point when evaluating AI classification performance.
+
+### **AO2 data structure and preparation rules**
+
+AO2 uses the original human-coded SPSS dataset, personalization.sav, as its reference source. The dataset contains 2,452 effect-size records. The original data must remain unchanged throughout the coding and evaluation process.
+
+The primary outcome variable is DV, which contains the final human-adjudicated outcome classification. Supporting fields include:
+
+|  |  |
+|----|----|
+| **Dataset field** | **Purpose in AO2** |
+| IDES | Unique effect-size record identifier used to match AI classifications to the human benchmark. |
+| IDP | Paper identifier used to retain the connection between outcome records and their original studies. |
+| IDD | Study/data-set identifier used to preserve the original record structure. |
+| DV | Final human-coded outcome classification and primary evaluation benchmark. |
+| V2description | Original outcome description used to understand the construct being measured. |
+| DVcoder1 | First human coder's outcome classification. |
+| DVcoder2 | Second human coder's outcome classification. |
+| DVcoder3 | Third human coder's outcome classification. |
+| DVinconsistencies | Documentation of disagreements or inconsistencies in outcome coding. |
+
+The outcome codebook will use the original meta-analysis categories and their definitions from Tables 3 and 5 of the published study. These categories must remain fixed so that AI classifications can be evaluated against the same classification framework used by the human coders.
+
+A separate outcome crosswalk will connect the terminology used in individual studies to the corresponding meta-analysis outcome categories. The crosswalk will document the author's original construct label, definition, operationalization, measure type, assigned outcome category, and justification for the classification.
+
+### **AO2 outcome codebook and crosswalk**
+
+The crosswalk will serve as the reference structure for organizing and evaluating outcome classifications. It will distinguish between the terminology used by individual researchers and the standardized outcome categories used in the meta-analysis.
+
+The following information will be documented for each coded outcome:
+
+|  |  |
+|----|----|
+| **Crosswalk field** | **Description** |
+| Original construct label | Outcome terminology used by the primary study's authors. |
+| Construct definition | Explanation of what the outcome is intended to measure. |
+| Operationalization | How the construct was measured, including survey items, scales, or behavioral measures. |
+| Measure type | Type of measurement used to capture the outcome. |
+| Assigned category | Corresponding outcome category from the original meta-analysis codebook. |
+| Classification justification | Explanation of why the outcome was assigned to that category, supported by source evidence. |
+| Disagreement type | Whether a disagreement resulted from a coding-rule gap, missing evidence, or a genuine difference in construct interpretation. |
+
+The crosswalk will be developed using the original outcome classifications and supporting primary-study evidence. Any proposed changes to coding rules will be documented in a rule-change log. These revisions will be developed using the development articles and frozen before the test-set evaluation to prevent changes to the coding framework based on test results.
+
+### **AO2 classification comparison and CALIPER method**
+
+AO2 will evaluate four coding conditions to determine how access to article information, standardized category definitions, and CALIPER-assisted rule revisions influence AI classification accuracy.
+
+|  |  |  |
+|----|----|----|
+| **Condition** | **Information provided to AI** | **Purpose** |
+| 0\. Label-only | Original outcome wording and codebook, without article text. | Establish baseline classification performance using outcome labels alone. |
+| A. Article and categories | Primary-study article and meta-analysis category names. | Evaluate classification using article evidence without the full coding rules. |
+| B. Single AI coder | Primary-study article and original codebook. | Evaluate whether one AI coder can correctly apply the existing classification rules. |
+| C. CALIPER-assisted coding | Primary-study article, two AI coders from different model families, and CALIPER-assisted rule revision. | Evaluate whether collaborative coding and rule refinement improve classification alignment. |
+
+Comparing Condition 0 with Condition B will help establish whether reviewing the actual study and its measurement details improves classification beyond relying on the author's outcome label alone.
+
+The classification process will focus on the relationship between the construct definition, its operationalization, and the final assigned outcome category. AI coders will not use effect-size values, statistical significance, or the direction of study findings to determine outcome classifications. This helps ensure that classification decisions are based on the construct and its measurement rather than the reported results.
+
+### **AO2 classification validation and quality checks**
+
+AI-generated classifications will be compared against the final human-coded DV values using the unique effect-record identifier, IDES. AI classifications will be stored separately in data/derived/ai_outcome_candidates.csv and will not overwrite the original human-coded benchmark.
+
+The following checks will be applied before the AI candidate file is used for evaluation:
+
+1.  **Record matching:** Confirm that each AI classification corresponds to a valid IDES record in the human benchmark. Records will not be matched using row order or paper title alone.
+
+2.  **Category validity:** Confirm that each assigned AI outcome code corresponds to an established category in the original meta-analysis codebook.
+
+3.  **Evidence verification:** Retain the source-paper page, table, figure, or other supporting evidence for each classification.
+
+4.  **Missing information:** When the article does not provide enough information to support a classification, the AI coder must abstain or mark the outcome as not reported rather than infer a category.
+
+5.  **Duplicate and disagreement checks:** Identify duplicate record identifiers, conflicting AI classifications, and disagreements between AI coders and the human benchmark.
+
+6.  **Data preservation:** Keep AI-generated classifications in a separate candidate file and preserve all original human-coded values.
+
+The candidate file will include the effect-record ID, candidate outcome code, source-page reference, supporting evidence, model version, prompt version, coding condition, and human-review status. Candidate classifications will be marked as accepted, rejected, abstained, or requiring further review.
+
+### **AO2 evaluation metrics**
+
+AI classification performance will be evaluated against the final human-coded outcome classifications using the following measures:
+
+- **Macro-F1:** Measures classification performance across outcome categories while giving each category equal weight, including less frequently represented categories.
+
+- **Cohen's kappa:** Measures agreement between AI classifications and the final human-coded benchmark while accounting for agreement expected by chance.
+
+- **Krippendorff's alpha:** Evaluates agreement among the AI coders and will be reported separately from accuracy against the human benchmark.
+
+- **Agree-and-wrong rate:** Identifies cases in which AI coders agree with one another but produce an outcome classification that differs from the final human-coded category.
+
+- **Abstention rate:** Measures how frequently AI coders decline to assign a category because the available source evidence is insufficient.
+
+- **Disagreement classification:** Identifies whether classification errors result from coding-rule gaps, missing evidence, or genuine differences in construct interpretation.
+
+Results will be compared across the four coding conditions to determine whether access to primary-study evidence, the original codebook, and CALIPER-assisted rule revisions improve classification performance. Performance will also be examined across development and test sets to assess whether improvements transfer to articles that were not used to revise the coding rules.
+
+### **AO2 expected deliverables and handoff to AO3**
+
+AO2 will produce three primary deliverables:
+
+1.  A revised outcome codebook documenting classification definitions, coding rules, and a change log of revisions.
+
+2.  An outcome validity table comparing AI classification performance across the four conditions against the final human-coded benchmark.
+
+3.  A label-to-category crosswalk connecting original study terminology, construct definitions, operationalizations, and standardized meta-analysis outcome codes.
+
+The final accepted AI outcome classifications will be provided to AO3 in a separate candidate file. AO3 will use these classifications to create an outcome-substitution dataset and evaluate whether AI classification differences change the conclusions of the original meta-analysis.
+
+This approach allows the team to evaluate not only whether AI can reproduce human outcome classifications, but also whether CALIPER-assisted rule refinement improves consistency and alignment while preserving the original research framework. Human review remains necessary for unresolved classifications and cases where source evidence does not support a definitive outcome assignment.
 
 ## AO3. Do coding errors change the conclusions? (Yushan)
 
@@ -358,7 +470,7 @@ The human-coded replication data are the benchmark. The first requirement is to 
 AO3 requires three aligned datasets. They must have the same included effect-size records, the same model specification, and the same treatment of dependence, moderators, and missingness. The only difference between versions should be the field being tested.
 
 | Analysis version | Effect-size / numerical fields | Outcome classification | Purpose |
-|---|---|---|---|
+|------------------|------------------|------------------|------------------|
 | Human baseline | Human-coded | Human-coded | Reproduce the published results. |
 | Numeric substitution | AI value only where AO1 supplies a matched, reviewable candidate | Human-coded | Estimate the consequence of numerical extraction error. |
 | Outcome substitution | Human-coded | AI outcome code only where AO2 supplies a matched, reviewable candidate | Estimate the consequence of outcome-classification error. |
@@ -367,14 +479,14 @@ The team must not silently replace unmatched records, infer missing values, or u
 
 ### AO3 baseline reproduction protocol
 
-1. Preserve the downloaded `.sav` file and the two original R scripts as read-only reference files.
-2. Load the human benchmark into an object named `personalization`, because both author scripts assume that object already exists; neither script reads the SPSS file itself.
-3. Review the original scripts to identify the exact data fields and model structure. The meta-regression script estimates multilevel models with `ESW` and `VAR`, a random structure of `~1 | IDD/IDES`, and `exclude == 0` filters. It uses outcome-category indicators and its listed moderator fields.
-4. Create an auditable *working copy* only when necessary to redirect the authors' hard-coded output paths. Do not change data filters, model formulas, effect-size transformations, or outcome definitions. Keep the documented diff with the original script.
-5. The final portion of `personalization-integration.R` also requires `personalizationcorrelation.sav`; obtain it from the Dataverse release before claiming a full reproduction of that script.
-6. Run the working-copy scripts and save the console output and produced tables in a dated reproduction folder.
-7. Reconcile the reproduced overall effect, confidence interval, heterogeneity statistic(s), prediction interval where reported, and moderator results with the corresponding published table or figure.
-8. If a result does not match, stop and document the discrepancy before substituting any AI-coded field.
+1.  Preserve the downloaded `.sav` file and the two original R scripts as read-only reference files.
+2.  Load the human benchmark into an object named `personalization`, because both author scripts assume that object already exists; neither script reads the SPSS file itself.
+3.  Review the original scripts to identify the exact data fields and model structure. The meta-regression script estimates multilevel models with `ESW` and `VAR`, a random structure of `~1 | IDD/IDES`, and `exclude == 0` filters. It uses outcome-category indicators and its listed moderator fields.
+4.  Create an auditable *working copy* only when necessary to redirect the authors' hard-coded output paths. Do not change data filters, model formulas, effect-size transformations, or outcome definitions. Keep the documented diff with the original script.
+5.  The final portion of `personalization-integration.R` also requires `personalizationcorrelation.sav`; obtain it from the Dataverse release before claiming a full reproduction of that script.
+6.  Run the working-copy scripts and save the console output and produced tables in a dated reproduction folder.
+7.  Reconcile the reproduced overall effect, confidence interval, heterogeneity statistic(s), prediction interval where reported, and moderator results with the corresponding published table or figure.
+8.  If a result does not match, stop and document the discrepancy before substituting any AI-coded field.
 
 ```{r}
 #| label: run-original-analysis
@@ -416,7 +528,7 @@ source(integration_working_copy, echo = TRUE)
 AO1 and AO2 should supply separate, tidy candidate files. The exact column names can be finalized during team calibration, but each file needs the following information.
 
 | Candidate-file field | Required content |
-|---|---|
+|------------------------------------|------------------------------------|
 | `effect_record_id` | The matched `IDES` value from the human benchmark. |
 | `candidate_value` | AO1's accepted AI-derived value on the authors' `ESW` scale. Retain raw statistics separately. |
 | `candidate_outcome_code` | AO2's accepted AI-derived `DV` code. |
@@ -491,12 +603,12 @@ The analysis will first substitute numeric values only, then outcome classificat
 Populate this table after the human baseline has been reproduced and AO1/AO2 have frozen their held-out output. A change should be interpreted as a decision-relevance signal, not merely as a difference in decimal places.
 
 | Published model / decision | Human baseline | AI numeric substitution | AI outcome substitution | Interpretation: robust, fragile, or unresolved |
-|---|---:|---:|---:|---|
-| Overall pooled effect | *To be reproduced* | *To be computed* | *To be computed* | |
-| Overall significance decision | *To be reproduced* | *To be computed* | *To be computed* | |
-| Heterogeneity / prediction interval | *To be reproduced* | *To be computed* | *To be computed* | |
-| Moderator result 1 | *To be reproduced* | *To be computed* | *To be computed* | |
-| Moderator result 2 | *To be reproduced* | *To be computed* | *To be computed* | |
+|---------------|--------------:|--------------:|--------------:|---------------|
+| Overall pooled effect | *To be reproduced* | *To be computed* | *To be computed* |  |
+| Overall significance decision | *To be reproduced* | *To be computed* | *To be computed* |  |
+| Heterogeneity / prediction interval | *To be reproduced* | *To be computed* | *To be computed* |  |
+| Moderator result 1 | *To be reproduced* | *To be computed* | *To be computed* |  |
+| Moderator result 2 | *To be reproduced* | *To be computed* | *To be computed* |  |
 
 ### AO3 decision rule and limitation
 
@@ -533,7 +645,7 @@ The 223 papers produce only 222 title keys, so two paper IDs share a title. That
 ### AO4 screening data files
 
 | File | One row per | Key fields |
-|---|---|---|
+|------------------------|------------------------|------------------------|
 | `ao4_search_log.csv` | Search run | database, query string, date run, date range, hits |
 | `ao4_records.csv` | Deduplicated record | record_id, DOI, title, authors, year, source database, anchor_match (yes/no) |
 | `ao4_human_screening.csv` | Record × coder | record_id, coder (4 students + TBFI RA), include/exclude, exclusion reason |
@@ -645,7 +757,7 @@ Transparency about data use is the most useful finding and also the least surpri
 
 Eisend, M., Niewiadomska, D., & van Noort, G. (2026). Personalization in marketing communication: A meta-analysis. *Journal of Marketing*. https://doi.org/10.1177/00222429261460888
 
-Eisend, M., Niewiadomska, D., & van Noort, G. (2026). *Replication data for: Personalization in marketing communication: A meta-analysis* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/KJRWWM
+Eisend, M., Niewiadomska, D., & van Noort, G. (2026). *Replication data for: Personalization in marketing communication: A meta-analysis* \[Data set\]. Harvard Dataverse. https://doi.org/10.7910/DVN/KJRWWM
 
 Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. *Biometrics, 33*(1), 159–174.
 
