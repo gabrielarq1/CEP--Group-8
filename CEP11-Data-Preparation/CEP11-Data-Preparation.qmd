@@ -327,15 +327,68 @@ Attitude toward the ad is the hardest category for human coders, which tells AO2
 
 ## AO1. Effect-size extraction accuracy (Alondra)
 
-```{=html}
-<!--
-Owner: Alondra
-Add the AO1 data-preparation narrative, variables, extraction checks, and method here.
-Do not overwrite the AO3 protocol below.
--->
-```
+### AO1 objective and rationale
 
-*Section to be completed by the AO1 owner.*
+AO1 will evaluate how accurately AI can extract effect-size information from primary studies on personalization in marketing communication. An effect size describes the direction and magnitude of a finding, such as how much purchase intention differs between consumers who saw a personalized advertisement and those who saw a general advertisement.
+
+One challenge is that a paper may report several findings in the same table. For example, the table may include both brand attitude and purchase intention, measured immediately after exposure and again a week later. An AI coder could copy a value exactly and still select the wrong outcome or time point. AO1 will therefore evaluate both the numerical value and the evidence connecting it to the intended comparison.
+
+### AO1 data structure and preparation rules
+
+The team will use the primary articles as the source for extraction and the human-coded replication dataset from Eisend, Niewiadomska, and van Noort (2026) as the benchmark. Each AI extraction will be linked to the specific effect it represents. The following fields will guide that comparison.
+
+| Dataset field | Purpose in AO1 |
+|----|----|
+| IDP | Identifies the paper where the finding was reported. |
+| IDD | Identifies the study or dataset associated with the finding. |
+| IDES | Identifies the individual effect and links the AI extraction to its benchmark record. |
+| ES_RAW | Provides the human-coded raw effect for comparison when the extracted statistic uses the same measure and scale. |
+| ESW | Provides the human-coded effect on the scale used in the published meta-analysis. |
+
+The team will preserve the original human-coded dataset and store AI-generated values separately. This will allow reviewers to trace each comparison back to the article and examine the AI’s original answer after review.
+
+### AO1 numeric extraction log
+
+The extraction log will document what the AI selected, where it found the value, and how that value was prepared for comparison.
+
+| Extraction field | Information recorded |
+|----|----|
+| Target comparison | The outcome, groups being compared, and time point associated with the effect. |
+| Reported statistic | The type of statistic and the value as printed, including its sign and decimal places. |
+| Source evidence | The printed page and the specific table, row, column, or passage supporting the extraction. |
+| Conversion details | The inputs and calculation used when the published analysis requires the statistic to be expressed on a different scale. |
+| Model and prompt version | The AI model and extraction instructions used for the record. |
+| Review decision | Whether the candidate was accepted, rejected, marked for further review, or recorded as an abstention, along with the reason. |
+
+### AO1 extraction and comparison method
+
+The team will first use a set of development articles to refine the extraction instructions. If the AI repeatedly selects the wrong comparison group, for example, the team can revise the prompt to identify the treatment and comparison groups explicitly. The instructions will then be finalized and applied to a separate set of articles. All effects from the same paper will stay together so the final evaluation uses articles the team has not already used to revise the prompt.
+
+For each target effect, the AI will receive the article and a description of the comparison to locate. It will record the statistic and cite the supporting page or table before the team reveals the human-coded value. The reviewer will then match the extraction to its IDES record and compare the values on the same scale. When a conversion is required, the reviewer will retain the original statistic and document the calculation. This will allow the team to determine whether a discrepancy began with the extraction or arose during conversion.
+
+### AO1 extraction validation and quality checks
+
+1.  **Record matching.** Confirm that the cited finding corresponds to the intended study, outcome, groups, and time point.
+
+2.  **Source verification.** Check the value against the cited passage or table cell, including its sign, decimal placement, and group order.
+
+3.  **Scale alignment.** Verify that the AI-derived value and the benchmark represent the same statistic on the same scale before calculating a difference.
+
+4.  **Missing information.** Mark an unreported statistic as missing. If the article supports a raw extraction but omits an input needed for conversion, retain the raw value and document the missing input.
+
+5.  **Discrepancy review.** Preserve the AI’s initial answer and record the reviewer’s decision separately. This will allow the team to measure initial accuracy and explain any subsequent corrections.
+
+### AO1 evaluation metrics
+
+- **Extraction coverage.** The percentage of attempted records for which the AI provides a value supported by a source reference.
+
+- **Agreement at reported precision.** The percentage of comparable raw values that match the human benchmark when both are evaluated at the precision printed in the article.
+
+- **Mean absolute error.** The average absolute difference between AI-derived values and human-coded values on the ESW scale. This measure will show how far the estimates typically differ.
+
+- **Direction disagreement.** The percentage of comparable nonzero effects with opposite signs after the reviewer confirms that the groups are ordered consistently.
+
+- **Abstention rate.** The percentage of attempted records for which the AI declines to provide a value. Reviewers will document whether the necessary information was missing or whether the AI overlooked an available result.
 
 ## AO2. Outcome construct alignment with CALIPER (Gabriela)
 
@@ -354,7 +407,7 @@ AO2 uses the original human-coded SPSS dataset, personalization.sav, as its refe
 The primary outcome variable is DV, which contains the final human-adjudicated outcome classification. Supporting fields include:
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Dataset field** | **Purpose in AO2** |
 | IDES | Unique effect-size record identifier used to match AI classifications to the human benchmark. |
 | IDP | Paper identifier used to retain the connection between outcome records and their original studies. |
@@ -377,7 +430,7 @@ The crosswalk will serve as the reference structure for organizing and evaluatin
 The following information will be documented for each coded outcome:
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Crosswalk field** | **Description** |
 | Original construct label | Outcome terminology used by the primary study's authors. |
 | Construct definition | Explanation of what the outcome is intended to measure. |
@@ -394,7 +447,7 @@ The crosswalk will be developed using the original outcome classifications and s
 AO2 will evaluate four coding conditions to determine how access to article information, standardized category definitions, and CALIPER-assisted rule revisions influence AI classification accuracy.
 
 |  |  |  |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Condition** | **Information provided to AI** | **Purpose** |
 | 0\. Label-only | Original outcome wording and codebook, without article text. | Establish baseline classification performance using outcome labels alone. |
 | A. Article and categories | Primary-study article and meta-analysis category names. | Evaluate classification using article evidence without the full coding rules. |
