@@ -9,6 +9,7 @@ author:
 date: today
 format:
   html:
+    fontcolor: "#000000"
     toc: true
     toc-depth: 4
     toc-title: "Table of contents"
@@ -44,7 +45,7 @@ bibliography: references.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/american-marketing-association.csl
 ---
 
-<!-- Rewritten 18 Oct 2026 for the CALIPER meta-analysis direction (Lin, 14 Oct 2026 document). Each AO owner should revise their own 1.3.x, 2.7.x and 3.2.10 subsections before 22 Oct. -->
+<!-- Updated 23 Nov 2026 to match the confirmed POs and AOs in the 22 Oct proposal deck (AO4 crowd-coding benchmark, verified data counts, TBFI background). -->
 
 # TITLE PAGE {.unnumbered}
 
@@ -105,7 +106,7 @@ The table of contents appears in the sidebar on the right.
 
 ## Background and Business Problem(s) {#sec-background}
 
-Small and mid-sized businesses in the San Gabriel Valley (SGV) make marketing decisions every week. Should a restaurant personalize its emails? Will a targeted Instagram ad that uses a customer's location feel helpful or creepy? Most of these businesses cannot pay for a custom study, so they rely on intuition or on whatever a platform vendor tells them. A large body of published consumer research already answers many of these questions, but it is scattered across hundreds of articles, written for academics, and rarely summarized in a form a business owner can use.
+Small and mid-sized businesses in the San Gabriel Valley (SGV) make marketing decisions every week. Should a local boba shop greet customers by name in its emails, and would that feel personal or intrusive? Will a targeted Instagram ad that uses a customer's location feel helpful or creepy? Most of these businesses cannot pay for a custom study, so they rely on intuition or on whatever a platform vendor tells them. A large body of published consumer research already answers many of these questions, but it is scattered across hundreds of articles, written for academics, and rarely summarized in a form a business owner can use.
 
 A meta-analysis solves part of this problem. It pulls the results of many studies together and estimates how large an effect is on average, how much it varies, and what it depends on [@grewal2018; @borenstein2021]. Personalization is a good example. Some studies find that personalized messages raise purchase intention and clicks, while others find that they trigger privacy concerns and ad avoidance, a tension known as the personalization paradox [@aguirre2015; @bleier2015]. A recent meta-analysis in the *Journal of Marketing* combined 1,536 effect sizes from 290 studies and found that personalization mostly works, that its negative effects are small, and that it works best when it draws on data closely tied to a consumer's self-concept, such as interests and values [@eisend2026].
 
@@ -132,13 +133,13 @@ Each AO has one owner, one primary PO, a human benchmark, and a measurable resul
 | AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez) | Measure how accurately AI extracts the numbers a meta-analysis needs (sample sizes, effect sizes, test statistics, and which results count as effects), comparing single-pass extraction with evidence-linked extraction. | PO1: Develop and validate an AI-assisted meta-analysis workflow. |
 | AO2. Outcome Construct Alignment with CALIPER (Gabriela Raygoza Quintero) | Test whether CALIPER rule revision lets AI coders assign each study's outcome to the meta-analysis's outcome categories as accurately as human coders. | PO1: Develop and validate an AI-assisted meta-analysis workflow. |
 | AO3. Do Coding Errors Change the Conclusions? (Yushan Huang) | Estimate how much the pooled effects, heterogeneity, and moderator results change when AI-extracted numbers and AI outcome classifications replace the human values. | PO1 (feeds PO2): Validate the workflow and identify which findings are robust enough to advise on. |
-| AO4. Evidence Update and Decision Dashboard (Simran Kaur) | Test whether AI-assisted screening finds personalization studies published after the meta-analysis's search cutoff as completely as two human screeners, and whether TBFI consultants can use the resulting dashboard to answer questions correctly. | PO2: Turn validated evidence into a dashboard and consultant playbook. |
+| AO4. Evidence Update and Decision Dashboard (Simran Kaur) | Test whether AI-assisted screening finds personalization studies published after the meta-analysis's search cutoff as completely as the human crowd-coding benchmark, and whether TBFI consultants can use the resulting dashboard to answer questions correctly. | PO2: Turn validated evidence into a dashboard and consultant playbook. |
 
-: Summary of Analytics Objectives and the Project Objectives They Support
+: Summary of Analytics Objectives and the Project Objectives They Support {#tbl-ao-po}
 
-@fig-po-ao shows the study design. Development articles tune the AO1 and AO2 methods, the test set is run once, and AO3 tests whether coding errors change the conclusions. AO4 adds studies published after the authors' search cutoff and feeds the dashboard and playbook (PO2), which the digital marketing plan (PO3) then promotes. The dashed boxes are the spring transfer test and the optional RA-led research track.
+@fig-po-ao shows the study design. Everyone codes: all four team members follow the same steps (screen, extract, classify, and check evidence) on the same or randomly split samples, and each member then leads the analysis for one AO. Methods are tuned on about 20 development articles and tested once on about 20 held-out articles. AO1 to AO3 are scored against the published human benchmarks; AO4 is scored against the consensus of all four students and the TBFI research assistant (RA). AO3 tests whether coding errors change the conclusions, and AO4 adds studies published after the authors' search cutoff and feeds the dashboard and playbook (PO2), which the digital marketing plan (PO3) then promotes. The dashed box is the spring transfer test. Dr. Lin's original version of this design is in @fig-po-ao-original in the Appendix; the updated version reflects the confirmed AO4 benchmark (all four students plus the TBFI RA), the verified data counts, and the removal of the optional research track.
 
-![Study Design: How the Data, Analytics Objectives, and Project Objectives Connect (adapted from Lin 2026)](fig1-study-design.png){#fig-po-ao width="100%"}
+![Study Design: How the Data, Analytics Objectives, and Project Objectives Connect (updated from Lin 2026)](fig1-study-design-updated.png){#fig-po-ao width="100%"}
 
 ### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez) {#sec-ao1}
 
@@ -185,14 +186,14 @@ AO3 answers the question a manager would ask: do AI coding errors change the adv
 ### AO4. Evidence Update and Decision Dashboard (Simran Kaur) {#sec-ao4}
 
 - **PO2**: Turn the validated evidence into a dashboard and a consultant playbook on personalization.
-- **AO4**: Can an AI-assisted search and screening workflow find personalization studies published after the meta-analysis's search cutoff about as completely as two human screeners? Can TBFI consultants use the resulting dashboard to answer questions correctly?
-  - **Data Source**: Database search results (EBSCO, ScienceDirect, and ProQuest Dissertations and Theses, with Google Scholar for citation searching) for studies published after the search period of @eisend2026; screening decisions from two independent human screeners; the validated results from AO1 to AO3; and a dashboard walkthrough with TBFI staff.
+- **AO4**: Can an AI-assisted search and screening workflow find personalization studies published after the meta-analysis's search cutoff about as completely as the human crowd-coding benchmark? Can TBFI consultants use the resulting dashboard to answer questions correctly?
+  - **Data Source**: Database search results (EBSCO, ScienceDirect, and ProQuest Dissertations and Theses, with Google Scholar for citation searching) for studies published after the search period of @eisend2026; independent screening decisions from all four students and the TBFI RA; the validated results from AO1 to AO3; and a dashboard walkthrough with TBFI staff.
 
 #### How to Address AO4
 
-The search repeats the keyword strategy of @eisend2026 for the period after its cutoff and logs every database, query, date, and hit count. An AI screener then makes include or exclude decisions on titles and abstracts, and two human screeners independently screen the same records. Agreement between the humans is measured with Cohen's kappa, and the AI's decisions are scored for recall and precision against the human consensus. Recall matters most, because a study the screener misses never reaches the evidence base. Eligible new studies are added to an updated evidence map and reported in a PRISMA flow diagram [@page2021].
+The search repeats the keyword strategy of @eisend2026 for the period after its cutoff and logs every database, query, date, and hit count. An AI screener then makes include or exclude decisions on titles and abstracts. All four students independently screen the same records, alongside the TBFI RA's coding. Because this benchmark has more than two coders, agreement among the humans is measured with Krippendorff's alpha [@krippendorff2018]. Disagreements are adjudicated into a consensus, and the AI's decisions are scored for recall and precision against that consensus. Recall matters most, because a study the screener misses never reaches the evidence base. Eligible new studies are added to an updated evidence map and reported in a PRISMA flow diagram [@page2021].
 
-The validated evidence then goes into a dashboard (Looker Studio or Streamlit) and a draft consultant playbook. To test whether the dashboard works, TBFI staff answer a set of realistic client questions using it, such as "Does personalizing an email with the customer's first name raise click-through?" Their answers are scored against an answer key built from the AO3 results.
+The validated evidence then goes into a dashboard (Looker Studio or Streamlit) and a draft consultant playbook. To test whether the dashboard works, TBFI staff answer a set of realistic client questions using it, such as "Does personalizing an email with the customer's first name raise click-through?" Their answers are scored against a predefined answer key built from the AO3 results.
 
 #### How AO4 Will Help Achieve PO2
 
@@ -202,127 +203,185 @@ AO4 turns the research into something a TBFI consultant can use in a client meet
 
 This project matters to four groups. SGV businesses get practical guidance on personalization, a tactic they already use in email, social ads, and websites, based on hundreds of published studies rather than on vendor claims. TBFI gets a tested workflow for turning research into advice, a dashboard and playbook it can show prospective clients, and a way to keep that evidence current as new studies appear. The research field gets a direct test of AI coding against posted human coding at every step, from reading a number off a table to the final pooled estimate, along with a benchmark that synthetic-respondent tools could later be held to. For our team, the project builds skills employers want: evaluating AI output against a ground truth, working with secondary data in R, designing dashboards for decision makers, and running a measured digital campaign.
 
+At the end of the project, TBFI receives four things: a validated CALIPER workflow, an evidence map on personalization, a decision dashboard with a consultant playbook, and a brief showing which findings hold up when coding changes. To get there, the team needs TBFI to approve the secondary-data scope and the four-objective plan, nominate staff for the AO4 dashboard walkthrough, help choose realistic business questions for that walkthrough, and agree on the playbook's audience and format so it fits how consultants actually work.
+
 # CHAPTER 2: BACKGROUND AND ANALYTICS OBJECTIVES {#sec-ch2}
 
 ## Client (Company) Background
 
 ### Company Mission/Vision
 
-\[To be completed.\]
+The Tarkington Business Futures Institute (TBFI) sits within Cal Poly Pomona's College of Business Administration. It was announced in March 2026 through a gift from Al ('64) and Stephanie Tarkington [@cpp2026]. Its stated mission is to help business leaders "see around the corner" before they have to turn it [@tbfi2026], through applied research on AI, markets, technology, and the future of business.
 
 ### Core Competencies
 
-\[To be completed.\]
-
+TBFI's founding team pairs academic research with applied advising. Anthony W. Orlando is the director and holds the Tarkington Family Endowed Chair. Yufan (Frank) Lin is faculty fellow for AI in business and is this project's faculty and client lead. L. Lin Ong is a faculty fellow [@tbfi2026].
 ### Value Propositions
 
-\[To be completed.\]
+TBFI gives local businesses research-backed answers that are fast enough to keep up with their decisions and trustworthy enough for a consultant to put in front of a client. Most SGV businesses cannot pay for a custom study, so evidence drawn from published research and checked for accuracy is a low-cost alternative.
 
 ### Business Objectives
 
-\[To be completed.\]
+TBFI's need is an evidence engine: a way to turn a large body of published research into guidance its consultants can explain and use when advising local businesses. This project builds and tests that engine for personalization (PO1), turns it into a dashboard and consultant playbook (PO2), and promotes those resources to raise TBFI's visibility and qualified business intake among SGV businesses (PO3).
 
 ## Description of the Client's Current Marketing Program
 
+TBFI launched in March 2026, so its marketing program is new and still taking shape. This section describes what is publicly visible as of November 2026; items marked "to confirm" need TBFI's input.
+
 ### Marketing Team and Expertise
 
-\[To be completed.\]
+TBFI has no dedicated marketing staff. Its three faculty leads (Orlando, Lin, and Ong) carry its public voice through research, events, and media [@tbfi2026]. For fall 2026 through spring 2027, the institute is hiring two paid student positions at 10 to 15 hours a week, one of which produces the institute's podcast and digital content with L. Lin Ong [@tbfinewsletter2026]. Marketing capacity is therefore part-time and student-supported.
 
 ### Current Target Market
 
-\[To be completed.\]
+TBFI's site speaks to three groups: business leaders who want early warning on emerging change, regional stakeholders in the San Gabriel Valley, and the faculty, visiting scholars, and students it develops through fellowships [@tbfi2026]. The SGV itself spans 31 cities and about 1.8 million people, and small businesses make up the vast majority of its firms [@cppforecast2026].
 
 ### Current Positioning and Perceptual Map
 
-\[To be completed.\]
+TBFI positions itself as a "think-and-do tank" that moves "at the speed of change, not the speed of peer review," with a stated aim to democratize foresight [@tbfi2026]. Against the alternatives in @sec-competitors, it sits on two dimensions. On speed versus rigor, it claims both: faster than academic publishing, but backed by faculty research. On scope, it is regional and forward-looking, where statewide forecasters cover the big picture and free advising services cover day-to-day operations. A perceptual map built from consultant and client input is planned for the Chapter 5 marketing plan (to confirm with TBFI).
 
 ### Current Product/Services
 
-\[To be completed.\]
+TBFI organizes its work in three lines [@tbfi2026]:
+
+- **See around corners:** AI-powered forecasts, synthetic market research, and real-time commentary, including the monthly SGV economic tracking behind the annual SGV Economic Forecast.
+- **Surface what's being built:** seminars, roundtables, the Tarkington Research Horizons monthly speaker series [@tbfihorizons2026], and a flagship Moonshot Conference.
+- **Develop people:** fellows programs for faculty, visiting scholars, and students.
+
+This project adds a fourth kind of product: research-backed decision support, through the personalization dashboard and consultant playbook (PO2).
 
 ### Current Pricing
 
-\[To be completed.\]
+TBFI's site lists no prices, memberships, or sponsorship tiers [@tbfi2026]. Its work is funded by the Tarkington gift and grants, so its research and content appear to be free to the public. The SGV Economic Forecast Summit, which Cal Poly Pomona co-hosts with the San Gabriel Valley Economic Partnership, is ticketed by the partnership, not by TBFI. How TBFI will price consulting for local businesses, if at all, is to confirm.
 
 ### Current Marketing Channels
 
-\[To be completed.\]
+TBFI reaches its audiences through its website (tarkingtoninstitute.org) and a page on the College of Business site, a monthly email newsletter, LinkedIn, and Instagram [@tbfi2026]. Events are a second channel: the speaker series and the annual SGV Economic Forecast Summit, which draws regional business and civic leaders. A podcast is in development [@tbfinewsletter2026].
 
 ### Current Integrated Marketing Communications
 
-\[To be completed.\]
+Across channels, the message is consistent: TBFI helps leaders "see around the corner." The newsletter, social posts, and events point back to the same calls to action, mainly newsletter signup and the research pages [@tbfi2026]. What is missing so far is content aimed at small business owners specifically, which is the gap the PO3 campaign is designed to fill.
 
 ## Description of the Company's Current Digital Marketing Practices
 
 ### Brand Persona
 
-\[To be completed.\]
+TBFI's voice is confident, forward-looking, and plain-spoken, closer to a smart advisor than an academic journal. Its tagline, "We help business leaders see around the corner — before they have to turn it," sets that tone [@tbfi2026].
 
 ### Digital Marketing Channels/Medium
 
-\[To be completed.\]
+Owned media: website, College of Business page, and monthly newsletter. Social media: LinkedIn (company page) and Instagram [@tbfi2026]. Earned media: Cal Poly Pomona news coverage and regional press around the SGV Economic Forecast [@cppforecast2026]. No paid advertising is visible.
 
 ### Other Digital Marketing Channels and Tactics
 
-\[To be completed.\]
+The newsletter invites readers to forward it to colleagues, a low-cost referral tactic [@tbfinewsletter2026]. Faculty talks and conference presentations extend reach to academic and professional audiences. The planned podcast would add an audio channel.
 
 ### Allocation of Resources to Customer-Influence Efforts
 
-\[To be completed.\]
+Marketing resources are limited to faculty time and part-time student roles [@tbfinewsletter2026]. TBFI's budget split between research, events, and marketing is not public (to confirm with TBFI).
 
 ### Analytics Infrastructure
 
-\[To be completed.\]
+No analytics setup is publicly visible. Whether the website runs GA4, whether newsletter opens and clicks are tracked, and which social metrics are reviewed are all to confirm. Setting up GA4 and UTM-tagged links is a first step in the PO3 plan.
 
-## Competitive Analysis
+## Competitive Analysis {#sec-competitors}
+
+TBFI faces two kinds of competition. For the product this project builds, an AI-assisted, research-backed evidence engine, the competitors are AI research tools. For TBFI's audience of local business owners, the alternatives are free regional advising and established forecasters.
 
 ### Industry Size
 
-\[To be completed.\]
+AI tools that simulate consumers or synthesize research are a young but fast-funded market. Aaru, one of the best-funded synthetic research startups, raised a Series A at a reported $1 billion headline valuation in December 2025, with clients including Accenture, EY, and Interpublic Group [@techcrunch2025aaru]. TBFI's home market is the SGV: 31 cities, about 1.8 million people, and an economy led by healthcare, education, manufacturing, and technology [@cppforecast2026].
 
 ### Industry Outlook
 
-\[To be completed.\]
+Demand for faster, cheaper research is rising. Synthetic-respondent vendors promise insight in minutes rather than weeks, and evidence-synthesis tools now cover search, screening, and data extraction [@atypica2026; @elicit2026]. Trust is the open question. Practitioner guidance treats synthetic users as a way to generate hypotheses rather than a replacement for real research [@nngroup2024synthetic], and published tests of LLM respondents find biased or overly uniform answers for some groups [@bisbee2024]. Meanwhile, SGV small businesses face policy uncertainty and rising costs [@cppforecast2026], which raises the value of guidance they can trust.
 
 ### Key Competitors and Their Digital Marketing Strategies
 
-\[To be completed.\]
+| Competitor | What it offers | How it reaches users | How this project differs |
+|:--|:--|:--|:--|
+| **AI personas and simulated markets** | | | |
+| MiroFish | Open-source multi-agent "swarm intelligence" engine that builds a simulated world from documents and produces prediction reports [@mirofish2026] | GitHub, developer community, demos | Simulates opinions; our benchmark is effects measured in real experiments |
+| atypica.AI | AI research agent that interviews simulated consumers and returns a research report [@atypica2026] | Product Hunt launches, founder posts, blog content | Checks its personas against responses from real people; our benchmark is pooled effects from published experiments |
+| Synthetic Users | Synthetic participants for interviews, concept tests, and surveys [@syntheticusers2026] | "User research without the users" messaging, demos, guides | Same speed promise; our method is validated against human coders at each step |
+| Aaru | Population-scale simulation for consumer and political prediction, sold to enterprises [@techcrunch2025aaru] | Enterprise sales, press, investor coverage | Enterprise-priced and proprietary; TBFI's evidence is public and free to local businesses |
+| **AI evidence synthesis** | | | |
+| Elicit | Search, title-and-abstract screening, and data extraction for systematic reviews [@elicit2026] | Academic users, blog, university library guides | General purpose; CALIPER tunes coding rules and keeps a change only if it beats human coders, and our output is a business playbook |
+| Consensus | AI search over more than 200 million papers with cited summaries [@consensus2026] | Students, researchers, and university library guides | Summarizes papers one question at a time; does not pool effects or test whether its coding is right |
+| **Regional alternatives for SGV businesses** | | | |
+| UCLA Anderson Forecast; SBDCs; SGV Economic Partnership | Statewide forecasts [@uclaforecast2026], free one-on-one advising [@pccsbdc2026; @lavernesbdc2023], and regional business events [@cppforecast2026] | Conferences, workshops, memberships | Broad or operational; none turns published research into tested marketing guidance |
+
+: Key Competitors {#tbl-competitors}
+
+The pattern across the table is that competitors compete on speed. None of them shows that its AI output matches human-verified evidence. That validation is this project's point of difference, and it is what TBFI can stand behind in front of a client.
 
 ## Customer Analysis
 
 ### Segments and Their Brief Justification
 
-\[To be completed.\]
+- **SGV small business owners** (restaurants, retail, and services, like the boba shop in @sec-background): the largest group of firms in the region and the most exposed to current cost pressures [@cppforecast2026]. They are the main audience for the personalization playbook.
+- **Regional economic stakeholders** (city economic development offices, chambers of commerce, and the SGV Economic Partnership): they amplify TBFI's research and connect it to local businesses.
+- **Corporate and professional leaders** who attend forecasts and seminars: they want foresight and are potential sponsors.
+- **Cal Poly Pomona faculty and students**: fellows, research partners, and the talent pipeline TBFI develops [@tbfi2026].
 
 ### Segment Analysis
 
-\[To be completed.\]
+Small business owners have the greatest need but the least time and budget. They respond to short, practical answers to specific questions, which is why the dashboard and playbook lead with plain-language guidance. Regional stakeholders value credible, citable data and reach many businesses at once, which makes them efficient channel partners for PO3. Corporate leaders are smaller in number but drive event attendance and sponsorship. Students and faculty are TBFI's internal audience; they matter for capacity more than for revenue. Segment sizes and priorities are to confirm with TBFI.
 
 ## SWOT Analysis
 
 ### Strengths
 
-\[To be completed.\]
+University credibility and faculty expertise; a founding gift that funds free research; an established regional flagship in the SGV Economic Forecast; and AI research capacity, including CALIPER [@tbfi2026; @caliper2026].
 
 ### Weaknesses
 
-\[To be completed.\]
+A brand only months old with low awareness; no dedicated marketing staff; no visible analytics setup; and no offering yet built specifically for small business owners.
 
 ### Opportunities
 
-\[To be completed.\]
+Small businesses facing cost and policy pressure need affordable guidance [@cppforecast2026]; AI makes research synthesis faster and cheaper; partners such as the SGV Economic Partnership and the SBDCs can carry TBFI's content to businesses; and the personalization playbook gives TBFI a concrete product to promote.
 
 ### Threats
 
-\[To be completed.\]
+Fast, well-funded AI research tools (synthetic-respondent platforms such as Aaru and atypica.AI, and synthesis tools such as Elicit) and established free alternatives (UCLA Anderson Forecast, SBDCs); skepticism about AI-generated advice; small business owners' limited time; and dependence on a small team and grant timelines.
 
 ### Summary: SWOT Quadrants
 
-\[To be completed.\]
+| | Helpful | Harmful |
+|:--|:--|:--|
+| **Internal** | University credibility; funded free research; SGV forecast; AI research capacity | New brand; no marketing staff; no analytics; no small-business product yet |
+| **External** | Small businesses need low-cost guidance; faster AI synthesis; partner channels; playbook as a product | Well-funded AI research tools; established free alternatives; AI skepticism; owners' limited time |
+
+: SWOT Summary {#tbl-swot}
+
+The strategy that follows from this SWOT is to use TBFI's credibility and research capacity to fill the small-business gap, with a validated, plain-language playbook delivered through partners who already reach local owners.
 
 ## Investigation of Currently Available Research Framework/Model {#sec-lit-review}
 
 This section reviews the research frameworks, models, and evidence relevant to each analytics objective. For each AO, it asks whether established research already answers the question, whether that information is adequate for TBFI, what additional analysis is needed, and whether the AO should be kept, revised, or narrowed. The literature on synthetic and human respondents collected in the 16 October search log supports the motivation in @sec-background and is not repeated here.
+
+### Studies Closest to This Project
+
+Two streams of recent work sit closest to this project. The first tests AI on the steps of a systematic review or meta-analysis. The second tests whether AI personas can stand in for human participants, which is the claim behind tools such as MiroFish and atypica.AI. @tbl-similar lists the most relevant peer-reviewed studies and what each means for our AOs.
+
+| Study | What it tested | Main finding | What it means for this project |
+|:--|:--|:--|:--|
+| **AI for systematic reviews and meta-analysis** | | | |
+| @lieberum2025 | Scoping review of LLM use across systematic review steps | LLM use is growing, but not yet ready to run reviews without people | Supports keeping human checks at every step (all AOs) |
+| @li2026benchmark | Three LLMs extracting meta-analysis data from full-text trials | Task-specific prompts and model ensembles each improved extraction | Supports evidence-linked extraction and a second-model check (AO1) |
+| @kataoka2025 | GPT-4o and o3 extracting systematic review data | Text fields were extracted more accurately than numbers | Numbers need the closest checking (AO1) |
+| @bianchi2025 | Elicit vs. a human reviewer extracting trial data | Only partly correct; complex fields such as the intervention effect still needed a person | A leading commercial tool still needs human review (AO1, AO2) |
+| @sciurti2025 | Compact LLMs screening titles and abstracts in three published reviews | High sensitivity and large workload savings, but imprecise | Why AO4 reports recall first and checks every AI inclusion against human consensus |
+| **AI personas as research participants** | | | |
+| @argyle2023 | Conditioning an LLM on demographic backstories to simulate survey samples | Simulated samples reproduced many patterns in real human data | The founding case for synthetic respondents |
+| @bisbee2024 | LLM answers vs. real survey responses | Simulated answers were too uniform and shifted with prompt wording and model version | Why synthetic data needs a human benchmark |
+| @park2024diversity | GPT-3.5 in 14 Many Labs 2 replication studies | About 30% of results replicated, with unusually uniform answers | Simulated participants are not a safe substitute for human data |
+| @li2024 | LLM-generated perceptual maps vs. maps from human survey data (*Marketing Science*) | LLM maps agreed closely with human-based maps | The marketing study our original synthetic-respondent direction built on |
+
+: Studies Closest to This Project {#tbl-similar}
+
+The pattern is consistent. AI does well on simple, clearly reported fields and reproduces many broad patterns in human data, but it struggles with numbers, judgment calls, and the variety of real human answers. None of these studies tests the full path from AI coding to the conclusions of a marketing meta-analysis, which is the gap AO1 to AO3 fill, and none validates a synthetic-respondent tool against pooled effects from real experiments, which is what our coded meta-analysis makes possible.
 
 ### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
 
@@ -354,7 +413,7 @@ Content analysis treats a codebook as a measurement instrument. Coders apply wri
 
 #### Adequateness of Gathered Information
 
-LLMs can label text at or above crowd-worker quality [@gilardi2023], and CALIPER improved out-of-sample accuracy for the constructs it refined [@caliper2026]. However, CALIPER has been tested on constructs expressed in text such as reviews and service conversations, not on mapping a study's outcome measure to a meta-analytic category. That task is harder, because the same label can cover different measures and the deciding detail is often in the scale items or the method section. The human coders also disagreed on about 16% of the rows both coded, with the most disagreement on positive affect, avoidance, and attitude toward company [@eisend2026data].
+LLMs can label text at or above crowd-worker quality [@gilardi2023], and CALIPER improved out-of-sample accuracy for the constructs it refined [@caliper2026]. However, CALIPER has been tested on constructs expressed in text such as reviews and service conversations, not on mapping a study's outcome measure to a meta-analytic category. That task is harder, because the same label can cover different measures and the deciding detail is often in the scale items or the method section. The human coders also disagreed on about 14% of the rows both coded (Cohen's kappa = .857 on the analysis sample), with the most disagreement on attitude toward the ad among the large categories and on positive affect, avoidance, and attitude toward company among the small ones [@eisend2026data].
 
 #### Need for Additional Analysis
 
@@ -386,11 +445,11 @@ AO3 is affirmed as written. It reproduces the published results first, then repo
 
 ### AO4. Evidence Update and Decision Dashboard (Simran Kaur)
 
-**Analytics Objective:** Test whether AI-assisted screening finds personalization studies published after the meta-analysis's search cutoff as completely as two human screeners, and whether TBFI consultants can use the resulting dashboard to answer questions correctly.
+**Analytics Objective:** Test whether AI-assisted screening finds personalization studies published after the meta-analysis's search cutoff as completely as the human crowd-coding benchmark, and whether TBFI consultants can use the resulting dashboard to answer questions correctly.
 
 #### Existence of Well-established Models
 
-Systematic reviews follow established steps for finding and screening studies. PRISMA 2020 sets the reporting standard, including a flow diagram that records how many records were found, screened, excluded, and included [@page2021]. Screening by two independent reviewers is the norm, with agreement checked by Cohen's kappa [@cohen1960]. Because evidence goes out of date, researchers have proposed living systematic reviews that are updated as new studies appear [@elliott2014]. @eisend2026 followed this tradition: they searched EBSCO, ScienceDirect, and ProQuest Dissertations with combinations of personalization and advertising keywords, added Google Scholar and backward and forward citation searching, and covered work published until 2024.
+Systematic reviews follow established steps for finding and screening studies. PRISMA 2020 sets the reporting standard, including a flow diagram that records how many records were found, screened, excluded, and included [@page2021]. Screening by two independent reviewers is the norm, with agreement checked by Cohen's kappa [@cohen1960]; when more than two coders screen the same records, Krippendorff's alpha generalizes that agreement check [@krippendorff2018]. Because evidence goes out of date, researchers have proposed living systematic reviews that are updated as new studies appear [@elliott2014]. @eisend2026 followed this tradition: they searched EBSCO, ScienceDirect, and ProQuest Dissertations with combinations of personalization and advertising keywords, added Google Scholar and backward and forward citation searching, and covered work published until 2024.
 
 On the decision side, marketing dashboards are well established as a way to put a small set of key metrics in front of managers so they can act on them [@pauwels2009]. A dashboard is judged by whether it helps the user make the right decision, not by how much it displays.
 
@@ -402,11 +461,11 @@ The meta-analysis itself is also aging. Its search ends in 2024, while personali
 
 #### Need for Additional Analysis
 
-AO4 tests AI screening on a real evidence update in marketing, measured against two human screeners, and then tests whether the dashboard built from the validated evidence leads TBFI consultants to correct answers. To give the AI screener a development step before it sees the new records, it can first be calibrated on records from the original search, scored against the authors' own include and exclude decisions listed in their web appendices. This keeps the development and test logic consistent with AO1 and AO2.
+AO4 tests AI screening on a real evidence update in marketing, measured against a crowd-coding benchmark of all four students and the TBFI RA, and then tests whether the dashboard built from the validated evidence leads TBFI consultants to correct answers. To give the AI screener a development step before it sees the new records, it can first be calibrated on records from the original search, scored against the authors' own include and exclude decisions listed in their web appendices. This keeps the development and test logic consistent with AO1 and AO2.
 
 #### Assessment and Affirmation of Analytics Objectives
 
-AO4 is affirmed with two clarifications. First, screening is the main analytic question and the dashboard walkthrough is the applied test, so each has its own benchmark: the human screener consensus for screening and an answer key for the dashboard. Second, the update window is defined in Chapter 3 so that the end of the original search period is covered without double-counting studies already in the anchor data. The AO reports screener agreement (Cohen's kappa), AI recall and precision against the human consensus, the number of new eligible studies, and the share of dashboard tasks answered correctly. Its outputs are a PRISMA flow diagram, an updated evidence map, the dashboard, and the consultant playbook draft.
+AO4 is affirmed with two clarifications. First, screening is the main analytic question and the dashboard walkthrough is the applied test, so each has its own benchmark: the adjudicated consensus of the student and RA screeners for screening and a predefined answer key for the dashboard. Second, the update window is defined in Chapter 3 so that the end of the original search period is covered without double-counting studies already in the anchor data. The AO reports agreement among the human coders (Krippendorff's alpha), AI recall and precision against the human consensus, the number of new eligible studies, and the share of dashboard tasks answered correctly. Its outputs are a PRISMA flow diagram, an updated evidence map, the dashboard, and the consultant playbook draft.
 
 # CHAPTER 3: METHODS {#sec-ch3}
 
@@ -423,14 +482,14 @@ This project does not collect survey data. All four AOs use secondary data, name
 | Role | Source |
 |:--------------------|:--------------------------------------------------|
 | Anchor meta-analysis (primary data for all AOs) | @eisend2026, *Journal of Marketing*, open access |
-| Human benchmark dataset | Harvard Dataverse replication files [@eisend2026data], CC0 license. Effect-size rows with outcome and moderator codes from coders 1, 2, and 3, inconsistency flags, each primary study's own outcome wording (variable V2DESCRI), the authors' R scripts, and the correlation matrix |
+| Human benchmark dataset | Harvard Dataverse replication files [@eisend2026data], CC0 license. Effect-size rows with outcome and moderator codes from coders 1, 2, and 3, inconsistency flags, each primary study's own outcome wording (variable V2DESCRI), the authors' R scripts, and the correlation matrix. The replication packet the team received has 11 files: datasets, the correlation matrix, two R scripts, AMOS files, and a readme |
 | Codebook in the article | Table 3 of @eisend2026 defines the outcome categories with examples of related concepts. Table 5 lists the moderator codes, their kappas, and decision rules. No separate coding manual is published |
 | Outcome-code crosswalk | The dataset stores outcome categories as 44 numeric codes. A draft crosswalk in the project data folder maps each code to its name using Table 3 and the authors' R script; Dr. Lin checks it before use |
-| Primary articles | Full texts obtained through the Cal Poly Pomona library and shared in a private folder under a signed Research Paper Access and Use Acknowledgment. Never stored or posted publicly |
+| Primary articles | 166 full-text PDFs shared with the team (Dr. Lin's 16 October update), obtained through the Cal Poly Pomona library and kept in a private folder under a signed Research Paper Access and Use Acknowledgment. Never stored or posted publicly |
 | New studies (AO4) | Records from EBSCO, ScienceDirect, and ProQuest Dissertations and Theses, with Google Scholar for citation searching, published after the anchor search period |
 | Transfer test (spring, if on schedule) | @eisend2025, with Dataverse replication data (CC BY 4.0) |
 
-: Data Sources
+: Data Sources {#tbl-data}
 
 ### Population
 
@@ -438,19 +497,31 @@ The population for AO1 to AO3 is the set of primary studies included in @eisend2
 
 ### Sampling Frame
 
-For AO1 to AO3, the sampling frame is the list of primary articles which the team has full text. Of the 310 primary articles targeted and a total of 2,450 specific effects included in the @eisend2026, anchor meta-analysis.
+For AO1 to AO3, the sampling frame is the set of primary articles in the @eisend2026 anchor meta-analysis for which the team has full text. Dr. Lin has shared 166 full-text PDFs. The full Dataverse replication file has 2,452 effect-size rows before analysis filters [@eisend2026data]. For AO4, the sampling frame is every record returned by the update search.
 
 ### Sampling Method
 
-Sampling will be conducted at the article level. The team focused on a development set of about 20 primary articles and reserves a separate test set of about 20, both sampled at the article level so that all effects from one article stay in the same set. All four AOs share this split. Prompts and coding rules are tuned on the development set only, and the test set is run once, in March, after the methods are frozen. For AO4, all records returned by the search are screened; if the number is very large, a random sample is drawn for double human screening and the sample size is reported.
+Sampling will be conducted at the article level. The team focused on a development set of about 20 primary articles and reserves a separate test set of about 20, both sampled at the article level so that all effects from one article stay in the same set. All four AOs share this split. Prompts and coding rules are tuned on the development set only, and the test set is run once, in March, after the methods are frozen. For AO4, all records returned by the search are screened; if the number is very large, a random sample is drawn for screening by all four students and the TBFI RA, and the sample size is reported.
 
 ### Data Wrangling
 
 The Dataverse files are downloaded, checked against the published counts, and stored in a shared secured folder. Outcome codes are mapped to category names with the crosswalk. Every value coded by any team member, by hand or with AI, is stored as one record in the shared extraction schema, with one record per value (@sec-appendix-schema). Coders never overwrite another coder's file; disagreements are resolved in a separate adjudication file that keeps every original value. For AO3, records are reshaped into one row per effect before modeling. For AO4, search exports are combined, deduplicated by DOI and title, and matched against the anchor dataset.
 
+The data preparation runs in the following order. The example in each step comes from the team's calibration exercise on Aguirre et al.'s (2015) Study 2, coded into the @eisend2026 scheme [@aguirre2015].
+
+1. **Gather the data.** Download the replication files from Harvard Dataverse [@eisend2026data] and collect the full-text PDFs, the codebook (Tables 3 and 5 of @eisend2026), and the outcome-code crosswalk.
+2. **Check the data.** Match the Dataverse rows against the published counts, apply the authors' analysis filters, confirm the variables, and map the 44 numeric outcome codes to category names.
+3. **Split the articles.** Draw about 20 development articles and about 20 test articles at the article level. The test set stays untouched until the methods are frozen in March.
+4. **Hand-code first.** Every team member codes the same article into the shared schema before any AI sees it. *Example:* eligibility comes first. Study 3 is excluded because every participant saw a highly personalized ad, so there is no less-versus-more contrast; the extra study in footnote 3 is included because participants were randomized to less or more personalized ads. Each effect is then coded from the page. For click-through intentions on Facebook with overt data collection, the less personalized mean is 2.04 and the more personalized mean is 4.12, *F*(1, 92) = 17.16, *p* < .001, printed on page 42. The paper does not print the cell size for this comparison, so N is entered as "not reported" rather than estimated.
+5. **Run the AI coder.** The AI receives a blank copy of the same sheet, the article, and the codebook, and codes the same effects.
+6. **Settle every difference on the page.** Each field where the human and AI entries differ is checked against the article, and the page that settled it is recorded. *Example:* the hand entry gave seven scale points for the manipulation check, but the article does not print the scale, so the correct entry is "not reported."
+7. **Sharpen the rules.** What the calibration shows becomes a written rule in the codebook. *Example:* a study needs an actual personalization contrast to be eligible, N is never estimated from degrees of freedom or the total sample, and values read from a figure are always flagged.
+8. **Score against the human benchmark.** Dr. Lin shares the final human coding, which becomes the benchmark each AO is scored against.
+9. **Update the evidence (AO4).** In parallel, the AO4 search runs from 2024 onward, duplicates of anchor records are removed, and the same records are screened by all four students, the TBFI RA, and the AI screener.
+
 ### Understanding the Data
 
-The published analysis integrates 1,536 effect sizes from 290 studies in 229 papers, of which 1,125 effect sizes are assigned to the consumer response categories used in the meta-regressions [@eisend2026]. The Dataverse file holds about 2,450 effect-size rows from about 310 studies [@eisend2026data], which suggests it also contains rows dropped before analysis, such as responses that appeared in only one or two studies. The week 10 data-integrity check reconciles these counts before any AO uses the data. Coders 1 and 2 disagreed on about 16% of the outcome rows both coded, with the highest disagreement for positive affect (58%), avoidance (42%), and attitude toward company (38%) [@eisend2026data].
+The published analysis integrates 1,536 effect sizes from 290 studies in 229 papers, of which 1,125 effect sizes are assigned to the consumer response categories used in the meta-regressions [@eisend2026]. The full Dataverse replication file holds 2,452 effect-size rows from 407 studies in 309 papers [@eisend2026data]. These counts describe different scopes: the Dataverse file keeps every coded row, and the authors' `exclude` flag marks which rows enter the published analysis. The team's data-preparation check (CEP 11) confirmed that filtering to `exclude = 0` leaves exactly 1,536 effect sizes, with no missing effect sizes, variances, or outcome codes and no correlations outside −1 to 1. Those effects come from 289 studies in 223 papers, slightly fewer than the 290 and 229 the article reports, and two paper IDs share a title; the team is confirming these small differences with Dr. Lin. Of the 1,536 effects, 1,125 fall in the persuasion-success or persuasion-failure categories used in the meta-regressions. Coders 1 and 2 disagreed on about 14% of the outcome rows both coded. On the analysis sample their agreement is Cohen's kappa = .857, the same value the article reports. Among categories with at least 30 rows, attitude toward the ad had the most disagreement (26%); smaller categories such as positive affect, avoidance, and attitude toward company reached 40% to 50%, but each rests on 61 rows or fewer [@eisend2026data].
 
 ### Programming
 
@@ -458,13 +529,24 @@ Analysis uses R, with metafor for meta-analytic models [@viechtbauer2010] and ir
 
 ### Sample Characteristics
 
-Although the units of analysis are from published articles, sample characteristics from the studies include personalization moderators such as demographic, socioeconomic, and geographic data of the subjects from the original experiments conducted. Relelvant variables that are extracted to reflect consumer behavior and attitudes, making a distinction between behavioral outcomes, such as clicks or purchases, or their attitude outcomes such as their attitude toward the company or their engagement.
+Although the units of analysis are from published articles, sample characteristics from the studies include personalization moderators such as demographic, socioeconomic, and geographic data of the subjects from the original experiments conducted. Relevant variables are extracted to reflect consumer behavior and attitudes, distinguishing behavioral outcomes, such as clicks or purchases, from attitudinal outcomes, such as attitude toward the company or engagement.
 
 ### Measures
 
 The shared extraction schema defines the measures (@sec-appendix-schema). Each record holds the unit identifiers, the codebook field, the coded value or a null with its reason, the page and verbatim snippet that support it, a one-sentence justification naming the codebook rule applied, AI confidence, reading difficulty, and the type of judgment involved. A separate outcome construct record keeps the author's label, definition, operationalization, measure type, assigned category, and disagreement type in separate fields. Effect sizes are correlations (*r*) as in @eisend2026.
 
 ### Analytics Methods to Employ
+
+@tbl-analysis summarizes the data analysis plan for each AO. No survey is used, so the data fields are dataset fields, coded values, and derived indicators rather than questionnaire items. The subsections that follow give the details.
+
+| AO | Independent variable (condition) | Dependent variables | Controls | Measurement scales | Statistical analysis |
+|:------|:------------------|:------------------|:------------------|:------------------|:------------------|
+| AO1. Extraction accuracy (Rodriguez) | Extraction approach: single-pass vs. evidence-linked with a second-model check | Field-level accuracy, absolute numeric error, missed and extra effects, unsupported values, time and cost per article | Same articles, fields, benchmark, and scoring rules for both approaches | Nominal (approach, field type, error type, correct/incorrect); ratio (N, error counts, time, cost); continuous (effect sizes, test statistics, absolute differences) | Accuracy and error rates per approach; paired article-level differences; results by field and error type; tolerance \|Δ*r*\| ≤ .01 |
+| AO2. Outcome alignment (Raygoza Quintero) | Coding condition: (0) wording plus codebook, (a) category names, (b) one AI coder, (c) two AI coders with CALIPER revision | Agreement of AI outcome codes with the final human codes | Category definitions fixed; rules revised on development articles only and frozen before the test; coders blind to effect results | Nominal (category, measure type, condition, disagreement type); continuous (F1, κ, α) | Macro-F1 and Cohen's κ vs. final codes; Krippendorff's α among AI coders; agree-and-wrong rate; abstention rate |
+| AO3. Robustness (Huang) | Source of numbers (published vs. AO1) and classification version (final, coder 1, coder 2, AI before and after alignment) | Pooled effect, τ², I², moderator coefficients, 95% CI and PI, effect counts, sign and significance flips | Same studies, models, moderators, and settings as the authors' R scripts; published effect sizes held fixed in classification-only runs | Nominal (condition, category); continuous (*r*, SE, coefficients, interval limits); ratio (N, effect counts); binary (flips) | Reproduce published models; random-effects and multilevel meta-analysis and meta-regression in metafor; change in SE units |
+| AO4. Evidence update and dashboard (Kaur) | Screener: AI title-and-abstract screener vs. human crowd coding; for the dashboard, consultant task | AI recall and precision vs. human consensus, workload saved, new eligible studies, dashboard task accuracy and time | Same records for every screener; AI prompt frozen before new records; answer key written before the walkthrough | Nominal (include/exclude, eligibility reason, task correct/incorrect); ratio (record counts, time per task); continuous (α, recall, precision) | Krippendorff's α among the four students and the TBFI RA; recall and precision against the adjudicated consensus; PRISMA 2020 flow; share of dashboard tasks answered correctly |
+
+: Data Analysis Plan by Analytics Objective {#tbl-analysis}
 
 #### AO1. Effect-Size Extraction Accuracy (Alondra Rodriguez)
 
@@ -482,13 +564,13 @@ Random-effects and multilevel meta-analyses are estimated in R with metafor, fol
 
 *Search.* The keyword strategy of @eisend2026 ("personalization," "personalized," "location-based," or "(online) behavioral" combined with "advertising," "market\* communication," "marketing," or "target\*") is rerun in EBSCO, ScienceDirect, and ProQuest Dissertations and Theses. Because the anchor search covered work "until 2024," the update window starts on 1 January 2024, and any record already in the anchor dataset is removed during deduplication. Google Scholar is used for forward and backward citation searching rather than as a primary database, because its results cannot be reproduced exactly. Each search is logged with database, query, date, and number of hits.
 
-*Screening.* The inclusion and exclusion criteria from @eisend2026 are written as a screening codebook. Before seeing the new records, the AI screening prompt is calibrated on a sample of records from the original search, scored against the authors' own include and exclude decisions. Two human screeners then independently screen the titles and abstracts of the new records, and disagreements are resolved by discussion to form a consensus. The frozen AI screener runs on the same records. Human agreement is measured with Cohen's kappa [@cohen1960]. AI performance is measured by recall (the share of human-included studies the AI also includes), precision (the share of AI-included studies the humans also include), and the share of records a human would no longer need to read. Records included at title and abstract are checked at full text, effects from newly eligible studies are recorded in the shared schema, and the process is reported in a PRISMA 2020 flow diagram [@page2021].
+*Screening.* The inclusion and exclusion criteria from @eisend2026 are written as a screening codebook. Before seeing the new records, the AI screening prompt is calibrated on a sample of records from the original search, scored against the authors' own include and exclude decisions. All four students then independently screen the titles and abstracts of the same new records, alongside the TBFI RA's coding, and disagreements are adjudicated to form a consensus. The frozen AI screener runs on the same records. Because the benchmark has more than two coders, human agreement is measured with Krippendorff's alpha [@krippendorff2018]. AI performance is measured by recall (the share of human-included studies the AI also includes), precision (the share of AI-included studies the humans also include), and the share of records a human would no longer need to read. Records included at title and abstract are checked at full text, effects from newly eligible studies are recorded in the shared schema, and the process is reported in a PRISMA 2020 flow diagram [@page2021].
 
-*Dashboard and walkthrough.* The dashboard presents the validated pooled effects by outcome, the main moderators (such as data type and channel), the robustness flags from AO3, and the new studies from the update, in an updated evidence map. An answer key of realistic client questions is written from the AO3 results before the walkthrough. TBFI staff answer the questions using the dashboard, and the share of tasks answered correctly and the time per task are recorded. Questions answered incorrectly guide revisions before the dashboard is used in the PO3 campaign.
+*Dashboard and walkthrough.* The dashboard presents the validated pooled effects by outcome, the main moderators (such as data type and channel), the robustness flags from AO3, and the new studies from the update, in an updated evidence map. A predefined answer key of realistic client questions is written from the AO3 results before the walkthrough. TBFI staff answer the questions using the dashboard, and the share of tasks answered correctly and the time per task are recorded. Questions answered incorrectly guide revisions before the dashboard is used in the PO3 campaign.
 
 ## Ethics and Data Use
 
-None of the AOs collects data from people, so the capstone needs no IRB application. Dr. Lin may ask to use the team's coding records (calibration coding, time logs, and disagreements) in a separate research paper; he will obtain an IRB determination and ask for written consent before the 13 November calibration coding, and no grade depends on that consent. Articles are cited, never redistributed. Only values, page pointers, and short quotes go into the shared dataset.
+None of the AOs collects data from people, so the capstone needs no IRB application. Dr. Lin may ask to use the team's coding records (calibration coding, time logs, and disagreements) in a separate research paper; he will obtain an IRB determination and ask for written consent before calibration coding begins, and no grade depends on that consent. Articles are cited, never redistributed, and full-text PDFs stay private. Every model version, prompt, and coding decision is logged. Only values, page pointers, and short quotes go into the shared dataset.
 
 # CHAPTER 4: ANALYSIS/MODELING AND RESULTS {#sec-ch4}
 
@@ -701,11 +783,11 @@ None of the AOs collects data from people, so the capstone needs no IRB applicat
 
 ### Link to Data
 
-\[To be completed: link to the shared OneDrive data folder. Dataverse source: <https://doi.org/10.7910/DVN/KJRWWM>.\]
+The replication packet is public on Harvard Dataverse: <https://doi.org/10.7910/DVN/KJRWWM>. The team keeps a local copy in the repo's `dataverse_files` folder, which is not pushed to GitHub. \[To be completed: link to the shared OneDrive folder for the full-text PDFs, which stay private.\]
 
 ### Data Dictionary
 
-\[To be completed after the week 10 data-integrity check.\]
+The data-integrity check and the key-field dictionary are in the team's CEP 11 Data Preparation report: <https://gabrielarq1.github.io/CEP--Group-8/CEP11-Data-Preparation/CEP11-Data-Preparation.html>. Its collapsed block lists all 237 variables in personalization.sav with their labels and missingness.
 
 ## Programming Code
 
@@ -733,7 +815,7 @@ This schema replaces a survey instrument. Every value any team member codes, by 
 | reading_difficulty | Text, simple table, complex table, figure, appendix, scanned page, or computed from other statistics | AO1 |
 | judgment_type | None, main specification, construct mapping, effect direction, moderator, or scope (which results count as effects) | AO1, AO2 |
 
-: Record for Every Coded Value (All AOs)
+: Record for Every Coded Value (All AOs) {#tbl-schema-a}
 
 | Field | What to Record |
 |:--------------------|:--------------------------------------------------|
@@ -753,6 +835,12 @@ This schema replaces a survey instrument. Every value any team member codes, by 
 Not required for the capstone, because no AO collects data from people (see Chapter 3, Ethics and Data Use). Any IRB determination Dr. Lin obtains for the separate research track will be filed here.
 
 ## Other Technical Details
+
+### Original Study Design
+
+@fig-po-ao-original is Dr. Lin's original study design diagram, kept for reference. @fig-po-ao in Chapter 1 is the version updated to the confirmed objectives.
+
+![Original Study Design (Lin 2026)](fig1-study-design.png){#fig-po-ao-original width="100%"}
 
 ### Project Timeline
 
